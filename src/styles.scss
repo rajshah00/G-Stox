@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+a,
+a,
+a:hover,
+a:focus,
+a:active {
+    outline: 0;
+    text-decoration: none !important;
+}
+
+.stox-card {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0 17px rgba(1, 41, 112, 0.1);
+}
+
+.stox-title {
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.stox-sub-title{
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.stox-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+  }
+  

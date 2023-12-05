@@ -1,0 +1,231 @@
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-item">
+            <a class="nav-link " routerLink="/home">
+                <i class="bi bi-grid"></i>
+                <span class="menu-name">Dashboard</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-journal-text"></i>
+                <span class="menu-name">Reports</span>
+                <i class="down-arrow bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/bill-summary-equity">
+                        <i class="bi bi-circle"></i><span>Equity Bills Summary</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/equity-trade-confirmation">
+                        <i class="bi bi-circle"></i><span>Equity Trade Confirmation</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/equity-transaction-ledger">
+                        <i class="bi bi-circle"></i><span>Equity Transaction Ledger</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/bill-summary-derivative">
+                        <i class="bi bi-circle"></i><span>Derivative Bills Summary</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/pl-statement">
+                        <i class="bi bi-circle"></i><span>Derivative P&L Statement</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/long-short">
+                        <i class="bi bi-circle"></i><span>Equity P&L Report</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/FIFO-net-position">
+                        <i class="bi bi-circle"></i><span>Derivative P&L(FIFO) Report</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/year-end-report">
+                        <i class="bi bi-circle"></i><span>Year End Report</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/MTF-detail-statement">
+                        <i class="bi bi-circle"></i><span>MTF Detail Statement</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Forms Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" routerLinkActive='active' routerLink="/home/holding">
+                <i class="bi bi-layout-text-window-reverse"></i>
+                <span class="menu-name">Holding</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-bar-chart"></i>
+                <span class="menu-name">Net Position</span>
+                <i class="down-arrow bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/net-position-derivative">
+                        <i class="bi bi-circle"></i><span>Net Position Derivative</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/derivative-trade-report">
+                        <i class="bi bi-circle"></i><span>Derivative Trade Report</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/equity-trade-report">
+                        <i class="bi bi-circle"></i><span>Equity Trade Report</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/clientwis-open-position">
+                        <i class="bi bi-circle"></i><span>Derivative Open Position</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" routerLinkActive='active' routerLink="/home/financial-ledger">
+                <i class="bi bi-gem"></i>
+                <span class="menu-name">Finacial</span>
+            </a>
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#rmc-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-diagram-2"></i>
+                <span class="menu-name">RMS</span>
+                <i class="down-arrow bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="rmc-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/short-cash">
+                        <i class="bi bi-circle"></i><span>Short Cash Colletral</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/exchange-re-pledge">
+                        <i class="bi bi-circle"></i><span>Exchange RePledge Report</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Icons Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#request-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-file-earmark"></i>
+                <span class="menu-name"> Request </span>
+                <i class="down-arrow bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="request-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/buy-back">
+                        <i class="bi bi-circle"></i><span>Buy Back</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/ACH-request">
+                        <i class="bi bi-circle"></i><span>ACH Request</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/margin-pledge">
+                        <i class="bi bi-circle"></i><span>Margin Pledge</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/KYC-modification">
+                        <i class="bi bi-circle"></i><span>KYC Modification Request Letter</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Icons Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#download-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-dash-circle"></i>
+                <span class="menu-name"> Download </span>
+                <i class="down-arrow bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="download-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/contract-note">
+                        <i class="bi bi-circle"></i><span>Contract Note</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#nsdl-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-file-earmark"></i>
+                <span class="menu-name"> NSDL Reports </span>
+                <i class="down-arrow bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="nsdl-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/client-profile">
+                        <i class="bi bi-circle"></i><span>Client Master</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/transaction">
+                        <i class="bi bi-circle"></i><span>Transaction Statement</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/NSDL-holding">
+                        <i class="bi bi-circle"></i><span>Holding Statement</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLinkActive='active' routerLink="/home/NSDL-financial">
+                        <i class="bi bi-circle"></i><span>Financial Ledger</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#">
+                <i class="bi bi-person"></i>
+                <span class="menu-name">Profile</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#">
+                <i class="bi bi-question-circle"></i>
+                <span class="menu-name">F.A.Q</span>
+            </a>
+        </li><!-- End F.A.Q Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#">
+                <i class="bi bi-envelope"></i>
+                <span class="menu-name">Ticket Generator</span>
+            </a>
+        </li><!-- End Contact Page Nav -->
+
+    </ul>
+
+</aside><!-- End Sidebar-->

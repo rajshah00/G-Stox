@@ -1,0 +1,85 @@
+<!-- sample rectangle -->
+      <svg id="SvgjsSvg4623" width="237" height="80"
+                            xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS"
+                            transform="translate(0, 0)" style="background: transparent;">
+                            <g id="SvgjsG4625" class="apexcharts-inner apexcharts-graphical"
+                                transform="translate(0, 0)">
+                                <defs id="SvgjsDefs4624">
+                                    <clippath id="gridRectMaskuux1buzjj">
+                                        <rect id="SvgjsRect4638" width="240" height="83" x="-1.5" y="-1.5" rx="0" ry="0"
+                                            fill="#ffffff" opacity="1" stroke-width="0" stroke="none"
+                                            stroke-dasharray="0"></rect>
+                                    </clippath>
+                                    <clippath id="gridRectMarkerMaskuux1buzjj">
+                                        <rect id="SvgjsRect4639" width="239" height="82" x="-1" y="-1" rx="0" ry="0"
+                                            fill="#ffffff" opacity="1" stroke-width="0" stroke="none"
+                                            stroke-dasharray="0"></rect>
+                                    </clippath>
+                                    <lineargradient id="SvgjsLinearGradient4645" x1="0" y1="0" x2="0" y2="1">
+                                        <stop id="SvgjsStop4646" stop-opacity="0.5" stop-color="rgba(0,132,255,0.5)"
+                                            offset="0"></stop>
+                                        <stop id="SvgjsStop4647" stop-opacity="0" stop-color="rgba(255,255,255,0)"
+                                            offset="1"></stop>
+                                        <stop id="SvgjsStop4648" stop-opacity="0" stop-color="rgba(255,255,255,0)"
+                                            offset="1"></stop>
+                                    </lineargradient>
+                                </defs>
+                                <line id="SvgjsLine4629" x1="178.25115207373273" y1="0" x2="178.25115207373273" y2="80"
+                                    stroke="#b6b6b6" stroke-dasharray="3" class="apexcharts-xcrosshairs"
+                                    x="178.25115207373273" y="0" width="1" height="80" fill="#b1b9c4" filter="none"
+                                    fill-opacity="0.9" stroke-width="1"></line>
+                                <g id="SvgjsG4651" class="apexcharts-xaxis" transform="translate(0, 0)">
+                                    <g id="SvgjsG4652" class="apexcharts-xaxis-texts-g" transform="translate(0, 1.875)">
+                                    </g>
+                                </g>
+                                <g id="SvgjsG4655" class="apexcharts-grid">
+                                    <line id="SvgjsLine4657" x1="0" y1="80" x2="237" y2="80" stroke="transparent"
+                                        stroke-dasharray="0"></line>
+                                    <line id="SvgjsLine4656" x1="0" y1="1" x2="0" y2="80" stroke="transparent"
+                                        stroke-dasharray="0"></line>
+                                </g>
+                                <g id="SvgjsG4641" class="apexcharts-area-series apexcharts-plot-series">
+                                    <g id="SvgjsG4642" class="apexcharts-series" seriesName="series1"
+                                        data:longestSeries="true" rel="1" data:realIndex="0">
+                                        <path id="SvgjsPath4649"
+                                            d="M 0 80L 0 20C 21.109139784946237 20 39.20268817204301 65 60.31182795698925 65C 80.72724014336917 65 98.22616487455198 30 118.64157706093191 30C 139.67992831541218 30 157.71280081925244 50 178.75115207373273 50C 199.13824884792626 50 216.61290322580646 10 237 10C 237 10 237 10 237 80M 237 10z"
+                                            fill="url(#SvgjsLinearGradient4645)" fill-opacity="1" stroke-opacity="1"
+                                            stroke-linecap="butt" stroke-width="0" stroke-dasharray="0"
+                                            class="apexcharts-area" index="0" clip-path="url(#gridRectMaskuux1buzjj)"
+                                            pathTo="M 0 80L 0 20C 21.109139784946237 20 39.20268817204301 65 60.31182795698925 65C 80.72724014336917 65 98.22616487455198 30 118.64157706093191 30C 139.67992831541218 30 157.71280081925244 50 178.75115207373273 50C 199.13824884792626 50 216.61290322580646 10 237 10C 237 10 237 10 237 80M 237 10z"
+                                            pathFrom="M -1 80L -1 80L 60.31182795698925 80L 118.64157706093191 80L 178.75115207373273 80L 237 80">
+                                        </path>
+                                        <path id="SvgjsPath4650"
+                                            d="M 0 20C 21.109139784946237 20 39.20268817204301 65 60.31182795698925 65C 80.72724014336917 65 98.22616487455198 30 118.64157706093191 30C 139.67992831541218 30 157.71280081925244 50 178.75115207373273 50C 199.13824884792626 50 216.61290322580646 10 237 10"
+                                            fill="none" fill-opacity="1" stroke="#0084ff" stroke-opacity="1"
+                                            stroke-linecap="butt" stroke-width="3" stroke-dasharray="0"
+                                            class="apexcharts-area" index="0" clip-path="url(#gridRectMaskuux1buzjj)"
+                                            pathTo="M 0 20C 21.109139784946237 20 39.20268817204301 65 60.31182795698925 65C 80.72724014336917 65 98.22616487455198 30 118.64157706093191 30C 139.67992831541218 30 157.71280081925244 50 178.75115207373273 50C 199.13824884792626 50 216.61290322580646 10 237 10"
+                                            pathFrom="M -1 80L -1 80L 60.31182795698925 80L 118.64157706093191 80L 178.75115207373273 80L 237 80">
+                                        </path>
+                                        <g id="SvgjsG4643" class="apexcharts-series-markers-wrap">
+                                            <g class="apexcharts-series-markers">
+                                                <circle id="SvgjsCircle4663" r="0" cx="178.75115207373273" cy="50"
+                                                    class="apexcharts-marker w7ceron32l no-pointer-events"
+                                                    stroke="#ffffff" fill="#0084ff" fill-opacity="1" stroke-width="2"
+                                                    stroke-opacity="0.9" default-marker-size="0"></circle>
+                                            </g>
+                                        </g>
+                                        <g id="SvgjsG4644" class="apexcharts-datalabels"></g>
+                                    </g>
+                                </g>
+                                <line id="SvgjsLine4658" x1="0" y1="0" x2="237" y2="0" stroke="#b6b6b6"
+                                    stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs"></line>
+                                <line id="SvgjsLine4659" x1="0" y1="0" x2="237" y2="0" stroke-dasharray="0"
+                                    stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line>
+                                <g id="SvgjsG4660" class="apexcharts-yaxis-annotations"></g>
+                                <g id="SvgjsG4661" class="apexcharts-xaxis-annotations"></g>
+                                <g id="SvgjsG4662" class="apexcharts-point-annotations"></g>
+                            </g>
+                            <rect id="SvgjsRect4628" width="0" height="0" x="0" y="0" rx="0" ry="0" fill="#fefefe"
+                                opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect>
+                            <g id="SvgjsG4653" class="apexcharts-yaxis" rel="0" transform="translate(-21, 0)">
+                                <g id="SvgjsG4654" class="apexcharts-yaxis-texts-g"></g>
+                            </g>
+                        </svg>
