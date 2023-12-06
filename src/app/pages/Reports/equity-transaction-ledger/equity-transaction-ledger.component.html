@@ -1,3 +1,128 @@
 <section class="stox-card">
-    <p>equity-transaction-ledger works!</p>
+    <ng-container>
+        <form class="row g-3">
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">From Date</label>
+                <input type="date" class="form-control" id="From">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">To Date</label>
+                <input type="date" class="form-control" id="to">
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Exchange</label>
+                <select id="inputState" class="form-select">
+                    <option selected value="NSE">NSE</option>
+                    <option value="BSE">BSE</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Segment</label>
+                <select id="inputState" class="form-select">
+                    <option selected value="CAP">CAP</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Scrip Code</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" aria-label="Recipient's username"
+                        aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Report Type</label>
+                <select id="inputState" class="form-select">
+                    <option selected value="Normal">NORMAL</option>
+                    <option value="svg_rate">SVG RATE</option>
+                    <option value="same_rate">SAME RATE</option>
+                </select>
+            </div>
+            <div class="col-md-6 mt-0">
+                <label for="inputState" class="form-label">Trade Type</label>
+                <select id="inputState" class="form-select">
+                    <option selected="selected" value="A">All</option>
+                    <option value="J">Jobbing</option>
+                    <option value="D">Delivery</option>
+                </select>
+            </div>
+            <div class="col-md-6 mt-0">
+                <label for="inputState" class="form-label">Product Type</label>
+                <select id="inputState" class="form-select">
+                    <option selected="selected" value="ALL">All</option>
+                    <option value="MTF">MTF</option>
+                </select>
+            </div>
+            <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary">Run</button>
+            </div>
+        </form>
+    </ng-container>
+
+    <ng-container>
+        <h1 class="text-center stox-title">Equity Transaction Ledger</h1>
+        <h2 class="text-center stox-sub-title"> From 01-12-2023 To 31-03-2024</h2>
+        <div class="text-end">
+            <input type="submit" value=""
+                class="fa fa-file - excel - o btn btn-default btn - block text-primary me-3 stox-btn btn-2">
+            <input type="submit" value=""
+                class="fa fa-file-pdf-o btn  btn-default btn-block text-danger stox-btn btn-2">
+        </div>
+
+        <div class="table-responsive mt-2">
+            <table class="table table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Client Code</th>
+                        <th scope="col">Client Name</th>
+                        <th scope="col">Trade Date</th>
+                        <th scope="col">Settlement No.</th>
+                        <th scope="col">Settlement Type</th>
+                        <th scope="col">Bill No</th>
+                        <th scope="col">Bill Date</th>
+                        <th scope="col">Bill Amount</th>
+                        <th scope="col">Gross Value</th>
+                        <th scope="col">Total Expenses</th>
+                        <th scope="col">Brokerage</th>
+                        <th scope="col">Clearing Charges/Auct.</th>
+                        <th scope="col">Exchange Charges</th>
+                        <th scope="col">SEBI Charges</th>
+                        <th scope="col">Transaction Charges</th>
+                        <th scope="col">STT Charges</th>
+                        <th scope="col">Stamp Duty</th>
+                        <th scope="col">Demat Charges</th>
+                        <th scope="col">IPF Charge</th>
+                        <th scope="col">GST</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="col">245</th>
+                        <th scope="col">Test</th>
+                        <th scope="col">04/12/2023</th>
+                        <th scope="col">095434</th>
+                        <th scope="col">Cased</th>
+                        <th scope="col">5624789</th>
+                        <th scope="col">3/12/2023</th>
+                        <th scope="col">$550</th>
+                        <th scope="col">$500</th>
+                        <th scope="col">100%</th>
+                        <th scope="col">10%</th>
+                        <th scope="col">Pending</th>
+                        <th scope="col">0</th>
+                        <th scope="col">0</th>
+                        <th scope="col">0.2%</th>
+                        <th scope="col">0.00%</th>
+                        <th scope="col">one</th>
+                        <th scope="col">2%</th>
+                        <th scope="col">10%</th>
+                        <th scope="col">0.5%</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </ng-container>
+
 </section>
