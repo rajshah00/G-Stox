@@ -1,3 +1,59 @@
 <section class="stox-card">
-    <p>achrequest works!</p>
+    <h1 class="text-center stox-title">ACH Request</h1>
+    <ng-container>
+        <form class="row g-3 mb-3">
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Bank Detail</label>
+                <select id="inputState" class="form-select">
+                    <option selected value="">...</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Client Name</label>
+                <input type="text" class="form-control" id="From" disabled>
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Ledger Balance</label>
+                <input type="text" class="form-control" id="From" disabled>
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Limit</label>
+                <input type="text" class="form-control" id="to" disabled>
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Request Amount</label>
+                <input type="number" class="form-control" id="to">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Remarks</label>
+                <input type="text" class="form-control" id="to">
+            </div>
+            <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary">Run</button>
+            </div>
+        </form>
+    </ng-container>
+
+    <ng-container>
+        <div class="table-responsive mt-2">
+            <table class="table table-hover table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Client Code</th>
+                        <th scope="col">Client Name</th>
+                        <th scope="col">Request Date</th>
+                        <th scope="col">Request Amount</th>
+                        <th scope="col">Request Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="text-center" colspan="6">No data available in table</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </ng-container>
+
 </section>

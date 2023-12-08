@@ -1,3 +1,68 @@
 <section class="stox-card">
-    <p>margin-pledge works!</p>
+    <h1 class="text-center stox-title">Margin Pledge</h1>
+    <!-- <h2 class="text-center stox-sub-title"> From 01-12-2023 To 31-03-2024</h2> -->
+    <ng-container>
+        <form class="row g-3 mb-3">
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">DP Detail</label>
+                <select id="inputState" class="form-select">
+                    <option selected="selected" value="IN30164510628651">10628651(GOLDMINE STOCKS PVT LTD)</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Exchange</label>
+                <select id="inputState" class="form-select">
+                    <option selected value="NSE">NSE</option>
+                    <option value="BSE">BSE</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Segment</label>
+                <select id="inputState" class="form-select">
+                    <option selected value="All">All</option>
+                </select>
+            </div>
+            <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary">Run</button>
+            </div>
+        </form>
+    </ng-container>
+
+    <ng-container>
+        <div class="table-responsive mt-2">
+            <div class="text-center my-3" style="font-size: 14px;">
+                <b>NOTE :</b> Securities approved by exchange/cc and Securities Haircut is less than 100 will be allowed
+                for Margin Pledge only.
+            </div>
+            <table class="table table-hover table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <td><input class="form-check-input" name="checkbox1" type="checkbox" id="selectall"></td>
+                        <th>Client Code</th>
+                        <th>ISIN</th>
+                        <th>Scrip Name</th>
+                        <th>Free Qty.</th>
+                        <th>Pledge Qty.</th>
+                        <th>Setup Qty.</th>
+                        <th>Rate</th>
+                        <th>Haircut</th>
+                        <th>Free Value</th>
+                        <th>Pledgeable</th>
+                        <th>Category</th>
+                        <th>Request Qty.</th>
+                        <th>Requested Value&nbsp;<span id="TotalValue">0.00</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="text-center" scope="col" colspan="14">No data available in table</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-end">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </ng-container>
+
 </section>

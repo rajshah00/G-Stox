@@ -1,3 +1,76 @@
 <section class="stox-card">
-    <p>client-wise-open-position works!</p>
+    <h1 class="text-center stox-title">Client Wise Open Position</h1>
+    <!-- <h2 class="text-center stox-sub-title"> As on Date 06-12-2023</h2> -->
+    <ng-container>
+        <form class="row g-3 mb-3">
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">As On Date</label>
+                <input type="date" class="form-control" id="from">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Closing Rate Date</label>
+                <input type="date" class="form-control" id="to">
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Exchange</label>
+                <select id="inputState" class="form-select">
+                    <option selected value="NSE">NSE</option>
+                    <option value="BSE">BSE</option>
+                    <option value="MCX">MCX</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Segment</label>
+                <select id="inputState" class="form-select">
+                    <option value="COM">COM</option>
+                    <option value="CUR">CUR</option>
+                    <option selected value="FNO">FNO</option>
+                </select>
+            </div>
+            <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary">Run</button>
+            </div>
+        </form>
+    </ng-container>
+
+    <ng-container>
+        <div class="text-end">
+            <input type="submit" value=""
+                class="fa fa-file - excel - o btn btn-default btn - block text-primary me-3 stox-btn btn-2">
+            <input type="submit" value=""
+                class="fa fa-file-pdf-o btn  btn-default btn-block text-danger stox-btn btn-2">
+        </div>
+
+        <div class="table-responsive mt-2">
+            <table class="table table-hover table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Exchange</th>
+                        <th>Segment</th>
+                        <th>Client Code</th>
+                        <th>Name</th>
+                        <th>Instrument</th>
+                        <th>Symbol</th>
+                        <th>Expiry Date</th>
+                        <th>Strike Price</th>
+                        <th>Option Type</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Open Exposure</th>
+                        <th>Close Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="11">
+                            Total
+                        </td>
+                        <td class="text-right">0.00</td>
+                        <td class="text-right"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </ng-container>
+
 </section>

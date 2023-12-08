@@ -1,3 +1,37 @@
 <section class="stox-card">
-    <p>transaction works!</p>
+    <h1 class="text-center stox-title">Contract Note</h1>
+    <ng-container>
+        <form class="row g-3">
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">From Date</label>
+                <input type="date" class="form-control" id="From">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">To Date</label>
+                <input type="date" class="form-control" id="to">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">ISIN</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" aria-label="Recipient's username"
+                        aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Client ID</label>
+                <select id="inputState" class="form-select">
+                    <option selected value="10628651">10628651</option>
+                </select>
+            </div>
+            <div class="col-12 text-center">
+                <input type="submit" value=""
+                    class="fa fa-file-pdf-o me-3 btn  btn-default btn-block text-danger stox-btn btn-2">
+                <button type="submit" name="EMAIL" class="fa fa-envelope btn btn-default btn-block stox-btn btn-2"
+                    style="font-size:25px; color: black;"></button>
+            </div>
+        </form>
+    </ng-container>
 </section>

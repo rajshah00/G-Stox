@@ -28,6 +28,7 @@ import { ClientMasterComponent } from './NSDL Reports/client-master/client-maste
 import { TransactionComponent } from './NSDL Reports/transaction/transaction.component';
 import { NSDLFinancialComponent } from './NSDL Reports/nsdl-financial/nsdl-financial.component';
 import { NSDLHoldingComponent } from './NSDL Reports/nsdl-holding/nsdl-holding.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -115,6 +116,9 @@ const routes: Routes = [
       }, {
         path: 'NSDL-financial',
         component: NSDLFinancialComponent
+      }, {
+        path: 'profile',
+        component: ProfileComponent
       }
     ]
   }

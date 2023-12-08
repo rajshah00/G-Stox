@@ -1,0 +1,47 @@
+/* 2 */
+.btn-2 {
+    background: rgb(96, 9, 240);
+    background: linear-gradient(0deg, rgb(246 249 255) 0%, rgb(255 255 255) 100%);
+    ;
+    border: none;
+    width: 70px !important;
+}
+
+.btn-2:before {
+    height: 0%;
+    width: 2px;
+}
+
+.btn-2:hover {
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
+        -4px -4px 6px 0 rgba(116, 125, 136, .5),
+        inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+        inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+
+th,td {
+    font-size: 13px;
+}
+
+
+.table-responsive {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #aab7cf transparent;
+}
+
+@media (max-width: 1199px) {
+    .table-responsive {
+        left: -260px;
+    }
+}
+
+.table-responsive::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background-color: #aab7cf;
+}

@@ -15,7 +15,7 @@ export class ApiServiceService {
 
   isLogin(data: any) {
     data.Grant_type = "password";
-    data.CallFrom = "MARKETHUB";
+    // data.CallFrom = "MARKETHUB";
     console.log("data", data);
     return this.http.post(environment.API_URL + '/token', data);
   }

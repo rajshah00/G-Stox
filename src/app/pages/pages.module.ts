@@ -33,6 +33,9 @@ import { ClientMasterComponent } from './NSDL Reports/client-master/client-maste
 import { TransactionComponent } from './NSDL Reports/transaction/transaction.component';
 import { NSDLHoldingComponent } from './NSDL Reports/nsdl-holding/nsdl-holding.component';
 import { NSDLFinancialComponent } from './NSDL Reports/nsdl-financial/nsdl-financial.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ProfileComponent } from './profile/profile.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -67,11 +70,15 @@ import { NSDLFinancialComponent } from './NSDL Reports/nsdl-financial/nsdl-finan
     ClientMasterComponent,
     TransactionComponent,
     NSDLHoldingComponent,
-    NSDLFinancialComponent
+    NSDLFinancialComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    NgMultiSelectDropDownModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PagesModule { }

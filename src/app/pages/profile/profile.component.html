@@ -1,0 +1,155 @@
+<div class="">
+    <div class="row">
+        <div class="col-xl-4">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header">Profile Picture</div>
+                <div class="card-body text-center">
+                    <!-- Profile picture image-->
+                    <img class="img-account-profile rounded-circle mb-2" src="../../../assets/images/user-img.png"
+                        alt="">
+                    <!-- Profile picture help block-->
+                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                    <!-- Profile picture upload button-->
+                    <label class="btn btn-primary" type="button" for="image">Upload new image</label>
+                    <input hidden id="image" type="file" id="image">
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8">
+            <div class="card mb-4">
+                <div class="card-header">Account Details</div>
+                <div class="card-body">
+
+                    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+                        <ul class="nav nav-tabs mt-2" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="personal-details-tab" data-bs-toggle="tab"
+                                    data-bs-target="#personal-details" type="button" role="tab"
+                                    aria-controls="personal-details" aria-selected="true">Personal</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="bank-details-tab" data-bs-toggle="tab"
+                                    data-bs-target="#bank-details" type="button" role="tab" aria-controls="bank-details"
+                                    aria-selected="false">
+                                    Bank Details
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="documents-tab" data-bs-toggle="tab"
+                                    data-bs-target="#documents" type="button" role="tab" aria-controls="documents"
+                                    aria-selected="false">Documents</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="close-account-tab" data-bs-toggle="tab"
+                                    data-bs-target="#close-account" type="button" role="tab"
+                                    aria-controls="close-account" aria-selected="false">
+                                    Close Account
+                                </button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="personal-details" role="tabpanel"
+                                aria-labelledby="personal-details-tab">
+                                <div class="my-3">
+                                    <label class="small mb-1" for="AccountName">Profile Name</label>
+                                    <input class="form-control" id="AccountName" type="text"
+                                        placeholder="Enter your Profile Name" name="AccountName"
+                                        [(ngModel)]="formObj.AccountName" required>
+                                </div>
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="AccountID">User Id</label>
+                                        <input class="form-control" id="AccountID" type="text"
+                                            placeholder="Enter your User Id" name="AccountID"
+                                            [(ngModel)]="formObj.AccountID" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="PANNo">PAN</label>
+                                        <input class="form-control" id="PANNo" type="text" placeholder="Enter your PAN"
+                                            name="PANNo" [(ngModel)]="formObj.PANNo" required>
+                                    </div>
+                                </div>
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="MobileNo">Mobile Number</label>
+                                        <input class="form-control" id="MobileNo" type="text"
+                                            placeholder="Enter your Mobile Number" name="MobileNo"
+                                            [(ngModel)]="formObj.MobileNo" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="EmailId">Email address</label>
+                                        <input class="form-control" id="EmailId" type="email"
+                                            placeholder="Enter your email address" name="EmailId"
+                                            [(ngModel)]="formObj.EmailId" required>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="small mb-1" for="Address1">Address</label>
+                                    <input class="form-control" id="Address1" type="text"
+                                        placeholder="Enter your location" name="Address1" [(ngModel)]="formObj.Address1"
+                                        required>
+                                </div>
+
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="DematAcName">Depository Name</label>
+                                        <input class="form-control" id="DematAcName" type="tel"
+                                            placeholder="Enter your Depository Name" name="DematAcName"
+                                            [(ngModel)]="formObj.DematAcName" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="DematAcNo">Demat Account Number</label>
+                                        <input class="form-control" id="DematAcNo" type="text" name="DematAcNo"
+                                            placeholder="Enter your Demat Account Number"
+                                            [(ngModel)]="formObj.DematAcNo" required>
+                                    </div>
+                                    <div class="col-md-6" style="display: flex; margin-top: 19px;align-items: center;">
+                                        <label class="form-check-label me-2" for="flexSwitchCheckDefault"
+                                            style="margin-bottom: 0 !important;">
+                                            Segments Enabled / Disabled :
+                                        </label>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input auto-size" type="checkbox" role="switch"
+                                                id="flexSwitchCheckDefault">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="bank-details" role="tabpanel"
+                                aria-labelledby="bank-details-tab">
+                                <div class="row mt-3">
+                                    <div class="col-md-7 mt-0" *ngFor="let item of addList;let i =index">
+                                        <label for="inputPassword4" class="form-label">Select Bank Account</label>
+                                        <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="dropdownList"
+                                            (onSelect)="onItemSelect($event,i)">
+                                        </ng-multiselect-dropdown>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-primary" (click)="addNew()" type="button"
+                                            style="margin-top: 27px;">
+                                            <i class="bi bi-plus-circle"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="documents-tab">
+                                2
+                            </div>
+                            <div class="tab-pane fade" id="close-account" role="tabpanel"
+                                aria-labelledby="close-account-tab">
+                                3
+                            </div>
+                        </div>
+                        <div class="text-end">
+                            <button class="btn btn-primary" type="submit">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

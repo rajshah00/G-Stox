@@ -2,14 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 
 @Component({
-  selector: 'app-nsdl-holding',
-  templateUrl: './nsdl-holding.component.html',
-  styleUrls: ['./nsdl-holding.component.scss']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss']
 })
-export class NSDLHoldingComponent implements OnInit {
+export class ProfileComponent implements OnInit {
   dropdownList: any = [];
   selectedItems: any = [];
   dropdownSettings: IDropdownSettings = {};
+  addList: any = [{ banckName: "" }]
+  formObj: any = {
+    AccountName: '',
+  }
   ngOnInit() {
     this.dropdownList = [
       { item_id: 1, item_text: 'CLIENT' },
@@ -29,7 +33,16 @@ export class NSDLHoldingComponent implements OnInit {
       allowSearchFilter: true
     };
   }
-  onItemSelect(item: any) {
+  onItemSelect(item: any, ind: any) {
     console.log(item);
+    console.log(ind);
+  }
+
+  addNew() {
+    this.addList.push({ banckName: "" });
+  }
+
+  onSubmit(data: any) {
+    console.log("data", data)
   }
 }

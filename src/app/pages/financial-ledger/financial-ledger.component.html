@@ -1,3 +1,119 @@
 <section class="stox-card">
-    <p>financial-ledger works!</p>
+    <h1 class="text-center stox-title">Financial Ledger</h1>
+    <h2 class="text-center stox-sub-title"> From 01-04-2023 To 31-03-2024</h2>
+    <ng-container>
+        <form class="row g-3 mb-3">
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">From Date</label>
+                <input type="date" class="form-control" id="from">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">To Date</label>
+                <input type="date" class="form-control" id="to">
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Exchange</label>
+                <select id="inputState" class="form-select">
+                    <option selected value="ALL">ALL</option>
+                    <option value="NSE">NSE</option>
+                    <option value="BSE">BSE</option>
+                    <option value="MCX">MCX</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Segment</label>
+                <select class="form-control  input-sm" id="Segment" name="Segment">
+                    <option selected="selected" value="ALL">ALL</option>
+                    <option value="CAP">CAP</option>
+                    <option value="COM">COM</option>
+                    <option value="CUR">CUR</option>
+                    <option value="FNO">FNO</option>
+                    <option value="SLB">SLB</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Product</label>
+                <select class="form-control  input-sm" id="Product" name="Product">
+                    <option selected="selected" value="">ALL</option>
+                    <option value="DEF">DEF</option>
+                    <option value="MTF">MTF</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Filter</label>
+                <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [settings]="dropdownSettings"
+                    [data]="dropdownList" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                </ng-multiselect-dropdown>
+            </div>
+            <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary">Run</button>
+            </div>
+        </form>
+    </ng-container>
+
+    <ng-container>
+        <div class="text-end">
+            <input type="submit" value=""
+                class="fa fa-file - excel - o btn btn-default btn - block text-primary me-3 stox-btn btn-2">
+            <input type="submit" value=""
+                class="fa fa-file-pdf-o btn  btn-default btn-block text-danger stox-btn btn-2">
+        </div>
+
+        <div class="table-responsive mt-2">
+            <table class="table table-hover table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Financial Date</th>
+                        <th>Trade Date</th>
+                        <th>Exchange</th>
+                        <th>Segment</th>
+                        <th>Narration</th>
+                        <th>BillNo</th>
+                        <th>Reference No</th>
+                        <th>Debit</th>
+                        <th>Credit</th>
+                        <th>Running Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="whitebg">
+                        <td>01/04/2023</td>
+                        <td>01/04/2023</td>
+                        <td>ALL</td>
+                        <td>ALL </td>
+                        <td>***Opening Balance</td>
+                        <td></td>
+                        <td></td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7" class="">Total</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td id="RunnBalance">0.00</td>
+                    </tr>
+                    <tr>
+                        <td colspan="8" class="greybg">&nbsp;</td>
+                        <td>Unrelease Voucher</td>
+                        <td>0.00</td>
+                    </tr>
+                    <tr>
+                        <td colspan="8" class="pinkbg">&nbsp;</td>
+                        <td>UnReco Voucher</td>
+                        <td>0.00</td>
+                    </tr>
+                    <tr>
+                        <td colspan="8" class="">&nbsp;</td>
+                        <td>Clear Balance</td>
+                        <td id="UnReco">0.00</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </ng-container>
+
 </section>

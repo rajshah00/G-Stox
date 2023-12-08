@@ -20,8 +20,9 @@ export class AuthInterceptor implements HttpInterceptor {
     request = request.clone({
       setHeaders: {
         FIRMID: this.FIRM_ID,
-        FINANCIALYEAR:this.FINANCIAL_YEAR,
+        FINANCIALYEAR: this.FINANCIAL_YEAR,
         Authorization: `Bearer ${this.token}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
     });
 
