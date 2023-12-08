@@ -18,15 +18,20 @@ export class LoginComponent implements OnInit {
 
   }
 
+
   onSubmit(form: any) {
     console.log(form);
-    localStorage.setItem('isLoggedIn', JSON.stringify(form))
-    this.router.navigate(['/home'])
-    // this.service.isLogin(form).subscribe((res: any) => {
-    //   console.log("res", res);
-    // }, (err: any) => {
-    //   console.log("err", err)
-    // })
+    this.service.isLogin(form).subscribe((res: any) => {
+      if (res) {
+        localStorage.setItem('token', res.access_token)
+        localStorage.setItem('expires_in', res.expires_in)
+        localStorage.setItem('isLoggedIn', JSON.stringify(form))
+        this.router.navigate(['/home'])
+      }
+      console.log("res", res);
+    }, (err: any) => {
+      console.log("err", err)
+    })
   }
 
 }

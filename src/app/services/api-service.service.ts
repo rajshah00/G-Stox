@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
@@ -15,9 +15,11 @@ export class ApiServiceService {
 
   isLogin(data: any) {
     data.Grant_type = "password";
+    const headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded',});
+    const body = new HttpParams({ fromObject: data });
     // data.CallFrom = "MARKETHUB";
     console.log("data", data);
-    return this.http.post(environment.API_URL + '/token', data);
+    return this.http.post(environment.API_URL + '/token', body, { headers });
   }
 
   getProfile() {
