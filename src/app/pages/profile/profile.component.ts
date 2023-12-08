@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import { ApiServiceService } from 'src/app/services/api-service.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,7 +15,18 @@ export class ProfileComponent implements OnInit {
   formObj: any = {
     AccountName: '',
   }
+  stroge: any = localStorage.getItem("isLoggedIn")
+  constructor(public service: ApiServiceService) {
+
+  }
+
   ngOnInit() {
+    this.service.getProfile(this.stroge.username).subscribe((res: any) => {
+      console.log("res", res)
+    }, (err: any) => {
+      console.log("err", err)
+    })
+
     this.dropdownList = [
       { item_id: 1, item_text: 'CLIENT' },
       { item_id: 2, item_text: 'PLANE' },
@@ -33,6 +45,7 @@ export class ProfileComponent implements OnInit {
       allowSearchFilter: true
     };
   }
+  
   onItemSelect(item: any, ind: any) {
     console.log(item);
     console.log(ind);
