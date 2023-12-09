@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   formObj: any = {
     AccountName: '',
   }
-  stroge: any = localStorage.getItem("isLoggedIn")
+  stroge: any = JSON.parse(localStorage.getItem("isLoggedIn") || '')
   constructor(public service: ApiServiceService) {
 
   }
@@ -45,7 +45,7 @@ export class ProfileComponent implements OnInit {
       allowSearchFilter: true
     };
   }
-  
+
   onItemSelect(item: any, ind: any) {
     console.log(item);
     console.log(ind);
