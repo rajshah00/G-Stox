@@ -9,9 +9,14 @@ import { environment } from '../../environments/environment';
 export class ApiServiceService {
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private http: HttpClient,
   ) { }
+
+  isAuthenticated(): boolean {
+    const authToken = JSON.parse(localStorage.getItem('isLoggedIn') || '');
+    return authToken !== null && authToken !== undefined;
+  }
 
   isLogin(data: any) {
     data.Grant_type = "password";
