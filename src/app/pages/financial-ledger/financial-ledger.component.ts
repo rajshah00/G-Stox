@@ -20,24 +20,24 @@ export class FinancialLedgerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dropdownList = [
-      { item_id: 1, item_text: 'ALL' },
-      { item_id: 2, item_text: 'EX_MARGIN' },
-      { item_id: 3, item_text: 'EX_EPAYIN' },
-    ];
-    this.selectedItems = [
-      { item_id: 3, item_text: 'Pune' },
-      { item_id: 4, item_text: 'Navsari' }
-    ];
-    this.dropdownSettings = {
-      singleSelection: false,
-      idField: 'item_id',
-      textField: 'item_text',
-      selectAllText: 'Select All',
-      unSelectAllText: 'UnSelect All',
-      itemsShowLimit: 3,
-      allowSearchFilter: true
-    };
+    // this.dropdownList = [
+    //   { item_id: 1, item_text: 'ALL' },
+    //   { item_id: 2, item_text: 'EX_MARGIN' },
+    //   { item_id: 3, item_text: 'EX_EPAYIN' },
+    // ];
+    // this.selectedItems = [
+    //   { item_id: 3, item_text: 'Pune' },
+    //   { item_id: 4, item_text: 'Navsari' }
+    // ];
+    // this.dropdownSettings = {
+    //   singleSelection: false,
+    //   idField: 'item_id',
+    //   textField: 'item_text',
+    //   selectAllText: 'Select All',
+    //   unSelectAllText: 'UnSelect All',
+    //   itemsShowLimit: 3,
+    //   allowSearchFilter: true
+    // };
 
     this.financialGroup = new FormGroup({
       FirmID: new FormControl(this.auth.firm_id, Validators.required),
@@ -46,8 +46,8 @@ export class FinancialLedgerComponent implements OnInit {
       ToDate: new FormControl('', Validators.required),
       Exchange: new FormControl('', Validators.required),
       Segment: new FormControl('', Validators.required),
-      Product: new FormControl('', Validators.required),
-      FinancialFilter: new FormControl([], Validators.required),
+      // Product: new FormControl('', Validators.required),
+      FinancialFilter: new FormControl('QUxMLEVYX01BUkdJTixFWF9FUEFZSU4sRVhfQ0FTSE1HTixFWF9DUk9T', Validators.required),
     });
   }
 
@@ -65,11 +65,6 @@ export class FinancialLedgerComponent implements OnInit {
 
   public save() {
     if (this.financialGroup.valid) {
-      let data = [];
-      for (let i in this.financialGroup.value.FinancialFilter) {
-        data.push(this.financialGroup.value.FinancialFilter[i].item_text)
-      }
-      this.financialGroup.value.FinancialFilter = data;
       this.service.getFinancialLedger(this.financialGroup.value).subscribe((res: any) => {
         console.log("res", res)
       }, (err: any) => {
