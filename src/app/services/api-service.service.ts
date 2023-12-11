@@ -41,8 +41,19 @@ export class ApiServiceService {
   }
 
   getFinancialLedger(data: any) {
+    // const body = new HttpParams()
+    //   .set('FirmID', requestData.FirmID)
+    //   .set('AccountID', requestData.AccountID)
+    //   .set('FromDate', requestData.FromDate?.toISOString() || '')
+    //   .set('ToDate', requestData.ToDate?.toISOString() || '')
+    //   .set('Exchange', requestData.Exchange)
+    //   .set('Segment', requestData.Segment)
+    //   .set('Product', requestData.Product)
+    //   .set('FinancialFilter', JSON.stringify(requestData.FinancialFilter));
+    console.log("data", data);
+    const body = new HttpParams({ fromObject: data });
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', });
-    return this.http.post(environment.API_URL + '/Reports/FinancialLedger/Post', data, { headers });
+    return this.http.post(environment.API_URL + '/Reports/FinancialLedger/Post', body.toString(), { headers });
   }
 
   getClientHolding(data: any) {

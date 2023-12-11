@@ -47,7 +47,7 @@ export class FinancialLedgerComponent implements OnInit {
       Exchange: new FormControl('', Validators.required),
       Segment: new FormControl('', Validators.required),
       Product: new FormControl('', Validators.required),
-      FinancialFilter: new FormControl('', Validators.required),
+      FinancialFilter: new FormControl([], Validators.required),
     });
   }
 
@@ -65,6 +65,11 @@ export class FinancialLedgerComponent implements OnInit {
 
   public save() {
     if (this.financialGroup.valid) {
+      let data = [];
+      for (let i in this.financialGroup.value.FinancialFilter) {
+        data.push(this.financialGroup.value.FinancialFilter[i].item_text)
+      }
+      this.financialGroup.value.FinancialFilter = data;
       this.service.getFinancialLedger(this.financialGroup.value).subscribe((res: any) => {
         console.log("res", res)
       }, (err: any) => {
