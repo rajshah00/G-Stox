@@ -41,7 +41,7 @@
             </div>
             <div class="col-md-6">
                 <label for="inputState" class="form-label">Filter</label>
-                <ng-multiselect-dropdown  [formControl]="f.FinancialFilter"  [placeholder]="'custom placeholder'" [settings]="dropdownSettings"
+                <ng-multiselect-dropdown  [formControl]="f.FinancialFilter"  [placeholder]="''" [settings]="dropdownSettings"
                     [data]="dropdownList" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
                 </ng-multiselect-dropdown>
             </div>

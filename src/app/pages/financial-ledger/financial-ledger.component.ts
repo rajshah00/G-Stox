@@ -64,14 +64,14 @@ export class FinancialLedgerComponent implements OnInit {
   }
 
   public save() {
-    if (this.financialGroup.invalid) {
+    if (this.financialGroup.valid) {
       this.service.getFinancialLedger(this.financialGroup.value).subscribe((res: any) => {
         console.log("res", res)
       }, (err: any) => {
         console.log("err", err)
       })
     }
-    console.log(this.financialGroup.value);
+    console.log(this.financialGroup);
   }
 
 }

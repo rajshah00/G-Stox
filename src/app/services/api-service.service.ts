@@ -41,9 +41,8 @@ export class ApiServiceService {
   }
 
   getFinancialLedger(data: any) {
-    data.Grant_type = "password";
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', });
-    return this.http.post(environment.API_URL + '/Reports/FinancialLedger/Post', {}, { headers });
+    return this.http.post(environment.API_URL + '/Reports/FinancialLedger/Post', data, { headers });
   }
 
   getClientHolding(data: any) {
