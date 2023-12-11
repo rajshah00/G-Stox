@@ -36,6 +36,7 @@ import { NSDLFinancialComponent } from './NSDL Reports/nsdl-financial/nsdl-finan
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptor } from '../services/auth-interceptor.service';
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgMultiSelectDropDownModule.forRoot(),
     FormsModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers: [AuthInterceptor],
 })
 export class PagesModule { }

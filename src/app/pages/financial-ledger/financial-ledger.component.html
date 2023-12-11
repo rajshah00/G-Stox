@@ -5,15 +5,15 @@
         <form class="row g-3 mb-3" [formGroup]="financialGroup" (ngSubmit)="save()">
             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">From Date</label>
-                <input type="date" class="form-control" id="from">
+                <input type="date" class="form-control" id="from" [formControl]="f.FromDate">
             </div>
             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">To Date</label>
-                <input type="date" class="form-control" id="to">
+                <input type="date" class="form-control" id="to" [formControl]="f.ToDate">
             </div>
             <div class="col-md-6">
                 <label for="inputState" class="form-label">Exchange</label>
-                <select id="inputState" class="form-select">
+                <select id="inputState" class="form-select" [formControl]="f.Exchange">
                     <option selected value="ALL">ALL</option>
                     <option value="NSE">NSE</option>
                     <option value="BSE">BSE</option>
@@ -22,7 +22,7 @@
             </div>
             <div class="col-md-6">
                 <label for="inputState" class="form-label">Segment</label>
-                <select class="form-control  input-sm" id="Segment" name="Segment">
+                <select class="form-control  input-sm" id="Segment" name="Segment" [formControl]="f.Segment">
                     <option selected="selected" value="ALL">ALL</option>
                     <option value="CAP">CAP</option>
                     <option value="COM">COM</option>
@@ -33,7 +33,7 @@
             </div>
             <div class="col-md-6">
                 <label for="inputState" class="form-label">Product</label>
-                <select class="form-control  input-sm" id="Product" name="Product">
+                <select class="form-control  input-sm" id="Product" name="Product" [formControl]="f.Product">
                     <option selected="selected" value="">ALL</option>
                     <option value="DEF">DEF</option>
                     <option value="MTF">MTF</option>
@@ -41,7 +41,7 @@
             </div>
             <div class="col-md-6">
                 <label for="inputState" class="form-label">Filter</label>
-                <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [settings]="dropdownSettings"
+                <ng-multiselect-dropdown  [formControl]="f.FinancialFilter"  [placeholder]="'custom placeholder'" [settings]="dropdownSettings"
                     [data]="dropdownList" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
                 </ng-multiselect-dropdown>
             </div>
