@@ -2,40 +2,47 @@
     <h1 class="text-center stox-title">Equity Trade Report</h1>
     <h2 class="text-center stox-sub-title"> As on Date 06-12-2023</h2>
     <ng-container>
-        <form class="row g-3 mb-3">
+        <form class="row g-3 mb-3" [formGroup]="equityTradeGroup" (ngSubmit)="save()">
             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">From Date</label>
-                <input type="date" class="form-control" id="from">
+                <input type="date" class="form-control" id="from" [formControl]="f.FromDate">
             </div>
             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">To Date</label>
-                <input type="date" class="form-control" id="to">
+                <input type="date" class="form-control" id="to" [formControl]="f.ToDate">
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Exchange</label>
+                <select id="inputState" class="form-select" [formControl]="f.Exchange">
+                    <option selected value="NSE">NSE</option>
+                    <option value="BSE">BSE</option>
+                    <option value="MCX">MCX</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputState" class="form-label">Segment</label>
+                <select id="inputState" class="form-select" [formControl]="f.Segment">
+                    <option value="COM">COM</option>
+                    <option value="CUR">CUR</option>
+                    <option selected value="FNO">FNO</option>
+                </select>
             </div>
             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">Scrip Code</label>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" aria-label="Recipient's username"
-                        aria-describedby="button-addon2">
+                        aria-describedby="button-addon2" [formControl]="f.ScripCode">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
             <div class="col-md-6">
-                <label for="inputState" class="form-label">Rate Type</label>
-                <select id="inputState" class="form-select">
-                    <option selected value="MKT_RATE">Market Rate</option>
-                    <option value="NET_RATE">Net Rate</option>
-                </select>
-            </div>
-            <div class="col-md-6 mt-0">
                 <label for="inputState" class="form-label">Report Type</label>
-                <select id="inputState" class="form-select">
-                    <option selected="selected" value="PARTY">Client Wise</option>
-                    <option value="PARTY_SCRIP">Client Symbol Wise</option>
-                    <option value="PARTY-SCRIP-DT">Client Symbol Date Wise</option>
-                    <option value="SCRIP-PARTY">Symbol Client Wise</option>
-                    <option value="SCRIP-PARTY-DT">Symbol Client Date Wise</option>
+                <select id="inputState" class="form-select" [formControl]="f.ReportType">
+                    <option selected="selected" value="NORMAL">NORMAL</option>
+                    <option value="AVGRATE">AVGRATE</option>
+                    <option value="SAME_RATE">SAME RATE</option>
                 </select>
             </div>
             <div class="col-12 text-end">

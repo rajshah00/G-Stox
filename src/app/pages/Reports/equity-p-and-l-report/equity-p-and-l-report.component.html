@@ -2,22 +2,28 @@
     <h1 class="text-center stox-title">Equity PL</h1>
     <h2 class="text-center stox-sub-title"> From 01-12-2023 To 31-03-2024</h2>
     <ng-container>
-        <form class="row g-3 mb-3">
+        <form class="row g-3 mb-3" [formGroup]="longShortGroup" (ngSubmit)="save()">
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">From Date</label>
-                <input type="date" class="form-control" id="From">
+                <input type="date" class="form-control" id="From" [formControl]="f.FromDate">
             </div>
             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">To Date</label>
-                <input type="date" class="form-control" id="to">
+                <input type="date" class="form-control" id="to" [formControl]="f.ToDate">
             </div>
-            <div class="col-12">
-                <div class="form-check">
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Rate Date</label>
+                <input type="date" class="form-control" id="to" [formControl]="f.RateDate">
+                <div class="form-check mt-2">
                     <label class="form-check-label" for="gridCheck">
                         Date Range Flag
                     </label>
                     <input class="form-check-input" type="checkbox" id="gridCheck">
                 </div>
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">On Market Rate</label>
+                <input type="text" class="form-control" id="to" [formControl]="f.OnMarketRate ">
             </div>
             <div class="col-12 text-end">
                 <button type="submit" class="btn btn-primary">Run</button>
@@ -27,9 +33,9 @@
 
     <ng-container>
         <div class="text-end">
-            <input type="submit" value=""
+            <input type="submit" value="" (click)="Export(3)"
                 class="fa fa-file - excel - o btn btn-default btn - block text-primary me-3 stox-btn btn-2">
-            <input type="submit" value=""
+            <input type="submit" value="" (click)="Export(2)"
                 class="fa fa-file-pdf-o btn  btn-default btn-block text-danger stox-btn btn-2">
         </div>
 

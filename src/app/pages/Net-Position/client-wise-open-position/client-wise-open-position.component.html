@@ -2,18 +2,18 @@
     <h1 class="text-center stox-title">Client Wise Open Position</h1>
     <!-- <h2 class="text-center stox-sub-title"> As on Date 06-12-2023</h2> -->
     <ng-container>
-        <form class="row g-3 mb-3">
+        <form class="row g-3 mb-3" [formGroup]="netPositionGroup" (ngSubmit)="save()">
             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">As On Date</label>
-                <input type="date" class="form-control" id="from">
+                <input type="date" class="form-control" id="from" [formControl]="f.AsOnDate">
             </div>
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">Closing Rate Date</label>
-                <input type="date" class="form-control" id="to">
-            </div>
+                <input type="date" class="form-control" id="to" [formControl]="f.AsOnDate">
+            </div> -->
             <div class="col-md-6">
                 <label for="inputState" class="form-label">Exchange</label>
-                <select id="inputState" class="form-select">
+                <select id="inputState" class="form-select" [formControl]="f.Exchange">
                     <option selected value="NSE">NSE</option>
                     <option value="BSE">BSE</option>
                     <option value="MCX">MCX</option>
@@ -21,7 +21,7 @@
             </div>
             <div class="col-md-6">
                 <label for="inputState" class="form-label">Segment</label>
-                <select id="inputState" class="form-select">
+                <select id="inputState" class="form-select" [formControl]="f.Segment">
                     <option value="COM">COM</option>
                     <option value="CUR">CUR</option>
                     <option selected value="FNO">FNO</option>

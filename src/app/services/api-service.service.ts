@@ -44,10 +44,8 @@ export class ApiServiceService {
     return this.http.post(environment.API_URL + '/Reports/FinancialLedger/Post', body);
   }
 
-  getClientHolding(data: any) {
-    data.Grant_type = "password";
-    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', });
-    return this.http.post(environment.API_URL + '/Reports/ClientHolding/Post', {}, { headers });
+  getClientHolding(body: any) {
+    return this.http.post(environment.API_URL + '/Reports/ClientHolding/Post', body);
   }
 
   getDerivativeNetPosition(data: any) {
@@ -62,8 +60,8 @@ export class ApiServiceService {
     return this.http.post(environment.API_URL + '/Reports/EquityLongShort/Post', {}, { headers });
   }
 
-  getClientMasterDetail(ClientCode: any) {
-    return this.http.get<any>(`${environment.API_URL}/Masters/ClientMasterDetail/Get?Code=${ClientCode}&ClientType=A`);
+  getClientMasterDetail(body: any) {
+    return this.http.get<any>(`${environment.API_URL}/Masters/ClientMasterDetail/Get?Code=${body.ClientCode}&ClientType=A`);
   }
 
   getEquityTradeBook(data: any) {

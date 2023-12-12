@@ -1,12 +1,10 @@
 <section class="stox-card">
     <h1 class="text-center stox-title">Client Master</h1>
     <ng-container>
-        <form class="row g-3 mb-3">
+        <form class="row g-3 mb-3" [formGroup]="clientGroup" (ngSubmit)="save()">
             <div class="col-md-6">
-                <label for="inputState" class="form-label">Exchange</label>
-                <select id="inputState" class="form-select">
-                    <option selected value="10628651">10628651</option>
-                </select>
+                <label for="inputState" class="form-label">Client Code</label>
+                <input type="text" class="form-control" id="to" [formControl]="f.ClientCode">
             </div>
             <div class="col-6 text-start">
                 <button type="submit" style="margin-top: 29px;" class="btn btn-primary">Run</button>
