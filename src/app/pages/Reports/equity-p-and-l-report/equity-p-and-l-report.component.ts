@@ -32,6 +32,7 @@ export class EquityPAndLReportComponent implements OnInit {
 
   public save() {
     if (this.longShortGroup.valid) {
+      // this.longShortGroup.value.ExportFormat = 1;
       this.service.getEquityLongShort(this.longShortGroup.value).subscribe((res: any) => {
         console.log("res", res)
       }, (err: any) => {

@@ -55,9 +55,7 @@ export class ApiServiceService {
   }
 
   getEquityLongShort(data: any) {
-    data.Grant_type = "password";
-    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', });
-    return this.http.post(environment.API_URL + '/Reports/EquityLongShort/Post', {}, { headers });
+    return this.http.post(environment.API_URL + '/Reports/EquityLongShort/Post', data);
   }
 
   getClientMasterDetail(body: any) {
@@ -65,9 +63,7 @@ export class ApiServiceService {
   }
 
   getEquityTradeBook(data: any) {
-    data.Grant_type = "password";
-    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', });
-    return this.http.post(environment.API_URL + '/Reports/EquityTradeBook/Post', {}, { headers });
+    return this.http.post(environment.API_URL + '/Reports/EquityTradeBook/Post', data);
   }
 
   getDerivativeTradeBook(data: any) {
