@@ -73,15 +73,11 @@ export class ApiServiceService {
   }
 
   getEquityNetPositionDateRange(data: any) {
-    data.Grant_type = "password";
-    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', });
-    return this.http.post(environment.API_URL + '/Reports/EquityNetPositionDateRange/Post', {}, { headers });
+    return this.http.post(environment.API_URL + '/Reports/EquityNetPositionDateRange/Post', data);
   }
 
   getContractNoteWeb(data: any) {
-    data.Grant_type = "password";
-    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', });
-    return this.http.post(environment.API_URL + '/Reports/ContractNoteWeb/Post', {}, { headers });
+    return this.http.post(environment.API_URL + '/Reports/ContractNoteWeb/Post', data);
   }
 
   getDocumentSign(FileID: any) {
@@ -95,9 +91,7 @@ export class ApiServiceService {
   }
 
   getDerivativeBillDetail(data: any) {
-    data.Grant_type = "password";
-    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', });
-    return this.http.post(environment.API_URL + '/Reports/DerivativeBillDetail/Post', {}, { headers });
+    return this.http.post(environment.API_URL + '/Reports/DerivativeBillDetail/Post', data);
   }
 
   getAPAmount(FileID: any) {

@@ -2,10 +2,18 @@
     <h1 class="text-center stox-title">Net Position Derivative</h1>
     <h2 class="text-center stox-sub-title"> As on Date 06-12-2023</h2>
     <ng-container>
-        <form class="row g-3 mb-3">
+        <form class="row g-3 mb-3" [formGroup]="netPositionGroup" (ngSubmit)="save()">
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">From Date</label>
+                <input type="date" class="form-control" id="from" [formControl]="f.FromDate">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">To Date</label>
+                <input type="date" class="form-control" id="to" [formControl]="f.ToDate">
+            </div>
             <div class="col-md-6">
                 <label for="inputState" class="form-label">Exchange</label>
-                <select id="inputState" class="form-select">
+                <select id="inputState" class="form-select" [formControl]="f.Exchange">
                     <option selected value="NSE">NSE</option>
                     <option value="BSE">BSE</option>
                     <option value="MCX">MCX</option>
@@ -13,50 +21,29 @@
             </div>
             <div class="col-md-6">
                 <label for="inputState" class="form-label">Segment</label>
-                <select id="inputState" class="form-select">
+                <select id="inputState" class="form-select" [formControl]="f.Segment">
                     <option value="COM">COM</option>
                     <option value="CUR">CUR</option>
                     <option selected value="FNO">FNO</option>
                 </select>
             </div>
             <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">As On Date</label>
-                <input type="date" class="form-control" id="to">
-            </div>
-            <div class="col-md-6">
-                <label for="inputState" class="form-label">Instrument</label>
-                <select id="inputState" class="form-select">
-                    <option selected="selected" value="ALL">ALL</option>
-                    <option value="FUTURE">FUTURE</option>
-                    <option value="OPTION">OPTION</option>
-                </select>
-            </div>
-            <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Symbol</label>
+                <label for="inputPassword4" class="form-label">Scrip Code</label>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" aria-label="Recipient's username"
-                        aria-describedby="button-addon2">
+                        aria-describedby="button-addon2" [formControl]="f.ScripCode">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
             <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Expiry Date</label>
-                <input type="date" class="form-control" id="Expiry">
+                <label for="inputPassword4" class="form-label">Settlement No</label>
+                <input type="text" class="form-control" id="from" [formControl]="f.SettlementNo">
             </div>
             <div class="col-md-6 mt-0">
-                <label for="inputPassword4" class="form-label">Strike Price</label>
-                <input type="text" class="form-control" id="price">
-            </div>
-            <div class="col-md-6 mt-0">
-                <label for="inputState" class="form-label">Option type</label>
-                <select id="inputState" class="form-select">
-                    <option selected="selected" value="ALL">ALL</option>
-                    <option value="FF">FF</option>
-                    <option value="CE">CE</option>
-                    <option value="PE">PE</option>
-                </select>
+                <label for="inputPassword4" class="form-label">Settlement Type </label>
+                <input type="text" class="form-control" id="to" [formControl]="f.SettlementType">
             </div>
             <div class="col-12">
                 <div class="form-check">

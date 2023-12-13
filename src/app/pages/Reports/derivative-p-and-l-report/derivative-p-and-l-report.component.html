@@ -2,26 +2,34 @@
     <h1 class="text-center stox-title">Derivative P&L Report</h1>
     <h2 class="text-center stox-sub-title"> From 01-12-2023 To 31-03-2024</h2>
     <ng-container>
-        <form class="row g-3 mb-3">
+        <form class="row g-3 mb-3"  [formGroup]="derivativePLGroup" (ngSubmit)="save()">
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">From Date</label>
-                <input type="date" class="form-control" id="From">
+                <input type="date" class="form-control" id="From" [formControl]="f.FromDate">
             </div>
             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">To Date</label>
-                <input type="date" class="form-control" id="to">
+                <input type="date" class="form-control" id="to" [formControl]="f.ToDate">
             </div>
             <div class="col-md-6">
                 <label for="inputState" class="form-label">Segment</label>
-                <select id="inputState" class="form-select">
+                <select id="inputState" class="form-select" [formControl]="f.SegmentID">
                     <option value="COM">COM</option>
                     <option value="CUR">CUR</option>
                     <option selected value="FNO">FNO</option>
                 </select>
             </div>
+            <div class="col-md-6"> 
+                <label for="inputPassword4" class="form-label">Account</label>
+                <input type="text" class="form-control" id="to" [formControl]="f.Account">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Bill No</label>
+                <input type="text" class="form-control" id="to" [formControl]="f.BillNo">
+            </div>
             <div class="col-md-6">
                 <label for="inputState" class="form-label">Report Type</label>
-                <select id="inputState" class="form-select">
+                <select id="inputState" class="form-select" [formControl]="f.ReportType">
                     <option value="R1">Report 1</option>
                     <option selected="selected" value="R2">Report 2</option>
                     <option value="R3">Report 3</option>
