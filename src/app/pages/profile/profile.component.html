@@ -1,22 +1,18 @@
 <div class="">
     <div class="row">
-        <div class="col-xl-4">
-            <!-- Profile picture card-->
+        <!-- <div class="col-xl-4">
             <div class="card mb-4 mb-xl-0">
                 <div class="card-header">Profile Picture</div>
                 <div class="card-body text-center">
-                    <!-- Profile picture image-->
                     <img class="img-account-profile rounded-circle mb-2" src="../../../assets/images/user-img.png"
                         alt="">
-                    <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                    <!-- Profile picture upload button-->
                     <label class="btn btn-primary" type="button" for="image">Upload new image</label>
                     <input hidden id="image" type="file" id="image">
                 </div>
             </div>
-        </div>
-        <div class="col-xl-8">
+        </div> -->
+        <div class="col-xl-12">
             <div class="card mb-4">
                 <div class="card-header">Account Details</div>
                 <div class="card-body">
@@ -27,6 +23,13 @@
                                 <button class="nav-link active" id="personal-details-tab" data-bs-toggle="tab"
                                     data-bs-target="#personal-details" type="button" role="tab"
                                     aria-controls="personal-details" aria-selected="true">Personal</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="segments-tab" data-bs-toggle="tab"
+                                    data-bs-target="#segments" type="button" role="tab" aria-controls="segments"
+                                    aria-selected="false">
+                                    My Segments
+                                </button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="bank-details-tab" data-bs-toggle="tab"
@@ -44,12 +47,12 @@
                                 <button class="nav-link" id="close-account-tab" data-bs-toggle="tab"
                                     data-bs-target="#close-account" type="button" role="tab"
                                     aria-controls="close-account" aria-selected="false">
-                                    Close Account
+                                    Account Closure
                                 </button>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="personal-details" role="tabpanel"
+                            <div class="tab-pane fade show active " id="personal-details" role="tabpanel"
                                 aria-labelledby="personal-details-tab">
                                 <div class="my-3">
                                     <label class="small mb-1" for="AccountName">Profile Name</label>
@@ -66,14 +69,14 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="PANNo">PAN</label>
-                                        <input class="form-control" id="PANNo" type="text" placeholder="Enter your PAN"
+                                        <input class="form-control" id="PANNo" type="number" placeholder="Enter your PAN"
                                             name="PANNo" [(ngModel)]="formObj.PANNo" required>
                                     </div>
                                 </div>
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="MobileNo">Mobile Number</label>
-                                        <input class="form-control" id="MobileNo" type="text"
+                                        <input class="form-control" id="MobileNo" type="number"
                                             placeholder="Enter your Mobile Number" name="MobileNo"
                                             [(ngModel)]="formObj.MobileNo" required>
                                     </div>
@@ -106,22 +109,76 @@
                                             placeholder="Enter your Demat Account Number"
                                             [(ngModel)]="formObj.DematAcNo" required>
                                     </div>
-                                    <div class="col-md-6" style="display: flex; margin-top: 19px;align-items: center;">
-                                        <label class="form-check-label me-2" for="flexSwitchCheckDefault"
-                                            style="margin-bottom: 0 !important;">
-                                            Segments Enabled / Disabled :
-                                        </label>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input auto-size" type="checkbox" role="switch"
-                                                id="flexSwitchCheckDefault">
+                                </div>
+                            </div>
+                            <div class="tab-pane fade mt-3" id="segments" role="tabpanel"
+                                aria-labelledby="segments-tab">
+                                <p>Activate the segments you would like to trade in</p>
+                                <h5>Opted Segments</h5>
+                                <div class="row">
+                                    <div class="col-md-4" *ngFor="let data of profileData.SegmentMaster">
+                                        <div class="card p-3" style="border: 1px solid !important;">
+                                            <div class="card-block">
+                                                <h4 class="card-title pt-2">{{data.SegmentName}}</h4>
+                                                <span class="card-text p-y-1 badge bg-primary">{{data.ExchangeID}}</span>
+                                            </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="bank-details" role="tabpanel"
+                            <div class="tab-pane fade mt-3" id="bank-details" role="tabpanel"
                                 aria-labelledby="bank-details-tab">
-                                <div class="row mt-3">
+                                <div class="row">
+                                    <div class="col col-md-9 col-lg-7 col-xl-5"
+                                        *ngFor="let bank of profileData.BankDetail;let i = index">
+                                        <div class="card" style="border-radius: 15px; background-color: #f6f9ff;">
+                                            <div class="card-body p-4 text-black">
+                                                <div>
+                                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                                        <p class="small mb-0">BANK{{i + 1}}</p>
+                                                        <p class="fw-bold mb-0 badge bg-primary">Primary </p>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center mb-4">
+                                                    <div class="flex-shrink-0">
+                                                        <img src="../../../assets/images/dummyBank.png"
+                                                            alt="Generic placeholder image"
+                                                            class="img-fluid border border-dark border-3" style="    width: 70px;
+                                                            height: 70px;
+                                                            border-radius: 13px; background-color: white;">
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3">
+                                                        <div class="d-flex flex-row align-items-center mb-2">
+                                                            <p class="mb-0 me-2">{{bank.BankName}}</p>
+                                                        </div>
+                                                        <div>
+                                                            ************4500
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <p class="mt-4 pb-1">IFSC</p>
+                                                        <p>{{bank.BankIFSC}}</p>
+                                                    </div>
+                                                    <div class="col-md-6 text-end">
+                                                        <p class="mt-4 pb-1">MICR</p>
+                                                        <p>{{bank.BankMICR}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <button class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop" type="button">
+                                        <i class="bi bi-plus-circle"></i> Add New Bank
+                                    </button>
+                                </div>
+
+                                <!-- <div class="row mt-3">
                                     <div class="col-md-7 mt-0" *ngFor="let item of addList;let i =index">
                                         <label for="inputPassword4" class="form-label">Select Bank Account</label>
                                         <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="dropdownList"
@@ -134,14 +191,34 @@
                                             <i class="bi bi-plus-circle"></i>
                                         </button>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
-                            <div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="documents-tab">
+                            <div class="tab-pane fade mt-3" id="documents" role="tabpanel"
+                                aria-labelledby="documents-tab">
                                 2
                             </div>
-                            <div class="tab-pane fade" id="close-account" role="tabpanel"
+                            <div class="tab-pane fade mt-3" id="close-account" role="tabpanel"
                                 aria-labelledby="close-account-tab">
-                                3
+                                <h3>Account Closure</h3>
+                                <div class="ps-2">
+                                    <p class="mt-4" style="font-size: 20px;">If you close your account, you won't be
+                                        able to trade with G-Stax</p>
+                                    <p>To reopen your account, you'll have to complete the KYC process again and will
+                                        get new Demat account</p>
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Why do you wise to close your account?
+                                            <sup class="text-danger">*</sup>
+                                        </label>
+                                        <select
+                                            style="width: 20%;border-bottom-right-radius: 25px;border-top-left-radius: 25px;"
+                                            class="form-select" aria-label="Default select example mt-2">
+                                            <option selected>Please select a reason</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="text-end">
@@ -149,6 +226,26 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Enter Your Bank Account Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
             </div>
         </div>
     </div>

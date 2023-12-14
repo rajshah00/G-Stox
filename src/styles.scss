@@ -59,3 +59,16 @@ ng-multiselect-dropdown .multiselect-dropdown .dropdown-btn {
     font-weight: 700;
     opacity: 0.8;
 }
+
+.toggle-sidebar .sidebar-nav .nav-item .nav-content {
+    position: fixed !important;
+    left: 84px !important;
+    background-color: white !important;
+    border-radius: 15px;
+    box-shadow: 0px 0 17px rgba(1, 41, 112, 0.1);
+    width: 17%;
+}
+
+.toggle-sidebar .sidebar-nav .nav-content li {
+    justify-content: flex-start !important;
+}

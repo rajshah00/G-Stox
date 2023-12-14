@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+declare var $: any;
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.scss']
 })
-export class SideBarComponent {
+export class SideBarComponent implements OnInit {
+  ngOnInit(): void {
+
+  }
 
 }

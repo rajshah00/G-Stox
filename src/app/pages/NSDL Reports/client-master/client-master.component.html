@@ -25,49 +25,49 @@
                 <tbody>
                     <tr>
                         <th style="background: #ebf2f6">Client id</th>
-                        <td>10628651</td>
+                        <td>{{clientData.dpDetail[0].DepositoryClientID}}</td>
                         <th style="background: #ebf2f6">Trading Code</th>
-                        <td>D5422</td>
+                        <td>{{clientData.kycDetail[0].ClientCode}}</td>
                         <th style="background: #ebf2f6"> Standing Instruction</th>
-                        <td>Y</td>
+                        <td>static</td>
                         <th style="background: #ebf2f6">Client Name</th>
-                        <td colspan="3">DEVANG R GANDHI</td>
+                        <td colspan="3">{{clientData.kycDetail[0].ClientName}}</td>
                         <th style="background: #ebf2f6">Client Type</th>
-                        <td colspan="3">Individual</td>
+                        <td colspan="3">{{clientData.kycDetail[0].ClientType}}</td>
                     </tr>
                     <tr>
                         <th style="background: #ebf2f6">Account Status </th>
-                        <td>Active </td>
+                        <td>{{clientData.dpDetail[0].Status}} </td>
                         <th style="background: #ebf2f6">A/C Opening Date </th>
-                        <td>22/12/2017 </td>
+                        <td>{{clientData.kycDetail[0].OpenDate | date: 'd/M/y'}} </td>
                         <th style="background: #ebf2f6">
                             Status Change Reason
                         </th>
-                        <td colspan="5"> </td>
+                        <td colspan="5">{{clientData.bankDetail[0].RejectionReason}} </td>
                         <th style="background: #ebf2f6">Branch</th>
-                        <td colspan="3">4 </td>
+                        <td colspan="3">{{clientData.kycDetail[0].BranchID}}</td>
                     </tr>
                     <tr>
                         <th style="background: #ebf2f6">A/C Category</th>
-                        <td>Non House Beneficiary</td>
+                        <td>static</td>
                         <th style="background: #ebf2f6">Sub. Type</th>
-                        <td>Ordinary </td>
+                        <td>static </td>
                         <th style="background: #ebf2f6">A/C Clos./Susp. Date</th>
-                        <td colspan="2"> </td>
+                        <td colspan="2">static </td>
                         <th style="background: #ebf2f6">Mobile Flag </th>
-                        <td colspan="2">Y</td>
+                        <td colspan="2">static</td>
                         <th style="background: #ebf2f6">Annual Income </th>
-                        <td colspan="3">Between Rs. 1 to 5 Lac</td>
+                        <td colspan="3">static</td>
                     </tr>
                     <tr>
                         <th style="background: #ebf2f6">Net Worth (Rs)</th>
-                        <td></td>
+                        <td>{{clientData.kycDetail[0].NetWorth}}</td>
                         <td colspan="2" style="background: #ebf2f6">Net Worth as on Date</td>
-                        <td colspan="3"></td>
+                        <td colspan="3">{{clientData.kycDetail[0].NetWorthDate | date: 'd/M/y'}}</td>
                         <th style="background: #ebf2f6">PAN</th>
-                        <td colspan="2">ALCPG8996N</td>
+                        <td colspan="2">{{clientData.kycDetail[0].PanNo}}</td>
                         <th style="background: #ebf2f6">DOB</th>
-                        <td colspan="3">16/11/1983</td>
+                        <td colspan="3">{{clientData.kycDetail[0].DOB | date: 'd/M/y'}}</td>
                     </tr>
                     <tr>
                         <td style="background: #ebf2f6" colspan="14"><b>Personal details </b> </td>
@@ -76,76 +76,78 @@
                         <th style="background: #ebf2f6">
                             Sole/First Holder Name
                         </th>
-                        <td>DEVANG R GANDHI</td>
+                        <td>{{clientData.kycDetail[0].ClientName}}</td>
                         <th colspan="2" style="background: #ebf2f6">Client option to receive e-statement</th>
-                        <td colspan="2"></td>
+                        <td colspan="2">static</td>
                         <th colspan="2" style="background: #ebf2f6">First Holder's Father's/Spouse's name</th>
-                        <td colspan="2"></td>
+                        <td colspan="2">static</td>
                         <th style="background: #ebf2f6" colspan="1">Occupation</th>
-                        <td colspan="3">Service</td>
+                        <td colspan="3">{{clientData.kycDetail[0].Occupation}}</td>
                     </tr>
                     <tr>
                         <th style="background: #ebf2f6">Slab ID</th>
-                        <td colspan="13">12</td>
+                        <td colspan="13">{{clientData.brokMapping[0].SlabID}}</td>
                     </tr>
                     <tr>
                         <th style="background:#ebf2f6">Address</th>
-                        <td colspan="3">VARDHMAN JASANI PARK STREET NO 3, AIRPORT ROAD </td>
+                        <td colspan="3">{{clientData.addDetail[0].AddressLine1}},
+                            {{clientData.addDetail[0].AddressLine2}} </td>
                         <th style="background:#ebf2f6">PIN code</th>
-                        <td colspan="2">360007</td>
+                        <td colspan="2">{{clientData.addDetail[0].AddressPinCode}}</td>
                         <th style="background:#ebf2f6">Country</th>
-                        <td colspan="2">India</td>
+                        <td colspan="2">{{clientData.addDetail[0].AddressCountry}}</td>
                         <th style="background:#ebf2f6">State</th>
-                        <td colspan="3">Gujarat</td>
+                        <td colspan="3">{{clientData.addDetail[0].AddressState}}</td>
 
                     </tr>
                     <tr>
                         <th style="background: #ebf2f6">Email</th>
-                        <td colspan="3">devanggandhi2000@gmail.com</td>
+                        <td colspan="3">{{clientData.nomineeDetail[0].EmailID}}</td>
                         <th style="background: #ebf2f6">
                             Mobile/Phone No
                         </th>
-                        <td>9824827229</td>
+                        <td>{{clientData.nomineeDetail[0].Mobile}}</td>
                         <th style="background: #ebf2f6">Mobile Flag</th>
-                        <td>N</td>
+                        <td>{{clientData.nomineeDetail[0].MinorInd}}</td>
                         <th colspan="3" style="background: #ebf2f6">
                             One Time Declaration for GSEC IDT Flag
                         </th>
-                        <td colspan="3"> </td>
+                        <td colspan="3">static </td>
                     </tr>
                     <tr>
                         <td style="background: #ebf2f6" colspan="14"><b>Financial Detail</b></td>
                     </tr>
                     <tr>
                         <th style="background: #ebf2f6">Bank Account Number</th>
-                        <td colspan="1">01011140004475</td>
+                        <td colspan="1">{{clientData.bankDetail[0].BankAccountNumber}}</td>
                         <th style="background: #ebf2f6">Bank Account Type</th>
-                        <td class="abcd">Saving Account</td>
+                        <td class="abcd">{{clientData.bankDetail[0].BankAccountType}}</td>
                         <th style="background: #ebf2f6">IFSC Code</th>
-                        <td class="abcd">HDFC0000101</td>
+                        <td class="abcd">{{clientData.bankDetail[0].BankIFSC}}</td>
                         <th style="background: #ebf2f6">MICR Code</th>
-                        <td class="abcd">360240002</td>
+                        <td class="abcd">{{clientData.bankDetail[0].BankMICR}}</td>
                         <th style="background: #ebf2f6">LEI No</th>
-                        <td class="abcd"></td>
+                        <td class="abcd">static</td>
                         <th style="background: #ebf2f6">
                             UPI ID
                         </th>
-                        <td class="abcd" colspan="3"></td>
+                        <td class="abcd" colspan="3">static</td>
                     </tr>
                     <tr>
                         <th style="background: #ebf2f6">Bank Name</th>
-                        <td class="abcd" colspan="5">HDFC BANK</td>
+                        <td class="abcd" colspan="5">{{clientData.bankDetail[0].BankName}}</td>
                         <th style="background: #ebf2f6">POA</th>
-                        <td class="abcd" colspan="3"></td>
+                        <td class="abcd" colspan="3">static</td>
                         <th style="background: #ebf2f6">Tax Ded. Status</th>
-                        <td class="abcd" colspan="3"></td>
+                        <td class="abcd" colspan="3">static</td>
                     </tr>
                     <tr>
                         <th style="background: #ebf2f6">Bank Address</th>
-                        <td colspan="5" class="abcd">HDFC BANK HOUSE, NR PRAMUKH SWAMI ARCADE, DR YAGNIK ROAD, RAJKOT
+                        <td colspan="5" class="abcd">
+                            {{clientData.bankDetail[0].BankAddress1}},{{clientData.bankDetail[0].BankAddress2}}
                         </td>
                         <th style="background: #ebf2f6">Pin code</th>
-                        <td colspan="5" class="abcd">360001</td>
+                        <td colspan="5" class="abcd">{{clientData.bankDetail[0].BankPincode}}</td>
 
                     </tr>
                     <tr>
@@ -170,17 +172,20 @@
                                         <th style="background: #ebf2f6" colspan="3">Aadhar</th>
                                     </tr>
                                     <tr>
-                                        <td>MONIKA DEVANG GANDHI</td>
-                                        <td>devanggandhi2000@gmail.com</td>
-                                        <td colspan="2">XXXXX 27229</td>
+                                        <td>{{clientData.nomineeDetail[0].Name}}</td>
+                                        <td>{{clientData.nomineeDetail[0].EmailID}}</td>
+                                        <td colspan="2">{{clientData.nomineeDetail[0].EmailID}}</td>
                                         <td></td>
-                                        <td colspan="3">XXXXXXXX 0276</td>
+                                        <td colspan="3">{{clientData.nomineeDetail[0].UID}}</td>
                                     </tr>
                                     <tr>
                                         <th style="background: #ebf2f6">Nominee Address</th>
-                                        <td colspan="3">JASANI PARK, VASUNDHARA PARK, AIRPORT ROAD, RAJKOT</td>
+                                        <td colspan="3">{{clientData.nomineeDetail[0].Address1}},
+                                            {{clientData.nomineeDetail[0].Address2}},
+                                            {{clientData.nomineeDetail[0].Address3}},
+                                            {{clientData.nomineeDetail[0].City}}</td>
                                         <th style="background: #ebf2f6">Pin Code</th>
-                                        <td colspan="3">360007</td>
+                                        <td colspan="3">{{clientData.nomineeDetail[0].Pincode}}</td>
                                     </tr>
                                 </tbody>
                             </table>

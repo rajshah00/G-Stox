@@ -659,7 +659,7 @@ h6 {
 
   .toggle-sidebar .sidebar-nav li {
     display: flex !important;
-    justify-content: flex-end !important;
+    justify-content: flex-end;
   }
 
   .toggle-sidebar .sidebar-nav .nav-item .menu-name {
