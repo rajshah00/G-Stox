@@ -11,6 +11,7 @@ import { AuthInterceptor } from 'src/app/services/auth-interceptor.service';
 export class HoldingComponent implements OnInit {
   public holdingGroup: FormGroup | any;
   authToken = JSON.parse(localStorage.getItem('isLoggedIn') || '')
+  holdingData: any;
   constructor(public service: ApiServiceService, public auth: AuthInterceptor) { }
 
   ngOnInit(): void {
@@ -32,6 +33,7 @@ export class HoldingComponent implements OnInit {
   public save() {
     if (this.holdingGroup.valid) {
       this.service.getClientHolding(this.holdingGroup.value).subscribe((res: any) => {
+        this.holdingData = res.data
         console.log("res", res)
       }, (err: any) => {
         console.log("err", err)

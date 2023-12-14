@@ -33,7 +33,7 @@ export class EquityBillsSummaryComponent implements OnInit {
   public save() {
     console.log("this.equityBillGroup", this.equityBillGroup);
     if (this.equityBillGroup.valid) {
-      this.service.getContractNoteWeb(this.equityBillGroup.value).subscribe((res: any) => {
+      this.service.getEquityBillDetail(this.equityBillGroup.value).subscribe((res: any) => {
         console.log("res", res)
       }, (err: any) => {
         console.log("err", err)
@@ -45,7 +45,7 @@ export class EquityBillsSummaryComponent implements OnInit {
   public export(type: any) {
     if (this.equityBillGroup.valid) {
       this.equityBillGroup.value.ExportFormat = type;
-      this.service.getDocumentSign(this.equityBillGroup.value).subscribe((res: any) => {
+      this.service.getEquityBillDetail(this.equityBillGroup.value).subscribe((res: any) => {
         console.log("res", res)
       }, (err: any) => {
         console.log("err", err)
