@@ -2,25 +2,25 @@
     <h1 class="text-center stox-title">Equity Trade Confirmation</h1>
     <h2 class="text-center stox-sub-title"> From 01-12-2023 To 31-03-2024</h2>
     <ng-container>
-        <form class="row g-3 mb-3">
+        <form class="row g-3 mb-3" [formGroup]="equityTradeGroup" (ngSubmit)="save()">
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">From Date</label>
-                <input type="date" class="form-control" id="From">
+                <input type="date" class="form-control" id="From" [formControl]="f.FromDate">
             </div>
             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">To Date</label>
-                <input type="date" class="form-control" id="to">
+                <input type="date" class="form-control" id="to" [formControl]="f.ToDate">
             </div>
             <div class="col-md-6">
                 <label for="inputState" class="form-label">Exchange</label>
-                <select id="inputState" class="form-select">
+                <select id="inputState" class="form-select" [formControl]="f.Exchange">
                     <option selected value="NSE">NSE</option>
                     <option value="BSE">BSE</option>
                 </select>
             </div>
             <div class="col-md-6">
                 <label for="inputState" class="form-label">Segment</label>
-                <select id="inputState" class="form-select">
+                <select id="inputState" class="form-select" [formControl]="f.Segment">
                     <option selected value="CAP">CAP</option>
                 </select>
             </div>
@@ -28,7 +28,7 @@
                 <label for="inputPassword4" class="form-label">Scrip Code</label>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" aria-label="Recipient's username"
-                        aria-describedby="button-addon2">
+                        aria-describedby="button-addon2" [formControl]="f.ScripCode">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
@@ -36,17 +36,10 @@
             </div>
             <div class="col-md-6">
                 <label for="inputState" class="form-label">Report Type</label>
-                <select id="inputState" class="form-select">
+                <select id="inputState" class="form-select" [formControl]="f.ReportType">
                     <option selected value="Normal">NORMAL</option>
                     <option value="svg_rate">SVG RATE</option>
                     <option value="same_rate">SAME RATE</option>
-                </select>
-            </div>
-            <div class="col-md-6 mt-0">
-                <label for="inputState" class="form-label">Rate Type</label>
-                <select id="inputState" class="form-select">
-                    <option selected value="MKT_RATE">Market Rate</option>
-                    <option value="NET_RATE">Net Rate</option>
                 </select>
             </div>
             <div class="col-12 text-end">
@@ -57,10 +50,10 @@
 
     <ng-container>
         <div class="text-end">
-            <input type="submit" value=""
-                class="fa fa-file - excel - o btn btn-default btn - block text-primary me-3 stox-btn btn-2">
-            <input type="submit" value=""
-                class="fa fa-file-pdf-o btn  btn-default btn-block text-danger stox-btn btn-2">
+            <input type="submit" value="" (click)="export(4)"
+                class="fa fa-file - excel - o btn btn-default btn - block text-primary stox-btn btn-2">
+            <!-- <input type="submit" value=""
+                class="fa fa-file-pdf-o btn  btn-default btn-block text-danger stox-btn btn-2"> -->
         </div>
 
         <div class="table-responsive mt-2">

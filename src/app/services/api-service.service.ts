@@ -67,9 +67,7 @@ export class ApiServiceService {
   }
 
   getDerivativeTradeBook(data: any) {
-    data.Grant_type = "password";
-    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', });
-    return this.http.post(environment.API_URL + '/Reports/DerivativeTradeBook/Post', {}, { headers });
+    return this.http.post(environment.API_URL + '/Reports/DerivativeTradeBook/Post', data);
   }
 
   getEquityNetPositionDateRange(data: any) {
@@ -120,9 +118,7 @@ export class ApiServiceService {
   }
 
   getFIFONetPositionReport(data: any) {
-    data.Grant_type = "password";
-    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', });
-    return this.http.post(environment.API_URL + '/Reports/FIFONetPositionReport/Post', {}, { headers });
+    return this.http.post(environment.API_URL + '/Reports/FIFONetPositionReport/Post', data);
   }
 
   getEquityPnLReportWeb(data: any) {
@@ -148,9 +144,7 @@ export class ApiServiceService {
   }
 
   getEquityTransactionLedger(data: any) {
-    data.Grant_type = "password";
-    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', });
-    return this.http.post(environment.API_URL + '/Reports/EquityTransactionLedger/Post', {}, { headers });
+    return this.http.post(environment.API_URL + '/Reports/EquityTransactionLedger/Post', data);
   }
 
   getWEBDebtorCreditorList(data: any) {

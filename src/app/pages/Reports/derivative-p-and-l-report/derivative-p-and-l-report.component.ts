@@ -34,7 +34,7 @@ export class DerivativePAndLReportComponent implements OnInit {
   public save() {
     console.log("this.derivativePLGroup", this.derivativePLGroup);
     if (this.derivativePLGroup.valid) {
-      this.service.getDerivativeBillDetail(this.derivativePLGroup.value).subscribe((res: any) => {
+      this.service.getFIFONetPositionReport(this.derivativePLGroup.value).subscribe((res: any) => {
         console.log("res", res)
       }, (err: any) => {
         console.log("err", err)
@@ -46,7 +46,7 @@ export class DerivativePAndLReportComponent implements OnInit {
   public export(type: any) {
     if (this.derivativePLGroup.valid) {
       this.derivativePLGroup.value.ExportFormat = type;
-      this.service.getDerivativeBillDetail(this.derivativePLGroup.value).subscribe((res: any) => {
+      this.service.getFIFONetPositionReport(this.derivativePLGroup.value).subscribe((res: any) => {
         console.log("res", res)
       }, (err: any) => {
         console.log("err", err)
