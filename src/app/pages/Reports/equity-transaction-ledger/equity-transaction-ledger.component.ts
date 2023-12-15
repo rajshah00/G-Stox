@@ -15,18 +15,18 @@ export class EquityTransactionLedgerComponent implements OnInit {
 
   ngOnInit(): void {
     this.equityTransactionGroup = new FormGroup({
-      AccountID: new FormControl(this.authToken.username, Validators.required),
+      AccountID: new FormControl(this.authToken.username),
       FromDate: new FormControl('', Validators.required),
       ToDate: new FormControl('', Validators.required),
       Exchange: new FormControl('', Validators.required),
       Segment: new FormControl('', Validators.required),
-      Branch: new FormControl(null, Validators.required),
-      SubBranch: new FormControl(null, Validators.required),
-      RM: new FormControl(null, Validators.required),
-      FamilyGroup: new FormControl(null, Validators.required),
-      JDFlag: new FormControl('A', Validators.required),
-      ReportType: new FormControl('NORMAL', Validators.required),
-      ScripCode: new FormControl('DETAIL', Validators.required),
+      Branch: new FormControl(null),
+      SubBranch: new FormControl(null),
+      RM: new FormControl(null),
+      FamilyGroup: new FormControl(null),
+      JDFlag: new FormControl('A'),
+      ReportType: new FormControl('NORMAL'),
+      ScripCode: new FormControl('', Validators.required),
     });
   }
 
