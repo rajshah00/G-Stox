@@ -18,7 +18,7 @@ export class DerivativePAndLStatementComponent implements OnInit {
       FirmID: new FormControl(this.auth.firm_id),
       AccountID: new FormControl(this.authToken.username),
       FromDate: new FormControl('', Validators.required),
-      ToDate: new FormControl('', Validators.required),
+      ToDate: new FormControl(this.service.getCurrentDate(), Validators.required),
       Exchange: new FormControl('', Validators.required),
       Segment: new FormControl('', Validators.required),
       ExpiryDate: new FormControl('', Validators.required),

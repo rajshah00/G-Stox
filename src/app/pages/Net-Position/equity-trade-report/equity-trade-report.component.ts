@@ -15,8 +15,8 @@ export class EquityTradeReportComponent implements OnInit {
 
   ngOnInit(): void {
     this.equityTradeGroup = new FormGroup({
-      FromDate: new FormControl(this.auth.firm_id, Validators.required),
-      ToDate: new FormControl(this.authToken.username, Validators.required),
+      FromDate: new FormControl(this.service.getCurrentDate(), Validators.required),
+      ToDate: new FormControl(this.service.getCurrentDate(), Validators.required),
       Exchange: new FormControl('', Validators.required),
       Segment: new FormControl('', Validators.required),
       ReportType: new FormControl('', Validators.required),

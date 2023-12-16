@@ -18,7 +18,7 @@ export class EquityPAndLReportComponent implements OnInit {
       FirmID: new FormControl(this.auth.firm_id, Validators.required),
       AccountID: new FormControl(this.authToken.username, Validators.required),
       FromDate: new FormControl('', Validators.required),
-      ToDate: new FormControl('', Validators.required),
+      ToDate: new FormControl(this.service.getCurrentDate(), Validators.required),
       RateDate: new FormControl('', Validators.required),
       OnMarketRate: new FormControl('', Validators.required),
     });

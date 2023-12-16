@@ -170,6 +170,13 @@ export class ApiServiceService {
   geFIFOHolding(data: any) {
     return this.http.get<any>(`${environment.API_URL}/Utilities/FIFOHolding/Get?AccountID=${data.ClientCode}`);
   }
+
+  getCurrentDate(): string {
+    const currentDate = new Date();
+    const formattedDate = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString()
+      .padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}`;
+    return formattedDate;
+  }
 }
 
 

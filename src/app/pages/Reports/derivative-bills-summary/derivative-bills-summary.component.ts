@@ -15,8 +15,8 @@ export class DerivativeBillsSummaryComponent implements OnInit {
 
   ngOnInit(): void {
     this.derivativeBillGroup = new FormGroup({
-      FromDate: new FormControl('', Validators.required),
-      ToDate: new FormControl('', Validators.required),
+      FromDate: new FormControl(this.service.getCurrentDate(), Validators.required),
+      ToDate: new FormControl(this.service.getCurrentDate(), Validators.required),
       Exchange: new FormControl('', Validators.required),
       Segment: new FormControl('', Validators.required),
       BillNo: new FormControl('', Validators.required),
@@ -53,4 +53,5 @@ export class DerivativeBillsSummaryComponent implements OnInit {
     }
     console.log(this.derivativeBillGroup);
   }
+
 }

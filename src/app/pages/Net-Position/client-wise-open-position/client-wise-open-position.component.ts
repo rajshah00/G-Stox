@@ -17,7 +17,7 @@ export class ClientWiseOpenPositionComponent implements OnInit {
     this.netPositionGroup = new FormGroup({
       FirmID: new FormControl(this.auth.firm_id, Validators.required),
       AccountID: new FormControl(this.authToken.username, Validators.required),
-      AsOnDate: new FormControl('', Validators.required),
+      AsOnDate: new FormControl(this.service.getCurrentDate(), Validators.required),
       Exchange: new FormControl('', Validators.required),
       Segment: new FormControl('', Validators.required),
     });

@@ -18,7 +18,7 @@ export class HoldingComponent implements OnInit {
     this.holdingGroup = new FormGroup({
       FirmID: new FormControl(this.auth.firm_id, Validators.required),
       AccountID: new FormControl(this.authToken.username, Validators.required),
-      AsOnDate: new FormControl('', Validators.required),
+      AsOnDate: new FormControl(this.service.getCurrentDate(), Validators.required),
       RateDate: new FormControl('', Validators.required),
       ScripCode: new FormControl('', Validators.required),
     });

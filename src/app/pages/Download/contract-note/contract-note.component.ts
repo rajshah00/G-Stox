@@ -15,8 +15,8 @@ export class ContractNoteComponent implements OnInit {
 
   ngOnInit(): void {
     this.contractNoteGroup = new FormGroup({
-      FromDate: new FormControl('', Validators.required),
-      ToDate: new FormControl('', Validators.required),
+      FromDate: new FormControl(this.service.getCurrentDate(), Validators.required),
+      ToDate: new FormControl(this.service.getCurrentDate(), Validators.required),
     });
   }
 
