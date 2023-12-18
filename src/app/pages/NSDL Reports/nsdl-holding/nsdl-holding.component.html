@@ -3,11 +3,11 @@
     <!-- <h2 class="text-center stox-sub-title"> From 01-12-2023 To 31-03-2024</h2> -->
     <ng-container>
         <form class="row g-3 mb-3">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="inputEmail4" class="form-label">As on Date</label>
                 <input type="date" class="form-control" id="From">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="inputPassword4" class="form-label">ISIN</label>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" aria-label="Recipient's username"
@@ -17,13 +17,13 @@
                     </button>
                 </div>
             </div>
-            <div class="col-md-6 mt-0">
+            <div class="col-md-3">
                 <label for="inputState" class="form-label">Client ID</label>
                 <select id="inputState" class="form-select">
                     <option selected value="10628651">10628651</option>
                 </select>
             </div>
-            <div class="col-md-6 mt-0">
+            <div class="col-md-3">
                 <label for="inputPassword4" class="form-label">Family ID</label>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" aria-label="Recipient's username"
@@ -33,13 +33,13 @@
                     </button>
                 </div>
             </div>
-            <div class="col-md-6 mt-0">
+            <div class="col-md-3 mt-0">
                 <label for="inputPassword4" class="form-label">Excel Format</label>
                 <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="dropdownList"
                     (onSelect)="onItemSelect($event)">
                 </ng-multiselect-dropdown>
             </div>
-            <div class="col-12 text-end">
+            <div class="col-12 text-end mt-0">
                 <button type="submit" class="btn btn-primary">Run</button>
             </div>
         </form>

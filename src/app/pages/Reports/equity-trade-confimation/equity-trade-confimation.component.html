@@ -3,28 +3,28 @@
     <h2 class="text-center stox-sub-title"> From 01-12-2023 To 31-03-2024</h2>
     <ng-container>
         <form class="row g-3 mb-3" [formGroup]="equityTradeGroup" (ngSubmit)="save()">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="inputEmail4" class="form-label">From Date</label>
                 <input type="date" class="form-control" id="From" [formControl]="f.FromDate">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="inputPassword4" class="form-label">To Date</label>
                 <input type="date" class="form-control" id="to" [formControl]="f.ToDate">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="inputState" class="form-label">Exchange</label>
                 <select id="inputState" class="form-select" [formControl]="f.Exchange">
                     <option selected value="NSE">NSE</option>
                     <option value="BSE">BSE</option>
                 </select>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="inputState" class="form-label">Segment</label>
                 <select id="inputState" class="form-select" [formControl]="f.Segment">
                     <option selected value="CAP">CAP</option>
                 </select>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="inputPassword4" class="form-label">Scrip Code</label>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" aria-label="Recipient's username"
@@ -34,7 +34,7 @@
                     </button>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="inputState" class="form-label">Report Type</label>
                 <select id="inputState" class="form-select" [formControl]="f.ReportType">
                     <option selected value="Normal">NORMAL</option>
@@ -42,7 +42,7 @@
                     <option value="same_rate">SAME RATE</option>
                 </select>
             </div>
-            <div class="col-12 text-end">
+            <div class="col-12 text-end mt-0">
                 <button type="submit" class="btn btn-primary">Run</button>
             </div>
         </form>
