@@ -3,15 +3,15 @@
     <h2 class="text-center stox-sub-title"> As on Date 06-12-2023</h2>
     <ng-container>
         <form class="row g-3 mb-3" [formGroup]="holdingGroup" (ngSubmit)="save()">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="inputPassword4" class="form-label">As On Date</label>
                 <input type="date" class="form-control" id="to" [formControl]="f.AsOnDate">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="inputPassword4" class="form-label">Rate Date</label>
                 <input type="date" class="form-control" id="to" [formControl]="f.RateDate">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label for="inputPassword4" class="form-label">Scrip Code</label>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" aria-label="Recipient's username"
@@ -39,8 +39,8 @@
                     <option value="PLANE">PLANE</option>
                 </select>
             </div> -->
-            <div class="col-12 text-end">
-                <button type="submit" class="btn btn-primary">Run</button>
+            <div class="col-md-3">
+                <button type="submit" style="margin-top: 27px;" class="btn btn-primary">Run</button>
             </div>
         </form>
     </ng-container>

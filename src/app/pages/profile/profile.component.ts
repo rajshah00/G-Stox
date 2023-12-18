@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { ApiServiceService } from 'src/app/services/api-service.service';
+declare var $: any;
 
 @Component({
   selector: 'app-profile',
@@ -11,6 +12,7 @@ export class ProfileComponent implements OnInit {
   dropdownList: any = [];
   selectedItems: any = [];
   dropdownSettings: IDropdownSettings = {};
+  isEditable = false;
   addList: any = [{ banckName: "" }]
   formObj: any = {
     AccountName: '',
@@ -325,5 +327,20 @@ export class ProfileComponent implements OnInit {
 
   onSubmit(data: any) {
     console.log("data", data)
+  }
+
+  toggleEdit(targetId: any) {
+    console.log("targetId", targetId);
+    $("#" + targetId).prop("disabled", (i: any, val: any) => {
+      console.log(val);
+      if (val == true) {
+        $("." + targetId).removeClass("bi bi-pencil-square");
+        $("." + targetId).addClass("bi bi-check2-square");
+      } else {
+        $("." + targetId).removeClass("bi bi-check2-square");
+        $("." + targetId).addClass("bi bi-pencil-square");
+      }
+      return !val;
+    });
   }
 }

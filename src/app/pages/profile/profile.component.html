@@ -55,121 +55,174 @@
                             <div class="tab-pane fade show active " id="personal-details" role="tabpanel"
                                 aria-labelledby="personal-details-tab">
                                 <div class="my-3">
-                                    <label class="small mb-1" for="AccountName">Profile Name</label>
-                                    <input class="form-control" id="AccountName" type="text"
-                                        placeholder="Enter your Profile Name" name="AccountName"
-                                        [(ngModel)]="formObj.AccountName" required>
-                                </div>
-                                <div class="row gx-3 mb-3">
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="AccountID">User Id</label>
-                                        <input class="form-control" id="AccountID" type="text"
-                                            placeholder="Enter your User Id" name="AccountID"
-                                            [(ngModel)]="formObj.AccountID" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="PANNo">PAN</label>
-                                        <input class="form-control" id="PANNo" type="number" placeholder="Enter your PAN"
-                                            name="PANNo" [(ngModel)]="formObj.PANNo" required>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="small" for="AccountName">Profile Name</label>
+                                            <div class="input-group">
+                                                <input class="form-control" id="AccountName" type="text"
+                                                    placeholder="Enter your Profile Name" name="AccountName"
+                                                    [(ngModel)]="formObj.AccountName" [disabled]="!isEditable" required>
+                                                <button (click)="toggleEdit('AccountName')" class="btn-edit"
+                                                    type="button">
+                                                    <i class="bi bi-pencil-square AccountName"></i>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-6">
-                                        <label class="small mb-1" for="MobileNo">Mobile Number</label>
-                                        <input class="form-control" id="MobileNo" type="number"
-                                            placeholder="Enter your Mobile Number" name="MobileNo"
-                                            [(ngModel)]="formObj.MobileNo" required>
+                                        <label class="small" for="AccountID">User Id</label>
+                                        <div class="input-group">
+                                            <input class="form-control" id="AccountID" type="text"
+                                                placeholder="Enter your User Id" name="AccountID"
+                                                [(ngModel)]="formObj.AccountID" [disabled]="!isEditable" required>
+                                            <button (click)="toggleEdit('AccountID')" class="btn-edit" type="button">
+                                                <i class="bi bi-pencil-square AccountID"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="small mb-1" for="EmailId">Email address</label>
-                                        <input class="form-control" id="EmailId" type="email"
-                                            placeholder="Enter your email address" name="EmailId"
-                                            [(ngModel)]="formObj.EmailId" required>
+                                        <label class="small" for="PANNo">PAN</label>
+                                        <div class="input-group">
+                                            <input class="form-control" id="PANNo" type="number"
+                                                placeholder="Enter your PAN" name="PANNo" [(ngModel)]="formObj.PANNo"
+                                                [disabled]="!isEditable" required>
+                                            <button (click)="toggleEdit('PANNo')" class="btn-edit" type="button">
+                                                <i class="bi bi-pencil-square PANNo"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label class="small" for="MobileNo">Mobile Number</label>
+                                        <div class="input-group">
+                                            <input class="form-control" id="MobileNo" type="number"
+                                                placeholder="Enter your Mobile Number" name="MobileNo"
+                                                [(ngModel)]="formObj.MobileNo" [disabled]="!isEditable" required>
+                                            <button (click)="toggleEdit('MobileNo')" class="btn-edit" type="button">
+                                                <i class="bi bi-pencil-square MobileNo"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="small" for="EmailId">Email address</label>
+                                        <div class="input-group">
+                                            <input class="form-control" id="EmailId" type="email"
+                                                placeholder="Enter your email address" name="EmailId"
+                                                [(ngModel)]="formObj.EmailId" [disabled]="!isEditable" required>
+                                            <button (click)="toggleEdit('EmailId')" class="btn-edit" type="button">
+                                                <i class="bi bi-pencil-square EmailId"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label class="small mb-1" for="Address1">Address</label>
-                                    <input class="form-control" id="Address1" type="text"
-                                        placeholder="Enter your location" name="Address1" [(ngModel)]="formObj.Address1"
-                                        required>
+                                    <label class="small" for="Address1">Address</label>
+                                    <div class="input-group">
+                                        <input class="form-control" id="Address1" type="text"
+                                            placeholder="Enter your location" name="Address1"
+                                            [(ngModel)]="formObj.Address1" [disabled]="!isEditable" required>
+                                        <button (click)="toggleEdit('Address1')" class="btn-edit" type="button">
+                                            <i class="bi bi-pencil-square Address1"></i>
+                                        </button>
+                                    </div>
                                 </div>
 
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-6">
-                                        <label class="small mb-1" for="DematAcName">Depository Name</label>
-                                        <input class="form-control" id="DematAcName" type="tel"
-                                            placeholder="Enter your Depository Name" name="DematAcName"
-                                            [(ngModel)]="formObj.DematAcName" required>
+                                        <label class="small" for="DematAcName">Depository Name</label>
+                                        <div class="input-group">
+                                            <input class="form-control" id="DematAcName" type="tel"
+                                                placeholder="Enter your Depository Name" name="DematAcName"
+                                                [(ngModel)]="formObj.DematAcName" [disabled]="!isEditable" required>
+                                            <button (click)="toggleEdit('DematAcName')" class="btn-edit" type="button">
+                                                <i class="bi bi-pencil-square DematAcName"></i>
+                                            </button>
+                                        </div>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <label class="small mb-1" for="DematAcNo">Demat Account Number</label>
-                                        <input class="form-control" id="DematAcNo" type="text" name="DematAcNo"
-                                            placeholder="Enter your Demat Account Number"
-                                            [(ngModel)]="formObj.DematAcNo" required>
+                                        <label class="small" for="DematAcNo">Demat Account Number</label>
+                                        <div class="input-group">
+                                            <input class="form-control" id="DematAcNo" type="text" name="DematAcNo"
+                                                placeholder="Enter your Demat Account Number"
+                                                [(ngModel)]="formObj.DematAcNo" [disabled]="!isEditable" required>
+                                            <button (click)="toggleEdit('DematAcNo')" class="btn-edit" type="button">
+                                                <i class="bi bi-pencil-square DematAcNo"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade mt-3" id="segments" role="tabpanel"
                                 aria-labelledby="segments-tab">
-                                <p>Activate the segments you would like to trade in</p>
-                                <h5>Opted Segments</h5>
+                                <p>Activate or deactivate trading segments on your account. Once a segment is
+                                    deactivated, <br> it cannot be activated for the next 12 hours</p>
+                                <h5>Manage segments</h5>
                                 <div class="row">
-                                    <div class="col-md-4" *ngFor="let data of profileData.SegmentMaster">
-                                        <div class="card p-3" style="border: 1px solid !important;">
-                                            <div class="card-block">
-                                                <h4 class="card-title pt-2">{{data.SegmentName}}</h4>
-                                                <span class="card-text p-y-1 badge bg-primary">{{data.ExchangeID}}</span>
+                                    <ng-container *ngIf="profileData && profileData.SegmentMaster">
+                                        <div class="col-md-4" *ngFor="let data of profileData.SegmentMaster">
+                                            <div class="card p-3" style="border: 1px solid !important;">
+                                                <div class="card-block">
+                                                    <h4 class="card-title pt-2">{{data.SegmentName}}</h4>
+                                                    <span
+                                                        class="card-text p-y-1 badge bg-primary">{{data.ExchangeID}}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </ng-container>
                                 </div>
                             </div>
                             <div class="tab-pane fade mt-3" id="bank-details" role="tabpanel"
                                 aria-labelledby="bank-details-tab">
                                 <div class="row">
-                                    <div class="col col-md-9 col-lg-7 col-xl-5"
-                                        *ngFor="let bank of profileData.BankDetail;let i = index">
-                                        <div class="card" style="border-radius: 15px; background-color: #f6f9ff;">
-                                            <div class="card-body p-4 text-black">
-                                                <div>
-                                                    <div class="d-flex align-items-center justify-content-between mb-3">
-                                                        <p class="small mb-0">BANK{{i + 1}}</p>
-                                                        <p class="fw-bold mb-0 badge bg-primary">Primary </p>
+                                    <ng-container *ngIf="profileData && profileData.BankDetail">
+                                        <div class="col col-md-9 col-lg-7 col-xl-5"
+                                            *ngFor="let bank of profileData.BankDetail;let i = index">
+                                            <div class="card" style="border-radius: 15px; background-color: #f6f9ff;">
+                                                <div class="card-body p-4 text-black">
+                                                    <div>
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-between mb-2">
+                                                            <p class="small mb-0">BANK{{i + 1}}</p>
+                                                            <p class="fw-bold mb-0 badge bg-primary">Primary </p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="d-flex align-items-center mb-4">
-                                                    <div class="flex-shrink-0">
-                                                        <img src="../../../assets/images/dummyBank.png"
-                                                            alt="Generic placeholder image"
-                                                            class="img-fluid border border-dark border-3" style="    width: 70px;
+                                                    <div class="d-flex align-items-center mb-4">
+                                                        <div class="flex-shrink-0">
+                                                            <img src="../../../assets/images/dummyBank.png"
+                                                                alt="Generic placeholder image"
+                                                                class="img-fluid border border-dark border-3" style="    width: 70px;
                                                             height: 70px;
                                                             border-radius: 13px; background-color: white;">
-                                                    </div>
-                                                    <div class="flex-grow-1 ms-3">
-                                                        <div class="d-flex flex-row align-items-center mb-2">
-                                                            <p class="mb-0 me-2">{{bank.BankName}}</p>
                                                         </div>
-                                                        <div>
-                                                            ************4500
+                                                        <div class="flex-grow-1 ms-3">
+                                                            <div class="d-flex flex-row align-items-center mb-2">
+                                                                <p class="mb-0 me-2">{{bank.BankName}}</p>
+                                                            </div>
+                                                            <div>
+                                                                ************4500
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <hr>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <p class="mt-4 pb-1">IFSC</p>
-                                                        <p>{{bank.BankIFSC}}</p>
-                                                    </div>
-                                                    <div class="col-md-6 text-end">
-                                                        <p class="mt-4 pb-1">MICR</p>
-                                                        <p>{{bank.BankMICR}}</p>
+                                                    <hr>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <p class="mt-4 pb-1">IFSC</p>
+                                                            <p>{{bank.BankIFSC}}</p>
+                                                        </div>
+                                                        <div class="col-md-6 text-end">
+                                                            <p class="mt-4 pb-1">MICR</p>
+                                                            <p>{{bank.BankMICR}}</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </ng-container>
                                 </div>
                                 <div class="">
                                     <button class="btn btn-primary" data-bs-toggle="modal"
@@ -202,11 +255,13 @@
                                 <h3>Account Closure</h3>
                                 <div class="ps-2">
                                     <p class="mt-4" style="font-size: 20px;">If you close your account, you won't be
-                                        able to trade with G-Stax</p>
-                                    <p>To reopen your account, you'll have to complete the KYC process again and will
+                                        able to trade with G-Stox</p>
+                                    <p>To reopen your account, you'll have to complete the KYC process again and
+                                        will
                                         get new Demat account</p>
-                                    <div class="mb-3">
-                                        <label for="formFile" class="form-label">Why do you wise to close your account?
+                                    <div class="mb-2">
+                                        <label for="formFile" class="form-label">Why do you wise to close your
+                                            account?
                                             <sup class="text-danger">*</sup>
                                         </label>
                                         <select
