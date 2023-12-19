@@ -162,19 +162,30 @@
                                 <p>Activate or deactivate trading segments on your account. Once a segment is
                                     deactivated, <br> it cannot be activated for the next 12 hours</p>
                                 <h5>Manage segments</h5>
-                                <div class="row">
-                                    <ng-container *ngIf="profileData && profileData.SegmentMaster">
-                                        <div class="col-md-4" *ngFor="let data of profileData.SegmentMaster">
-                                            <div class="card p-3" style="border: 1px solid !important;">
-                                                <div class="card-block">
-                                                    <h4 class="card-title pt-2">{{data.SegmentName}}</h4>
-                                                    <span
-                                                        class="card-text p-y-1 badge bg-primary">{{data.ExchangeID}}</span>
+                                <ng-container *ngIf="profileData && profileData.SegmentMaster">
+                                    <div class="row">
+                                        <ng-container *ngFor="let data of profileData.SegmentMaster;let i = index">
+                                            <div class="col-md-4 px-2">
+                                                <div class="card p-3 mb-2"
+                                                    style="border: 1px solid !important;flex-direction: row;flex-wrap: nowrap;justify-content: space-between;">
+                                                    <div class="card-block">
+                                                        <span
+                                                            class="card-text p-y-1 badge bg-primary">{{data.ExchangeID}}</span>
+                                                        <h4 class="card-title pt-2 d-inline"> - {{data.SegmentName}}
+                                                        </h4>
+                                                    </div>
+                                                    <p>
+                                                        <input type="checkbox" id="switch{{i}}" switch="bool"
+                                                            (change)="toggleVisibility($event,i)"
+                                                            [checked]="data.checked" />
+                                                        <label *ngIf="!data.checked" for="switch{{i}}">Off</label>
+                                                        <label *ngIf="data.checked" for="switch{{i}}">On</label>
+                                                    </p>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </ng-container>
-                                </div>
+                                        </ng-container>
+                                    </div>
+                                </ng-container>
                             </div>
                             <div class="tab-pane fade mt-3" id="bank-details" role="tabpanel"
                                 aria-labelledby="bank-details-tab">

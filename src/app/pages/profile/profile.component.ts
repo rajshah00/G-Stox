@@ -19,6 +19,7 @@ export class ProfileComponent implements OnInit {
   }
   stroge: any = JSON.parse(localStorage.getItem("isLoggedIn") || '')
   profileData: any;
+  changeType: any;
   constructor(public service: ApiServiceService) {
     // this.profileData = {
     //   "MasterData": [],
@@ -292,7 +293,16 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.service.getProfile(this.stroge.username).subscribe((res: any) => {
       console.log("res", res)
-      this.profileData = res;
+      // this.profileData = res;
+      for (let i in this.profileData.SegmentMaster) {
+        if (this.profileData.SegmentMaster[i].TradingAllow == 'Y') {
+          this.profileData.SegmentMaster[i].checked = true;
+        } else {
+          this.profileData.SegmentMaster[i].checked = false;
+        }
+      }
+      console.log("this.profileData.SegmentMaster", this.profileData.SegmentMaster);
+
     }, (err: any) => {
       console.log("err", err)
     })
@@ -327,6 +337,15 @@ export class ProfileComponent implements OnInit {
 
   onSubmit(data: any) {
     console.log("data", data)
+  }
+
+  toggleVisibility(e: any, ind: any) {
+    console.log("ind", ind);
+
+    this.profileData.SegmentMaster[ind].checked = e.target.checked;
+    this.changeType = e.target.checked;
+    console.log("this.profileData", this.profileData);
+
   }
 
   toggleEdit(targetId: any) {
