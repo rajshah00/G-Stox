@@ -293,7 +293,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.service.getProfile(this.stroge.username).subscribe((res: any) => {
       console.log("res", res)
-      // this.profileData = res;
+      this.profileData = res;
       for (let i in this.profileData.SegmentMaster) {
         if (this.profileData.SegmentMaster[i].TradingAllow == 'Y') {
           this.profileData.SegmentMaster[i].checked = true;
