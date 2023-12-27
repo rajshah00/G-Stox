@@ -40,7 +40,7 @@ const routes: Routes = [
       },
       // reports starts
       {
-        path: 'ledger',
+        path: 'equity-bill-summary',
         component: EquityBillsSummaryComponent
       }, {
         path: 'equity-trade-confirmation',
@@ -93,6 +93,9 @@ const routes: Routes = [
       }, {
         path: 'profile',
         component: ProfileComponent
+      }, {
+        path: 'FinancialLedger',
+        component: FinancialLedgerComponent
       }
     ]
   }
