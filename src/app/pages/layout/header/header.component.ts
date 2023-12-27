@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 declare var $: any;
 
 @Component({
@@ -8,7 +9,7 @@ declare var $: any;
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() {
+  constructor(public router: Router) {
 
   }
 
@@ -16,8 +17,9 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  showHide() {
-    $("body").toggleClass("toggle-sidebar");
+  logOut() {
+    localStorage.clear();
+    this.router.navigate(['/login'])
   }
 
 }

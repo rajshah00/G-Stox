@@ -154,11 +154,11 @@ h6 {
 @media (min-width: 768px) {
   .dropdown-menu-arrow::before {
     content: "";
-    width: 13px;
-    height: 13px;
+    width: 23px;
+    height: 23px;
     background: #fff;
     position: absolute;
-    top: -7px;
+    top: -12px;
     right: 20px;
     transform: rotate(45deg);
     border-top: 1px solid #eaedf1;
@@ -468,9 +468,9 @@ h6 {
 }
 
 .header-nav .nav-icon {
-  font-size: 22px;
+  // font-size: 22px;
   color: #012970;
-  margin-right: 25px;
+  // margin-right: 25px;
   position: relative;
 }
 
@@ -497,13 +497,13 @@ h6 {
 }
 
 .header-nav .notifications {
-  inset: 8px -15px auto auto !important;
+  inset: 23px -3px auto auto !important
 }
 
 .header-nav .notifications .notification-item {
   display: flex;
   align-items: center;
-  padding: 15px 10px;
+  padding: 5px 21px;
   transition: 0.3s;
 }
 
@@ -631,13 +631,13 @@ h6 {
   background-color: #aab7cf;
 }
 
-@media (min-width: 1200px) {
+// @media (min-width: 1200px) {
 
-  #main,
-  #footer {
-    margin-left: 260px;
-  }
-}
+//   #main,
+//   #footer {
+//     margin-left: 260px;
+//   }
+// }
 
 @media (max-width: 1199px) {
   .toggle-sidebar .sidebar {

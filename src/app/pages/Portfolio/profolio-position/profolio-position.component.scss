@@ -20,7 +20,7 @@
 }
 
 th,td {
-    font-size: 12px;
+    font-size: 13px;
 }
 
 
@@ -28,20 +28,20 @@ th,td {
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #aab7cf transparent;
-  }
-  
-  @media (max-width: 1199px) {
+}
+
+@media (max-width: 1199px) {
     .table-responsive {
-      left: -260px;
+        left: -260px;
     }
-  }
-  
-  .table-responsive::-webkit-scrollbar {
+}
+
+.table-responsive::-webkit-scrollbar {
     width: 5px;
     height: 5px;
     background-color: #fff;
-  }
-  
-  .table-responsive::-webkit-scrollbar-thumb {
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
     background-color: #aab7cf;
-  }
+}

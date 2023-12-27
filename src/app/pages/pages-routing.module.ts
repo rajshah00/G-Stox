@@ -11,24 +11,23 @@ import { EquityPAndLReportComponent } from './Reports/equity-p-and-l-report/equi
 import { DerivativePAndLReportComponent } from './Reports/derivative-p-and-l-report/derivative-p-and-l-report.component';
 import { YearEndReportComponent } from './Reports/year-end-report/year-end-report.component';
 import { MtfDetailStatementComponent } from './Reports/mtf-detail-statement/mtf-detail-statement.component';
-import { HoldingComponent } from './holding/holding.component';
+import { HoldingComponent } from './Portfolio/holding/holding.component';
 import { NetPositionDerivativeComponent } from './Net-Position/net-position-derivative/net-position-derivative.component';
 import { DerivativeTradeReportComponent } from './Net-Position/derivative-trade-report/derivative-trade-report.component';
 import { EquityTradeReportComponent } from './Net-Position/equity-trade-report/equity-trade-report.component';
 import { ClientWiseOpenPositionComponent } from './Net-Position/client-wise-open-position/client-wise-open-position.component';
 import { FinancialLedgerComponent } from './financial-ledger/financial-ledger.component';
-import { ShortCashColletralRequestComponent } from './RMS/short-cash-colletral-request/short-cash-colletral-request.component';
-import { ExchangeRePledgeReportComponent } from './RMS/exchange-re-pledge-report/exchange-re-pledge-report.component';
-import { BuyBackComponent } from './Request/buy-back/buy-back.component';
-import { ACHRequestComponent } from './Request/achrequest/achrequest.component';
-import { MarginPledgeComponent } from './Request/margin-pledge/margin-pledge.component';
-import { KYCModificationRequestLetterComponent } from './Request/kycmodification-request-letter/kycmodification-request-letter.component';
+import { BuyBackComponent } from './Tender-Offer/buy-back/buy-back.component';
+import { ACHRequestComponent } from './Tender-Offer/achrequest/achrequest.component';
+import { MarginPledgeComponent } from './Tender-Offer/margin-pledge/margin-pledge.component';
+import { KYCModificationRequestLetterComponent } from './Tender-Offer/kycmodification-request-letter/kycmodification-request-letter.component';
 import { ContractNoteComponent } from './Download/contract-note/contract-note.component';
 import { ClientMasterComponent } from './NSDL Reports/client-master/client-master.component';
 import { TransactionComponent } from './NSDL Reports/transaction/transaction.component';
 import { NSDLFinancialComponent } from './NSDL Reports/nsdl-financial/nsdl-financial.component';
 import { NSDLHoldingComponent } from './NSDL Reports/nsdl-holding/nsdl-holding.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ProfolioPositionComponent } from './Portfolio/profolio-position/profolio-position.component';
 
 const routes: Routes = [
   {
@@ -38,8 +37,10 @@ const routes: Routes = [
       {
         path: '',
         component: DashboardComponent
-      }, {
-        path: 'bill-summary-equity',
+      },
+      // reports starts
+      {
+        path: 'ledger',
         component: EquityBillsSummaryComponent
       }, {
         path: 'equity-trade-confirmation',
@@ -47,28 +48,22 @@ const routes: Routes = [
       }, {
         path: 'equity-transaction-ledger',
         component: EquityTransactionLedgerComponent
-      }, {
-        path: 'bill-summary-derivative',
-        component: DerivativeBillsSummaryComponent
-      }, {
-        path: 'pl-statement',
-        component: DerivativePAndLStatementComponent
-      }, {
+      },
+      // reports end
+      {
         path: 'long-short',
         component: EquityPAndLReportComponent
-      }, {
-        path: 'FIFO-net-position',
-        component: DerivativePAndLReportComponent
-      }, {
-        path: 'year-end-report',
-        component: YearEndReportComponent
-      }, {
-        path: 'MTF-detail-statement',
-        component: MtfDetailStatementComponent
-      }, {
+      },
+      // Profolio start
+      {
         path: 'holding',
         component: HoldingComponent
       }, {
+        path: 'position',
+        component: ProfolioPositionComponent
+      },
+      // Profolio end
+      {
         path: 'net-position-derivative',
         component: NetPositionDerivativeComponent
       }, {
@@ -78,35 +73,14 @@ const routes: Routes = [
         path: 'equity-trade-report',
         component: EquityTradeReportComponent
       }, {
-        path: 'clientwis-open-position',
-        component: ClientWiseOpenPositionComponent
-      }, {
-        path: 'financial-ledger',
-        component: FinancialLedgerComponent
-      }, {
-        path: 'short-cash',
-        component: ShortCashColletralRequestComponent
-      }, {
-        path: 'exchange-re-pledge',
-        component: ExchangeRePledgeReportComponent
-      }, {
         path: 'buy-back',
         component: BuyBackComponent
       }, {
         path: 'ACH-request',
         component: ACHRequestComponent
       }, {
-        path: 'margin-pledge',
-        component: MarginPledgeComponent
-      }, {
-        path: 'KYC-modification',
-        component: KYCModificationRequestLetterComponent
-      }, {
         path: 'contract-note',
         component: ContractNoteComponent
-      }, {
-        path: 'client-profile',
-        component: ClientMasterComponent
       }, {
         path: 'transaction',
         component: TransactionComponent
