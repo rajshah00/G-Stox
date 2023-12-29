@@ -76,40 +76,40 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="whitebg">
-                        <td>01/04/2023</td>
-                        <td>01/04/2023</td>
-                        <td>ALL</td>
-                        <td>ALL </td>
-                        <td>***Opening Balance</td>
-                        <td></td>
-                        <td></td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
+                    <tr *ngFor="let row of FinancialList" class="whitebg">
+                        <td>{{row.ValueDate}}</td>
+                        <td>{{row.VoucherDate}}</td>
+                        <td>{{row.Exchange}}</td>
+                        <td>{{row.Segment}}</td>
+                        <td>{{row.Narration}}</td>
+                        <td>{{row.BillNo}}</td>
+                        <td>{{row.ReferenceNo}}</td>
+                        <td>{{row.Debit | number : '1.2-2'}}</td>
+                        <td>{{row.Credit | number : '1.2-2'}}</td>
+                        <td>{{row.RunningBalance | number : '1.2-2'}}</td>
                     </tr>
                 </tbody>
-                <tfoot>
+                <tfoot *ngIf="FinancialList.length > 0">
                     <tr>
                         <td colspan="7" class="">Total</td>
-                        <td>0.00</td>
-                        <td>0.00</td>
-                        <td id="RunnBalance">0.00</td>
+                        <td>{{TotalDebit | number : '1.2-2'}}</td>
+                        <td>{{TotalCredit | number : '1.2-2'}}</td>
+                        <td id="RunnBalance">{{TotaRunningBalance | number : '1.2-2'}}</td>
                     </tr>
                     <tr>
                         <td colspan="8" class="greybg">&nbsp;</td>
                         <td>Unrelease Voucher</td>
-                        <td>0.00</td>
+                        <td>{{TotalUnreleaseVoucher | number : '1.2-2'}}</td>
                     </tr>
                     <tr>
                         <td colspan="8" class="pinkbg">&nbsp;</td>
                         <td>UnReco Voucher</td>
-                        <td>0.00</td>
+                        <td>{{TotalUnRecoVoucher | number : '1.2-2'}}</td>
                     </tr>
                     <tr>
                         <td colspan="8" class="">&nbsp;</td>
                         <td>Clear Balance</td>
-                        <td id="UnReco">0.00</td>
+                        <td id="UnReco">{{TotalClearBalance | number : '1.2-2'}}</td>
                     </tr>
                 </tfoot>
             </table>

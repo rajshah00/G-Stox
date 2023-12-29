@@ -11,8 +11,15 @@ import { AuthInterceptor } from 'src/app/services/auth-interceptor.service';
 })
 export class FinancialLedgerComponent implements OnInit {
   public financialGroup: FormGroup | any;
+  public TotalDebit = 0;
+  public TotalCredit = 0;
+  public TotaRunningBalance = 0;
+  public TotalUnreleaseVoucher = 0;
+  public TotalUnRecoVoucher = 0;
+  public TotalClearBalance = 0;
   dropdownList: any = [];
   selectedItems: any = [];
+  FinancialList: any = [];
   dropdownSettings: IDropdownSettings = {};
   authToken = JSON.parse(localStorage.getItem('isLoggedIn') || '')
   constructor(public service: ApiServiceService, public auth: AuthInterceptor) {
@@ -42,10 +49,10 @@ export class FinancialLedgerComponent implements OnInit {
     this.financialGroup = new FormGroup({
       FirmID: new FormControl(this.auth.firm_id, Validators.required),
       AccountID: new FormControl(this.authToken.username, Validators.required),
-      FromDate: new FormControl('', Validators.required),
-      ToDate: new FormControl('', Validators.required),
-      Exchange: new FormControl('', Validators.required),
-      Segment: new FormControl('', Validators.required),
+      FromDate: new FormControl('2023-01-01', Validators.required),
+      ToDate: new FormControl('2024-01-01', Validators.required),
+      Exchange: new FormControl('ALL', Validators.required),
+      Segment: new FormControl('ALL', Validators.required),
       // Product: new FormControl('', Validators.required),
       FinancialFilter: new FormControl('QUxMLEVYX01BUkdJTixFWF9FUEFZSU4sRVhfQ0FTSE1HTixFWF9DUk9T', Validators.required),
     });
@@ -66,7 +73,11 @@ export class FinancialLedgerComponent implements OnInit {
   public save() {
     if (this.financialGroup.valid) {
       this.service.getFinancialLedger(this.financialGroup.value).subscribe((res: any) => {
-        console.log("res", res)
+        console.log("res", res);
+        if (res) {
+          console.log('res.Financial',res.Financial);
+          this.FinancialList = res.Financial;
+        }
       }, (err: any) => {
         console.log("err", err)
       })

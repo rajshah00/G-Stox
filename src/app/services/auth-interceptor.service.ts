@@ -14,6 +14,9 @@ export class AuthInterceptor implements HttpInterceptor {
   // financial_year: any = "2019 - 2020";
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log("request",request);
+    console.log("this.token",this.token);
+    
     if (this.token) {
       request = request.clone({
         setHeaders: {
