@@ -1,0 +1,34 @@
+<section class="stox-card">
+    <h1 class="text-center stox-title">Fund Withdrawal</h1>
+    <ng-container>
+        <form class="row g-3 mb-3" [formGroup]="WithdrawalGroup" (ngSubmit)="save()">
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <td>Bank Detail</td>
+                    <td>Bank Name</td>
+                </tr>
+                <tr>
+                    <td><label>Client Code</label></td>
+                    <td><label>D5422</label></td>
+                </tr>    
+                <tr>
+                    <td><label>Client Name</label></td>
+                    <td><label>DEVANG R GANDHI</label></td>
+                </tr>  
+                <tr>
+                    <td><label>Available Amount</label></td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td><label for="Request Amount   " class="form-label">Request Amount   </label></td>
+                    <td><input class="form-control" id="Amount" name="Amount" [formControl]="f.Amount"></td>
+                </tr>    
+                <tr>
+                    <td> <label for="Remark" class="form-label">Remarks</label></td>
+                    <td><input class="text-left input-sm" id="Remark" name="Remark" [formControl]="f.Remark"></td>
+                </tr>    
+                <tr><td><button type="submit" class="btn btn-primary">Save</button><button type="submit" class="btn btn-primary">Status</button></td></tr>
+            </table>    
+        </form>
+    </ng-container>
+</section>

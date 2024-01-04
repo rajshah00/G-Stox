@@ -8,7 +8,7 @@ declare var $: any;
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  public LoginUsername = 'test';
   constructor(public router: Router) {
 
   }

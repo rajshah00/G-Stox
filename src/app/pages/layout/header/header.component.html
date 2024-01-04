@@ -23,7 +23,7 @@
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
           <li class="notification-item">
-            <a routerLinkActive='active' routerLink="/home/position">
+            <a routerLinkActive='active' routerLink="/home/net-position-derivative">
               <span>Position</span>
             </a>
           </li>
@@ -63,7 +63,39 @@
           </li>
         </ul>
       </li>
+      <li class="nav-item dropdown d-md-block d-sm-none">
+        <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+          <span class="">Funds</span>
+        </a>
 
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+          <li class="notification-item">
+            <a routerLinkActive='active' routerLink="/home/add-funds">
+              <span>Add Funds</span>
+            </a>
+          </li>
+
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li class="notification-item">
+            <a routerLinkActive='active' routerLink="/home/withdrawal">
+              <span>Withdrawal</span>
+            </a>
+          </li>
+
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+
+          <li class="notification-item">
+            <a routerLinkActive='active' routerLink="/home/FinancialLedger">
+              <span>Ledger</span>
+            </a>
+          </li>
+        </ul>
+      </li>
       <li class="nav-item dropdown d-md-block d-sm-none">
         <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
           <span class="">Reports</span>
@@ -81,7 +113,7 @@
           </li>
 
           <li class="notification-item">
-            <a routerLinkActive='active' routerLink="/home/equity-trade-confirmation">
+            <a routerLinkActive='active' routerLink="/home/net-position-derivative">
               <span>Position</span>
             </a>
           </li>
@@ -91,7 +123,7 @@
           </li>
 
           <li class="notification-item">
-            <a routerLinkActive='active' routerLink="/home/equity-transaction-ledger">
+            <a routerLinkActive='active' routerLink="/home/holding">
               <span>Holding</span>
             </a>
           </li>
@@ -105,43 +137,19 @@
               <span>P&L Report</span>
             </a>
           </li>
-
-        </ul>
-      </li>
-
-      <li class="nav-item dropdown d-md-block d-sm-none">
-        <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-          <span class="">Funds</span>
-        </a>
-
-        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
-          <li class="notification-item">
-            <a routerLinkActive='active' routerLink="/home/derivative-trade-report">
-              <span>Add Funds</span>
-            </a>
-          </li>
-
           <li>
             <hr class="dropdown-divider">
           </li>
-
           <li class="notification-item">
-            <a routerLinkActive='active' routerLink="/home/net-position-derivative">
-              <span>Withdrawal</span>
+            <a class="nav-link collapsed" routerLinkActive='active' routerLink="/home/FIFONetPosition">
+              <span>Derivative P&L Report</span>
             </a>
           </li>
-
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-
-          <li class="notification-item">
-            <a routerLinkActive='active' routerLink="/home/equity-trade-report">
-              <span>Ledger</span>
-            </a>
-          </li>
+          
         </ul>
       </li>
+
+      
 
       <li class="nav-item dropdown d-md-block d-sm-none">
         <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
@@ -212,7 +220,7 @@
 
         <a class="nav-link nav-profile d-flex align-items-center pe-0 side-border" href="#" data-bs-toggle="dropdown">
           <img src="../../../assets/images/user-img.png" alt="Profile" class="rounded-circle">
-          <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+          <span class="d-none d-md-block dropdown-toggle ps-2">{{LoginUsername}}</span>
         </a>
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
           <li class="dropdown-header">

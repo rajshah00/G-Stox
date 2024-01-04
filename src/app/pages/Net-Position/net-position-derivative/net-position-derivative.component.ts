@@ -15,16 +15,16 @@ export class NetPositionDerivativeComponent implements OnInit {
 
   ngOnInit(): void {
     this.netPositionGroup = new FormGroup({
-      FromDate: new FormControl('', Validators.required),
-      ToDate: new FormControl('', Validators.required),
-      Exchange: new FormControl('', Validators.required),
-      Segment: new FormControl('', Validators.required),
-      ScripCode: new FormControl('', Validators.required),
-      SettlementNo: new FormControl('', Validators.required),
-      SettlementType: new FormControl('', Validators.required),
-      JDFlag: new FormControl('A', Validators.required),
-      ReportSelection: new FormControl('CLIENT_SCRIP', Validators.required),
-      ReportType: new FormControl('CLIENT', Validators.required),
+      FirmID: new FormControl(this.auth.firm_id, Validators.required),
+      AccountID: new FormControl(this.authToken.username, Validators.required),
+      Exchange: new FormControl('NSE', Validators.required),
+      Segment: new FormControl('FNO', Validators.required),
+      AsOnDate: new FormControl(this.service.getCurrentDate(), Validators.required),
+      Instrument: new FormControl(''),
+      Symbol: new FormControl(''),
+      ExpiryDate: new FormControl(''),
+      StrikePrice: new FormControl(''),
+      OptionType: new FormControl(''),
     });
   }
 

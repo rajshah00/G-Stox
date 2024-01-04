@@ -37,6 +37,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from '../services/auth-interceptor.service';
 import { ProfolioPositionComponent } from './Portfolio/profolio-position/profolio-position.component';
 
+import { AddFundsComponent } from './funds/add-funds/add-funds.component';
+import { WithdrawalComponent } from './funds/withdrawal/withdrawal.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { ProfolioPositionComponent } from './Portfolio/profolio-position/profoli
     NSDLFinancialComponent,
     ProfileComponent,
     ProfolioPositionComponent,
+    AddFundsComponent,
+    WithdrawalComponent
   ],
   imports: [
     CommonModule,

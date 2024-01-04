@@ -12,18 +12,14 @@
                 <input type="date" class="form-control" id="to" [formControl]="f.ToDate">
             </div>
             <div class="col-md-3">
-                <label for="inputPassword4" class="form-label">Rate Date</label>
-                <input type="date" class="form-control" id="to" [formControl]="f.RateDate">
-            </div>
-            <div class="col-md-3">
-                <label for="inputPassword4" class="form-label">On Market Rate</label>
-                <input type="text" class="form-control" id="to" [formControl]="f.OnMarketRate ">
-            </div>
-            <div class="col-md-3 form-check mt-2 ms-2">
-                <label class="form-check-label" for="gridCheck">
-                    Date Range Flag
-                </label>
-                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <div class="form-check">
+                    <div class="mt-2">
+                        <label class="form-check-label" for="gridCheck">
+                            Date Range Flag
+                        </label>
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                    </div>
+                </div>
             </div>
             <div class="col-12 text-end mt-0">
                 <button type="submit" class="btn btn-primary">Run</button>

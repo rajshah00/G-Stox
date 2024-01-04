@@ -28,6 +28,8 @@ import { NSDLFinancialComponent } from './NSDL Reports/nsdl-financial/nsdl-finan
 import { NSDLHoldingComponent } from './NSDL Reports/nsdl-holding/nsdl-holding.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfolioPositionComponent } from './Portfolio/profolio-position/profolio-position.component';
+import { AddFundsComponent } from './funds/add-funds/add-funds.component';
+import { WithdrawalComponent } from './funds/withdrawal/withdrawal.component';
 
 const routes: Routes = [
   {
@@ -53,6 +55,10 @@ const routes: Routes = [
       {
         path: 'long-short',
         component: EquityPAndLReportComponent
+      },
+      {
+        path: 'FIFONetPosition',
+        component: DerivativePAndLReportComponent
       },
       // Profolio start
       {
@@ -96,6 +102,12 @@ const routes: Routes = [
       }, {
         path: 'FinancialLedger',
         component: FinancialLedgerComponent
+      }, {
+       path: 'add-funds',
+       component: AddFundsComponent
+      }, {
+        path: 'withdrawal',
+        component: WithdrawalComponent
       }
     ]
   }

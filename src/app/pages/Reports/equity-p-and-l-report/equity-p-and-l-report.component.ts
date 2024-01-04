@@ -17,10 +17,8 @@ export class EquityPAndLReportComponent implements OnInit {
     this.longShortGroup = new FormGroup({
       FirmID: new FormControl(this.auth.firm_id, Validators.required),
       AccountID: new FormControl(this.authToken.username, Validators.required),
-      FromDate: new FormControl('', Validators.required),
+      FromDate: new FormControl(this.service.getCurrentDate(), Validators.required),
       ToDate: new FormControl(this.service.getCurrentDate(), Validators.required),
-      RateDate: new FormControl('', Validators.required),
-      OnMarketRate: new FormControl('', Validators.required),
     });
   }
 

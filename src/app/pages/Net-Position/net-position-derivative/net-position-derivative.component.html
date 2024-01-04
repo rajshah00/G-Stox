@@ -4,14 +4,6 @@
     <ng-container>
         <form class="row g-3 mb-3" [formGroup]="netPositionGroup" (ngSubmit)="save()">
             <div class="col-md-3">
-                <label for="inputPassword4" class="form-label">From Date</label>
-                <input type="date" class="form-control" id="from" [formControl]="f.FromDate">
-            </div>
-            <div class="col-md-3">
-                <label for="inputPassword4" class="form-label">To Date</label>
-                <input type="date" class="form-control" id="to" [formControl]="f.ToDate">
-            </div>
-            <div class="col-md-3">
                 <label for="inputState" class="form-label">Exchange</label>
                 <select id="inputState" class="form-select" [formControl]="f.Exchange">
                     <option selected value="NSE">NSE</option>
@@ -28,38 +20,47 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <label for="inputPassword4" class="form-label">Scrip Code</label>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" aria-label="Recipient's username"
-                        aria-describedby="button-addon2" [formControl]="f.ScripCode">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
-                </div>
+                <label for="AsOnDate" class="form-label">As On Date</label>
+                <input type="date" class="form-control" id="AsOnDate" [formControl]="f.AsOnDate">
             </div>
             <div class="col-md-3">
-                <label for="inputPassword4" class="form-label">Settlement No</label>
-                <input type="text" class="form-control" id="from" [formControl]="f.SettlementNo">
+                <label for="Instrument" class="form-label">Instrument</label>
+                <select class="form-select" id="Instrument" name="Instrument" [formControl]="f.Instrument">
+                    <option selected="selected" value="ALL">ALL</option>
+                    <option value="FUTURE">FUTURE</option>
+                    <option value="OPTION">OPTION</option>
+                </select>
             </div>
             <div class="col-md-3">
-                <label for="inputPassword4" class="form-label">Settlement Type </label>
-                <input type="text" class="form-control" id="to" [formControl]="f.SettlementType">
+                <label for="Symbol" class="form-label">Symbol</label>
+                <input class="form-control" id="Symbol" name="Symbol" type="text" [formControl]="f.Symbol">
             </div>
             <div class="col-md-3">
-                <div class="form-check mt-3">
-                    <label class="form-check-label" for="potion">
-                        Ignore Zero Position
-                    </label>
-                    <input class="form-check-input" type="checkbox" id="potion">
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label" for="gridCheck">
-                        Quantity In Lot
-                    </label>
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                </div>
+                <label for="ExpiryDate" class="form-label">Expiry Date</label>
+                <input type="date" class="form-control" id="ExpiryDate" [formControl]="f.ExpiryDate">
             </div>
-            <div class="col-12 text-end mt-0">
+            <div class="col-md-3">
+                <label for="StrikePrice" class="form-label">Strike Price</label>
+                <input class="form-control"id="StrikePrice" name="StrikePrice" type="text" [formControl]="f.StrikePrice">
+            </div>
+            <div class="col-md-3">
+                <label for="OptionType" class="form-label">Option type</label>
+                <select class="form-select" id="OptionType" name="OptionType" [formControl]="f.OptionType">
+                    <option selected="selected" value="ALL">ALL</option>
+                    <option value="FF">FF</option>
+                    <option value="CE">CE</option>
+                    <option value="PE">PE</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="IgnoreZeroPosition" class="form-label">Ignore Zero Position</label>
+                &nbsp;&nbsp;&nbsp;<input type="checkbox" name="IgnoreZeroPosition">
+            </div>
+            <div class="col-md-3">
+                <label for="QtyInLot" class="form-label">Quantity In Lot</label>
+                &nbsp;&nbsp;&nbsp;<input name="QtyInLot" id="QtyInLot" type="checkbox">
+            </div>
+            <div class="col-12 text-end">
                 <button type="submit" class="btn btn-primary">Run</button>
             </div>
         </form>

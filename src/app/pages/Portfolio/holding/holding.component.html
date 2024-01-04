@@ -8,10 +8,6 @@
                 <input type="date" class="form-control" id="to" [formControl]="f.AsOnDate">
             </div>
             <div class="col-md-3">
-                <label for="inputPassword4" class="form-label">Rate Date</label>
-                <input type="date" class="form-control" id="to" [formControl]="f.RateDate">
-            </div>
-            <div class="col-md-3">
                 <label for="inputPassword4" class="form-label">Scrip Code</label>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" aria-label="Recipient's username"
@@ -21,9 +17,9 @@
                     </button>
                 </div>
             </div>
-            <!-- <div class="col-md-6 mt-0">
-                <label for="inputState" class="form-label">Variance Type</label>
-                <select id="inputState" class="form-select">
+            <div class="col-md-3">
+                <label for="Type" class="form-label">Variance Type</label>
+                <select class="form-select" id="Type" name="Type" [formControl]="f.Type">
                     <option selected value="VARELM">VARELM</option>
                     <option value="MEMBER">MEMBER</option>
                     <option value="MEMVAR">MEMVAR</option>
@@ -32,13 +28,13 @@
                     <option value="VAR">VAR</option>
                 </select>
             </div>
-            <div class="col-md-6 mt-0">
-                <label for="inputState" class="form-label">Excel Format</label>
-                <select id="inputState" class="form-select">
+            <div class="col-md-3">
+                <label for="ExcelFormatType" class="form-label">Excel Format</label>
+                <select class="form-select" id="ExcelFormatType" name="ExcelFormatType" [formControl]="f.ExcelFormatType">
                     <option selected value="CLIENT">CLIENT</option>
                     <option value="PLANE">PLANE</option>
                 </select>
-            </div> -->
+            </div> 
             <div class="col-md-3">
                 <button type="submit" style="margin-top: 27px;" class="btn btn-primary">Run</button>
             </div>
