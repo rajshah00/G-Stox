@@ -11,6 +11,10 @@ import { AuthInterceptor } from 'src/app/services/auth-interceptor.service';
 export class HoldingComponent implements OnInit {
   public holdingGroup: FormGroup | any;
   authToken = JSON.parse(localStorage.getItem('isLoggedIn') || '')
+  public TotalMarginPledgeVal = 0;
+  public TotalHoldingValue = 0;
+  public TotalValueAfterVAR = 0;
+  public TotalNotionalPNL = 0;
   holdingData: any;
   constructor(public service: ApiServiceService, public auth: AuthInterceptor) { }
 
@@ -36,8 +40,10 @@ export class HoldingComponent implements OnInit {
   public save() {
     if (this.holdingGroup.valid) {
       this.service.getClientHolding(this.holdingGroup.value).subscribe((res: any) => {
-        this.holdingData = res.data
         console.log("res", res)
+        if (res) {
+          this.holdingData = res.data
+        }
       }, (err: any) => {
         console.log("err", err)
       })

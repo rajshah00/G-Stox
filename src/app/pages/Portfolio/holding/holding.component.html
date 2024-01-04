@@ -75,33 +75,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>AIAENG</td>
-                        <td>INE212H01026</td>
-                        <td>0</td>
-                        <td>0 </td>
-                        <td>68 </td>
-                        <td>68.000</td>
-                        <td>3678.85</td>
-                        <td>10.60</td>
-                        <td>Y</td>
-                        <td>NON-CASH</td>
-                        <td>0.00</td>
-                        <td>250161.80</td>
-                        <td>223644.65</td>
-                        <td>3606.30</td>
-                        <td>4933.40</td>
+                    <tr  role="row" *ngFor="let row of holdingData" class="whitebg">    
+                        <td>{{row.SecurityName}}</td>
+                        <td>{{row.ISIN}}</td>
+                        <td>Beneficiary</td>
+                        <td>{{row.Colletral}}</td>
+                        <td>{{row.DPHolding}}</td>
+                        <td>{{row.TotalHolding | number : '1.2-2'}}</td>
+                        <td>{{row.CloseRate | number : '1.2-2'}}</td>
+                        <td>{{row.VARRate | number : '1.2-2'}}</td>
+                        <td>{{row.ApprovedFlag}}</td>
+                        <td>{{row.Category}}</td>
+                        <td>{{row.ColletralHaircutValue | number : '1.2-2'}}</td>
+                        <td>{{row.DPHoldingValue | number : '1.2-2'}}</td>
+                        <td>{{row.TotalHaircutValue | number : '1.2-2'}}</td>
+                        <td>{{row.BuyAvg | number : '1.2-2'}}</td>
+                        <td>{{row.NotionalPNL | number : '1.2-2'}}</td>
                     </tr>
                 </tbody>
-                <tfoot class="table-dark">
+                <tfoot *ngIf="holdingData.length > 0">
                     <tr>
                         <td colspan="7" rowspan="1">&nbsp;</td>
                         <td colspan="3" rowspan="1">Total</td>
-                        <td rowspan="1" colspan="1">0.00</td>
-                        <td rowspan="1" colspan="1">5536133.05</td>
-                        <td rowspan="1" colspan="1">4753886.03</td>
+                        <td rowspan="1" colspan="1">{{TotalMarginPledgeVal | number : '1.2-2'}}</td>
+                        <td rowspan="1" colspan="1">{{TotalHoldingValue | number : '1.2-2'}}</td>
+                        <td rowspan="1" colspan="1">{{TotalValueAfterVAR | number : '1.2-2'}}</td>
                         <td rowspan="1" colspan="1">&nbsp;</td>
-                        <td rowspan="1" colspan="1">519754.65</td>
+                        <td rowspan="1" colspan="1">{{TotalNotionalPNL | number : '1.2-2'}}</td>
                     </tr>
                 </tfoot>
             </table>
