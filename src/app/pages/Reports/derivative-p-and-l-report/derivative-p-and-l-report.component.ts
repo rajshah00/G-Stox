@@ -19,7 +19,7 @@ export class DerivativePAndLReportComponent implements OnInit {
       ToDate: new FormControl(this.service.getCurrentDate(), Validators.required),
       SegmentID: new FormControl('', Validators.required),
       ReportType: new FormControl('', Validators.required),
-      IncludeExpence: new FormControl('Y/N', Validators.required),
+      IncludeExpence: new FormControl('Y', Validators.required),
     });
   }
 
