@@ -1,14 +1,14 @@
 <section class="stox-card">
     <h1 class="text-center stox-title">Contract Note</h1>
     <ng-container>
-        <form class="row g-3">
+        <form class="row g-3" [formGroup]="contractNoteGroup" (ngSubmit)="save()">
             <div class="col-md-3">
                 <label for="inputEmail4" class="form-label">From Date</label>
-                <input type="date" class="form-control" id="From">
+                <input type="date" class="form-control" id="From" [formControl]="f.FromDate">
             </div>
             <div class="col-md-3">
                 <label for="inputPassword4" class="form-label">To Date</label>
-                <input type="date" class="form-control" id="to">
+                <input type="date" class="form-control" id="to" [formControl]="f.ToDate">
             </div>
             <div class="col-md-3">
                 <div style="margin-top: 27px;">
