@@ -34,58 +34,90 @@
             <input type="submit" value="" (click)="Export(2)"
                 class="fa fa-file-pdf-o btn  btn-default btn-block text-danger stox-btn btn-2">
         </div>
-
-        <div class="table-responsive mt-2">
-            <table class="table table-hover table-bordered">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">Client Code</th>
-                        <th scope="col">Client Name</th>
-                        <th scope="col">Trade Date</th>
-                        <th scope="col">Settlement No.</th>
-                        <th scope="col">Settlement Type</th>
-                        <th scope="col">Bill No</th>
-                        <th scope="col">Bill Date</th>
-                        <th scope="col">Bill Amount</th>
-                        <th scope="col">Gross Value</th>
-                        <th scope="col">Total Expenses</th>
-                        <th scope="col">Brokerage</th>
-                        <th scope="col">Clearing Charges/Auct.</th>
-                        <th scope="col">Exchange Charges</th>
-                        <th scope="col">SEBI Charges</th>
-                        <th scope="col">Transaction Charges</th>
-                        <th scope="col">STT Charges</th>
-                        <th scope="col">Stamp Duty</th>
-                        <th scope="col">Demat Charges</th>
-                        <th scope="col">IPF Charge</th>
-                        <th scope="col">GST</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="col">245</th>
-                        <th scope="col">Test</th>
-                        <th scope="col">04/12/2023</th>
-                        <th scope="col">095434</th>
-                        <th scope="col">Cased</th>
-                        <th scope="col">5624789</th>
-                        <th scope="col">3/12/2023</th>
-                        <th scope="col">$550</th>
-                        <th scope="col">$500</th>
-                        <th scope="col">100%</th>
-                        <th scope="col">10%</th>
-                        <th scope="col">Pending</th>
-                        <th scope="col">0</th>
-                        <th scope="col">0</th>
-                        <th scope="col">0.2%</th>
-                        <th scope="col">0.00%</th>
-                        <th scope="col">one</th>
-                        <th scope="col">2%</th>
-                        <th scope="col">10%</th>
-                        <th scope="col">0.5%</th>
-                    </tr>
-                </tbody>
-            </table>
+        <ul class="nav nav-tabs mt-2" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="barChart-tab" data-bs-toggle="tab"
+                    data-bs-target="#barChart" type="button" role="tab"
+                    aria-controls="barChart" aria-selected="true">Capital Gain</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-table2-tab" data-bs-toggle="tab"
+                    data-bs-target="#tab-table2" type="button" role="tab" aria-controls="tab-table2"
+                    aria-selected="false">
+                    Long Term
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-table3-tab" data-bs-toggle="tab"
+                    data-bs-target="#tab-table3" type="button" role="tab" aria-controls="tab-table3"
+                    aria-selected="false">
+                    Short Term
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-table4-tab" data-bs-toggle="tab"
+                    data-bs-target="#tab-table4" type="button" role="tab" aria-controls="tab-table4"
+                    aria-selected="false">Jobbing</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-table5-tab" data-bs-toggle="tab"
+                    data-bs-target="#tab-table5" type="button" role="tab"
+                    aria-controls="tab-table5" aria-selected="false">
+                    Holding
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-table7-tab" data-bs-toggle="tab"
+                    data-bs-target="#tab-table7" type="button" role="tab"
+                    aria-controls="tab-table7" aria-selected="false">
+                    Dividend
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-table8-tab" data-bs-toggle="tab"
+                    data-bs-target="#tab-table8" type="button" role="tab"
+                    aria-controls="tab-table8" aria-selected="false">
+                    Short Sell
+                </button>
+            </li>
+            <li style="float: right;border: 1px solid #ffffff !important;">
+                <p>* For Derivative P&amp;L available in excel format only</p>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active " id="barChart" role="tabpanel"
+                aria-labelledby="barChart-tab">
+                Capital Gain
+            </div>
+            <div class="tab-pane fade mt-3" id="tab-table2" role="tabpanel"
+                aria-labelledby="tab-table2-tab">
+                Long Term
+            </div>
+            <div class="tab-pane fade mt-3" id="tab-table3" role="tabpanel"
+                aria-labelledby="tab-table3-tab">
+                <div class="row">
+                    Short Term
+                </div>
+            </div>
+            <div class="tab-pane fade mt-3" id="tab-table4" role="tabpanel"
+                aria-labelledby="tab-table4-tab">
+                Jobbing
+            </div>
+            <div class="tab-pane fade mt-3" id="tab-table5" role="tabpanel"
+                aria-labelledby="tab-table5-tab">
+                Holding
+                
+            </div>
+            <div class="tab-pane fade mt-3" id="tab-table7" role="tabpanel"
+                aria-labelledby="tab-table7-tab">
+                
+                Dividend
+            </div>
+            <div class="tab-pane fade mt-3" id="tab-table8" role="tabpanel"
+            aria-labelledby="tab-table8-tab">
+            Short Sell
+            
+            </div>
         </div>
     </ng-container>
 
