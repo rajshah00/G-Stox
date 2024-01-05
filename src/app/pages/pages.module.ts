@@ -24,6 +24,7 @@ import { ClientWiseOpenPositionComponent } from './Net-Position/client-wise-open
 import { FinancialLedgerComponent } from './financial-ledger/financial-ledger.component';
 import { BuyBackComponent } from './Tender-Offer/buy-back/buy-back.component';
 import { ACHRequestComponent } from './Tender-Offer/achrequest/achrequest.component';
+import { IPOComponent } from './Tender-Offer/ipo/ipo.component';
 import { MarginPledgeComponent } from './Tender-Offer/margin-pledge/margin-pledge.component';
 import { KYCModificationRequestLetterComponent } from './Tender-Offer/kycmodification-request-letter/kycmodification-request-letter.component';
 import { ContractNoteComponent } from './Download/contract-note/contract-note.component';
@@ -64,6 +65,7 @@ import { WithdrawalComponent } from './funds/withdrawal/withdrawal.component';
     FinancialLedgerComponent,
     BuyBackComponent,
     ACHRequestComponent,
+    IPOComponent,
     MarginPledgeComponent,
     KYCModificationRequestLetterComponent,
     ContractNoteComponent,

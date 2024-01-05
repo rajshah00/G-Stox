@@ -1,0 +1,64 @@
+<section class="stox-card">
+    <h1 class="text-center stox-title">IPO Center</h1>
+    <ng-container>
+        <ul class="nav nav-tabs mt-2" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="all_ipos-tab" data-bs-toggle="tab"
+                    data-bs-target="#all_ipos" type="button" role="tab"
+                    aria-controls="all_ipos" aria-selected="true">All IPOs</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-my_ipos-tab" data-bs-toggle="tab"
+                    data-bs-target="#tab-my_ipos" type="button" role="tab" aria-controls="tab-my_ipos"
+                    aria-selected="false">
+                    My IPOs
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active " id="all_ipos" role="tabpanel"
+                aria-labelledby="all_ipos-tab">
+                <ul class="nav nav-tabs mt-2" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="onging_ipo-tab" data-bs-toggle="tab"
+                            data-bs-target="#onging_ipo" type="button" role="tab"
+                            aria-controls="onging_ipo" aria-selected="true">Onging IPO</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tab-upcoming_ipo-tab" data-bs-toggle="tab"
+                            data-bs-target="#tab-upcoming_ipo" type="button" role="tab" aria-controls="tab-upcoming_ipo"
+                            aria-selected="false">
+                            Upcoming IPO
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tab-closed_ipo-tab" data-bs-toggle="tab"
+                            data-bs-target="#tab-closed_ipo" type="button" role="tab" aria-controls="tab-closed_ipo"
+                            aria-selected="false">
+                            Closed IPO
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active " id="onging_ipo" role="tabpanel"
+                        aria-labelledby="onging_ipo-tab">
+                        Onging IPO
+                    </div>
+                    <div class="tab-pane fade mt-3" id="tab-upcoming_ipo" role="tabpanel"
+                        aria-labelledby="tab-upcoming_ipo-tab">
+                        Upcoming IPO
+                    </div>
+                    <div class="tab-pane fade mt-3" id="tab-closed_ipo" role="tabpanel"
+                        aria-labelledby="tab-closed_ipo-tab">
+                        Closed IPO
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade mt-3" id="tab-my_ipos" role="tabpanel"
+                aria-labelledby="tab-my_ipos-tab">
+                My IPOs
+            </div>
+        </div>
+    </ng-container>
+
+</section>
