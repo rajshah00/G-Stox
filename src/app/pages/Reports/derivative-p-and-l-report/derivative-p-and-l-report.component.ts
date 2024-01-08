@@ -10,6 +10,7 @@ import { AuthInterceptor } from 'src/app/services/auth-interceptor.service';
 })
 export class DerivativePAndLReportComponent implements OnInit {
   public derivativePLGroup: FormGroup | any;
+  DerivativePLList: any = [];
   authToken = JSON.parse(localStorage.getItem('isLoggedIn') || '')
   constructor(public service: ApiServiceService, public auth: AuthInterceptor) { }
 
@@ -34,6 +35,9 @@ export class DerivativePAndLReportComponent implements OnInit {
     if (this.derivativePLGroup.valid) {
       this.service.getFIFONetPositionReport(this.derivativePLGroup.value).subscribe((res: any) => {
         console.log("res", res)
+        if (res) {
+          this.DerivativePLList = res;
+        }
       }, (err: any) => {
         console.log("err", err)
       })

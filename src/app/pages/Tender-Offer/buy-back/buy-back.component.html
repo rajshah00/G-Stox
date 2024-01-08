@@ -14,13 +14,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr *ngFor="let row of BuyBackList" class="whitebg">
                         <td>GUJARAT NARMADA VALLEY FERTILI</td>
                         <td>770.00</td>
                         <td>24/11/2023</td>
                         <td>01/12/2023 10:11:52</td>
                         <td>07/12/2023 12:00:00</td>
                         <td><a href="#">Status</a></td>
+                    </tr>
+                    <tr>
+                        <th>Issue Name</th>
+                        <th>BuyBack Price</th>
+                        <th>Record Date</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Action</th>
                     </tr>
                 </tbody>
             </table>

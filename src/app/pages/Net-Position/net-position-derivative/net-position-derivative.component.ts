@@ -10,6 +10,7 @@ import { AuthInterceptor } from 'src/app/services/auth-interceptor.service';
 })
 export class NetPositionDerivativeComponent implements OnInit {
   public netPositionGroup: FormGroup | any;
+  NetPositionGroupList: any = [];
   authToken = JSON.parse(localStorage.getItem('isLoggedIn') || '')
   constructor(public service: ApiServiceService, public auth: AuthInterceptor) { }
 
@@ -38,6 +39,10 @@ export class NetPositionDerivativeComponent implements OnInit {
     if (this.netPositionGroup.valid) {
       this.service.getEquityNetPositionDateRange(this.netPositionGroup.value).subscribe((res: any) => {
         console.log("res", res)
+        if (res) {
+          this.NetPositionGroupList = res;
+        }
+        
       }, (err: any) => {
         console.log("err", err)
       })

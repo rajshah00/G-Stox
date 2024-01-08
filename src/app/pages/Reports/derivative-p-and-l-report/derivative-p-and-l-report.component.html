@@ -81,7 +81,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr *ngFor="let row of DerivativePLList" class="whitebg">
                         <td scope="col">245</td>
                         <td scope="col">Test</td>
                         <td scope="col">04/12/2023</td>
@@ -98,6 +98,24 @@
                         <td scope="col">0</td>
                         <td scope="col">0.2%</td>
                         <td scope="col">0.00%</td>
+                    </tr>
+                    <tr>
+                        <th colspan="1">Account Id</th>
+                        <th colspan="1">Segment Id</th>
+                        <th colspan="1">Instrument</th>
+                        <th colspan="1">Symbol</th>
+                        <th colspan="1">Exp. Date</th>
+                        <th colspan="1">Strike Price</th>
+                        <th colspan="1">Option Type</th>
+                        <th colspan="1">Buy Qty.</th>
+                        <th colspan="1">Buy Val.</th>
+                        <th colspan="1">Sell Qty</th>
+                        <th colspan="1">Sell Val.</th>
+                        <th colspan="1">Real PL</th>
+                        <th colspan="1">Open Qty.</th>
+                        <th colspan="1">Open Value</th>
+                        <th colspan="1">Close</th>
+                        <th colspan="1">Unreal PL</th>
                     </tr>
                 </tbody>
             </table>
