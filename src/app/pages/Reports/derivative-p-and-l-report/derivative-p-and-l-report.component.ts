@@ -17,8 +17,8 @@ export class DerivativePAndLReportComponent implements OnInit {
     this.derivativePLGroup = new FormGroup({
       FromDate: new FormControl('', Validators.required),
       ToDate: new FormControl(this.service.getCurrentDate(), Validators.required),
-      SegmentID: new FormControl('', Validators.required),
-      ReportType: new FormControl('', Validators.required),
+      SegmentID: new FormControl('FNO', Validators.required),
+      ReportType: new FormControl('R2', Validators.required),
       IncludeExpence: new FormControl('Y', Validators.required),
     });
   }

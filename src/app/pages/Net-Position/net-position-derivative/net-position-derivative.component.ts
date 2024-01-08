@@ -20,11 +20,11 @@ export class NetPositionDerivativeComponent implements OnInit {
       Exchange: new FormControl('NSE', Validators.required),
       Segment: new FormControl('FNO', Validators.required),
       AsOnDate: new FormControl(this.service.getCurrentDate(), Validators.required),
-      Instrument: new FormControl(''),
+      Instrument: new FormControl('ALL'),
       Symbol: new FormControl(''),
       ExpiryDate: new FormControl(''),
       StrikePrice: new FormControl(''),
-      OptionType: new FormControl(''),
+      OptionType: new FormControl('ALL'),
     });
   }
 

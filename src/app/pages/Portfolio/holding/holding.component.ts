@@ -24,8 +24,8 @@ export class HoldingComponent implements OnInit {
       AccountID: new FormControl(this.authToken.username),
       AsOnDate: new FormControl(this.service.getCurrentDate()),
       ScripCode: new FormControl(''),
-      Type: new FormControl(''),
-      ExcelFormatType: new FormControl(''),
+      Type: new FormControl('VARELMADH'),
+      ExcelFormatType: new FormControl('CLIENT'),
       
       
     });
