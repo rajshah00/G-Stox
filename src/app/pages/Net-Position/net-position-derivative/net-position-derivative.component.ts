@@ -37,7 +37,7 @@ export class NetPositionDerivativeComponent implements OnInit {
 
   public save() {
     if (this.netPositionGroup.valid) {
-      this.service.getEquityNetPositionDateRange(this.netPositionGroup.value).subscribe((res: any) => {
+      this.service.getDerivativeNetPosition(this.netPositionGroup.value).subscribe((res: any) => {
         console.log("res", res)
         if (res) {
           this.NetPositionGroupList = res;
