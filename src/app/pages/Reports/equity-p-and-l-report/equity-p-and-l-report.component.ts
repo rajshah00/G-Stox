@@ -10,6 +10,12 @@ import { AuthInterceptor } from 'src/app/services/auth-interceptor.service';
 })
 export class EquityPAndLReportComponent implements OnInit {
   public longShortGroup: FormGroup | any;
+  LongTermList: any = [];
+  ShortTermList: any = [];
+  JobbingList: any = [];
+  HoldingDetailList: any = [];
+  DividendDetailList: any = [];
+  MinusHoldingDetailList: any = [];
   authToken = JSON.parse(localStorage.getItem('isLoggedIn') || '')
   constructor(public service: ApiServiceService, public auth: AuthInterceptor) { }
 
@@ -17,7 +23,7 @@ export class EquityPAndLReportComponent implements OnInit {
     this.longShortGroup = new FormGroup({
       FirmID: new FormControl(this.auth.firm_id, Validators.required),
       AccountID: new FormControl(this.authToken.username, Validators.required),
-      FromDate: new FormControl(this.service.getCurrentDate(), Validators.required),
+      FromDate: new FormControl('2023-03-30', Validators.required),
       ToDate: new FormControl(this.service.getCurrentDate(), Validators.required),
     });
   }
@@ -33,6 +39,14 @@ export class EquityPAndLReportComponent implements OnInit {
       // this.longShortGroup.value.ExportFormat = 1;
       this.service.getEquityLongShort(this.longShortGroup.value).subscribe((res: any) => {
         console.log("res", res)
+        if (res) {
+          this.LongTermList = res.LongTerm;
+          this.ShortTermList = res.ShortTerm;
+          this.JobbingList = res.Jobbing;
+          this.HoldingDetailList = res.HoldingDetail;
+          this.DividendDetailList = res.DividendDetail;
+          this.MinusHoldingDetailList = res.MinusHoldingDetail;
+        }
       }, (err: any) => {
         console.log("err", err)
       })

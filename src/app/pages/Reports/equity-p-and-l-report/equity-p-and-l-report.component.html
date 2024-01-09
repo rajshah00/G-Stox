@@ -91,32 +91,231 @@
             </div>
             <div class="tab-pane fade mt-3" id="tab-table2" role="tabpanel"
                 aria-labelledby="tab-table2-tab">
-                Long Term
+                <div class="table-responsive mt-2">
+                    <table class="table table-hover table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>#</th>
+                                <th>Scrip Name</th>
+                                <th>ISIN</th>
+                                <th>Net PL</th>
+                                <th>GF PL</th>
+                                <th>Net PL After GF PL</th>
+                                <th>Buy Date</th>
+                                <th>Sale Date</th>
+                                <th>Quantity</th>
+                                <th>Buy Rate</th>
+                                <th>Sale Rate</th>
+                                <th>Net PL</th>
+                                <th>Days</th>
+                                <th>GF Rate</th>
+                                <th>GF PL</th>
+                                <th>Net PL After GF PL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of LongTermList" class="whitebg">
+                                <td></td>
+                                <td>{{row.ScripName}}</td>
+                                <td>{{row.ISINCode}}</td>
+                                <td>{{row.NetPL}}</td>
+                                <td>{{row.GFPL}}</td>
+                                <td>{{row.GFNETPL}}</td>
+                                <td>{{row.BuyDate}}</td>
+                                <td>{{row.SaleDate}}</td>
+                                <td>{{row.Quantity}}</td>
+                                <td>{{row.BuyRate}}</td>
+                                <td>{{row.SaleRate}}</td>
+                                <td>{{row.NetPL}}</td>
+                                <td>{{row.Days}}</td>
+                                <td>{{row.GFRate}}</td>
+                                <td>{{row.GFPL}}</td>
+                                <td>{{row.GFNETPL}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="tab-pane fade mt-3" id="tab-table3" role="tabpanel"
                 aria-labelledby="tab-table3-tab">
                 <div class="row">
-                    Short Term
+                    <div class="table-responsive mt-2">
+                        <table class="table table-hover table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Scrip Name</th>
+                                    <th>ISIN</th>
+                                    <th>Net PL</th>
+                                    <th>Buy Date</th>
+                                    <th>Sale Date</th>
+                                    <th>Quantity</th>
+                                    <th>Buy Rate</th>
+                                    <th>Sale Rate</th>
+                                    <th>Net PL</th>
+                                    <th>Days</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of ShortTermList" class="whitebg">
+                                    <td></td>
+                                    <td>{{row.ScripName}}</td>
+                                    <td>{{row.ISINCode}}</td>
+                                    <td>{{row.NetPL}}</td>
+                                    <td>{{row.BuyDate}}</td>
+                                    <td>{{row.SaleDate}}</td>
+                                    <td>{{row.Quantity}}</td>
+                                    <td>{{row.BuyRate}}</td>
+                                    <td>{{row.SaleRate}}</td>
+                                    <td>{{row.NetPL}}</td>
+                                    <td>{{row.Days}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="tab-pane fade mt-3" id="tab-table4" role="tabpanel"
                 aria-labelledby="tab-table4-tab">
-                Jobbing
+                <div class="table-responsive mt-2">
+                    <table class="table table-hover table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>#</th>
+                                <th>Scrip Name</th>
+                                <th>ISIN</th>
+                                <th>Net PL</th>
+                                <th>Trade Date</th>
+                                <th>Quantity</th>
+                                <th>Buy Rate</th>
+                                <th>Sale Rate</th>
+                                <th>Net PL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of JobbingList" class="whitebg">
+                                <td></td>
+                                <td>{{row.ScripName}}</td>
+                                <td>{{row.ISINCode}}</td>
+                                <td>{{row.NetPL}}</td>
+                                <td>{{row.BuyDate}}</td>
+                                <td>{{row.Quantity}}</td>
+                                <td>{{row.BuyRate}}</td>
+                                <td>{{row.SaleRate}}</td>
+                                <td>{{row.NetPL}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="tab-pane fade mt-3" id="tab-table5" role="tabpanel"
                 aria-labelledby="tab-table5-tab">
-                Holding
-                
+                <div class="table-responsive mt-2">
+                    <table class="table table-hover table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>#</th>
+                                <th>Scrip Name</th>
+                                <th>ISIN</th>
+                                <th>Quantity (Notional)</th>
+                                <th>Buy Avg.</th>
+                                <th>Investment Value</th>
+                                <th>Close Rate</th>
+                                <th>Net Value</th>
+                                <th>Gain Loss</th>
+                                <th>Buy Date</th>
+                                <th>Quantity</th>
+                                <th>Buy Rate</th>
+                                <th>Investment Value</th>
+                                <th>Close Rate</th>
+                                <th>Net Value</th>
+                                <th>Gain Loss</th>
+                                <th>Abs Return%</th>
+                                <th>CAGR%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of HoldingDetailList" class="whitebg">
+                                <td></td>
+                                <td>{{row.ScripName}}</td>
+                                <td>{{row.ISINCode}}</td>
+                                <td>{{row.Quantity}}</td>
+                                <td>{{row.BuyRate}}</td>
+                                <td>Investment Value</td>
+                                <td>Close Rate</td>
+                                <td>Net Value</td>
+                                <td>Gain Loss</td>
+                                <td>{{row.BuyDate}}</td>
+                                <td>{{row.Quantity}}</td>
+                                <td>Buy Rate</td>
+                                <td>Investment Value</td>
+                                <td>Close Rate</td>
+                                <td>Net Value</td>
+                                <td>Gain Loss</td>
+                                <td>Abs Return%</td>
+                                <td>CAGR%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="tab-pane fade mt-3" id="tab-table7" role="tabpanel"
                 aria-labelledby="tab-table7-tab">
-                
-                Dividend
+                <div class="table-responsive mt-2">
+                    <table class="table table-hover table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>#</th>
+                                <th>Scrip Name</th>
+                                <th>ISIN</th>
+                                <th>Buy Date</th>
+                                <th>Sale Date</th>
+                                <th>Quantity</th>
+                                <th>Dividend</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of DividendDetailList" class="whitebg">
+                                <td></td>
+                                <td>{{row.ScripName}}</td>
+                                <td>{{row.ISINCode}}</td>
+                                <td>{{row.BuyDate}}</td>
+                                <td>{{row.SaleDate}}</td>
+                                <td>{{row.Quantity}}</td>
+                                <td>{{row.Dividend}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="tab-pane fade mt-3" id="tab-table8" role="tabpanel"
             aria-labelledby="tab-table8-tab">
-            Short Sell
-            
+                <div class="table-responsive mt-2">
+                    <table class="table table-hover table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>#</th>
+                                <th>Scrip Name</th>
+                                <th>ISIN</th>
+                                <th>Sale Date</th>
+                                <th>Quantity</th>
+                                <th>Sale Rate</th>
+                                <th>Sale Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of MinusHoldingDetailList" class="whitebg">
+                                <td></td>
+                                <td>{{row.ScripName}}</td>
+                                <td>{{row.ISINCode}}</td>
+                                <td>{{row.SaleDate}}</td>
+                                <td>{{row.Quantity}}</td>
+                                <td>{{row.SaleRate}}</td>
+                                <td>{{row.SaleValue}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </ng-container>
