@@ -93,8 +93,8 @@ export class ApiServiceService {
     return this.http.get<any>(`${environment.API_URL}/Vouchers/APAmount/Get?AccountID=${FileID}&RequestType=ONREQUEST&ReleaseFlag=N`);
   }
 
-  getBankDetail(FileID: any) {
-    return this.http.get<any>(`${environment.API_URL}/Masters/BankDetail/Get?Code=${FileID}&BankID=&BankType=D`);
+  getBankDetail(ClientCode: any,BankID: any) {
+    return this.http.get<any>(`${environment.API_URL}/Masters/BankDetail/Get?Code=${ClientCode}&BankID=${BankID}&BankType=D`);
   }
 
   getPaymentRequest(data: any) {
