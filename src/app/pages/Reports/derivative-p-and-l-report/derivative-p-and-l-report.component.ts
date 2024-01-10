@@ -16,11 +16,12 @@ export class DerivativePAndLReportComponent implements OnInit {
 
   ngOnInit(): void {
     this.derivativePLGroup = new FormGroup({
-      FromDate: new FormControl('', Validators.required),
+      FromDate: new FormControl('2023-03-30', Validators.required),
       ToDate: new FormControl(this.service.getCurrentDate(), Validators.required),
       SegmentID: new FormControl('FNO', Validators.required),
       ReportType: new FormControl('R2', Validators.required),
-      IncludeExpence: new FormControl('Y', Validators.required),
+      IncludeExpence: new FormControl('1', Validators.required),
+      BFWithCloseRateFlag: new FormControl('Y', Validators.required),
     });
   }
 
