@@ -15,6 +15,7 @@ export class AddFundsComponent implements OnInit {
   Client_Bank_Detail: any = [];
   Client_Code: any = [];
   Client_Name: any = [];
+  gatewayvalue = 'UPI';
   authToken = JSON.parse(localStorage.getItem('isLoggedIn') || '')
   stroge: any = JSON.parse(localStorage.getItem("isLoggedIn") || '')
   constructor(public service: ApiServiceService, public auth: AuthInterceptor) {
@@ -64,6 +65,12 @@ export class AddFundsComponent implements OnInit {
       })
     }
     console.log(this.AddFundsGroup);
+  }
+
+  gateway(event:any){
+    console.log(">>>>>",event.target.value);
+    this.gatewayvalue = event.target.value;
+    
   }
 
 }
