@@ -78,73 +78,37 @@
             <table class="table table-hover table-bordered">
                 <thead class="table-dark">
                     <tr>
-                        <th scope="col">Client Code</th>
-                        <th scope="col">Client Name</th>
-                        <th scope="col">Trade Date</th>
-                        <th scope="col">Settlement No.</th>
-                        <th scope="col">Settlement Type</th>
-                        <th scope="col">Bill No</th>
-                        <th scope="col">Bill Date</th>
-                        <th scope="col">Bill Amount</th>
-                        <th scope="col">Gross Value</th>
-                        <th scope="col">Total Expenses</th>
-                        <th scope="col">Brokerage</th>
-                        <th scope="col">Clearing Charges/Auct.</th>
-                        <th scope="col">Exchange Charges</th>
-                        <th scope="col">SEBI Charges</th>
-                        <th scope="col">Transaction Charges</th>
-                        <th scope="col">STT Charges</th>
-                        <th scope="col">Stamp Duty</th>
-                        <th scope="col">Demat Charges</th>
-                        <th scope="col">IPF Charge</th>
-                        <th scope="col">GST</th>
+                        <th scope="col">Instrument</th>
+                        <th scope="col">Exp.Date</th>
+                        <th scope="col">Strike Price</th>	
+                        <th scope="col">Option</th>
+                        <th scope="col">Buy.Qty</th>
+                        <th scope="col">Buy Value</th>
+                        <th scope="col">Sell Qty</th>
+                        <th scope="col">Sell Value</th>
+                        <th scope="col">Net.Qty</th>
+                        <th scope="col">Net Value</th>
+                        <th scope="col">Avg.Rate</th>
+                        <th scope="col">Clos.Price</th>
+                        <th scope="col">Profit/Loss</th>
                     </tr>
                     
                 </thead>
                 <tbody>
                     <tr *ngFor="let row of NetPositionGroupList" class="whitebg">
-                        <th scope="col">245</th>
-                        <th scope="col">Test</th>
-                        <th scope="col">04/12/2023</th>
-                        <th scope="col">095434</th>
-                        <th scope="col">Cased</th>
-                        <th scope="col">5624789</th>
-                        <th scope="col">3/12/2023</th>
-                        <th scope="col">$550</th>
-                        <th scope="col">$500</th>
-                        <th scope="col">100%</th>
-                        <th scope="col">10%</th>
-                        <th scope="col">Pending</th>
-                        <th scope="col">0</th>
-                        <th scope="col">0</th>
-                        <th scope="col">0.2%</th>
-                        <th scope="col">0.00%</th>
-                        <th scope="col">one</th>
-                        <th scope="col">2%</th>
-                        <th scope="col">10%</th>
-                        <th scope="col">0.5%</th>
-                    </tr>
-                    <tr>
-                        <th scope="col">Client Code</th>
-                        <th scope="col">Client Name</th>
-                        <th scope="col">Trade Date</th>
-                        <th scope="col">Settlement No.</th>
-                        <th scope="col">Settlement Type</th>
-                        <th scope="col">Bill No</th>
-                        <th scope="col">Bill Date</th>
-                        <th scope="col">Bill Amount</th>
-                        <th scope="col">Gross Value</th>
-                        <th scope="col">Total Expenses</th>
-                        <th scope="col">Brokerage</th>
-                        <th scope="col">Clearing Charges/Auct.</th>
-                        <th scope="col">Exchange Charges</th>
-                        <th scope="col">SEBI Charges</th>
-                        <th scope="col">Transaction Charges</th>
-                        <th scope="col">STT Charges</th>
-                        <th scope="col">Stamp Duty</th>
-                        <th scope="col">Demat Charges</th>
-                        <th scope="col">IPF Charge</th>
-                        <th scope="col">GST</th>
+                        <th scope="col">{{row.Instrument}} {{row.Symbol}}</th>
+                        <th scope="col">{{row.ExpiryDate}}</th>
+                        <th scope="col">{{row.StrikePrice}}</th>
+                        <th scope="col">{{row.OptionType}}</th>
+                        <th scope="col">{{row.BuyQuantity}}</th>
+                        <th scope="col">{{row.BuyValue}}</th>
+                        <th scope="col">{{row.SellQuantity}}</th>
+                        <th scope="col">{{row.SellValue}}</th>
+                        <th scope="col">{{row.NetQuantity}}</th>
+                        <th scope="col">{{row.NetValue}}</th>
+                        <th scope="col">{{row.AverageRate}}</th>
+                        <th scope="col">{{row.CloseRate}}</th>
+                        <th scope="col">{{row.MTM}}</th>
                     </tr>
                 </tbody>
             </table>

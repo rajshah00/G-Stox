@@ -40,7 +40,7 @@ export class NetPositionDerivativeComponent implements OnInit {
       this.service.getDerivativeNetPosition(this.netPositionGroup.value).subscribe((res: any) => {
         console.log("res", res)
         if (res) {
-          this.NetPositionGroupList = res;
+          this.NetPositionGroupList = res.PositionData;
         }
         
       }, (err: any) => {
