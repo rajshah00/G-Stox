@@ -20,24 +20,20 @@
         <!-- Base Javascript
         ================================================== -->
         <link rel="stylesheet" href="css/custom.css">
-        <style>
-            .back-btn{
-                background-color: red !important;
-            }
-        </style>
     </head>
     <body>
         <section class="step-section">
             <div class="container">
                 <div class="step-row">
-                    <div  class="step-1 step_block">
+                    <div  class="step-1">
                         <div class="step-col">
                             <div class="step-box">
                                 <h1>Open Your Trading Account <br> with <span> GStox </span></h1>
-                                <form id="frm_step_1">
+                                <form>
                                     <h2>Signup now</h2>
                                     <div class="trading-m-number">
-                                        <input type="number" value="1234567890" name="signup_mobile_number" id="signup_mobile_number" class="validates-as-number" placeholder="Your 10 digit mobile number" maxlength="10">
+                                        <input type="number" class="validates-as-number" placeholder="Your 10 digit mobile number">
+                                        
                                         <span class="receive-otp">You will receive an OTP on your mobile number</span>
                                         <a href="javascript:;" class="wpcf7-submit t-continue-btn step-btn-1" value="">Continue</a>
                                     </div>
@@ -50,28 +46,26 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-1_1 step_block" style="display: none;">
+                    <div class="step-1_1" style="display: none;">
                         <div class="step-col">
                             <div class="step-box">
-                                <a href="javascript:;" class="wpcf7-submit t-continue-btn back-btn" onclick="fun_back_btn('step-1','step-1_1');" value="">Back 1 1</a>
                                 <h1>Open Your Trading Account <br> with <span> GStox </span></h1>
-                                <form id="frm_step_1_1">
+                                <form>
                                     <h2>Signup now</h2>
                                     <div class="trading-m-number">
-                                        <input type="text" value="" disabled name="valid_signup_mobile_number" id="valid_signup_mobile_number" class="validates-as-number">
+                                        <input type="number" value="123456789" class="validates-as-number" placeholder="Your 10 digit mobile number">
                                         <div class="otp-row" style="">
                                             <span class="otp-here">Enter 4 OTP Here.</span>
-                                            <input type="text" value="" name="valid_mobile_opt" id="valid_mobile_opt">
-                                            <span class="change-m-number" id="change-mobile-number"><a href="Javascript:;">Change Mobile Number </a></span>
+                                            <span class="change-m-number"><a href="Javascript:;">Change Mobile Number </a></span>
                                             <div class="otp-input">
-                                                <input name="mobile_first" id="mobile_first" type="number" maxlength="1" onkeyup="movetoNextMobile(this, 'mobile_second')" onfocusin="currentfocus(this,'mobile_first')">
-                                                <input name="mobile_second" id="mobile_second"type="number" maxlength="1" onkeyup="movetoNextMobile(this, 'mobile_third')" onfocusin="currentfocus(this,'mobile_second')">
-                                                <input name="mobile_third" id="mobile_third" type="number" maxlength="1" onkeyup="movetoNextMobile(this, 'mobile_fourth')" onfocusin="currentfocus(this,'mobile_third')">
-                                                <input name="mobile_fourth" id="mobile_fourth" type="number" maxlength="1" onkeyup="movetoNextMobile(this, 'mobile_fifth')" onfocusin="currentfocus(this,'mobile_fourth')">
+                                                <input type="number">
+                                                <input type="number">
+                                                <input type="number">
+                                                <input type="number">
                                             </div>
-                                            <span class="resend-number-text" id="resend-mobile_number-text"> <a href="Javascript:;"> Resend OTP </a></span>
+                                            <span class="resend-number-text"> <a href="Javascript:;"> Resend OTP </a></span>
                                             <a href="javascript:;" class="wpcf7-submit t-continue-btn step-btn-1_1" value="">Continue</a>
-                                            <center> <div class="resend-time" id="mobile_number-resend-time"></div></center>
+                                            <center> <div class="resend-time"> 00:58</div></center>
                                         </div>
                                     </div>
                                 </form>
@@ -88,15 +82,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-2 step_block" style="display: none;">
+                    <div class="step-2" style="display: none;">
                         <div class="step-col">
                             <div class="step-box">
-                                <a href="javascript:;" class="wpcf7-submit t-continue-btn back-btn" onclick="fun_back_btn('step-1_1','step-2');" value="">Back 2</a>
                                 <h1>Email verification</h1>
-                                <form id="frm_step_2">
+                                <form>
                                     <h2>what's your e-mail?</h2>
                                     <div class="trading-m-number">
-                                        <input type="email" name="signup_email" id="signup_email" class="validates-as-number" placeholder="Enter Your Email">
+                                        <input type="email" class="validates-as-number" placeholder="Enter Your Email">
                                         
                                         <span class="receive-otp">You will receive an OTP on your email</span>
                                         <a href="javascript:;" class="wpcf7-submit t-continue-btn step-btn-2" value="">Continue</a>
@@ -116,28 +109,26 @@
                         </div>
                         
                     </div>
-                    <div class="step-2_2 step_block" style="display: none;">
+                    <div class="step-2_2" style="display: none;">
                         <div class="step-col">
                             <div class="step-box">
-                                <a href="javascript:;" class="wpcf7-submit t-continue-btn back-btn" onclick="fun_back_btn('step-2','step-2_2');" value="">Back 2 2</a>
                                 <h1>Email verification</h1>
-                                <form id="frm_step_2_2">
+                                <form>
                                     <h2>what's your e-mail?</h2>
                                     <div class="trading-m-number">
-                                        <input type="email" disabled name="valid_signup_email" id="valid_signup_email" class="validates-as-number" placeholder="Enter Your Email">
+                                        <input type="email" class="validates-as-number" placeholder="Enter Your Email">
                                         <div class="otp-row" style="">
                                             <span class="otp-here">Enter 4 OTP Here.</span>
-                                             <input type="text" value="" name="valid_email_opt" id="valid_email_opt">
-                                            <span class="change-m-number" id="change-email-number"><a href="Javascript:;">Change Email </a></span>
+                                            <span class="change-m-number"><a href="Javascript:;">Change Email </a></span>
                                             <div class="otp-input">
-                                                <input name="email_first" id="email_first" type="number" maxlength="1" onkeyup="movetoNextEmail(this, 'email_second')" onfocusin="currentfocus(this,'email_first')">
-                                                <input name="email_second" id="email_second"type="number" maxlength="1" onkeyup="movetoNextEmail(this, 'email_third')" onfocusin="currentfocus(this,'email_second')">
-                                                <input name="email_third" id="email_third" type="number" maxlength="1" onkeyup="movetoNextEmail(this, 'email_fourth')" onfocusin="currentfocus(this,'email_third')">
-                                                <input name="email_fourth" id="email_fourth" type="number" maxlength="1" onkeyup="movetoNextEmail(this, 'email_fifth')" onfocusin="currentfocus(this,'email_fourth')">
+                                                <input type="number">
+                                                <input type="number">
+                                                <input type="number">
+                                                <input type="number">
                                             </div>
-                                            <span class="resend-number-text" id="resend-email-text"> <a href="Javascript:;"> Resend OTP </a></span>
+                                            <span class="resend-number-text"> <a href="Javascript:;"> Resend OTP </a></span>
                                             <a href="javascript:;" class="wpcf7-submit t-continue-btn step-btn-2_2" value="">Continue</a>
-                                            <center> <div class="resend-time" id="email-resend-time"> 00:58</div></center>
+                                            <center> <div class="resend-time"> 00:58</div></center>
                                         </div>
                                     </div>
                                 </form>
@@ -154,12 +145,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-3 step_block" style="display: none;">
+                    <div class="step-3" style="display: none;">
                         <div class="step-col">
                             <div class="step-box">
-                                <a href="javascript:;" class="wpcf7-submit t-continue-btn back-btn" onclick="fun_back_btn('step-2_2','step-3');" value="">Back 3</a>
                                 <h1>Upload Your PAN</h1>
-                                <form id="frm_step_3">
+                                <form>
                                     <p>The PAN should belong to you, the Applicant.</p>
                                     <input type="file">
                                     <a href="javascript:;" class="wpcf7-submit t-continue-btn step-btn-3" value="">Continue</a>
@@ -176,12 +166,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-4 step_block" style="display: none;">
+                    <div class="step-4" style="display: none;">
                         <div class="step-col">
                             <div class="step-box hanges-equity-step-box">
-                                <a href="javascript:;" class="wpcf7-submit t-continue-btn back-btn" onclick="fun_back_btn('step-3','step-4');" value="">Back 4</a>
                                 <h1>Exchange Detail</h1>
-                                <form id="frm_step_4">
+                                <form>
                                     <div class="changes-equity-col">
                                         <label for="enable-equity"><input id="enable-equity" type="checkbox"> Enable Equity</label><br>
                                         <label for="enable-FNO"><input id="enable-FNO" type="checkbox"> Enable FNO</label><br>
@@ -215,12 +204,12 @@
                             
                         </div>
                     </div>
-                    <div class="step-5 step_block" style="display: none;">
+                    <div class="step-5" style="display: none;">
                         <div class="step-col">
                             <div class="step-box">
-                                <a href="javascript:;" class="wpcf7-submit t-continue-btn back-btn" onclick="fun_back_btn('step-4','step-5');" value="">Back 5</a>
                                 <h1>Verify Aadhaar Detail Using Digilocker</h1>
-                                <form id="frm_step_5">
+                                <form>
+                                    
                                     <a href="javascript:;" class="wpcf7-submit t-continue-btn step-btn-5" value="">Continue</a>
                                 </form>
                             </div>
@@ -238,12 +227,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-6 step_block" style="display: none;">
+                    <div class="step-6" style="display: none;">
                         <div class="step-col">
                             <div class="step-box">
-                                <a href="javascript:;" class="wpcf7-submit t-continue-btn back-btn" onclick="fun_back_btn('step-5','step-6');" value="">Back 6</a>
                                 <h1>Start KYC process</h1>
-                                <form id="frm_step_6">
+                                <form>
+                                    
                                     <a href="javascript:;" class="wpcf7-submit t-continue-btn step-btn-6" value="">Continue</a>
                                 </form>
                             </div>
@@ -256,12 +245,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-7 step_block" style="display: none;">
+                    <div class="step-7" style="display: none;">
                         <div class="step-col">
                             <div class="step-box">
-                                <a href="javascript:;" class="wpcf7-submit t-continue-btn back-btn" onclick="fun_back_btn('step-6','step-7');" value="">Back 7</a>
                                 <h1>Aadhar Verification</h1>
-                                <form id="frm_step_7">
+                                <form>
+                                    
                                     <a href="javascript:;" class="wpcf7-submit t-continue-btn step-btn-7" value="">Continue</a>
                                 </form>
                             </div>
@@ -274,12 +263,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-8 step_block" style="display: none;">
+                    <div class="step-8" style="display: none;">
                         <div class="step-col">
                             <div class="step-box">
-                                <a href="javascript:;" class="wpcf7-submit t-continue-btn back-btn" onclick="fun_back_btn('step-7','step-8');" value="">Back 8</a>
                                 <h1>Selfie</h1>
-                                <form id="frm_step_8">
+                                <form>
+                                    
                                     <a href="javascript:;" class="wpcf7-submit t-continue-btn step-btn-8" value="">Continue</a>
                                 </form>
                             </div>
@@ -292,12 +281,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-9 step_block" style="display: none;">
+                    <div class="step-9" style="display: none;">
                         <div class="step-col">
                             <div class="step-box">
-                                <a href="javascript:;" class="wpcf7-submit t-continue-btn back-btn" onclick="fun_back_btn('step-8','step-9');" value="">Back 9</a>
                                 <h1>Video verfication while speaking to code</h1>
-                                <form id="frm_step_9">
+                                <form>
+                                    
                                     <a href="javascript:;" class="wpcf7-submit t-continue-btn step-btn-9" value="">Continue</a>
                                 </form>
                             </div>
@@ -310,12 +299,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-10 step_block" style="display: none;">
+                    <div class="step-10" style="display: none;">
                         <div class="step-col">
                             <div class="step-box">
-                                <a href="javascript:;" class="wpcf7-submit t-continue-btn back-btn" onclick="fun_back_btn('step-9','step-10');" value="">Back 10</a>
                                 <h1>Aadhar Verification successful</h1>
-                                <form id="frm_step_10">
+                                <form>
+                                    
                                     <a href="javascript:;" class="wpcf7-submit t-continue-btn step-btn-10" value="">Continue</a>
                                 </form>
                             </div>
@@ -328,13 +317,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-11 step_block" style="display: none;">
+                    <div class="step-11" style="display: none;">
                         <div class="step-col">
                             <div class="step-box branch-detail-block">
-                                <a href="javascript:;" class="wpcf7-submit t-continue-btn back-btn" onclick="fun_back_btn('step-10','step-11');" value="">Back 11</a>
                                 <h1>More details</h1>
-                                <form id="frm_step_11">
+                                <form>
                                     <div class="branch-detail-row">
+                                        
                                         <h2>Branch Detail</h2>
                                         <div class="step-form-row">
                                             <div class="step-form-col-4">
@@ -435,8 +424,9 @@
                                             </div>
                                         </div>
                                         <a href="javascript:;" class="wpcf7-submit t-continue-btn step-btn-11" value="">Continue</a>
-                                    </div>    
-                                </form>
+                                        
+                                    </form>
+                                </div>
                             </div>
                         </div>
                         <div class="step-col step-col-2">
@@ -447,12 +437,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-12 step_block" style="display: none;">
+                    <div class="step-12" style="display: none;">
                         <div class="step-col">
                             <div class="step-box branch-detail-block">
-                                <a href="javascript:;" class="wpcf7-submit t-continue-btn back-btn" onclick="fun_back_btn('step-11','step-12');" value="">Back 12</a>
                                 <h1>Link Bank Account</h1>
-                                <form id="frm_step_12">
+                                <form>
                                     <div class="branch-detail-row">
                                         <p>Add your bank details from which you will transact funds for trading</p>
                                         <div class="step-form-row">
@@ -512,12 +501,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="step-13 step_block" style="display: none;">
+                    <div class="step-13" style="display: none;">
                         <div class="step-col-12 step-nominee-row">
                             <div class="step-box branch-detail-block ">
-                                <a href="javascript:;" class="wpcf7-submit t-continue-btn back-btn" onclick="fun_back_btn('step-12','step-13');" value="">Back 13</a>
                                 <div class="step-col-12">
-                                    <form id="frm_step_13">
+                                    <form>
                                         <center>
                                         <span><strong>Do you wish to appoint a nominee?</strong></span>
                                         <div class="nominee-yes-no-block">
@@ -541,113 +529,116 @@
                                         </div>
                                         <div class="nominee-yes-block" style="display: none;">
                                             <div class="step-col nominee-yes-block-left">
-                                                <div id="nominee_yes_block">
-                                                    <h2 class="nominee-title">Personal Detail <span>(* Fields are Mandatory.)</span></h2>
-                                                    <div class="margin-10">
-                                                        <div class="step-form-col-4">
-                                                            <label>Related Person Name</label>
-                                                            <select name="nominee_related_person_name" id="nominee_related_person_name">
-                                                                <option value="">Select Related Person Name</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="step-form-col-4">
-                                                            <label>Relation</label>
-                                                            <select name="nominee_relation" id="nominee_relation">
-                                                                <option value="">Select Relation</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="step-form-col-4">
-                                                            <label>Nominee</label>
-                                                            <select name="nominee_nominee" id="nominee_nominee">
-                                                                <option value="">Select Nominee</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="step-form-col-12">
+                                                <form>
+                                                    
+                                                    <div id="nominee_yes_block">
+                                                        <h2 class="nominee-title">Personal Detail <span>(* Fields are Mandatory.)</span></h2>
+                                                        <div class="margin-10">
                                                             <div class="step-form-col-4">
-                                                                <label>Name</label>
-                                                                <input type="text" name="nominee_name" id="nominee_name">
-                                                            </div>
-                                                            <div class="step-form-col-4">
-                                                                <label class="">&nbsp;</label>
-                                                                <input type="checkbox" name="nominee_minor_ind" id="nominee_minor_ind" value="1">Minor Ind
-                                                            </div>
-                                                        </div>
-                                                        <div class="step-form-col-12">
-                                                            <div class="step-form-col-4">
-                                                                <label>Father/Spouse</label>
-                                                                <select name="nominee_father_spouse" id="nominee_father_spouse">
-                                                                    <option value="">Select Father/Spouse</option>
+                                                                <label>Related Person Name</label>
+                                                                <select name="nominee_related_person_name" id="nominee_related_person_name">
+                                                                    <option value="">Select Related Person Name</option>
                                                                 </select>
                                                             </div>
                                                             <div class="step-form-col-4">
-                                                                <label>Father Name</label>
-                                                                <input type="text" name="nominee_father_name" id="nominee_father_name">
+                                                                <label>Relation</label>
+                                                                <select name="nominee_relation" id="nominee_relation">
+                                                                    <option value="">Select Relation</option>
+                                                                </select>
                                                             </div>
+                                                            <div class="step-form-col-4">
+                                                                <label>Nominee</label>
+                                                                <select name="nominee_nominee" id="nominee_nominee">
+                                                                    <option value="">Select Nominee</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="step-form-col-12">
+                                                                <div class="step-form-col-4">
+                                                                    <label>Name</label>
+                                                                    <input type="text" name="nominee_name" id="nominee_name">
+                                                                </div>
+                                                                <div class="step-form-col-4">
+                                                                    <label class="">&nbsp;</label>
+                                                                    <input type="checkbox" name="nominee_minor_ind" id="nominee_minor_ind" value="1">Minor Ind
+                                                                </div>
+                                                            </div>
+                                                            <div class="step-form-col-12">
+                                                                <div class="step-form-col-4">
+                                                                    <label>Father/Spouse</label>
+                                                                    <select name="nominee_father_spouse" id="nominee_father_spouse">
+                                                                        <option value="">Select Father/Spouse</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="step-form-col-4">
+                                                                    <label>Father Name</label>
+                                                                    <input type="text" name="nominee_father_name" id="nominee_father_name">
+                                                                </div>
+                                                            </div>
+                                                            <div class="step-form-col-4">
+                                                                <label>Date of Birth</label>
+                                                                <input type="text" name="nominee_date_of_birth" id="nominee_date_of_birth">
+                                                            </div>
+                                                            <div class="step-form-col-4">
+                                                                <label>PAN</label>
+                                                                <input type="text" name="nominee_pan" id="nominee_pan">
+                                                            </div>
+                                                            <div class="step-form-col-4">
+                                                                <label>Aadhaar</label>
+                                                                <input type="text" name="nominee_aadhaar" id="nominee_aadhaar">
+                                                            </div>
+                                                            
+                                                            <div class="step-form-col-4">
+                                                                <label>Gender</label>
+                                                                <select name="nominee_gender" id="nominee_gender">
+                                                                    <option value="">Select Gender</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="step-form-col-4">
+                                                                <label>Residential Status</label>
+                                                                <select name="nominee_residential_status" id="nominee_residential_status">
+                                                                    <option value="">Select Residential Status</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="step-form-col-4">
+                                                                <label>&nbsp;</label>
+                                                                <input type="checkbox" name="nominee_residual_flag" id="nominee_residual_flag" value="1">Residual Flag
+                                                            </div>
+                                                            <div class="step-form-col-4">
+                                                                <label>Percentage of Share</label>
+                                                                <input type="text" name="nominee_percentage_of_share" id="nominee_percentage_of_share">
+                                                            </div>
+                                                            
+                                                            <div class="step-form-col-4">
+                                                                <label>Citizenship</label>
+                                                                <select name="nominee_citizenship" id="nominee_citizenship">
+                                                                    <option value="">Select Citizenship</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="step-form-col-4">
+                                                                <label>Occupation</label>
+                                                                <select name="nominee_occupation" id="nominee_occupation">
+                                                                    <option value="">Select Occupation</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="step-form-col-4">
+                                                                <label>ID Proof</label>
+                                                                <select name="nominee_id_proof" id="nominee_id_proof">
+                                                                    <option value="">Select ID Proof</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="step-form-col-4">
+                                                                <label>ID Proof Ref</label>
+                                                                <input type="text" name="nominee_id_proof_ref" id="nominee_id_proof_ref">
+                                                            </div>
+                                                            <div class="step-form-col-4">
+                                                                <label>Exp. date</label>
+                                                                <input type="date" name="nominee_exp_date" id="nominee_exp_date">
+                                                            </div>
+                                                            
                                                         </div>
-                                                        <div class="step-form-col-4">
-                                                            <label>Date of Birth</label>
-                                                            <input type="text" name="nominee_date_of_birth" id="nominee_date_of_birth">
-                                                        </div>
-                                                        <div class="step-form-col-4">
-                                                            <label>PAN</label>
-                                                            <input type="text" name="nominee_pan" id="nominee_pan">
-                                                        </div>
-                                                        <div class="step-form-col-4">
-                                                            <label>Aadhaar</label>
-                                                            <input type="text" name="nominee_aadhaar" id="nominee_aadhaar">
-                                                        </div>
-                                                        
-                                                        <div class="step-form-col-4">
-                                                            <label>Gender</label>
-                                                            <select name="nominee_gender" id="nominee_gender">
-                                                                <option value="">Select Gender</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="step-form-col-4">
-                                                            <label>Residential Status</label>
-                                                            <select name="nominee_residential_status" id="nominee_residential_status">
-                                                                <option value="">Select Residential Status</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="step-form-col-4">
-                                                            <label>&nbsp;</label>
-                                                            <input type="checkbox" name="nominee_residual_flag" id="nominee_residual_flag" value="1">Residual Flag
-                                                        </div>
-                                                        <div class="step-form-col-4">
-                                                            <label>Percentage of Share</label>
-                                                            <input type="text" name="nominee_percentage_of_share" id="nominee_percentage_of_share">
-                                                        </div>
-                                                        
-                                                        <div class="step-form-col-4">
-                                                            <label>Citizenship</label>
-                                                            <select name="nominee_citizenship" id="nominee_citizenship">
-                                                                <option value="">Select Citizenship</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="step-form-col-4">
-                                                            <label>Occupation</label>
-                                                            <select name="nominee_occupation" id="nominee_occupation">
-                                                                <option value="">Select Occupation</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="step-form-col-4">
-                                                            <label>ID Proof</label>
-                                                            <select name="nominee_id_proof" id="nominee_id_proof">
-                                                                <option value="">Select ID Proof</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="step-form-col-4">
-                                                            <label>ID Proof Ref</label>
-                                                            <input type="text" name="nominee_id_proof_ref" id="nominee_id_proof_ref">
-                                                        </div>
-                                                        <div class="step-form-col-4">
-                                                            <label>Exp. date</label>
-                                                            <input type="date" name="nominee_exp_date" id="nominee_exp_date">
-                                                        </div>
-                                                        
                                                     </div>
-                                                </div>
-                                                <a href="javascript:;" class="wpcf7-submit t-continue-btn step-btn-13" value="">Continue</a>
+                                                    <a href="javascript:;" class="wpcf7-submit t-continue-btn step-btn-13" value="">Continue</a>
+                                                </form>
                                             </div>
                                             <div class="step-col nominee-yes-block-right">
                                                 <div class="contact-address-detail">
@@ -736,19 +727,20 @@
                                                     </tr>
                                                 </table>
                                             </div>
-                                        </div>    
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        
+                        
                     </div>
-                    <div class="step-14 step_block" style="display: none;">
+                    <div class="step-14" style="display: none;">
                         <div class="upload-documents-block">
                             <div class="step-box">
                                 <div class="upload-documents-padding">
-                                    <a href="javascript:;" class="wpcf7-submit t-continue-btn back-btn" onclick="fun_back_btn('step-13','step-14');" value="">Back 14</a>
                                     <h1>Upload Documents</h1>
-                                    <form id="frm_step_14">
+                                    <form>
                                         <div class="step-col-12">
                                             <div class="step-col upload-documents-block-left">
                                                 <label>Signature</label>
@@ -779,18 +771,18 @@
                                                     <a href="javascript:;" class="wpcf7-submit t-continue-btn step-btn-14" value="">Continue</a>
                                                 </div>
                                             </div>
-                                        </div>        
-                                    </form>
+                                            
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="step-15 step_block" style="display: none;">
+                    <div class="step-15" style="display: none;">
                         <div class="step-col e-sign-block">
                             <div class="step-box">
-                                <a href="javascript:;" class="wpcf7-submit t-continue-btn back-btn" onclick="fun_back_btn('step-14','step-15');" value="">Back 15</a>
                                 <h1>E-Sign</h1>
-                                <form id="frm_step_15">
+                                <form>
                                     ﻿<label>Digitally sign your application. We will send Esign link to your email as well.</label>
                                     <p class="e-sign-small-text">*Buy clicking the above button, I agree that I have read the Aadhaar user consent document and voluntarily consent to share my aadhaar information with us for conducting KYC for opening a trading and Demat account adhering to KRA regulations (2011) and PMLA guideline(2002). FREEPIK</p>
                                     <a href="javascript:;" class="wpcf7-submit t-continue-btn step-btn-15" value="">Continue</a>
@@ -805,14 +797,14 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
-                <a href="javascript:;" style="margin: 100px;top: 121px;position: relative;" class="wpcf7-submit t-continue-btn" onclick="fun_all_submit();" value="">All</a>    
             </div>
         </section>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script type="text/javascript">
-    </script>
-    
-</body>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/custom.js"></script>
+        <script type="text/javascript">
+        </script>
+        
+    </body>
 </html>

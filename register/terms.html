@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--[if IE 7]><html class="ie ie7" lang="en-US"><![endif]-->
+<!--[if IE 8]><html class="ie ie8" lang="en-US"><![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+
+<!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<title></title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no" />
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=9" /><![endif]-->
+<style> 
+.term-condation-content{
+width:1140px;
+font-size:18px;
+margin:20px auto 0px auto;}
+.term-condation-dec{
+height:400px;
+margin-bottom: 30px;
+overflow-y:scroll;}
+.terms-from{
+width:500px;
+margin:20px auto 0 auto;
+font-size:20px;
+}
+
+
+.term-condation-content input::-webkit-outer-spin-button,
+.term-condation-content input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.term-condation-content input[type=number] {
+  -moz-appearance: textfield;
+}
+.terms-from{
+padding:20px;
+border:1px solid #cccccc;
+}
+.terms-from input{
+height:40px;
+margin-top:20px;
+padding: 0px 15px;
+}
+.terms-from span{
+margin-left:10px;
+}
+.terms-from input[type="checkbox"]{
+width:20px;
+height:20px;
+margin-left:10px;
+vertical-align:middle;
+margin-top:0;
+}
+.send-otp-btn{
+	display: inline-block;
+	float:none;
+width: 39%;
+margin: 0 10px;	
+}
+.otp-number{
+float:none;
+width: 88%;
+margin: 0 10px;
+display: inline-block;
+}
+.terms-submit-btn{
+width:95%;
+margin:20px 10px;
+border:1px solid #2477bc;
+background-color:#2477bc;
+color:#ffffff;
+text-transform:uppercase;
+font-weight:600;
+font-size:20px;
+padding:10px 20px;
+height:50px !important;
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+	<section>
+		<div class="term-condation-content">
+			<div class="term-condation-dec">
+				<strong>Lorem Ipsum is simply dummy text of the printing</strong>
+			<P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			<P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			<P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+				<strong>Lorem Ipsum is simply dummy text of the printing</strong>
+			<P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			<P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			</div>
+			<form>
+			<div class="terms-from">
+			<div>
+			<span> i agree to terms and condition </span> <input type="checkbox" name="i_agree" id="i_agree" value="1"> 
+			</div>
+			<div id="opt_block" style="display: none;">
+				<input type="button" class="send-otp-btn" value="Send OTP" id="send_opt_btn_block">
+				<input type="number" class="otp-number" placeholder="Enter OTP" id="enter_opt_txt_block">
+				<input type="button" class="terms-submit-btn" value="SUBMIT" id="submit_opt_btn_block">
+			</div>
+			</div>
+		</form>
+		</div>
+	</section>
+	
+
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	$('#opt_block').hide();
+	$('#send_opt_btn_block').hide();
+	$('#enter_opt_txt_block').hide();
+	$('#submit_opt_btn_block').hide();
+	$('#i_agree').change(function() {
+	    var boxes = $('#i_agree:checked').val();
+	    if(boxes == 1){
+	    	$('#opt_block').show();
+	    	$('#send_opt_btn_block').show();
+	    }else{
+	    	$('#opt_block').hide();
+	    	$('#send_opt_btn_block').hide();
+	    }
+	});
+	$('#send_opt_btn_block').click(function() {
+    	$('#opt_block').show();
+    	$('#enter_opt_txt_block').show();
+    	$('#send_opt_btn_block').hide();
+	});
+	$('#enter_opt_txt_block').keyup(function() {
+	    var boxes_txt = $('#enter_opt_txt_block').val();
+	    if(boxes_txt != ''){
+	    	$('#opt_block').show();
+	    	$('#submit_opt_btn_block').show();
+	    }else{
+	    	$('#submit_opt_btn_block').hide();
+	    }
+	});
+	$('#submit_opt_btn_block').click(function() {
+    	 var boxes_opt = $('#enter_opt_txt_block').val();
+    	alert(boxes_opt);
+	});
+</script>
+
+</html>
+
