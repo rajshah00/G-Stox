@@ -1,0 +1,457 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+.nominee-yes-block {
+        height: 365px;
+        overflow-y: scroll;
+}
+
+.nominee-no-block {
+        border: 3px solid #2477bc;
+        border-radius: 10px;
+        width: 800px;
+        padding: 10px 100px 30px 100px;
+        margin: 30px auto;
+        float: left;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+}
+
+.nominee-no-block input, .nominee-no-block input:hover {
+        display: inline-block !important;
+        width: auto;
+        accent-color: #2477bc;
+}
+
+.nominee-no-block .t-continue-btn {
+        width: 100px !important;
+        margin: 20px auto 0px auto !important;
+        float: none !important;
+        display: block !important;
+}
+
+.nominee-no-block label {
+        display: inline-block !important;
+}
+
+.nominee-yes-no-block span em {
+        background-color: #ffffff;
+        border-radius: 50%;
+        width: 27px;
+        height: 27px;
+        position: absolute;
+        left: 29px;
+        top: 4px;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+}
+
+.nominee-yes-no-block.active span em {
+        left: 5px;
+}
+
+.nominee-yes-no-block {
+        width: 300px;
+        margin: 10px auto 0px auto;
+}
+
+.nominee-yes-no-block input {
+        display: none;
+}
+
+.nominee-yes-no-block span {
+        position: relative;
+        width: 60px;
+        height: 35px;
+        background-color: #2477bc;
+        border-radius: 30px;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 10px;
+}
+
+.nominee-yes-no-block label {
+        width: 27px;
+        height: 27px;
+        cursor: pointer;
+        display: inline-block !important;
+}
+
+.branch-detail-block .t-continue-btn {
+        position: absolute;
+        bottom: -70px;
+        left: 0;
+}
+
+.step-nominee-row .branch-detail-block .t-continue-btn {
+        position: relative;
+        bottom: auto;
+        left: 0;
+}
+
+.branch-detail-block form {
+        position: relative;
+}
+
+.branch-detail-block label {
+        display: block;
+}
+
+.branch-detail-row {
+        height: 350px;
+        overflow-y: scroll;
+        margin-top: 20px;
+        margin-bottom: 70px;
+}
+
+.branch-detail-block h2 {
+        margin: 0;
+}
+
+.branch-detail-block input, .branch-detail-block select {
+        padding: 0 15px 0 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: #ffffff;
+        border: 1px solid #2477bc;
+        border-radius: 5px;
+        font-size: 16px;
+        height: 30px !important;
+        opacity: 1;
+        outline: 0;
+        width: 100%;
+        font-size: 14px;
+}
+
+.branch-detail-block input {
+        width: 85%;
+}
+
+.step-form-col-12 select {
+        width: 97.6%;
+}
+
+.step-form-col-12 input {
+        width: 91%;
+}
+
+.branch-detail-block .step-form-col-4 input {
+        width: 78%;
+}
+
+.branch-detail-block  input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        margin-right: 10px;
+}
+
+.step-form-col-4 {
+        width: 29.3%;
+        float: left;
+        margin: 10px 10px;
+}
+
+.step-form-col-6 {
+        width: 46%;
+        float: left;
+        margin: 10px 10px;
+}
+
+.step-form-col-12 {
+        width: 98%;
+        float: left;
+        margin: 10px 10px;
+}
+
+.step-form-row {
+        float: left;
+        width: 98%;
+        margin: 0 -10px;
+}
+
+.step-4 .step-box {
+        padding: 40px 40px 40px 40px !important;
+}
+
+.step-11 .step-box, .step-12 .step-box {
+        padding: 40px 40px 40px 40px !important;
+}
+
+.step-box input[type="check-box"] {
+        background-color: #2477bc;
+}
+
+.changes-total-col {
+        border-top: 1px solid #2477bc;
+        margin: 20px 0 0px 0;
+        padding: 0px 0 0px 0;
+}
+
+.hanges-equity-step-box h1 {
+        margin-bottom: 20px !important;
+}
+
+.changes-equity-col {
+        display: inline-block;
+        width: 42%;
+        vertical-align: top;
+}
+
+.changes-equity-col-2 {
+        width: 57%;
+}
+
+.changes-equity span {
+        float: right;
+}
+
+body {
+        margin: 0;
+        padding: 0;
+}
+
+.step-section {
+        padding: 0px 0;
+        float: left;
+        background-size: contain !important;
+        background: url(images/step-bg.png) no-repeat right center #ecf6ff;
+        width: 100%;
+        height: 100vh;
+        font-family: 'Poppins', sans-serif !important;
+}
+
+.step-section .container {
+        width: 1170px;
+        margin: 0px auto;
+        height: 100%;
+        position: relative;
+}
+
+.step-row {
+        float: left;
+        width: 100%;
+        clear: both;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+}
+
+.step-col {
+        float: left;
+        width: 50%;
+}
+
+.step-col-12 {
+        width: 100%;
+        float: left;
+}
+
+.step-box {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 530px;
+        padding: 70px 40px 70px 40px !important;
+        min-height: inherit !important;
+        border-radius: 20px;
+        background-color: #ffffff;
+        box-shadow: 10px 10px 0px #2477bc;
+        float: left;
+}
+
+.step-nominee-row .step-box.branch-detail-block {
+        width: 92%;
+        padding: 30px 40px 20px 40px !important;
+}
+
+.step-box h1 {
+        margin: 0;
+        font-size: 30px;
+        font-weight: 500;
+}
+
+.step-box h1 span {
+        color: #2477bc;
+        font-weight: 700;
+        font-size: 35px;
+}
+
+.step-box .trading-m-number {
+        position: relative;
+        float: left;
+        width: 100%;
+}
+
+.step-section input[type=file] {
+        margin-top: 10px;
+}
+
+.step-box .trading-m-number input.validates-as-number, .step-box .trading-m-number input.validates-as-number:hover, .step-box .trading-m-number input.validates-as-number:focus {
+        padding: 0 15px 0 15px;
+        padding-left: 15px;
+        border: 1px solid #2477bc;
+        border-radius: 5px;
+        font-size: 16px;
+        height: 45px !important;
+        opacity: 1;
+        outline: 0;
+        width: 94%;
+        float: left;
+}
+
+.step-box .trading-m-number span.receive-otp {
+        float: left;
+        margin: 10px 0 0 2px;
+}
+
+.step-box .wpcf7-submit {
+        height: 46px !important;
+        line-height: 47px !important;
+        padding: 0 15px;
+        color: #ffffff;
+        font-weight: 400;
+        float: left;
+        width: 94%;
+        margin-top: 20px;
+        text-transform: uppercase;
+        font-size: 18px;
+        border: 0;
+        text-decoration: none;
+        background-color: #2477bc;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+}
+
+.step-box h2 {
+        font-weight: 600;
+        color: #2477bc;
+        font-size: 20px;
+}
+
+.otp-row {
+        width: 100%;
+        clear: both;
+        margin-top: 15px;
+        float: left;
+}
+
+.otp-row .change-m-number, .otp-row .otp-here {
+        float: left;
+        font-weight: 500;
+}
+
+.otp-row .change-m-number {
+        float: right;
+}
+
+.otp-row .change-m-number a, .resend-number-text a {
+        font-weight: 500;
+        color: #2477bc;
+        text-decoration: none;
+}
+
+.otp-input {
+        clear: both;
+        float: left;
+}
+
+.otp-input input {
+        width: 50px;
+        float: left;
+        display: inline-block;
+        height: 40px;
+        margin: 15px 15px 0 0;
+        border-radius: 5px;
+        text-align: center;
+        border: 1px solid #2477bc;
+        font-size: 25px;
+}
+
+.resend-time {
+        float: left;
+        width: 100%;
+        font-weight: 600;
+        margin-top: 20px;
+        color: #2477bc;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+}
+
+input[type=number] {
+        -moz-appearance: textfield;
+}
+
+.resend-number-text {
+        float: right;
+        margin-top: 20px;
+}
+
+.step-col {
+        position: relative;
+        height: 100vh;
+}
+
+.tranding-step-img {
+        width: 420px;
+        height: 350px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        left: 60%;
+        position: absolute;
+        background-color: #ffffff;
+        box-shadow: 0 2px 25px -3px rgb(0 0 0 / 10%);
+        border-radius: 20px;
+}
+
+.tranding-step-img.tranding-step-digilock {
+        height: 430px;
+        text-align: justify;
+}
+
+.tranding-step-img.tranding-step-digilock .step-right-content {
+        height: 360px;
+}
+
+.tranding-step-img img.step-1-img {
+        width: 100%;
+        border-radius: 20px;
+}
+
+.tranding-step-img img.step-img-2 {
+        width: 90%;
+}
+
+.step-right-content {
+        text-align: center;
+        padding: 30px;
+        border-radius: 20px;
+        position: relative;
+        margin-top: 0px;
+        height: 270px;
+}
+
+.step-right-content h2 {
+        color: #2477bc;
+}
+
+.tranding-step-digilock .step-right-content p {
+        text-align: justify;
+}
+
+.tranding-step-img span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        text-align: center;
+        width: 85%;
+        transform: translate(-50%, -50%);
+}

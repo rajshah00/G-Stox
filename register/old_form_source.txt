@@ -1,0 +1,1784 @@
+
+
+
+<!DOCTYPE html>
+<html>
+
+    <div class="snippet-body" id="mainbox">
+        <section class="body">
+            <div id="processing">
+                <img class="imgprocess" src="https://static.wixstatic.com/media/d27180_8ba5d7d0d8ce459aa955f57c6ff5782b~mv2.gif" />
+            </div>
+
+            <div class="myAlert-top alert alert-success">
+                <strong> !</strong>
+            </div>
+
+            <div class="container">
+                <div class="row m-t-30 hide-on-mobile">
+                    <div class="col-md-3 col-xs-6">
+                        <p class="small_icon"><img src="/Scripts/assets/images/setting.png" /><b>&nbsp; Instant Verification.</b></p>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <p class="small_icon"><img src="/Scripts/assets/images/upload.png" /><b>&nbsp; No Verification Charges. </b></p>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <p class="small_icon"><img src="/Scripts/assets/images/other.png" /><b> &nbsp; Increased Security.</b></p>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <p class="small_icon"><img src="/Scripts/assets/images/first.png" /><b>&nbsp; Zero Paper Document. </b></p>
+                    </div>
+                </div>
+
+                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <div class="login-box container" id="mainbox">
+            <div class="myAlert-top alert alert-success">
+                <strong> !</strong>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-1">
+                    <div class="logo">
+                        <h4 class="logo-font" style="color:#000000;">Open Your Trading Account with <b style="color:#3bc3ff;"> GOLDMINE STOCKS PVT LTD</b></h4>
+                    </div>
+                    <div id="details" class="row" style="display:none;"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form_wrapper">
+                        <div class="form_container">
+                            <div class="title_container" style="padding-bottom: 6px;">
+                                <h2 class="">Signup now</h2>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="">
+                                    <div class="tab-pane active" id="MobileSection">
+                                        <form class="form" action="/EKYC/EKYCAccountOpening" method="post" id="myForm">
+                                            
+                                            <div class="input_field">
+                                                <span><i aria-hidden="true" class="fa fa-phone"></i></span>
+                                                <input type="number" name="Mobile" placeholder="Your 10 digit mobile no" id="MobileNo" maxlength="10" required />
+                                                <input type="hidden" name="Type" value="M" id="Type" />
+                                                <div id="charCount" type="hidden"></div>
+                                            </div>
+                                            <h3 class="header-title">You will receive an OTP on your mobile number.</h3>
+                                            <input class="button" type="button" value="CONTINUE" onclick="submitdata('START')" />
+                                        </form>
+                                    </div>
+                                    <div class="row clearfix" id="MobileOTP">
+                                        <div class="">
+                                            <div class="container mx-auto">
+                                                <div class="">
+                                                    <div class="w-full">
+                                                        <div class="bg-white h-64 py-3 rounded text-center">
+                                                            <div class="tab-pane active">
+                                                                <form class="form" action="/EKYC/EKYCAccountOpening" method="post" id="myForm">
+                                                                    <div class="input_field">
+                                                                        <span><i aria-hidden="true" class="fa fa-phone"></i></span>
+                                                                        <input type="text" name="Mobile" id="MobileNo" maxlength="10" disabled />
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <h3 class="header-title">Enter 4 Digit OTP Here.</h3>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <h3 class="header-title"><a href="#" onclick="submitdata('CHANGEMobile')">Change Mobile Number </a></h3>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div id="otpverify" class="flex flex-row justify-center text-center px-2 mt-5">
+                                                                        <input class="m-2 border h-10 w-10 text-center form-control rounded" onkeyup="movetoNext(this, 'second')" type="text" name="first" id="first" maxlength="1" inputmode="numeric" />
+                                                                        <input class="m-2 border h-10 w-10 text-center form-control rounded" onkeyup="movetoNext(this, 'third')" type="text" name="second" id="second" maxlength="1" inputmode="numeric" />
+                                                                        <input class="m-2 border h-10 w-10 text-center form-control rounded" onkeyup="movetoNext(this, 'fourth')" type="text" name="third" id="third" maxlength="1" inputmode="numeric" />
+                                                                        <input class="m-2 border h-10 w-10 text-center form-control rounded" onkeyup="movetoNext(this, 'fifth')" type="text" name="fourth" id="fourth" maxlength="1" inputmode="numeric" />
+                                                                    </div>
+
+                                                                    <input type="hidden" name="OTP" id="OTP" />
+                                                                    <input type="hidden" name="getotp" id="GetOTP" />
+                                                                    <input type="hidden" name="Type" value="M" id="Type" />
+                                                                    <input class="button" type="button" value="CONTINUE" onclick="submitdata('OTPVERIFY')" />
+                                                                    <div class="flex justify-center text-center">
+                                                                        <p id="WrongOTP"></p>
+                                                                    </div>
+                                                                </form>
+                                                                <form class="form" action="/EKYC/EKYCAccountOpening" method="post" id="myForm">
+                                                                    <input type="hidden" name="REMobile" id="REMobileNo" />
+                                                                    <input type="hidden" name="Type" value="M" id="Type" />
+                                                                    <h3 class="header-title" style="text-align:center"><a href="#" id="timerDisplay">1:00</a></h3>
+                                                                    <h3 class="header-title" type="button" style="text-align:center"><a href="#" class="ResendOTP" onclick="submitOTP('RESENDOTP')"> Resend OTP?</a></h3>
+                                                                    <p id="OTPText"></p>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 hide-on-mobile">
+                    <div id="demo" class="carousel slide" data-ride="carousel">
+                        <div class="">
+                            <div class="slider-img">
+                                <img src="/Scripts/assets/images/EKYCImage.gif" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                setInputModeToNumeric();
+                function setInputModeToNumeric() {
+                    $('#otpverify input').attr('inputmode', 'numeric');
+                }
+            });
+        </script>
+        <script>
+            var timer;
+            var timerDuration = 60000; // 1 minute in milliseconds
+
+            $(document).ready(function () {
+                var inputValue = $('#REMobileNo').val();
+
+                if (inputValue !== '') {
+                    startTimer();
+                } else {
+                    clearTimeout(timer);
+                    $('#timerDisplay').text('');
+                }
+            });
+
+            function startTimer() {
+                clearTimeout(timer);
+
+                var startTime = Date.now();
+                timer = setInterval(function () {
+                    var elapsedTime = Date.now() - startTime;
+                    var timeRemaining = timerDuration - elapsedTime;
+                    var timeString = formatTime(timeRemaining);
+                    $('#timerDisplay').text(timeString);
+
+                    if (timeRemaining <= 0) {
+                        clearInterval(timer);
+                        $('#timerDisplay').text("Timer has expired!");
+                        $(".ResendOTP").css("display", "block");
+                    }
+                }, 1000);
+            }
+
+            function formatTime(milliseconds) {
+                var seconds = Math.floor(milliseconds / 1000);
+                var minutes = Math.floor(seconds / 60);
+                seconds = seconds % 60;
+                var timeString = minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
+                return timeString;
+            }
+
+            function submitOTP(xxx) {
+                if (xxx == 'RESENDOTP') {
+                    var mobile_no = $('#REMobileNo').val();
+                    var type = $('#Type').val();
+                    var output = "";
+                    $.ajax("/EKYC/ReSendMOTP", {
+                        type: "GET",
+                        dataType: "json",
+                        data: {
+                            MobileNo: mobile_no,
+                            Type: type
+                        },
+                        success: function (result, status, xhr) {
+                            $('#GetOTP').val(result);
+                            $('#OTP').val(result);
+                            $("#OTPText").text("OTP Sent Successfully");
+                            startTimer();
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+                }
+            }
+        </script>
+
+
+                <marquee>
+                    <b>Documents to be kept ready before attempting the E-KYC</b>&nbsp;
+                    <b>A-&nbsp;</b> Your Mobile Number must be registered with UIDAI’s Aadhaar Database for OTP authentication. &nbsp;
+                    <b>B-&nbsp;</b> Soft copy of your PAN which is to be self-attested.&nbsp;
+                    <b>C-&nbsp;</b> Soft Copy / Image of Your signature on plain paper.&nbsp;
+                    <b>D-&nbsp;</b> Should have a device with camera permission. To access Camera, Location, and Microphone to be enabled..&nbsp;
+                </marquee>
+                <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+                <!--========================SUCCESS==========================-->
+            </div>
+        </section>
+    </div>
+    <script>
+        if (document.readyState === 'complete') {
+            $("#processing").hide();
+        }
+    </script>
+    <script>
+        function submitdata(xxx) {
+            if (xxx == 'START') {
+                var mobile_no = $('#MobileNo').val();
+                var type = $('#Type').val();
+
+                if (mobile_no === "") {
+                    alert("Please Enter Mobile No");
+                    return;
+                } else if (mobile_no.length === 10) {
+
+                } else {
+                    alert("Mobile No must contain exactly 10 characters.");
+                    $("#MobileNo").val("");
+                    return; // Clear the input if it doesn't have 10 characters
+                }
+                $("#processing").show();
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            MobileNo: mobile_no,
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $(".myAlert-top").css('display', 'block');
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'RESENDOTP') {
+                var mobile_no = $('#REMobileNo').val();
+                var type = $('#Type').val();
+
+                if (mobile_no == "") {
+                    alert("Please Enter Mobile No");
+                    return;
+                }
+                $("#processing").show();
+
+                $.ajax("/EKYC/ReSendMOTP",
+                    {
+                        type: 'POST',
+                        data: {
+                            MobileNo: mobile_no,
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $(".myAlert-top").css('display', 'block');
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'OTPVERIFY') {
+                $("#processing").show();
+                setTimeout(function () {
+                    $("#processing").hide();
+                }, 2000);
+                var otp = $('#OTP').val($('#first').val() +
+                    $('#second').val() +
+                    $('#third').val() +
+                    $('#fourth').val());
+
+                var getotp = $('#GetOTP').val();
+                var newotp = otp.val();
+                if (otp.val() != getotp) {
+                    $("#WrongOTP").html("You have entered wrong OTP");
+                    $('#first').val('');
+                    $('#second').val('');
+                    $('#third').val('');
+                    $('#fourth').val('');
+                    $("#WrongOTP").html();
+                    return;
+                }
+
+                $("#processing").show();
+                setTimeout(function () {
+                    $("#processing").hide();
+                }, 2000);
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            MOTP: newotp,
+                            Type: "M",
+                            Status: "01"
+                        },
+                        success: function (data, status, xhr) {
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+
+                    });
+            }
+            else if (xxx == 'EMAILVerify') {
+
+                var email = $('#Email').val();
+                var type = $('#Type').val();
+
+                if (email == "") {
+                    alert("Please Enter Email Id");
+                    return;
+                }
+                $("#processing").show();
+                setTimeout(function () {
+                    $("#processing").hide();
+                }, 2000);
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Email: email,
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $(".myAlert-top").css('display', 'block');
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'REEMAILOTP') {
+
+                var email = $('#REEmail').val();
+                var type = $('#Type').val();
+
+                if (email == "") {
+                    alert("Please Enter Email Id");
+                    return;
+                }
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Email: email,
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $(".myAlert-top").css('display', 'block');
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'CHANGEMobile') {
+
+                var type = "CHANGEMobile";
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            console.log(status);
+                            console.log(data);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'CHANGEEMAIL') {
+                $("#processing").show();
+
+                var type = "CHANGEEMAIL";
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            console.log(status);
+                            console.log(data);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'EOTPVERIFY') {
+
+                var otp = $('#OTP').val($('#first').val() +
+                    $('#second').val() +
+                    $('#third').val() +
+                    $('#fourth').val());
+
+                var getotp = $('#EGetOTP').val();
+                var newotp = otp.val();
+
+                if (otp.val() != getotp) {
+                    $("#EmailWrongOTP").show();
+                    $('#first').val('');
+                    $('#second').val('');
+                    $('#third').val('');
+                    $('#fourth').val('');
+                    return;
+                }
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            EOTP: newotp,
+                            Type: "E"
+                        },
+                        success: function (data, status, xhr) {
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#processing").hide();
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+
+                    });
+            }
+            else if (xxx == 'PANVerify') {
+
+                var pan = $('#PANNO').val();
+                var type = $('#type').val();
+
+                if (pan == "") {
+                    alert("Please Enter Your PAN");
+                    return;
+                }
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            PANNO: pan,
+                            Type: "PAN"
+                        },
+                        success: function (data, status, xhr) {
+                            $(".myAlert-top").show();
+                            $("#processing").hide();
+
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'EAADHAR') {
+
+                var type = $("#Type").val();
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+
+                    });
+            }
+            else if (xxx == 'AadharVERIFY') {
+
+                var aadhar_no = $('#Aadhar').val($('#first').val() +
+                    $('#second').val() +
+                    $('#third').val());
+
+                if (aadhar_no == '') {
+                    alert("Please Enter Your Adhaar.");
+                    return;
+                }
+                var aadhar_pass = $('#AadharPassword').val();
+
+                if (aadhar_pass == "") {
+                    alert("Please Enter Password");
+                    return;
+                }
+
+                var fileUpload = $("#AadharFile").get(0);
+                var files = fileUpload.files;
+                var type = "AADHAAR";
+
+                var fileData = new FormData();
+                if (files.length == 0) {
+                    alert("No files selected. Please upload adhaar zip file");
+                    return;
+                }
+
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                fileData.append('Aadhar', $('#Aadhar').val());
+                fileData.append('AadharPassword', aadhar_pass);
+                fileData.append('Type', type);
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: fileData,
+                        processData: false,
+                        contentType: false,
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'OFFLINEPANVERIFY') {
+
+                var fileUpload = $("#PANFile").get(0);
+                var files = fileUpload.files;
+                var type = "OFFLINEPAN";
+
+                var fileData = new FormData();
+                if (files.length == 0) {
+                    alert("No files selected. Please upload PAN");
+                    return;
+                }
+
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                fileData.append('Type', type);
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: fileData,
+                        processData: false,
+                        contentType: false,
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'OtherDetails') {
+                var fath_name = $('#FatherName').val();
+                var moth_name = $('#MotherName').val();
+                var maid_name = $('#MaidenName').val();
+                var mar_status = $('#MaritalStatus').val();
+                var res_status = $('#ResidentialStatus').val();
+                var nat = $('#Nationality').val();
+                var occ = $('#Occupation').val();
+                var occ_oth = $('#OccupationOther').val();
+                var income = $('#AnnualIncomeCode').val();
+                var income_date = $('#AnnualIncomeDate').val();
+                var fath_spo = $('#FatherSpouse').val();
+                var pep = $('#PEP').val();
+                var brnch = $('#BranchName').val();
+                var subbr = $('#SubBranchName').val();
+                var trd_exp = $('#TradeExp').val();
+                var FatcaCountry = $('#FatcaCountry').val();
+                var FatcaTIN = $('#FatcaTIN').val();
+                var FatcaDate = $('#FatcaDate').val();
+
+                if (fath_name == '') {
+                    alert("Father Name can't be empty.")
+                    return;
+                }
+
+                if (moth_name == '') {
+                    alert("Mother Name can't be empty.")
+                    return;
+                }
+                if ($('#DIS').is(':checked')) {
+                    var dis = "Y";
+                }
+                else {
+                    var dis = "N";
+                }
+                if ($('#FatcaFlag').is(':checked')) {
+                    var FatcaFlag = "Y";
+
+                    if (FatcaCountry == '') {
+                        alert("FATCA country can't be empty.")
+                        return;
+                    }
+
+                    if (FatcaTIN == '') {
+                        alert("FATCA TIN can't be empty.")
+                        return;
+                    }
+                }
+                else {
+                    var FatcaFlag = "N";
+                }
+
+                $("#processing").show();
+
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            FatherName: fath_name,
+                            MotherName: moth_name,
+                            MaidenName: maid_name,
+                            MaritalStatus: mar_status,
+                            ResidentialStatus: res_status,
+                            Nationality: nat,
+                            Occupation: occ,
+                            OccupationOther: occ_oth,
+                            AnnualIncomeCode: income,
+                            AnnualIncomeDate: income_date,
+                            FatherSpouse: fath_spo,
+                            FatherPrefix: "Mr",
+                            MotherPrefix: "Mrs",
+                            Type: "Other",
+                            MaidenPrefix: "Mr",
+                            PEP: pep,
+                            Branch: brnch,
+                            StockMarketExp: trd_exp,
+                            SubBranch: subbr,
+                            DISFlag: dis,
+                            FatcaFlag: FatcaFlag,
+                            FatcaCountry: FatcaCountry,
+                            FatcaDate: FatcaDate,
+                            FatcaTIN: FatcaTIN
+                        },
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'NomineesSkip') {
+
+
+                var type = $('#Type').val();
+
+                if ($('#NomOTPFlag').is(':checked')) {
+                    var opt = "Y";
+                }
+                else {
+                    alert("Please check checkbox for Nominee Opt-Out.");
+                    return;
+                }
+                $("#processing").show();
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            NomOTPFlag: opt,
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'NomineeDetail') {
+
+                var keys = [], SpanPosition = [];
+                $("#table thead tr th").each(function () {
+                    keys.push($(this).html());
+                });
+
+                $("#table tbody tr").each(function () {
+                    var obj = {}, i = 0;
+                    $(this).children("td").each(function () {
+                        obj[keys[i]] = $(this).html();
+                        i++;
+                    })
+                    SpanPosition.push(obj);
+                });
+
+                var columnName = "SharePercentage";
+                var sum = 0;
+                for (var i = 0; i < SpanPosition.length; i++) {
+                    var foundValue = SpanPosition[i][columnName];
+
+                    if (foundValue !== undefined) {
+                        var sharePercentage = parseFloat(foundValue);
+
+                        if (!isNaN(sharePercentage)) {
+                            sum += sharePercentage;
+                        }
+
+                    } else {
+                        console.log("Column " + columnName + " not found in the data.");
+                    }
+                }
+
+                if (sum !== 100) {
+                    alert("Share Percent Value should be 100.");
+                    return;
+                }
+
+                $.ajax("/EKYC/NomineeDetail",
+                    {
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify(SpanPosition),
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'UploadDocument') {
+                var formData = new FormData();
+
+                var file_photo = $("#Upload_PHOTO").get(0).files[0];
+                var file_sign = $("#Upload_SIGN").get(0).files[0];
+                var file_pan = $("#Upload_PAN").get(0).files[0];
+                var file_other = $("#Upload_OTHER").get(0).files[0];
+                var file_xml = $("#Upload_XML").get(0).files[0];
+
+                var doc_photo = $("#DocData_PHOTO").val();
+                var doc_sign = $("#DocData_SIGN").val();
+                var doc_pan = $("#DocData_PAN").val();
+                var doc_oth = $("#DocData_OTHER").val();
+                var pass_xml = $("#DocData_XML").val();
+                var pass_proof = $("#IncomePass").val();
+                var doctype = $("#DocType").val();
+
+
+                if ($('#PANDiv').hasClass('HideDiv')) {
+                    // Do nothing
+                } else {
+                    if (!doc_pan) {
+                        alert("Please upload your PAN.");
+                        return;
+                    }
+                }
+
+                if ($('#AdhaarDiv').hasClass('HideDiv')) {
+                    // Do nothing
+                } else {
+                    if (doc_photo === '') {
+                        alert("Please upload your Aadhaar.");
+                        return;
+                    }
+                }
+
+
+
+                if ($('#BankDiv').hasClass('HideDiv')) {
+                    // Do nothing
+                } else {
+                    if ($('#BankDiv').hasClass('Required')) {
+                        if (doctype === '') {
+                            alert("Please select Income proof type.");
+                            return;
+                        }
+
+                        if (!file_other) {
+                            alert("Please upload your Income Proof.");
+                            return;
+                        }
+                    }
+                }
+
+
+                if ($('#AdhaarXML').hasClass('HideDiv')) {
+                    // Do nothing
+                } else {
+                    if (file_xml === null || typeof file_xml === 'undefined') {
+                        alert("Please upload zip File.");
+                        return;
+                    }
+                }
+
+                if (!pass_xml && file_xml) {
+                    alert("Password is required when uploading zip File.");
+                    return;
+                }
+
+                if (!doc_sign) {
+                    alert("Please upload your Signature.");
+                    return;
+                }
+
+                if (file_pan) {
+                    formData.append('Upload_PAN', file_pan);
+                }
+
+                if (file_other) {
+                    formData.append('Upload_OTHER', file_other);
+                }
+
+                if (file_photo) {
+                    formData.append('Upload_PHOTO', file_photo);
+                }
+
+                if (file_xml) {
+                    formData.append('Upload_XML', file_xml);
+                }
+
+                formData.append('Upload_SIGN', file_sign);
+                if (pass_xml) {
+                    formData.append('XML_Password', pass_xml);
+                }
+
+                if (pass_proof) {
+                    formData.append('Income_Password', pass_proof);
+                }
+
+                if (doctype) {
+                    formData.append('DocType', doctype);
+                }
+                $("#processing").show();
+
+                $.ajax({
+                    url: '/EKYC/UploadDocument',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (data, status, xhr) {
+                        console.log(status);
+                        console.log(data);
+                        $("#mainbox").html(data);
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(error);
+                    }
+                });
+            }
+            else if (xxx == 'OTHERHOLDER') {
+                $("#processing").show();
+
+                var hld_type = $('#HolderType').val();
+                var first_name = $('#FirstName').val();
+                var s_name = $('#SecondName').val();
+                var t_name = $('#ThirdName').val();
+                var dob = $('#DateOfBirth').val();
+                var f_name = $('#FatherName').val();
+                var pan = $('#PANNo').val();
+                var kyc_type = $('#KYCType').val();
+                var kyc_no = $('#CKYCNumber').val();
+                var a_no = $('#AadharNo').val();
+                var m_no = $('#MobileNo').val();
+                var e_no = $('#EmailID').val();
+                var type = "HOLDER";
+
+                let name = first_name.concat(" ", s_name, " ", t_name);
+                if (first_name == '') {
+                    alert("Name can't be empty.");
+                    return;
+                }
+
+                var HolderData = {
+                    HolderType: hld_type,
+                    Name: name,
+                    FirstName: first_name,
+                    SecondName: s_name,
+                    ThirdName: t_name,
+                    DateOfBirth: dob,
+                    FatherName: f_name,
+                    HolderPANNo: pan,
+                    KYCType: kyc_type,
+                    CKYCNumber: kyc_no,
+                    AadharNo: a_no,
+                    HolderMobile: m_no,
+                    HolderEmail: e_no,
+                    Type: type
+                };
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: JSON.stringify(HolderData),
+                        contentType: 'application/json',
+                        success: function (data, status, xhr) {
+                            console.log(status);
+                            console.log(data);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'HolderSkip') {
+                $("#processing").show();
+
+                var type = $('#Type').val();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'BANKDETAIL') {
+
+                var name = $('#ChequePrintName').val();
+                var acc_no = $('#BankAccountNo').val();
+                var micr = $('#BankMICR').val();
+                var ifsc = $('#BankIFSC').val();
+                var acctype = $('#AccountType').val();
+                var bankname = $('#BankName').val();
+                var bankcity = $('#BankCity').val();
+                var bankstate = $('#BankState').val();
+                var bankpin = $('#BankPin').val();
+                var confirmBankAccountNo = $('#AccountNo').val();
+
+                if (acc_no == '') {
+                    alert("Please Enter Your Account Number");
+                    return;
+                }
+
+                if (ifsc == '') {
+                    alert("Please Enter Your IFSC");
+                    return;
+                }
+
+                if (name == '') {
+                    alert("Please Enter Cheque Print Name.");
+                    return;
+                }
+
+                if (bankpin == '') {
+                    alert("Pin can't be null or empty.");
+                    return;
+                }
+
+                if (bankpin.length !== 6) {
+                    alert("Invalid PIN !! Please contact to your branch.");
+                    return;
+                }
+
+                if (acc_no === confirmBankAccountNo) {
+
+                } else {
+                    alert("Confirm bank account numbers do not match!");
+                    $('#AccountNo').val('');
+                    return;
+                }
+
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            ChequePrintName: name,
+                            BankAccountNo: acc_no,
+                            BankMICR: micr,
+                            BankIFSC: ifsc,
+                            AccountType: acctype,
+                            BankName: bankname,
+                            BankCity: bankcity,
+                            BankState: bankstate,
+                            Bankpin: bankpin,
+                            Type: "BankVerify"
+                        },
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'BANKWITHDOC') {
+
+                var name = $('#ChequePrintName').val();
+                var acc_no = $('#BankAccountNo').val();
+                var micr = $('#BankMICR').val();
+                var ifsc = $('#BankIFSC').val();
+                var acctype = $('#AccountType').val();
+                var type = "BANKWITHDOC";
+
+                var file_photo = $("#Upload_Proof").get(0);
+                var files = file_photo.files;
+                var doc_photo = $("#DocData_BANK").val();
+                var id_photo = $("#BANKPROOF").val();
+                var Pfilename = $('#Upload_Proof').val().replace(/C:\\fakepath\\/i, '');
+
+                if (acc_no == '') {
+                    alert("Please Enter Your Account Number");
+                    return;
+                }
+
+                if (ifsc == '') {
+                    alert("Please Enter Your IFSC");
+                    return;
+                }
+
+                if (name == '') {
+                    alert("Please Enter Cheque Print Name");
+                    return;
+                }
+
+                if (!file_photo || !file_photo.files || file_photo.files.length === 0 || !file_photo.files[0]) {
+                    alert("Please select an image file.");
+                    return;
+                }
+
+                var data = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    data.append("Files", files[i]);
+                }
+
+                data.append("ChequePrintName", $('#ChequePrintName').val());
+                data.append("BankAccountNo", $('#BankAccountNo').val());
+                data.append("BankMICR", $('#BankMICR').val());
+                data.append("BankIFSC", $('#BankIFSC').val());
+                data.append("AccountType", $('#AccountType').val());
+                data.append("Type", type);
+                data.append("DocumentID", "OTHER");
+                data.append("DocumentFileName", Pfilename);
+                data.append("Files", doc_photo);
+                $("#processing").show();
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        contentType: false,
+                        processData: false,
+                        data: data,
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'ExchangeDetail') {
+
+                if ($('#CAP').is(':checked')) {
+                    var cap = "Y";
+                }
+                if ($('#COM').is(':checked')) {
+                    var com = "Y";
+                }
+                if ($('#CUR').is(':checked')) {
+                    var cur = "Y";
+                }
+                if ($('#FNO').is(':checked')) {
+                    var fno = "Y";
+                }
+                if ($('#MF').is(':checked')) {
+                    var mf = "Y";
+                }
+
+                var total = $("#TotalPayAmt").html();
+
+                if (($('#CAP').is(':checked') != true) && $('#COM').is(':checked') != true && $('#CUR').is(':checked') != true && $('#FNO').is(':checked') != true && $('#MF').is(':checked') != true) {
+                    alert("Please Select Atleast One EXchange.");
+                    return;
+                }
+
+                //var dropdown = $('select[name="Scheme"]');
+
+                //if (dropdown.find('option').length > 0) {
+                //    var selectedValue = dropdown.val();
+                //    var selectedOption = dropdown.find('option:selected');
+
+                //    var selectedText = selectedOption.text();
+                //    if (selectedValue === "") {
+                //        alert("Please select scheme.");
+                //        return;
+                //    }
+                //} else {
+
+                //}
+
+                var showscheme = $('#showscheme');
+
+                // Check if showscheme is visible
+                if (showscheme.is(":visible")) {
+                    var dropdown = $('select[name="Scheme"]');
+
+                    // Check if there are any option elements within the dropdown
+                    if (dropdown.find('option').length > 0) {
+                        var selectedValue = dropdown.val();
+                        var selectedOption = dropdown.find('option:selected');
+                        var selectedText = selectedOption.text();
+
+                        if (selectedValue === "") {
+                            alert("Please select a scheme.");
+                            return;
+                        }
+                    } else {
+                        // Handle the case where there are no option elements in the dropdown
+                    }
+                } else {
+                    // Handle the case where showscheme is not visible
+                }
+
+
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            CAP: cap,
+                            COM: com,
+                            CUR: cur,
+                            FNO: fno,
+                            MF: mf,
+                            Amount: parseInt(total),
+                            InitialScheme: selectedText,
+                            Type: "EXCHANGE"
+                        },
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'DigioEKYC') {
+
+                var type = $('#Type').val();
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'OfflineAdhhar') {
+                $("#processing").show();
+
+                var type = "OFFLINEADHAAR";
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'DigioEKYCSuccess') {
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Type: "DigioEKYCSuccess"
+                        },
+                        success: function (data, status, xhr) {
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'AddNominee') {
+
+                var name = $('#Type').val();
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            NomOTPFlag: "Y",
+                            Type: name
+                        },
+                        success: function (data, status, xhr) {
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'AddNomineesSkip') {
+
+                var typee = $('#Type').val();
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            NomOTPFlag: "N",
+                            Type: typee
+                        },
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+
+            var intervalId;
+            var newWindow;
+
+            if (xxx == 'ESIGN') {
+                var type = "Esign";
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening", {
+                    type: 'POST',
+                    data: {
+                        Type: type
+                    },
+                    success: function (response) {
+                        var redirectUrl = response.redirectUrl;
+                        if (redirectUrl && redirectUrl.trim() !== "") {
+                            newWindow = window.open(redirectUrl, '_blank');
+                            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                                swal({
+                                    title: "Pop Up Is Bloecked",
+                                    text: "Please Allow Popups And Try Again.\nGo To Setting and Change the Popup Allow Setting."
+                                });
+                                //window.history.back();
+                                $("#processing").hide();
+                                return;
+                            }
+                            intervalId = setInterval(function () {
+                                checkEsignStatus();
+                                if (newWindow.closed) {
+                                    clearInterval(intervalId);
+                                    swal({
+                                        title: "Warning",
+                                        text: "Esign Window Is Closed",
+                                        icon: "warning",
+                                    });
+                                    $("#processing").hide();
+                                }
+                            }, 5000);
+                        } else {
+                            $("#processing").hide();
+                        }
+                        $("#mainbox").html(data);
+                    },
+                    error: function (jqXhr, textStatus, errorMessage) {
+                        console.log('textStatus : ' + textStatus);
+                        console.log('errorMessage : ' + errorMessage);
+                    }
+                });
+
+                function checkEsignStatus() {
+                    $.ajax({
+                        url: '/EKYC/CheckEsignStatus',
+                        type: 'GET',
+                        success: function (response) {
+                            if (response.status === "C") {
+                                clearInterval(intervalId);
+                                newWindow.close();
+                                esignsuccess();
+                                return;
+                            }
+                        }
+                    });
+                }
+
+                function esignsuccess() {
+                    $.ajax("/EKYC/EKYCAccountOpening",
+                        {
+                            type: 'POST',
+                            data: {
+                                Type: "EsignSuccess"
+                            },
+                            success: function (data, status, xhr) {
+                                console.log(status);
+                                console.log(data);
+                                $("#mainbox").html(data);
+                            },
+                            error: function (jqXhr, textStatus, errorMessage) {
+                                console.log('textStatus : ' + textStatus);
+                                console.log('errorMessage : ' + errorMessage);
+                            }
+                        });
+                }
+                function startTimer() {
+                    timerId = setInterval(checkEsignStatus, 5000);
+                }
+
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        function movetoNext(current, nextFieldID) {
+            if (current.value.length >= current.maxLength) {
+                document.getElementById(nextFieldID).focus();
+            }
+        }
+    </script>
+    <script type="text/javascript">
+
+        function movetoNextAadhar(current, nextFieldID) {
+            if (current.value.length >= current.maxLength) {
+                document.getElementById(nextFieldID).focus();
+            }
+        }
+    </script>
+    <script>
+        $(function () {
+            $('#PANNO').keyup(function () {
+                this.value = this.value.toLocaleUpperCase();
+            });
+        });
+    </script>
+    <script type="text/javascript">
+
+        function ValidatePAN(PANNo) {
+            var PANNo = document.getElementById(PANNO).value;
+            if (PANNo.value != "") {
+                var ObjVal = PANNo;
+                var panPattern = /^([a-zA-Z]{5})(\d{4})([a-zA-Z]{1})$/;
+                var matchArray = ObjVal.match(panPattern);
+
+                if (matchArray == null) {
+                    alert('Invalid PAN Card No.');
+                    return false;
+                }
+
+                return true;
+            }
+        }
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            $("#korpmenu").click(function () {
+                $(".sidebar").toggle();
+            });
+        });
+    </script>
+
+    <script>
+        var resizefunc = [];
+    </script>
+
+    <!--script src="~/Scripts/assets/js/jquery.min.js"></script-->
+    <script src="/Scripts/assets/js/bootstrap.min.js"></script>
+    <script src="/Scripts/assets/js/detect.js"></script>
+    <script src="/Scripts/assets/js/fastclick.js"></script>
+    <script src="/Scripts/assets/js/jquery.slimscroll.js"></script>
+    <script src="/Scripts/assets/js/jquery.blockUI.js"></script>
+    <script src="/Scripts/assets/js/waves.js"></script>
+    <script src="/Scripts/assets/js/jquery.nicescroll.js"></script>
+    <script src="/Scripts/assets/js/jquery.slimscroll.js"></script>
+    <script src="/Scripts/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="/Scripts/assets/plugins/jquery-knob/jquery.knob.js"></script>
+
+    <!-- Modal-Effect -->
+    <script src="/Scripts/assets/plugins/custombox/dist/custombox.min.js"></script>
+    <script src="/Scripts/assets/plugins/custombox/dist/legacy.min.js"></script>
+
+    <!-- Datatables-->
+    <!--
+    <script src="~/Scripts/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/dataTables.buttons.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/buttons.bootstrap.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/jszip.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/pdfmake.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/vfs_fonts.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/buttons.html5.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/buttons.print.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/dataTables.fixedHeader.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/dataTables.keyTable.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/dataTables.responsive.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/responsive.bootstrap.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/dataTables.scroller.min.js"></script>
+    -->
+    <!-- Datatable init js -->
+    <script src="/Scripts/assets/pages/datatables.init.js"></script>
+
+    <!-- Dashboard init -->
+    <script src="/Scripts/assets/pages/jquery.dashboard.js"></script>
+    <script src="/Scripts/assets/plugins/select2/dist/js/select2.min.js" type="text/javascript"></script>
+
+    <!-- App js -->
+    <script src="/Scripts/assets/js/jquery.core.js"></script>
+    <script src="/Scripts/assets/js/jquery.app.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datatable').dataTable();
+            $('#datatable-keytable').DataTable({ keys: true });
+            $('#datatable-responsive').DataTable();
+            $('#datatable-scroller').DataTable({ ajax: "assets/plugins/datatables/json/scroller-demo.json", deferRender: true, scrollY: 380, scrollCollapse: true, scroller: true });
+            var table = $('#datatable-fixed-header').DataTable({ fixedHeader: true });
+            $("input:text,form").attr("autocomplete", "off");
+        });
+        TableManageButtons.init();
+    </script>
+
+    <script>
+        jQuery(document).ready(function () {
+            $(".select2").select2();
+
+            $(".select2-limiting").select2({
+                maximumSelectionLength: 2
+            });
+
+        });
+    </script>
+
+    <script>
+        jQuery(document).ready(function () {
+            jQuery(function () {
+                jQuery(this).bind("contextmenu", function (event) {
+                    event.preventDefault();
+                    //alert('Right click disable in this site!!')
+                });
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById('details');
+            if (e.style.display == 'block') {
+                e.style.display = 'none';
+            }
+            else {
+                $("#user_profile").html(waithtml);
+                $.get(
+                    {
+                        url: '/Home/UserProfile',
+                        success: function (result, status) {
+                            $("#user_profile").html(result);
+                        },
+                        error: function () {
+                            $("#user_profile").html("somthing is wrong in help plz try after some time");
+                        }
+                    }
+                );
+                e.style.display = 'block';
+            }
+        }
+
+    </script>
+
+    <script>
+        document.addEventListener('mouseup', function (e) {
+            var container = document.getElementById('details');
+            if (!container.contains(e.target)) {
+                details.style.display = 'none';
+            }
+        });
+
+        function OrionUpperCase() {
+            this.value = this.value.toLocaleUpperCase();
+        }
+    </script>
+
+    <script>
+        var myGeeksforGeeksWindow;
+
+        function openWin() {
+            myGeeksforGeeksWindow = window
+                .open("/Account/ForgotUser", "_blank", "width=786, height=786");
+        }
+
+        function closeWin() {
+            myGeeksforGeeksWindow.close();
+        }
+    </script>
+
+    <script>
+        document.addEventListener('mouseup', function (e) {
+            var container = document.getElementById('details');
+            if (!container.contains(e.target)) {
+                details.style.display = 'none';
+            }
+        });
+    </script>
+
+    <script>
+        if (!Request.FilePath.Contains("Default")) {
+            var strPreviousPage = null;
+            if (Request.UrlReferrer != null) {
+                strPreviousPage = Request.UrlReferrer.Segments[Request.UrlReferrer.Segments.Length - 1];
+            }
+            if (strPreviousPage == "") {
+                Response.Redirect("/Home/Login");
+            }
+        }
+    </script>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+    <script>
+        const toggleSwitch = document.querySelector(
+            '.theme-switch input[type="checkbox"]'
+        );
+        const currentTheme = localStorage.getItem("theme");
+
+        if (currentTheme) {
+            document.documentElement.setAttribute("data-theme", currentTheme);
+
+            if (currentTheme === "dark") {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute("data-theme", "dark");
+                localStorage.setItem("theme", "dark");
+            } else {
+                document.documentElement.setAttribute("data-theme", "light");
+                localStorage.setItem("theme", "light");
+            }
+        }
+        toggleSwitch.addEventListener("change", switchTheme, false);
+
+        function SelectOptionRemoveDuplicate(item) {
+            var item_id = "#" + item + " option";
+            var optionValues = [];
+            $(item_id).each(function () {
+                if ($.inArray(this.value, optionValues) > -1) {
+                    $(this).remove()
+                } else {
+                    optionValues.push(this.value);
+                }
+            });
+        }
+
+
+    </script>
+
+    <script>
+        function myFunction() {
+            document.getElementById("logout_form").submit();
+            window.close();
+            window.close();
+        }
+    </script>
+
+</body>
+</html>

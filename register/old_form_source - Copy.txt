@@ -1,0 +1,2854 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta zzzz="utf-9">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+
+    <link rel="icon" href="/Image/icon.png" type="image/gif" sizes="16x16">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <!-- Table css -->
+    <!-- <link href="~/Scripts/assets/plugins/RWD-Table-Patterns/dist/css/rwd-table.min.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="~/Scripts/assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+     <link href="~/Scripts/assets/plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
+     <link href="~/Scripts/assets/plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
+     <link href="~/Scripts/assets/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
+     <link href="~/Scripts/assets/plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css" />
+     <link rel="stylesheet" href="~/Scripts/lib/datatables/extras/TableTools/media/css/TableTools.css">-->
+        
+    <link href="/Scripts/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/assets/css/core.css" rel="stylesheet" type="text/css" />
+
+    <link href="/Scripts/assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/Scripts/css/blue.css" id="link_theme" />
+    <link href="/Scripts/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/assets/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/lib/datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
+    
+    <link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <link href="/Scripts/sweetalert/css/sweetalert.css" rel="stylesheet" />
+
+            <link href="/Scripts/themes/mahroom_Admin.css" rel="stylesheet" />
+
+
+    <link href="/Scripts/themes/firm.css" rel="stylesheet" />
+    
+    
+    <script src="/Scripts/js/jquery.min.v3.7.0.js"></script>
+    <script src="/Scripts/lib/chart.js/Chart.js"></script>
+    <script src="/Scripts/lib/datepicker/js/bootstrap-datepicker.js"></script>
+    <link href="/Scripts/assets/plugins/select2/dist/css/select2.css" rel="stylesheet" type="text/css">
+    <link href="/Scripts/assets/plugins/select2/dist/css/select2-bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://kendo.cdn.telerik.com/2020.3.1118/js/kendo.all.min.js"></script>
+    <script src="/Scripts/sweetalert/js/sweetalert.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>-->
+    <script src="/Scripts/crypto-js.min.js"></script>
+
+    <style>
+        .user-box {
+            text-align: center;
+            padding: 10px 0px 10px 0px;
+        }
+
+            .user-box ul li a {
+                color: #188ae2;
+                font-size: 20px;
+            }
+
+        #details {
+            position: absolute;
+            display: none;
+            right: 75px;
+            top: 52px;
+            border-radius: 10px;
+            /* left: 300px; */
+            width: 425px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 0px grey;
+            -webkit-transition: box-shadow .6s ease-out;
+            box-shadow: 0.8px 0.9px 3px grey;
+            border: 1px solid #851f1f;
+            padding: 5px;
+        }
+
+        .nav > li > a:focus, .nav > li > a:hover {
+            background-color: transparent !important;
+            border: 0px solid rgba(238, 238, 238, 0.3) !important;
+        }
+
+        .fa-sign-out {
+            border: 2px solid #fff;
+            padding: 4px;
+            color: #ffffff;
+            border-radius: 50%;
+        }
+
+        .navbar-default .navbar-nav > li > a {
+            color: #fff !important;
+            padding-top: 10px !important;
+        }
+
+        .zmdi {
+            border: 1px solid #ffffff;
+            padding: 7px;
+            border-radius: 50%;
+        }
+    </style>
+
+    <style>
+        .user-profile {
+            margin: 7px;
+        }
+
+        .modal-backdrop {
+            position: relative;
+        }
+
+        #wrapper {
+            height: auto !important;
+        }
+
+        div.sticky {
+            position: fixed;
+            /* top: 0; */
+            width: 100%;
+            background-color: #000000;
+            padding: 10px;
+            bottom: 0px;
+            font-size: 20px;
+        }
+
+        .kal-img {
+            height: 55px;
+            width: 55px;
+            background-image: url(data:image/png;base64,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);
+            display: block;
+            background-repeat: no-repeat;
+            background-position: top;
+        }
+
+        .finyear {
+            padding-top: 7px !important;
+            padding-bottom: 0px !important;
+            line-height: 0px !important;
+        }
+
+        .finyear1 {
+            line-height: 5px;
+            border: 1px solid #ffffff;
+            padding: 3px;
+            margin-left: 15px;
+            margin-top: 9px;
+            /* animation: animate 1.5s linear infinite;*/
+        }
+
+        @keyframes animate {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /*.dropdown {
+            float: left;
+        }*/
+
+        .table > tbody > tr > td {
+            padding: 5px !important;
+        }
+
+        .open > .dropdown-menu {
+            padding: 5px;
+            background: #ffffff;
+        }
+    </style>
+
+    <style>
+            .tooltip1 .tooltiptext {
+                visibility: hidden;
+                background-color: black;
+                color: #fff;
+                right: 0px;
+                width: max-content;
+                top: 40px;
+                text-align: center;
+                border-radius: 6px;
+                padding: 5px 7px;
+                /* Position the tooltip */
+                position: absolute;
+                z-index: 1;
+            }
+
+            .tooltip1:hover .tooltiptext {
+                visibility: visible;
+            }
+
+            /*slider switch css */
+            .theme-switch-wrapper {
+                display: flex;
+                align-items: center;
+            }
+
+                .theme-switch-wrapper em {
+                    margin-left: 10px;
+                    font-size: 1rem;
+                }
+
+            .theme-switch {
+                display: inline-block;
+                height: 34px;
+                position: relative;
+                width: 60px;
+            }
+
+                .theme-switch input {
+                    display: none;
+                }
+
+            .slider {
+                background-color: #ccc;
+                bottom: 0;
+                cursor: pointer;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transition: 0.4s;
+            }
+
+                .slider:before {
+                    background-color: #fff;
+                    bottom: 4px;
+                    content: "";
+                    height: 26px;
+                    left: 4px;
+                    position: absolute;
+                    transition: 0.4s;
+                    width: 26px;
+                }
+
+        input:checked + .slider {
+            background-color: #66bb6a;
+        }
+
+            input:checked + .slider:before {
+                transform: translateX(26px);
+            }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+            .slider.round:before {
+                border-radius: 50%;
+            }
+
+        .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            line-height: 1.12857143;
+            vertical-align: middle;
+        }
+    </style>
+
+            <style>
+                .fa-envelope {
+                    pointer-events: auto !important;
+                }
+            </style>
+
+
+</head>
+
+
+
+<body class=" fixed-left">
+    <div id="wrapper" style="height:auto;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+    <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js'></script>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type='text/javascript' src='https://app.digio.in/sdk/v10/digio.js'></script>
+        <style>
+            .myAlert-top {
+                display: none;
+            }
+        </style>
+    <style>
+        .small_icon {
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+        #myBtn {
+            display: none;
+        }
+
+        .backtohome {
+            border: 1px solid #3bc3ff;
+            padding: 10px;
+            background: #3bc3ff;
+            color: #ffffff;
+        }
+
+        .small_icon img {
+            width: 50px;
+        }
+
+        body {
+            background: #ffffff !important;
+        }
+
+        .mobile_top {
+            margin-top: 0px;
+        }
+
+        .imgprocess {
+            margin: 18% 45%;
+            height: 30%;
+        }
+
+        #processing {
+            display: none;
+            position: absolute;
+            z-index: 999;
+            text-align: center;
+            margin-top: -50px;
+            height: 100%;
+            width: 100%;
+            padding: 3px;
+            background-color: #ffffff70;
+        }
+
+        .alert-success {
+            position: fixed;
+            /* bottom: 65px; */
+            text-align: center;
+            left: 75%;
+            z-index: 99;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            background-color: #056405;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 4px;
+            bottom: 0px;
+        }
+
+        .slider-description {
+            color: #3bc3ff;
+            cursor: pointer;
+        }
+
+        .modal .modal-dialog .modal-content .modal-body {
+            color: #ffffff;
+        }
+
+        .login-box {
+            background: url(https://i.imgur.com/73BxBuI.png);
+            background-size: cover;
+            background-position: center;
+            padding: 50px;
+            margin: 50px auto;
+            min-height: 700px;
+            -webkit-box-shadow: 0 2px 60px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 60px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-family: "Script MT";
+            font-size: 30px;
+            text-align: center;
+            color: #888888;
+            margin-bottom: 50px;
+        }
+
+            .logo .logo-font {
+                color: #3BC3FF;
+            }
+
+
+        @media only screen and (max-width: 767px) {
+            .hide-on-mobile {
+                display: none;
+            }
+
+            #razorprocessing {
+                height: 0px !important;
+            }
+
+            .box-title {
+                margin: 60px 0 -19px;
+            }
+
+            .form_wrapper input[type=button] {
+                width: 100% !important;
+            }
+
+            .login-box {
+                padding: 15px !important;
+                min-height: 600px !important;
+            }
+
+            .logo {
+                margin-bottom: 0px !important;
+                font-size: 34px;
+            }
+
+            .mobile_top {
+                margin-top: 100px;
+            }
+
+            .alert-success {
+                left: 0px !important;
+            }
+
+            .form-control {
+                font-size: 18px;
+                border: 1px solid #000000 !important;
+            }
+
+            #first, #second, #third, #fourth {
+                padding: 3px 5px 4px 5px !important;
+            }
+        }
+
+        .header-title {
+            text-align: left;
+            margin-bottom: 50px;
+        }
+
+        .login-form {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+            .login-form .form-control {
+                border-radius: 0;
+                margin-bottom: 30px;
+            }
+
+            .login-form .form-group {
+                position: relative;
+            }
+
+                .login-form .form-group .forgot-password {
+                    position: absolute;
+                    top: 6px;
+                    right: 15px;
+                }
+
+            .login-form .btn {
+                border-radius: 0;
+                -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                margin-bottom: 30px;
+            }
+
+                .login-form .btn.btn-primary {
+                    background: #3BC3FF;
+                    border-color: #31c0ff;
+                }
+
+        .slider-feature-card {
+            background: #fff;
+            max-width: 280px;
+            margin: 0 auto;
+            padding: 30px;
+            text-align: center;
+            -webkit-box-shadow: 0 2px 25px -3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+
+            .slider-feature-card img {
+                height: auto;
+                margin-top: 30px;
+                margin-bottom: 30px;
+                margin-left: 0px;
+            }
+
+            .slider-feature-card h3,
+            .slider-feature-card p {
+                margin-bottom: 30px;
+            }
+
+        .carousel-indicators {
+            bottom: -50px;
+        }
+
+            .carousel-indicators li {
+                cursor: pointer;
+            }
+
+        .form_wrapper label {
+            font-size: 15px;
+        }
+        /*CSS FOR OTHER FORM*/
+        .clearfix:after {
+            content: "";
+            display: block;
+            clear: both;
+            visibility: hidden;
+            height: 0;
+        }
+
+        .form_wrapper {
+            background: #fff;
+            width: 400px;
+            max-width: 100%;
+            box-sizing: border-box;
+            padding: 25px;
+            margin: 8% auto 0;
+            position: relative;
+            z-index: 1;
+            border-top: 5px solid #3BC3FF;
+            -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+            -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+            -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+            -webkit-transition: none;
+            transition: none;
+            -webkit-animation: expand 0.8s 0.6s ease-out forwards;
+            animation: expand 0.8s 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+            .form_wrapper h2 {
+                font-size: 1.5em;
+                line-height: 1.5em;
+                margin: 0;
+            }
+
+            .form_wrapper .title_container {
+                text-align: left;
+                padding-bottom: 15px;
+            }
+
+            .form_wrapper h3 {
+                font-weight: normal;
+                font-size: 14px !important;
+                line-height: 2.5em;
+                color: grey;
+                margin: 0;
+            }
+
+            .form_wrapper label {
+                font-size: 12px;
+            }
+
+            .form_wrapper .row {
+                margin: 10px -15px;
+            }
+
+                .form_wrapper .row > div {
+                    padding: 0 15px;
+                    box-sizing: border-box;
+                }
+
+            .form_wrapper .col_half {
+                width: 50%;
+                float: left;
+            }
+
+            .form_wrapper .col_full {
+                width: 100%;
+                float: left;
+            }
+
+            .form_wrapper .input_field {
+                position: relative;
+                margin-bottom: 10px;
+                -webkit-animation: bounce 0.6s ease-out;
+                animation: bounce 0.6s ease-out;
+            }
+
+                .form_wrapper .input_field > span {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    color: #333;
+                    height: 100%;
+                    border-right: 1px solid #cccccc;
+                    text-align: center;
+                    width: 30px;
+                }
+
+                    .form_wrapper .input_field > span > i {
+                        padding-top: 10px;
+                    }
+
+            .form_wrapper .textarea_field > span > i {
+                padding-top: 10px;
+            }
+
+            .form_wrapper input[type=text], .form_wrapper input[type=number], .form_wrapper input[type=password], .form_wrapper input[type=date] {
+                width: 100%;
+                padding: 8px 10px 9px 35px;
+                height: 35px;
+                border: 1px solid #cccccc;
+                box-sizing: border-box;
+                outline: none;
+                transition: all 0.3s ease-in-out;
+            }
+
+                .form_wrapper input[type=text]:hover, .form_wrapper input[type=number]:hover, .form_wrapper input[type=password]:hover, .form_wrapper input[type=date]:hover {
+                    background: #fafafa;
+                }
+
+                .form_wrapper input[type=text]:focus, .form_wrapper input[type=number]:focus, .form_wrapper input[type=password]:focus, .form_wrapper input[type=date]:focus {
+                    box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
+                    border: 1px solid #3BC3FF;
+                    background: #fafafa;
+                }
+
+            .form_wrapper input[type=button] {
+                background: #3BC3FF;
+                height: 43px;
+                line-height: 35px;
+                margin-top: 10px;
+                width: 100%;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                color: #fff;
+                font-size: 1.1em;
+                margin-bottom: 10px;
+                transition: all 0.3s ease-in-out;
+                font-weight: 500;
+                text-shadow: 0px 4px 3px rgb(0 0 0 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 10%);
+            }
+
+                .form_wrapper input[type=button]:hover {
+                    background: #3bc3ff;
+                }
+
+                .form_wrapper input[type=button]:focus {
+                    background: #3bc3ff;
+                }
+
+            .form_wrapper input[type=checkbox], .form_wrapper input[type=radio] {
+                border: 0;
+                clip: rect(0 0 0 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+
+        #WrongOTP {
+            color: red;
+        }
+
+        .form_container .row .col_half.last {
+            border-left: 1px solid #cccccc;
+        }
+
+        .form_container .row .col_full.last {
+            border-left: 1px solid #cccccc;
+        }
+
+        .checkbox_option label {
+            margin-right: 1em;
+            position: relative;
+        }
+
+            .checkbox_option label:before {
+                content: "";
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                margin-right: 0.5em;
+                vertical-align: -2px;
+                border: 2px solid #cccccc;
+                padding: 0.12em;
+                background-color: transparent;
+                background-clip: content-box;
+                transition: all 0.2s ease;
+            }
+
+            .checkbox_option label:after {
+                border-right: 2px solid #000000;
+                border-top: 2px solid #000000;
+                content: "";
+                height: 20px;
+                left: 2px;
+                position: absolute;
+                top: 7px;
+                transform: scaleX(-1) rotate(135deg);
+                transform-origin: left top;
+                width: 7px;
+                display: none;
+            }
+
+        .checkbox_option input:hover + label:before {
+            border-color: #000000;
+        }
+
+        .checkbox_option input:checked + label:before {
+            border-color: #000000;
+        }
+
+        .checkbox_option input:checked + label:after {
+            -moz-animation: check 0.8s ease 0s running;
+            -webkit-animation: check 0.8s ease 0s running;
+            animation: check 0.8s ease 0s running;
+            display: block;
+            width: 7px;
+            height: 20px;
+            border-color: #000000;
+        }
+
+        .radio_option label {
+            margin-right: 1em;
+        }
+
+            .radio_option label:before {
+                content: "";
+                display: inline-block;
+                width: 0.5em;
+                height: 0.5em;
+                margin-right: 0.5em;
+                border-radius: 100%;
+                vertical-align: -3px;
+                border: 2px solid #cccccc;
+                padding: 0.15em;
+                background-color: transparent;
+                background-clip: content-box;
+                transition: all 0.2s ease;
+            }
+
+        .radio_option input:hover + label:before {
+            border-color: #000000;
+        }
+
+        .radio_option input:checked + label:before {
+            background-color: #000000;
+            border-color: #000000;
+        }
+
+        .select_option {
+            position: relative;
+            width: 100%;
+        }
+
+            .select_option select {
+                display: inline-block;
+                width: 100%;
+                height: 35px;
+                padding: 0px 15px;
+                cursor: pointer;
+                color: #7b7b7b;
+                border: 1px solid #cccccc;
+                border-radius: 0;
+                background: #fff;
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                transition: all 0.2s ease;
+            }
+
+                .select_option select::-ms-expand {
+                    display: none;
+                }
+
+                .select_option select:hover, .select_option select:focus {
+                    color: #000000;
+                    background: #fafafa;
+                    border-color: #000000;
+                    outline: none;
+                }
+
+        .select_arrow {
+            position: absolute;
+            top: calc(50% - 4px);
+            right: 15px;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+            border-width: 8px 5px 0 5px;
+            border-style: solid;
+            border-color: #7b7b7b transparent transparent transparent;
+        }
+
+        .select_option select:hover + .select_arrow, .select_option select:focus + .select_arrow {
+            border-top-color: #000000;
+        }
+
+        .credit {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 15px;
+            color: #3BC3FF;
+        }
+
+            .credit a {
+                color: #e1a70a;
+            }
+
+        #first, #second, #third, #fourth {
+            padding: 8px 10px 9px 15px;
+        }
+
+        a {
+            color: #337ab7;
+            text-decoration: inherit;
+            font-weight: 500;
+        }
+
+        @-webkit-keyframes check {
+            0% {
+                height: 0;
+                width: 0;
+            }
+
+            25% {
+                height: 0;
+                width: 7px;
+            }
+
+            50% {
+                height: 20px;
+                width: 7px;
+            }
+        }
+
+        @keyframes check {
+            0% {
+                height: 0;
+                width: 0;
+            }
+
+            25% {
+                height: 0;
+                width: 7px;
+            }
+
+            50% {
+                height: 20px;
+                width: 7px;
+            }
+        }
+
+        @-webkit-keyframes expand {
+            0% {
+                -webkit-transform: scale3d(1, 0, 1);
+                opacity: 0;
+            }
+
+            25% {
+                -webkit-transform: scale3d(1, 1.2, 1);
+            }
+
+            50% {
+                -webkit-transform: scale3d(1, 0.85, 1);
+            }
+
+            75% {
+                -webkit-transform: scale3d(1, 1.05, 1);
+            }
+
+            100% {
+                -webkit-transform: scale3d(1, 1, 1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes expand {
+            0% {
+                -webkit-transform: scale3d(1, 0, 1);
+                transform: scale3d(1, 0, 1);
+                opacity: 0;
+            }
+
+            25% {
+                -webkit-transform: scale3d(1, 1.2, 1);
+                transform: scale3d(1, 1.2, 1);
+            }
+
+            50% {
+                -webkit-transform: scale3d(1, 0.85, 1);
+                transform: scale3d(1, 0.85, 1);
+            }
+
+            75% {
+                -webkit-transform: scale3d(1, 1.05, 1);
+                transform: scale3d(1, 1.05, 1);
+            }
+
+            100% {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes bounce {
+            0% {
+                -webkit-transform: translate3d(0, -25px, 0);
+                opacity: 0;
+            }
+
+            25% {
+                -webkit-transform: translate3d(0, 10px, 0);
+            }
+
+            50% {
+                -webkit-transform: translate3d(0, -6px, 0);
+            }
+
+            75% {
+                -webkit-transform: translate3d(0, 2px, 0);
+            }
+
+            100% {
+                -webkit-transform: translate3d(0, 0, 0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0% {
+                -webkit-transform: translate3d(0, -25px, 0);
+                transform: translate3d(0, -25px, 0);
+                opacity: 0;
+            }
+
+            25% {
+                -webkit-transform: translate3d(0, 10px, 0);
+                transform: translate3d(0, 10px, 0);
+            }
+
+            50% {
+                -webkit-transform: translate3d(0, -6px, 0);
+                transform: translate3d(0, -6px, 0);
+            }
+
+            75% {
+                -webkit-transform: translate3d(0, 2px, 0);
+                transform: translate3d(0, 2px, 0);
+            }
+
+            100% {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .form_wrapper .col_half {
+                width: 100%;
+                float: none;
+            }
+
+            .bottom_row .col_half {
+                width: 50%;
+                float: left;
+            }
+
+            .bottom_row .col_full {
+                width: 100%;
+                float: left;
+            }
+
+            .form_container .row .col_half.last {
+                border-left: none;
+            }
+
+            .form_container .row .col_full.last {
+                border-left: none;
+            }
+
+            .remember_me {
+                padding-bottom: 20px;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+                max-width: 1320px;
+            }
+        }
+    </style>
+    <div class="snippet-body" id="mainbox">
+        <section class="body">
+            <div id="processing">
+                <img class="imgprocess" src="https://static.wixstatic.com/media/d27180_8ba5d7d0d8ce459aa955f57c6ff5782b~mv2.gif" />
+            </div>
+
+            <div class="myAlert-top alert alert-success">
+                <strong> !</strong>
+            </div>
+
+            <div class="container">
+                <div class="row m-t-30 hide-on-mobile">
+                    <div class="col-md-3 col-xs-6">
+                        <p class="small_icon"><img src="/Scripts/assets/images/setting.png" /><b>&nbsp; Instant Verification.</b></p>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <p class="small_icon"><img src="/Scripts/assets/images/upload.png" /><b>&nbsp; No Verification Charges. </b></p>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <p class="small_icon"><img src="/Scripts/assets/images/other.png" /><b> &nbsp; Increased Security.</b></p>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <p class="small_icon"><img src="/Scripts/assets/images/first.png" /><b>&nbsp; Zero Paper Document. </b></p>
+                    </div>
+                </div>
+
+                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <style>
+            .form_wrapper {
+                margin: 10% auto 0;
+            }
+
+            .logo {
+                top: 45px;
+            }
+
+            .logo-font {
+                color: #000000;
+                font-size: 40px;
+                text-shadow: 0px 4px 3px rgb(213 207 207 / 40%), 0px 8px 13px rgb(0 0 0 / 10%), 0px 18px 23px rgb(0 0 0 / 6%);
+                text-align: left;
+                font-weight: 600;
+                line-height: 50px;
+            }
+
+            .slider-img img {
+                background: none;
+                margin: 0 auto;
+                width: auto;
+                padding: 0px;
+                text-align: center;
+                box-shadow: 0 2px 25px -3px rgb(0 0 0 / 10%);
+            }
+
+            .ResendOTP {
+                font-size: 16px;
+                font-weight: bold;
+            }
+        </style>
+            <style>
+                #MobileOTP {
+                    display: none !important;
+                }
+
+                #MobileSection {
+                    display: block !important;
+                }
+            </style>
+            <style>
+                .myAlert-top {
+                    display: none;
+                }
+            </style>
+        <div class="login-box container" id="mainbox">
+            <div class="myAlert-top alert alert-success">
+                <strong> !</strong>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-1">
+                    <div class="logo">
+                        <h4 class="logo-font" style="color:#000000;">Open Your Trading Account with <b style="color:#3bc3ff;"> GOLDMINE STOCKS PVT LTD</b></h4>
+                    </div>
+                    <div id="details" class="row" style="display:none;"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form_wrapper">
+                        <div class="form_container">
+                            <div class="title_container" style="padding-bottom: 6px;">
+                                <h2 class="">Signup now</h2>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="">
+                                    <div class="tab-pane active" id="MobileSection">
+                                        <form class="form" action="/EKYC/EKYCAccountOpening" method="post" id="myForm">
+                                            
+                                            <div class="input_field">
+                                                <span><i aria-hidden="true" class="fa fa-phone"></i></span>
+                                                <input type="number" name="Mobile" placeholder="Your 10 digit mobile no" id="MobileNo" maxlength="10" required />
+                                                <input type="hidden" name="Type" value="M" id="Type" />
+                                                <div id="charCount" type="hidden"></div>
+                                            </div>
+                                            <h3 class="header-title">You will receive an OTP on your mobile number.</h3>
+                                            <input class="button" type="button" value="CONTINUE" onclick="submitdata('START')" />
+                                        </form>
+                                    </div>
+                                    <div class="row clearfix" id="MobileOTP">
+                                        <div class="">
+                                            <div class="container mx-auto">
+                                                <div class="">
+                                                    <div class="w-full">
+                                                        <div class="bg-white h-64 py-3 rounded text-center">
+                                                            <div class="tab-pane active">
+                                                                <form class="form" action="/EKYC/EKYCAccountOpening" method="post" id="myForm">
+                                                                    <div class="input_field">
+                                                                        <span><i aria-hidden="true" class="fa fa-phone"></i></span>
+                                                                        <input type="text" name="Mobile" id="MobileNo" maxlength="10" disabled />
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <h3 class="header-title">Enter 4 Digit OTP Here.</h3>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <h3 class="header-title"><a href="#" onclick="submitdata('CHANGEMobile')">Change Mobile Number </a></h3>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div id="otpverify" class="flex flex-row justify-center text-center px-2 mt-5">
+                                                                        <input class="m-2 border h-10 w-10 text-center form-control rounded" onkeyup="movetoNext(this, 'second')" type="text" name="first" id="first" maxlength="1" inputmode="numeric" />
+                                                                        <input class="m-2 border h-10 w-10 text-center form-control rounded" onkeyup="movetoNext(this, 'third')" type="text" name="second" id="second" maxlength="1" inputmode="numeric" />
+                                                                        <input class="m-2 border h-10 w-10 text-center form-control rounded" onkeyup="movetoNext(this, 'fourth')" type="text" name="third" id="third" maxlength="1" inputmode="numeric" />
+                                                                        <input class="m-2 border h-10 w-10 text-center form-control rounded" onkeyup="movetoNext(this, 'fifth')" type="text" name="fourth" id="fourth" maxlength="1" inputmode="numeric" />
+                                                                    </div>
+
+                                                                    <input type="hidden" name="OTP" id="OTP" />
+                                                                    <input type="hidden" name="getotp" id="GetOTP" />
+                                                                    <input type="hidden" name="Type" value="M" id="Type" />
+                                                                    <input class="button" type="button" value="CONTINUE" onclick="submitdata('OTPVERIFY')" />
+                                                                    <div class="flex justify-center text-center">
+                                                                        <p id="WrongOTP"></p>
+                                                                    </div>
+                                                                </form>
+                                                                <form class="form" action="/EKYC/EKYCAccountOpening" method="post" id="myForm">
+                                                                    <input type="hidden" name="REMobile" id="REMobileNo" />
+                                                                    <input type="hidden" name="Type" value="M" id="Type" />
+                                                                    <h3 class="header-title" style="text-align:center"><a href="#" id="timerDisplay">1:00</a></h3>
+                                                                    <h3 class="header-title" type="button" style="text-align:center"><a href="#" class="ResendOTP" onclick="submitOTP('RESENDOTP')"> Resend OTP?</a></h3>
+                                                                    <p id="OTPText"></p>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 hide-on-mobile">
+                    <div id="demo" class="carousel slide" data-ride="carousel">
+                        <div class="">
+                            <div class="slider-img">
+                                <img src="/Scripts/assets/images/EKYCImage.gif" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                setInputModeToNumeric();
+                function setInputModeToNumeric() {
+                    $('#otpverify input').attr('inputmode', 'numeric');
+                }
+            });
+        </script>
+        <script>
+            var timer;
+            var timerDuration = 60000; // 1 minute in milliseconds
+
+            $(document).ready(function () {
+                var inputValue = $('#REMobileNo').val();
+
+                if (inputValue !== '') {
+                    startTimer();
+                } else {
+                    clearTimeout(timer);
+                    $('#timerDisplay').text('');
+                }
+            });
+
+            function startTimer() {
+                clearTimeout(timer);
+
+                var startTime = Date.now();
+                timer = setInterval(function () {
+                    var elapsedTime = Date.now() - startTime;
+                    var timeRemaining = timerDuration - elapsedTime;
+                    var timeString = formatTime(timeRemaining);
+                    $('#timerDisplay').text(timeString);
+
+                    if (timeRemaining <= 0) {
+                        clearInterval(timer);
+                        $('#timerDisplay').text("Timer has expired!");
+                        $(".ResendOTP").css("display", "block");
+                    }
+                }, 1000);
+            }
+
+            function formatTime(milliseconds) {
+                var seconds = Math.floor(milliseconds / 1000);
+                var minutes = Math.floor(seconds / 60);
+                seconds = seconds % 60;
+                var timeString = minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
+                return timeString;
+            }
+
+            function submitOTP(xxx) {
+                if (xxx == 'RESENDOTP') {
+                    var mobile_no = $('#REMobileNo').val();
+                    var type = $('#Type').val();
+                    var output = "";
+                    $.ajax("/EKYC/ReSendMOTP", {
+                        type: "GET",
+                        dataType: "json",
+                        data: {
+                            MobileNo: mobile_no,
+                            Type: type
+                        },
+                        success: function (result, status, xhr) {
+                            $('#GetOTP').val(result);
+                            $('#OTP').val(result);
+                            $("#OTPText").text("OTP Sent Successfully");
+                            startTimer();
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+                }
+            }
+        </script>
+
+
+                <marquee>
+                    <b>Documents to be kept ready before attempting the E-KYC</b>&nbsp;
+                    <b>A-&nbsp;</b> Your Mobile Number must be registered with UIDAI’s Aadhaar Database for OTP authentication. &nbsp;
+                    <b>B-&nbsp;</b> Soft copy of your PAN which is to be self-attested.&nbsp;
+                    <b>C-&nbsp;</b> Soft Copy / Image of Your signature on plain paper.&nbsp;
+                    <b>D-&nbsp;</b> Should have a device with camera permission. To access Camera, Location, and Microphone to be enabled..&nbsp;
+                </marquee>
+                <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+                <!--========================SUCCESS==========================-->
+            </div>
+        </section>
+    </div>
+    <script>
+        if (document.readyState === 'complete') {
+            $("#processing").hide();
+        }
+    </script>
+    <script>
+        function submitdata(xxx) {
+            if (xxx == 'START') {
+                var mobile_no = $('#MobileNo').val();
+                var type = $('#Type').val();
+
+                if (mobile_no === "") {
+                    alert("Please Enter Mobile No");
+                    return;
+                } else if (mobile_no.length === 10) {
+
+                } else {
+                    alert("Mobile No must contain exactly 10 characters.");
+                    $("#MobileNo").val("");
+                    return; // Clear the input if it doesn't have 10 characters
+                }
+                $("#processing").show();
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            MobileNo: mobile_no,
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $(".myAlert-top").css('display', 'block');
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'RESENDOTP') {
+                var mobile_no = $('#REMobileNo').val();
+                var type = $('#Type').val();
+
+                if (mobile_no == "") {
+                    alert("Please Enter Mobile No");
+                    return;
+                }
+                $("#processing").show();
+
+                $.ajax("/EKYC/ReSendMOTP",
+                    {
+                        type: 'POST',
+                        data: {
+                            MobileNo: mobile_no,
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $(".myAlert-top").css('display', 'block');
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'OTPVERIFY') {
+                $("#processing").show();
+                setTimeout(function () {
+                    $("#processing").hide();
+                }, 2000);
+                var otp = $('#OTP').val($('#first').val() +
+                    $('#second').val() +
+                    $('#third').val() +
+                    $('#fourth').val());
+
+                var getotp = $('#GetOTP').val();
+                var newotp = otp.val();
+                if (otp.val() != getotp) {
+                    $("#WrongOTP").html("You have entered wrong OTP");
+                    $('#first').val('');
+                    $('#second').val('');
+                    $('#third').val('');
+                    $('#fourth').val('');
+                    $("#WrongOTP").html();
+                    return;
+                }
+
+                $("#processing").show();
+                setTimeout(function () {
+                    $("#processing").hide();
+                }, 2000);
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            MOTP: newotp,
+                            Type: "M",
+                            Status: "01"
+                        },
+                        success: function (data, status, xhr) {
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+
+                    });
+            }
+            else if (xxx == 'EMAILVerify') {
+
+                var email = $('#Email').val();
+                var type = $('#Type').val();
+
+                if (email == "") {
+                    alert("Please Enter Email Id");
+                    return;
+                }
+                $("#processing").show();
+                setTimeout(function () {
+                    $("#processing").hide();
+                }, 2000);
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Email: email,
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $(".myAlert-top").css('display', 'block');
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'REEMAILOTP') {
+
+                var email = $('#REEmail').val();
+                var type = $('#Type').val();
+
+                if (email == "") {
+                    alert("Please Enter Email Id");
+                    return;
+                }
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Email: email,
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $(".myAlert-top").css('display', 'block');
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'CHANGEMobile') {
+
+                var type = "CHANGEMobile";
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            console.log(status);
+                            console.log(data);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'CHANGEEMAIL') {
+                $("#processing").show();
+
+                var type = "CHANGEEMAIL";
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            console.log(status);
+                            console.log(data);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'EOTPVERIFY') {
+
+                var otp = $('#OTP').val($('#first').val() +
+                    $('#second').val() +
+                    $('#third').val() +
+                    $('#fourth').val());
+
+                var getotp = $('#EGetOTP').val();
+                var newotp = otp.val();
+
+                if (otp.val() != getotp) {
+                    $("#EmailWrongOTP").show();
+                    $('#first').val('');
+                    $('#second').val('');
+                    $('#third').val('');
+                    $('#fourth').val('');
+                    return;
+                }
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            EOTP: newotp,
+                            Type: "E"
+                        },
+                        success: function (data, status, xhr) {
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#processing").hide();
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+
+                    });
+            }
+            else if (xxx == 'PANVerify') {
+
+                var pan = $('#PANNO').val();
+                var type = $('#type').val();
+
+                if (pan == "") {
+                    alert("Please Enter Your PAN");
+                    return;
+                }
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            PANNO: pan,
+                            Type: "PAN"
+                        },
+                        success: function (data, status, xhr) {
+                            $(".myAlert-top").show();
+                            $("#processing").hide();
+
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'EAADHAR') {
+
+                var type = $("#Type").val();
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+
+                    });
+            }
+            else if (xxx == 'AadharVERIFY') {
+
+                var aadhar_no = $('#Aadhar').val($('#first').val() +
+                    $('#second').val() +
+                    $('#third').val());
+
+                if (aadhar_no == '') {
+                    alert("Please Enter Your Adhaar.");
+                    return;
+                }
+                var aadhar_pass = $('#AadharPassword').val();
+
+                if (aadhar_pass == "") {
+                    alert("Please Enter Password");
+                    return;
+                }
+
+                var fileUpload = $("#AadharFile").get(0);
+                var files = fileUpload.files;
+                var type = "AADHAAR";
+
+                var fileData = new FormData();
+                if (files.length == 0) {
+                    alert("No files selected. Please upload adhaar zip file");
+                    return;
+                }
+
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                fileData.append('Aadhar', $('#Aadhar').val());
+                fileData.append('AadharPassword', aadhar_pass);
+                fileData.append('Type', type);
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: fileData,
+                        processData: false,
+                        contentType: false,
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'OFFLINEPANVERIFY') {
+
+                var fileUpload = $("#PANFile").get(0);
+                var files = fileUpload.files;
+                var type = "OFFLINEPAN";
+
+                var fileData = new FormData();
+                if (files.length == 0) {
+                    alert("No files selected. Please upload PAN");
+                    return;
+                }
+
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                fileData.append('Type', type);
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: fileData,
+                        processData: false,
+                        contentType: false,
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'OtherDetails') {
+                var fath_name = $('#FatherName').val();
+                var moth_name = $('#MotherName').val();
+                var maid_name = $('#MaidenName').val();
+                var mar_status = $('#MaritalStatus').val();
+                var res_status = $('#ResidentialStatus').val();
+                var nat = $('#Nationality').val();
+                var occ = $('#Occupation').val();
+                var occ_oth = $('#OccupationOther').val();
+                var income = $('#AnnualIncomeCode').val();
+                var income_date = $('#AnnualIncomeDate').val();
+                var fath_spo = $('#FatherSpouse').val();
+                var pep = $('#PEP').val();
+                var brnch = $('#BranchName').val();
+                var subbr = $('#SubBranchName').val();
+                var trd_exp = $('#TradeExp').val();
+                var FatcaCountry = $('#FatcaCountry').val();
+                var FatcaTIN = $('#FatcaTIN').val();
+                var FatcaDate = $('#FatcaDate').val();
+
+                if (fath_name == '') {
+                    alert("Father Name can't be empty.")
+                    return;
+                }
+
+                if (moth_name == '') {
+                    alert("Mother Name can't be empty.")
+                    return;
+                }
+                if ($('#DIS').is(':checked')) {
+                    var dis = "Y";
+                }
+                else {
+                    var dis = "N";
+                }
+                if ($('#FatcaFlag').is(':checked')) {
+                    var FatcaFlag = "Y";
+
+                    if (FatcaCountry == '') {
+                        alert("FATCA country can't be empty.")
+                        return;
+                    }
+
+                    if (FatcaTIN == '') {
+                        alert("FATCA TIN can't be empty.")
+                        return;
+                    }
+                }
+                else {
+                    var FatcaFlag = "N";
+                }
+
+                $("#processing").show();
+
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            FatherName: fath_name,
+                            MotherName: moth_name,
+                            MaidenName: maid_name,
+                            MaritalStatus: mar_status,
+                            ResidentialStatus: res_status,
+                            Nationality: nat,
+                            Occupation: occ,
+                            OccupationOther: occ_oth,
+                            AnnualIncomeCode: income,
+                            AnnualIncomeDate: income_date,
+                            FatherSpouse: fath_spo,
+                            FatherPrefix: "Mr",
+                            MotherPrefix: "Mrs",
+                            Type: "Other",
+                            MaidenPrefix: "Mr",
+                            PEP: pep,
+                            Branch: brnch,
+                            StockMarketExp: trd_exp,
+                            SubBranch: subbr,
+                            DISFlag: dis,
+                            FatcaFlag: FatcaFlag,
+                            FatcaCountry: FatcaCountry,
+                            FatcaDate: FatcaDate,
+                            FatcaTIN: FatcaTIN
+                        },
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'NomineesSkip') {
+
+
+                var type = $('#Type').val();
+
+                if ($('#NomOTPFlag').is(':checked')) {
+                    var opt = "Y";
+                }
+                else {
+                    alert("Please check checkbox for Nominee Opt-Out.");
+                    return;
+                }
+                $("#processing").show();
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            NomOTPFlag: opt,
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'NomineeDetail') {
+
+                var keys = [], SpanPosition = [];
+                $("#table thead tr th").each(function () {
+                    keys.push($(this).html());
+                });
+
+                $("#table tbody tr").each(function () {
+                    var obj = {}, i = 0;
+                    $(this).children("td").each(function () {
+                        obj[keys[i]] = $(this).html();
+                        i++;
+                    })
+                    SpanPosition.push(obj);
+                });
+
+                var columnName = "SharePercentage";
+                var sum = 0;
+                for (var i = 0; i < SpanPosition.length; i++) {
+                    var foundValue = SpanPosition[i][columnName];
+
+                    if (foundValue !== undefined) {
+                        var sharePercentage = parseFloat(foundValue);
+
+                        if (!isNaN(sharePercentage)) {
+                            sum += sharePercentage;
+                        }
+
+                    } else {
+                        console.log("Column " + columnName + " not found in the data.");
+                    }
+                }
+
+                if (sum !== 100) {
+                    alert("Share Percent Value should be 100.");
+                    return;
+                }
+
+                $.ajax("/EKYC/NomineeDetail",
+                    {
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify(SpanPosition),
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'UploadDocument') {
+                var formData = new FormData();
+
+                var file_photo = $("#Upload_PHOTO").get(0).files[0];
+                var file_sign = $("#Upload_SIGN").get(0).files[0];
+                var file_pan = $("#Upload_PAN").get(0).files[0];
+                var file_other = $("#Upload_OTHER").get(0).files[0];
+                var file_xml = $("#Upload_XML").get(0).files[0];
+
+                var doc_photo = $("#DocData_PHOTO").val();
+                var doc_sign = $("#DocData_SIGN").val();
+                var doc_pan = $("#DocData_PAN").val();
+                var doc_oth = $("#DocData_OTHER").val();
+                var pass_xml = $("#DocData_XML").val();
+                var pass_proof = $("#IncomePass").val();
+                var doctype = $("#DocType").val();
+
+
+                if ($('#PANDiv').hasClass('HideDiv')) {
+                    // Do nothing
+                } else {
+                    if (!doc_pan) {
+                        alert("Please upload your PAN.");
+                        return;
+                    }
+                }
+
+                if ($('#AdhaarDiv').hasClass('HideDiv')) {
+                    // Do nothing
+                } else {
+                    if (doc_photo === '') {
+                        alert("Please upload your Aadhaar.");
+                        return;
+                    }
+                }
+
+
+
+                if ($('#BankDiv').hasClass('HideDiv')) {
+                    // Do nothing
+                } else {
+                    if ($('#BankDiv').hasClass('Required')) {
+                        if (doctype === '') {
+                            alert("Please select Income proof type.");
+                            return;
+                        }
+
+                        if (!file_other) {
+                            alert("Please upload your Income Proof.");
+                            return;
+                        }
+                    }
+                }
+
+
+                if ($('#AdhaarXML').hasClass('HideDiv')) {
+                    // Do nothing
+                } else {
+                    if (file_xml === null || typeof file_xml === 'undefined') {
+                        alert("Please upload zip File.");
+                        return;
+                    }
+                }
+
+                if (!pass_xml && file_xml) {
+                    alert("Password is required when uploading zip File.");
+                    return;
+                }
+
+                if (!doc_sign) {
+                    alert("Please upload your Signature.");
+                    return;
+                }
+
+                if (file_pan) {
+                    formData.append('Upload_PAN', file_pan);
+                }
+
+                if (file_other) {
+                    formData.append('Upload_OTHER', file_other);
+                }
+
+                if (file_photo) {
+                    formData.append('Upload_PHOTO', file_photo);
+                }
+
+                if (file_xml) {
+                    formData.append('Upload_XML', file_xml);
+                }
+
+                formData.append('Upload_SIGN', file_sign);
+                if (pass_xml) {
+                    formData.append('XML_Password', pass_xml);
+                }
+
+                if (pass_proof) {
+                    formData.append('Income_Password', pass_proof);
+                }
+
+                if (doctype) {
+                    formData.append('DocType', doctype);
+                }
+                $("#processing").show();
+
+                $.ajax({
+                    url: '/EKYC/UploadDocument',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (data, status, xhr) {
+                        console.log(status);
+                        console.log(data);
+                        $("#mainbox").html(data);
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(error);
+                    }
+                });
+            }
+            else if (xxx == 'OTHERHOLDER') {
+                $("#processing").show();
+
+                var hld_type = $('#HolderType').val();
+                var first_name = $('#FirstName').val();
+                var s_name = $('#SecondName').val();
+                var t_name = $('#ThirdName').val();
+                var dob = $('#DateOfBirth').val();
+                var f_name = $('#FatherName').val();
+                var pan = $('#PANNo').val();
+                var kyc_type = $('#KYCType').val();
+                var kyc_no = $('#CKYCNumber').val();
+                var a_no = $('#AadharNo').val();
+                var m_no = $('#MobileNo').val();
+                var e_no = $('#EmailID').val();
+                var type = "HOLDER";
+
+                let name = first_name.concat(" ", s_name, " ", t_name);
+                if (first_name == '') {
+                    alert("Name can't be empty.");
+                    return;
+                }
+
+                var HolderData = {
+                    HolderType: hld_type,
+                    Name: name,
+                    FirstName: first_name,
+                    SecondName: s_name,
+                    ThirdName: t_name,
+                    DateOfBirth: dob,
+                    FatherName: f_name,
+                    HolderPANNo: pan,
+                    KYCType: kyc_type,
+                    CKYCNumber: kyc_no,
+                    AadharNo: a_no,
+                    HolderMobile: m_no,
+                    HolderEmail: e_no,
+                    Type: type
+                };
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: JSON.stringify(HolderData),
+                        contentType: 'application/json',
+                        success: function (data, status, xhr) {
+                            console.log(status);
+                            console.log(data);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'HolderSkip') {
+                $("#processing").show();
+
+                var type = $('#Type').val();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'BANKDETAIL') {
+
+                var name = $('#ChequePrintName').val();
+                var acc_no = $('#BankAccountNo').val();
+                var micr = $('#BankMICR').val();
+                var ifsc = $('#BankIFSC').val();
+                var acctype = $('#AccountType').val();
+                var bankname = $('#BankName').val();
+                var bankcity = $('#BankCity').val();
+                var bankstate = $('#BankState').val();
+                var bankpin = $('#BankPin').val();
+                var confirmBankAccountNo = $('#AccountNo').val();
+
+                if (acc_no == '') {
+                    alert("Please Enter Your Account Number");
+                    return;
+                }
+
+                if (ifsc == '') {
+                    alert("Please Enter Your IFSC");
+                    return;
+                }
+
+                if (name == '') {
+                    alert("Please Enter Cheque Print Name.");
+                    return;
+                }
+
+                if (bankpin == '') {
+                    alert("Pin can't be null or empty.");
+                    return;
+                }
+
+                if (bankpin.length !== 6) {
+                    alert("Invalid PIN !! Please contact to your branch.");
+                    return;
+                }
+
+                if (acc_no === confirmBankAccountNo) {
+
+                } else {
+                    alert("Confirm bank account numbers do not match!");
+                    $('#AccountNo').val('');
+                    return;
+                }
+
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            ChequePrintName: name,
+                            BankAccountNo: acc_no,
+                            BankMICR: micr,
+                            BankIFSC: ifsc,
+                            AccountType: acctype,
+                            BankName: bankname,
+                            BankCity: bankcity,
+                            BankState: bankstate,
+                            Bankpin: bankpin,
+                            Type: "BankVerify"
+                        },
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'BANKWITHDOC') {
+
+                var name = $('#ChequePrintName').val();
+                var acc_no = $('#BankAccountNo').val();
+                var micr = $('#BankMICR').val();
+                var ifsc = $('#BankIFSC').val();
+                var acctype = $('#AccountType').val();
+                var type = "BANKWITHDOC";
+
+                var file_photo = $("#Upload_Proof").get(0);
+                var files = file_photo.files;
+                var doc_photo = $("#DocData_BANK").val();
+                var id_photo = $("#BANKPROOF").val();
+                var Pfilename = $('#Upload_Proof').val().replace(/C:\\fakepath\\/i, '');
+
+                if (acc_no == '') {
+                    alert("Please Enter Your Account Number");
+                    return;
+                }
+
+                if (ifsc == '') {
+                    alert("Please Enter Your IFSC");
+                    return;
+                }
+
+                if (name == '') {
+                    alert("Please Enter Cheque Print Name");
+                    return;
+                }
+
+                if (!file_photo || !file_photo.files || file_photo.files.length === 0 || !file_photo.files[0]) {
+                    alert("Please select an image file.");
+                    return;
+                }
+
+                var data = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    data.append("Files", files[i]);
+                }
+
+                data.append("ChequePrintName", $('#ChequePrintName').val());
+                data.append("BankAccountNo", $('#BankAccountNo').val());
+                data.append("BankMICR", $('#BankMICR').val());
+                data.append("BankIFSC", $('#BankIFSC').val());
+                data.append("AccountType", $('#AccountType').val());
+                data.append("Type", type);
+                data.append("DocumentID", "OTHER");
+                data.append("DocumentFileName", Pfilename);
+                data.append("Files", doc_photo);
+                $("#processing").show();
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        contentType: false,
+                        processData: false,
+                        data: data,
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'ExchangeDetail') {
+
+                if ($('#CAP').is(':checked')) {
+                    var cap = "Y";
+                }
+                if ($('#COM').is(':checked')) {
+                    var com = "Y";
+                }
+                if ($('#CUR').is(':checked')) {
+                    var cur = "Y";
+                }
+                if ($('#FNO').is(':checked')) {
+                    var fno = "Y";
+                }
+                if ($('#MF').is(':checked')) {
+                    var mf = "Y";
+                }
+
+                var total = $("#TotalPayAmt").html();
+
+                if (($('#CAP').is(':checked') != true) && $('#COM').is(':checked') != true && $('#CUR').is(':checked') != true && $('#FNO').is(':checked') != true && $('#MF').is(':checked') != true) {
+                    alert("Please Select Atleast One EXchange.");
+                    return;
+                }
+
+                //var dropdown = $('select[name="Scheme"]');
+
+                //if (dropdown.find('option').length > 0) {
+                //    var selectedValue = dropdown.val();
+                //    var selectedOption = dropdown.find('option:selected');
+
+                //    var selectedText = selectedOption.text();
+                //    if (selectedValue === "") {
+                //        alert("Please select scheme.");
+                //        return;
+                //    }
+                //} else {
+
+                //}
+
+                var showscheme = $('#showscheme');
+
+                // Check if showscheme is visible
+                if (showscheme.is(":visible")) {
+                    var dropdown = $('select[name="Scheme"]');
+
+                    // Check if there are any option elements within the dropdown
+                    if (dropdown.find('option').length > 0) {
+                        var selectedValue = dropdown.val();
+                        var selectedOption = dropdown.find('option:selected');
+                        var selectedText = selectedOption.text();
+
+                        if (selectedValue === "") {
+                            alert("Please select a scheme.");
+                            return;
+                        }
+                    } else {
+                        // Handle the case where there are no option elements in the dropdown
+                    }
+                } else {
+                    // Handle the case where showscheme is not visible
+                }
+
+
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            CAP: cap,
+                            COM: com,
+                            CUR: cur,
+                            FNO: fno,
+                            MF: mf,
+                            Amount: parseInt(total),
+                            InitialScheme: selectedText,
+                            Type: "EXCHANGE"
+                        },
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+                            $(".myAlert-top").show();
+                            setTimeout(function () {
+                                $(".myAlert-top").hide();
+                            }, 6000);
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'DigioEKYC') {
+
+                var type = $('#Type').val();
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'OfflineAdhhar') {
+                $("#processing").show();
+
+                var type = "OFFLINEADHAAR";
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Type: type
+                        },
+                        success: function (data, status, xhr) {
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'DigioEKYCSuccess') {
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            Type: "DigioEKYCSuccess"
+                        },
+                        success: function (data, status, xhr) {
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'AddNominee') {
+
+                var name = $('#Type').val();
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            NomOTPFlag: "Y",
+                            Type: name
+                        },
+                        success: function (data, status, xhr) {
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+            else if (xxx == 'AddNomineesSkip') {
+
+                var typee = $('#Type').val();
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening",
+                    {
+                        type: 'POST',
+                        data: {
+                            NomOTPFlag: "N",
+                            Type: typee
+                        },
+                        success: function (data, status, xhr) {
+                            $("#processing").hide();
+
+                            $("#mainbox").html(data);
+                        },
+                        error: function (jqXhr, textStatus, errorMessage) {
+                            console.log('textStatus : ' + textStatus);
+                            console.log('errorMessage : ' + errorMessage);
+                        }
+                    });
+            }
+
+            var intervalId;
+            var newWindow;
+
+            if (xxx == 'ESIGN') {
+                var type = "Esign";
+                $("#processing").show();
+
+                $.ajax("/EKYC/EKYCAccountOpening", {
+                    type: 'POST',
+                    data: {
+                        Type: type
+                    },
+                    success: function (response) {
+                        var redirectUrl = response.redirectUrl;
+                        if (redirectUrl && redirectUrl.trim() !== "") {
+                            newWindow = window.open(redirectUrl, '_blank');
+                            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                                swal({
+                                    title: "Pop Up Is Bloecked",
+                                    text: "Please Allow Popups And Try Again.\nGo To Setting and Change the Popup Allow Setting."
+                                });
+                                //window.history.back();
+                                $("#processing").hide();
+                                return;
+                            }
+                            intervalId = setInterval(function () {
+                                checkEsignStatus();
+                                if (newWindow.closed) {
+                                    clearInterval(intervalId);
+                                    swal({
+                                        title: "Warning",
+                                        text: "Esign Window Is Closed",
+                                        icon: "warning",
+                                    });
+                                    $("#processing").hide();
+                                }
+                            }, 5000);
+                        } else {
+                            $("#processing").hide();
+                        }
+                        $("#mainbox").html(data);
+                    },
+                    error: function (jqXhr, textStatus, errorMessage) {
+                        console.log('textStatus : ' + textStatus);
+                        console.log('errorMessage : ' + errorMessage);
+                    }
+                });
+
+                function checkEsignStatus() {
+                    $.ajax({
+                        url: '/EKYC/CheckEsignStatus',
+                        type: 'GET',
+                        success: function (response) {
+                            if (response.status === "C") {
+                                clearInterval(intervalId);
+                                newWindow.close();
+                                esignsuccess();
+                                return;
+                            }
+                        }
+                    });
+                }
+
+                function esignsuccess() {
+                    $.ajax("/EKYC/EKYCAccountOpening",
+                        {
+                            type: 'POST',
+                            data: {
+                                Type: "EsignSuccess"
+                            },
+                            success: function (data, status, xhr) {
+                                console.log(status);
+                                console.log(data);
+                                $("#mainbox").html(data);
+                            },
+                            error: function (jqXhr, textStatus, errorMessage) {
+                                console.log('textStatus : ' + textStatus);
+                                console.log('errorMessage : ' + errorMessage);
+                            }
+                        });
+                }
+                function startTimer() {
+                    timerId = setInterval(checkEsignStatus, 5000);
+                }
+
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        function movetoNext(current, nextFieldID) {
+            if (current.value.length >= current.maxLength) {
+                document.getElementById(nextFieldID).focus();
+            }
+        }
+    </script>
+    <script type="text/javascript">
+
+        function movetoNextAadhar(current, nextFieldID) {
+            if (current.value.length >= current.maxLength) {
+                document.getElementById(nextFieldID).focus();
+            }
+        }
+    </script>
+    <script>
+        $(function () {
+            $('#PANNO').keyup(function () {
+                this.value = this.value.toLocaleUpperCase();
+            });
+        });
+    </script>
+    <script type="text/javascript">
+
+        function ValidatePAN(PANNo) {
+            var PANNo = document.getElementById(PANNO).value;
+            if (PANNo.value != "") {
+                var ObjVal = PANNo;
+                var panPattern = /^([a-zA-Z]{5})(\d{4})([a-zA-Z]{1})$/;
+                var matchArray = ObjVal.match(panPattern);
+
+                if (matchArray == null) {
+                    alert('Invalid PAN Card No.');
+                    return false;
+                }
+
+                return true;
+            }
+        }
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            $("#korpmenu").click(function () {
+                $(".sidebar").toggle();
+            });
+        });
+    </script>
+
+    <script>
+        var resizefunc = [];
+    </script>
+
+    <!--script src="~/Scripts/assets/js/jquery.min.js"></script-->
+    <script src="/Scripts/assets/js/bootstrap.min.js"></script>
+    <script src="/Scripts/assets/js/detect.js"></script>
+    <script src="/Scripts/assets/js/fastclick.js"></script>
+    <script src="/Scripts/assets/js/jquery.slimscroll.js"></script>
+    <script src="/Scripts/assets/js/jquery.blockUI.js"></script>
+    <script src="/Scripts/assets/js/waves.js"></script>
+    <script src="/Scripts/assets/js/jquery.nicescroll.js"></script>
+    <script src="/Scripts/assets/js/jquery.slimscroll.js"></script>
+    <script src="/Scripts/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="/Scripts/assets/plugins/jquery-knob/jquery.knob.js"></script>
+
+    <!-- Modal-Effect -->
+    <script src="/Scripts/assets/plugins/custombox/dist/custombox.min.js"></script>
+    <script src="/Scripts/assets/plugins/custombox/dist/legacy.min.js"></script>
+
+    <!-- Datatables-->
+    <!--
+    <script src="~/Scripts/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/dataTables.buttons.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/buttons.bootstrap.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/jszip.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/pdfmake.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/vfs_fonts.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/buttons.html5.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/buttons.print.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/dataTables.fixedHeader.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/dataTables.keyTable.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/dataTables.responsive.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/responsive.bootstrap.min.js"></script>
+    <script src="~/Scripts/assets/plugins/datatables/dataTables.scroller.min.js"></script>
+    -->
+    <!-- Datatable init js -->
+    <script src="/Scripts/assets/pages/datatables.init.js"></script>
+
+    <!-- Dashboard init -->
+    <script src="/Scripts/assets/pages/jquery.dashboard.js"></script>
+    <script src="/Scripts/assets/plugins/select2/dist/js/select2.min.js" type="text/javascript"></script>
+
+    <!-- App js -->
+    <script src="/Scripts/assets/js/jquery.core.js"></script>
+    <script src="/Scripts/assets/js/jquery.app.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datatable').dataTable();
+            $('#datatable-keytable').DataTable({ keys: true });
+            $('#datatable-responsive').DataTable();
+            $('#datatable-scroller').DataTable({ ajax: "assets/plugins/datatables/json/scroller-demo.json", deferRender: true, scrollY: 380, scrollCollapse: true, scroller: true });
+            var table = $('#datatable-fixed-header').DataTable({ fixedHeader: true });
+            $("input:text,form").attr("autocomplete", "off");
+        });
+        TableManageButtons.init();
+    </script>
+
+    <script>
+        jQuery(document).ready(function () {
+            $(".select2").select2();
+
+            $(".select2-limiting").select2({
+                maximumSelectionLength: 2
+            });
+
+        });
+    </script>
+
+    <script>
+        jQuery(document).ready(function () {
+            jQuery(function () {
+                jQuery(this).bind("contextmenu", function (event) {
+                    event.preventDefault();
+                    //alert('Right click disable in this site!!')
+                });
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById('details');
+            if (e.style.display == 'block') {
+                e.style.display = 'none';
+            }
+            else {
+                $("#user_profile").html(waithtml);
+                $.get(
+                    {
+                        url: '/Home/UserProfile',
+                        success: function (result, status) {
+                            $("#user_profile").html(result);
+                        },
+                        error: function () {
+                            $("#user_profile").html("somthing is wrong in help plz try after some time");
+                        }
+                    }
+                );
+                e.style.display = 'block';
+            }
+        }
+
+    </script>
+
+    <script>
+        document.addEventListener('mouseup', function (e) {
+            var container = document.getElementById('details');
+            if (!container.contains(e.target)) {
+                details.style.display = 'none';
+            }
+        });
+
+        function OrionUpperCase() {
+            this.value = this.value.toLocaleUpperCase();
+        }
+    </script>
+
+    <script>
+        var myGeeksforGeeksWindow;
+
+        function openWin() {
+            myGeeksforGeeksWindow = window
+                .open("/Account/ForgotUser", "_blank", "width=786, height=786");
+        }
+
+        function closeWin() {
+            myGeeksforGeeksWindow.close();
+        }
+    </script>
+
+    <script>
+        document.addEventListener('mouseup', function (e) {
+            var container = document.getElementById('details');
+            if (!container.contains(e.target)) {
+                details.style.display = 'none';
+            }
+        });
+    </script>
+
+    <script>
+        if (!Request.FilePath.Contains("Default")) {
+            var strPreviousPage = null;
+            if (Request.UrlReferrer != null) {
+                strPreviousPage = Request.UrlReferrer.Segments[Request.UrlReferrer.Segments.Length - 1];
+            }
+            if (strPreviousPage == "") {
+                Response.Redirect("/Home/Login");
+            }
+        }
+    </script>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+    <script>
+        const toggleSwitch = document.querySelector(
+            '.theme-switch input[type="checkbox"]'
+        );
+        const currentTheme = localStorage.getItem("theme");
+
+        if (currentTheme) {
+            document.documentElement.setAttribute("data-theme", currentTheme);
+
+            if (currentTheme === "dark") {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute("data-theme", "dark");
+                localStorage.setItem("theme", "dark");
+            } else {
+                document.documentElement.setAttribute("data-theme", "light");
+                localStorage.setItem("theme", "light");
+            }
+        }
+        toggleSwitch.addEventListener("change", switchTheme, false);
+
+        function SelectOptionRemoveDuplicate(item) {
+            var item_id = "#" + item + " option";
+            var optionValues = [];
+            $(item_id).each(function () {
+                if ($.inArray(this.value, optionValues) > -1) {
+                    $(this).remove()
+                } else {
+                    optionValues.push(this.value);
+                }
+            });
+        }
+
+
+    </script>
+
+    <script>
+        function myFunction() {
+            document.getElementById("logout_form").submit();
+            window.close();
+            window.close();
+        }
+    </script>
+
+</body>
+</html>
