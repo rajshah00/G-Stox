@@ -31,6 +31,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfolioPositionComponent } from './Portfolio/profolio-position/profolio-position.component';
 import { AddFundsComponent } from './funds/add-funds/add-funds.component';
 import { WithdrawalComponent } from './funds/withdrawal/withdrawal.component';
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
+import { MyAppsComponent } from './my-apps/my-apps.component';
+import { AddNewAppComponent } from './my-apps/add-new-app/add-new-app.component';
 
 const routes: Routes = [
   {
@@ -107,11 +110,20 @@ const routes: Routes = [
         path: 'FinancialLedger',
         component: FinancialLedgerComponent
       }, {
-       path: 'add-funds',
-       component: AddFundsComponent
+        path: 'add-funds',
+        component: AddFundsComponent
       }, {
         path: 'withdrawal',
         component: WithdrawalComponent
+      }, {
+        path: 'terms-and-conditions',
+        component: TermsAndConditionsComponent
+      }, {
+        path: 'my-apps',
+        component: MyAppsComponent
+      }, {
+        path: 'add-new-app',
+        component: AddNewAppComponent
       }
     ]
   }

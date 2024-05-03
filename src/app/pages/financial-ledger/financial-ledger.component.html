@@ -52,14 +52,14 @@
     </ng-container>
 
     <ng-container>
-        <div class="text-end">
-            <input type="submit" value=""
+        <div class="text-end" *ngIf="FinancialList.length > 0">
+            <input type="submit" value="" (click)="downloadCsv()"
                 class="fa fa-file - excel - o btn btn-default btn - block text-primary me-3 stox-btn btn-2">
-            <input type="submit" value=""
+            <input type="submit" value="" (click)="downloadAsPDF()"
                 class="fa fa-file-pdf-o btn  btn-default btn-block text-danger stox-btn btn-2">
         </div>
 
-        <div class="table-responsive mt-2">
+        <div class="table-responsive mt-2" id="pdfTable" #pdfTable>
             <table class="table table-hover table-bordered">
                 <thead class="table-dark">
                     <tr>

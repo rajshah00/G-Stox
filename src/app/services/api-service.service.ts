@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,25 @@ export class ApiServiceService {
     private router: Router,
     private http: HttpClient,
   ) { }
+  // toster function //
+  toster(type: any, message: any) {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: type,
+      title: message
+    });
+  }
+
 
   isAuthenticated(): boolean {
     const authToken = JSON.parse(localStorage.getItem('isLoggedIn') || '');
@@ -93,7 +113,7 @@ export class ApiServiceService {
     return this.http.get<any>(`${environment.API_URL}/Vouchers/APAmount/Get?AccountID=${FileID}&RequestType=ONREQUEST&ReleaseFlag=N`);
   }
 
-  getBankDetail(ClientCode: any,BankID: any) {
+  getBankDetail(ClientCode: any, BankID: any) {
     return this.http.get<any>(`${environment.API_URL}/Masters/BankDetail/Get?Code=${ClientCode}&BankID=${BankID}&BankType=D`);
   }
 
@@ -175,6 +195,12 @@ export class ApiServiceService {
     const formattedDate = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString()
       .padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}`;
     return formattedDate;
+  }
+
+  sendOTP(data: any) {
+    // const headers = new HttpHeaders({'Host': '192.200.8.14:4200'});
+    const body = new HttpParams({ fromObject: data });
+    return this.http.post(environment.OTP_URL + '/send_opt.php', body);
   }
 }
 

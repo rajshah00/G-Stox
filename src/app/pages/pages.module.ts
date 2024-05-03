@@ -40,6 +40,9 @@ import { ProfolioPositionComponent } from './Portfolio/profolio-position/profoli
 
 import { AddFundsComponent } from './funds/add-funds/add-funds.component';
 import { WithdrawalComponent } from './funds/withdrawal/withdrawal.component';
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
+import { MyAppsComponent } from './my-apps/my-apps.component';
+import { AddNewAppComponent } from './my-apps/add-new-app/add-new-app.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +79,10 @@ import { WithdrawalComponent } from './funds/withdrawal/withdrawal.component';
     ProfileComponent,
     ProfolioPositionComponent,
     AddFundsComponent,
-    WithdrawalComponent
+    WithdrawalComponent,
+    TermsAndConditionsComponent,
+    MyAppsComponent,
+    AddNewAppComponent
   ],
   imports: [
     CommonModule,

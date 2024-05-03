@@ -3,7 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 import { AuthInterceptor } from 'src/app/services/auth-interceptor.service';
-
+import * as saveAs from 'file-saver';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 @Component({
   selector: 'app-financial-ledger',
   templateUrl: './financial-ledger.component.html',
@@ -84,5 +86,36 @@ export class FinancialLedgerComponent implements OnInit {
     }
     console.log(this.financialGroup);
   }
+  downloadCsv() {
+    const selectedFields = ['ValueDate','VoucherDate','Exchange','Segment','Narration','BillNo','ReferenceNo','Debit','Credit','RunningBalance'];
+    const csvData = this.convertToCSV(this.FinancialList, selectedFields);
+    const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
+    saveAs(blob, 'FinancialList.csv');
+  }
 
+  private convertToCSV(data: any[], selectedFields: string[]): string {
+    const headers = selectedFields;
+    const rows = data.map(row => selectedFields.map(field => row[field]));
+
+    return [headers.join(','), ...rows.map(row => row.join(','))].join('\n');
+  }
+
+  public downloadAsPDF() {
+    const element: any = document.getElementById('pdfTable');
+    const doc: any = new jsPDF();
+
+    html2canvas(element).then((canvas: any) => {
+      const imgData = canvas.toDataURL('image/png');
+      // Set width and height of PDF page (similar to A4)
+      const pdfWidth = doc.internal.pageSize.getWidth();
+      const pdfHeight = doc.internal.pageSize.getHeight();
+      const ratio = pdfWidth / canvas.width;
+      const imgHeight = canvas.height * ratio;
+
+      doc.addImage(imgData, 'PNG', 0, 10, pdfWidth, imgHeight);
+      doc.save('FinancialList.pdf');
+    });
+
+    // doc.save('tableToPdf.pdf');
+  }
 }

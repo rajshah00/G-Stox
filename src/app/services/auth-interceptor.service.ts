@@ -9,14 +9,14 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  private token = localStorage.getItem('token');
+  token = localStorage.getItem('token');
   firm_id: any = "1001";
   // financial_year: any = "2019 - 2020";
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log("request",request);
-    console.log("this.token",this.token);
-    
+    this.token = localStorage.getItem('token');
+    // console.log("request", request);
+    // console.log("this.token", this.token);
     if (this.token) {
       request = request.clone({
         setHeaders: {
