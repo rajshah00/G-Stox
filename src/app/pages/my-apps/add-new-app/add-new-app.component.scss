@@ -1,0 +1,80 @@
+.myapp-tab {
+    margin-top: 50px;
+}
+
+.myapp-tab .tabs-left li,
+.myapp-tab .tabs-left li:hover {
+    float: none !important;
+    border-radius: 0px !important;
+    border: 0 !important;
+}
+
+.myapp-tab .tabs-left li.active a,
+.myapp-tab .tabs-left li a,
+.myapp-tab .tabs-left li a:hover {
+    display: block;
+    border: 0;
+    margin: 0;
+    border-radius: 0px !important;
+    border-bottom: 1px solid #dddddd;
+}
+
+.myapp-tab .tabs-left li.active a {
+    background-color: #0a2342 !important;
+    color: #ffffff !important;
+}
+
+.myapp-tab .tabs-left li:last-child a {
+    border-bottom: 0;
+}
+
+.myapp-tab .nav-tabs {
+    border-radius: 8px;
+    border: 1px solid #dddddd;
+    overflow: hidden;
+}
+
+.myapp-tab .breadcrumb {
+    background-color: transparent;
+    padding: 0px;
+}
+
+.myapp-right-content .nav-tabs {
+    border: 0;
+    border-radius: 0;
+}
+
+.myapp-right-content .nav-tabs li a,
+.myapp-right-content .nav-tabs li:hover a {
+    border: 0;
+    border-bottom: 2px solid transparent;
+    background-color: transparent;
+    padding-right: 0px;
+    margin-right: 20px;
+    padding-left: 0;
+}
+
+.myapp-right-content .nav-tabs li.active a {
+    border: 0;
+    background-color: transparent;
+    border-bottom: 2px solid #000000;
+}
+
+.myapp-right-content h2 {
+    margin-top: 0;
+}
+
+.api-tabs .table>thead>tr>th {
+    border-bottom: 1px solid #dddddd !important;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}

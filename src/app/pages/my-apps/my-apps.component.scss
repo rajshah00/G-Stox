@@ -1,0 +1,61 @@
+.myapp-tab {
+    margin-top: 50px;
+}
+
+.myapp-tab .nav-link {
+    border: 0;
+    margin: 0;
+    border-radius: 0px !important;
+    border-bottom: 1px solid #dddddd;
+}
+
+.myapp-tab .nav-link.active {
+    background-color: #0a2342 !important;
+    color: #ffffff !important;
+    border: 0;
+}
+
+.myapp-tab .nav-link:last-child {
+    border-bottom: 0;
+}
+
+.myapp-tab .nav-tabs {
+    border-radius: 8px;
+    border: 1px solid #dddddd;
+    overflow: hidden;
+}
+
+.myapp-tab .breadcrumb {
+    background-color: transparent;
+    padding: 0px;
+}
+
+.myapp-right-content .nav-tabs {
+    border: 0;
+    border-radius: 0;
+}
+
+.myapp-right-content .nav-tabs .nav-link,
+.myapp-right-content .nav-tabs .nav-link:hover {
+    border: 0;
+    border-bottom: 2px solid transparent;
+    background-color: transparent;
+    padding-right: 0px;
+    margin-right: 20px;
+    padding-left: 0;
+}
+
+.myapp-right-content .nav-tabs .nav-link.active {
+    border: 0;
+    background-color: transparent !important;
+    border-bottom: 2px solid #000000;
+    color: #000000 !important;
+}
+
+.myapp-right-content h2 {
+    margin-top: 0;
+}
+
+.api-tabs .table>thead>tr>th {
+    border-bottom: 1px solid #dddddd !important;
+}

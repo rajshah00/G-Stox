@@ -1,0 +1,98 @@
+<div class="container">
+    <div class="row myapp-tab">
+        <div class="col-md-3">
+            <div class="stox-card">
+                <ul class="nav nav-tabs flex-column" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="ClientInfo-tab" data-bs-toggle="tab" href="#ClientInfo"
+                            role="tab" aria-controls="ClientInfo" aria-selected="true">My app (1)</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="tab2-tab" data-bs-toggle="tab" href="#tab2" role="tab"
+                            aria-controls="tab2" aria-selected="false">Conneted app (0)</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="tab3-tab" data-bs-toggle="tab" href="#tab3" role="tab"
+                            aria-controls="tab3" aria-selected="false">Api dos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9 myapp-right-content stox-card">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="ClientInfo" role="tabpanel" aria-labelledby="ClientInfo-tab">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Apps</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">My Apps</li>
+                        </ol>
+                    </nav>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h2>My apps</h2>
+                        </div>
+                        <div class="col-md-3 text-end">
+                            <a class="btn btn-primary" routerLink="/home/add-new-app">New App</a>
+                        </div>
+                    </div>
+                    <div class="api-tabs">
+                        <div class="tabs-wrapper">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" id="myapp-active-tab" data-bs-toggle="tab"
+                                        href="#myapp-active" role="tab" aria-controls="myapp-active"
+                                        aria-selected="true">Active (1)</a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="myapp-expired-tab" data-bs-toggle="tab"
+                                        href="#myapp-expired" role="tab" aria-controls="myapp-expired"
+                                        aria-selected="false">Expired (0)</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="myapp-active" role="tabpanel"
+                                aria-labelledby="myapp-active-tab">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Access Type</th>
+                                            <th>Expiry Date</th>
+                                            <th>Note</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>santoo</td>
+                                            <td>Api Training</td>
+                                            <td>31/03/2030</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>santoo</td>
+                                            <td>Api Training</td>
+                                            <td>31/03/2030</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <br>
+                                <div class="text-center">
+                                    <p>Are you looking for strategic partnership for your business ? <br><br>Try Gstox
+                                        for business </p>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="myapp-expired" role="tabpanel"
+                                aria-labelledby="myapp-expired-tab">
+                                0
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">Coming soon...</div>
+                <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">Coming soon...</div>
+            </div>
+        </div>
+    </div>
+</div>
