@@ -1,0 +1,74 @@
+<section>
+    <div class="term-condation-content">
+        <div class="term-condation-dec stox-card">
+            <p>In reference to my/our request for availing API for use of such API to execute orders based on orders
+                generated using third party Automated Trading Software or Services I/We hereby acknowledge the receipt
+                of the Risk Disclosure Document (ANNEXURE-1) and Terms & Conditions for API usage (ANNEXURE-2). I/We
+                have understood the risk associated with the Automated Trading and agree/ confirm &undertake as follows:
+            </p>
+            <p><strong> 1.</strong> That I/we desire to avail the trading facility on the exchange’s platform through
+                IBT/STWT software/application provided by you using API of such IBT/STWT software/application
+                integrating the same with third party automated trading software or services, as provided by such third
+                party vendor providing Automated Trading Software , out of my/our own volition and not at the instance
+                of any person including the member broker or its employee(s) or any of its Sub Broker(SB) or Authorized
+                Person (AP) ( including representatives thereof)</p>
+            <p><strong> 2.</strong> That , Risk Disclosure Document on use of such API with third party automated
+                trading software or services have been provided to me/us by the Member Broker which is attached as
+                <strong>Schedule-I</strong> to the present letter and which I/we duly acknowledge having signed the
+                same. I/we have read and understood all the contents of these documents and characteristics and
+                functionality of the strategy and I/we am/are satisfied with the features and risk factor of Automated
+                Trading Facility (ATF) as being provided by the Member Broker.
+            </p>
+            <p><strong>3.</strong> That I/we understand that by availing IBT/STWT software/application and integrating
+                API of such software/application with third party automated trading software or services, I/we would not
+                be required to place any specific order at the platform of the Exchange rather all the trades in my/our
+                trading account/UCC would be placed automatically by the system in accordance with the orders generated
+                by the third party automated trading software or services with which I/we have engaged for the purpose
+                of generating orders as per strategy decided by me. As such orders placed through my/our login using IBT
+                or STWT software provided by you and log of orders placed by me shall satisfy requirement of proof of
+                order placement and the same would be in accordance with Clauses contained in INTERNET & WIRELESS
+                TECHNOLOGY BASED TRADING FACILITY PROVIDED BY STOCK BROKERS TO CLIENT. </p>
+            <p><strong>4.</strong> That I/we shall ensure availability of required deposits / funds for margin /
+                settlement obligations, in respect of the trades effected through my/our IBT/STWT software/application
+                integrated through API with third party automated trading software or services . I /We shall be
+                responsible for all orders, including any order that may be executed without the required Margin in
+                my/our account, under any circumstances. I /We shall also be responsible for any claims/loss/damage
+                arising out of any reason including square off of all/some positions due to the non-
+                availability/shortage of margin with/without any notice to me/us required by the Member Broker and /or
+                exchange(s) and /or SEBI or any other regulatory authority. I/We agree to have disclaimed and waived off
+                any right to disown the transactions/order executed by the Member Broker under the plea that same have
+                been executed without adequate margin.
+            </p>
+            <p><strong>5.</strong> That I/We further undertake to pay additional charges related to availing this
+                IBT/STWT
+                software/application integrated through API with third party automated trading software or services as
+                may be communicated to me /us from time to time.
+            </p>
+            <p><strong>6.</strong> That I/We further understand & agree that for orders/transactions not executed, due
+                to
+                any reason including but not limited to time lag in execution of order, malfunctioning of the IBT/STWT
+                software/application integrated through API with third party automated trading software or services ,
+                latency in the systems of the Member Broker/ or the Exchanges, disruption of any kind in the
+                transmission of data, system failure including failure of ancillary or associated systems , fluctuation
+                of power, link failure between my/our IBT/STWT software/application and the Member Broker’s server
+                ,Member Broker and the Exchanges, virus/malware , delay/downtime, shutting down of systems of the Member
+                Broker, any force majeure event or any inaccuracy or error or delay or insufficiency of any information
+                for any reason, I/we shall not hold the Member Broker liable. </p>
+        </div>
+        <form>
+            <div class="terms-from">
+                <div>
+                    <span>I agree to terms and condition</span>
+                    <input type="checkbox" name="i_agree" id="i_agree" value="1">
+                </div>
+                <div id="opt_block" style="display: none;">
+                    <input  type="button" class="send-otp-btn" value="Send OTP" id="send_opt_btn_block"
+                        (click)="sendOtp()">
+                    <input type="number" [(ngModel)]="otp_input" name="otp_input" class="otp-number" placeholder="Enter OTP"
+                        id="enter_opt_txt_block">
+                    <input (click)="submitOTP()" type="button" class="terms-submit-btn" value="SUBMIT" id="submit_opt_btn_block">
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

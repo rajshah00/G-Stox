@@ -198,9 +198,22 @@ export class ApiServiceService {
   }
 
   sendOTP(data: any) {
-    // const headers = new HttpHeaders({'Host': '192.200.8.14:4200'});
+    // const headers = new HttpHeaders({ 'Host': '192.200.8.14:4200' });
     const body = new HttpParams({ fromObject: data });
     return this.http.post(environment.OTP_URL + '/send_opt.php', body);
+  }
+
+  verifyOTP(data: any) {
+    // const headers = new HttpHeaders({ 'Host': '192.200.8.14:4200' });
+    const body = new HttpParams({ fromObject: data });
+    return this.http.post(environment.OTP_URL + '/verify_opt.php', body);
+  }
+
+  
+  verifyedOTP(data: any) {
+    // const headers = new HttpHeaders({ 'Host': '192.200.8.14:4200' });
+    const body = new HttpParams({ fromObject: data });
+    return this.http.post(environment.OTP_URL + '/verify.php', body);
   }
 }
 

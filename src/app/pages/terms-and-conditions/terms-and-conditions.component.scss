@@ -1,0 +1,79 @@
+.term-condation-content {
+    width: 100%;
+    font-size: 18px;
+    margin: 20px auto 0px auto;
+}
+
+.term-condation-dec {
+    // height: 400px;
+    margin-bottom: 30px;
+    // overflow-y: scroll;
+}
+
+.terms-from {
+    width: 500px;
+    margin: 20px auto 0 auto;
+    font-size: 20px;
+}
+
+
+.term-condation-content input::-webkit-outer-spin-button,
+.term-condation-content input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.term-condation-content input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.terms-from {
+    padding: 20px;
+    border: 1px solid #cccccc;
+}
+
+.terms-from input {
+    height: 40px;
+    margin-top: 20px;
+    padding: 0px 15px;
+}
+
+.terms-from span {
+    margin-left: 10px;
+}
+
+.terms-from input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    vertical-align: middle;
+    margin-top: 0;
+}
+
+.send-otp-btn {
+    display: inline-block;
+    float: none;
+    width: 39%;
+    margin: 0 10px;
+}
+
+.otp-number {
+    float: none;
+    width: 88%;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.terms-submit-btn {
+    width: 95%;
+    margin: 20px 10px;
+    border: 1px solid #2477bc;
+    background-color: #2477bc;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 10px 20px;
+    height: 50px !important;
+    cursor: pointer;
+}

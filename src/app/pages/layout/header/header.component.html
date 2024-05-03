@@ -3,7 +3,7 @@
 
   <div class="d-flex align-items-center justify-content-between">
     <a href="index.html" class="logo d-flex align-items-center">
-      <img src="../../../assets/images/my-stocks-logo.png" alt="">
+      <img src="./assets/images/my-stocks-logo.png" alt="">
     </a>
   </div>
 
@@ -145,11 +145,11 @@
               <span>Derivative P&L Report</span>
             </a>
           </li>
-          
+
         </ul>
       </li>
 
-      
+
 
       <li class="nav-item dropdown d-md-block d-sm-none">
         <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
@@ -219,7 +219,7 @@
       <li class="nav-item dropdown pe-3 ">
 
         <a class="nav-link nav-profile d-flex align-items-center pe-0 side-border" href="#" data-bs-toggle="dropdown">
-          <img src="../../../assets/images/user-img.png" alt="Profile" class="rounded-circle">
+          <img src="./assets/images/user-img.png" alt="Profile" class="rounded-circle">
           <span class="d-none d-md-block dropdown-toggle ps-2">{{LoginUsername}}</span>
         </a>
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -268,7 +268,7 @@
             </a>
           </li>
 
-          <li>
+          <li *ngIf="!isVerified">
             <a class="dropdown-item d-flex align-items-center" routerLink="/home/terms-and-conditions">
               <i class="bi bi-box-arrow-right"></i>
               <span>API</span>
