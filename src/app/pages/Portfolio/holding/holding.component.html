@@ -35,13 +35,13 @@
                     <option value="PLANE">PLANE</option>
                 </select>
             </div> 
-            <div class="col-md-3">
+            <div class="col-md-12 text-end">
                 <button type="submit" style="margin-top: 27px;" class="btn btn-primary">Run</button>
             </div>
         </form>
     </ng-container>
 
-    <ng-container>
+    <ng-container *ngIf="holdingData && holdingData.length">
         <div class="text-end" *ngIf="holdingData.length > 0">
             <input type="submit" value=""  (click)="downloadCsv()"
                 class="fa fa-file - excel - o btn btn-default btn - block text-primary me-3 stox-btn btn-2">
@@ -105,6 +105,11 @@
                     </tr>
                 </tfoot>
             </table>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="holdingData && !holdingData.length">
+        <div class="text-center">
+            <h5>Data Not Found</h5>
         </div>
     </ng-container>
 </section>

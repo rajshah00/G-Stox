@@ -1,0 +1,3812 @@
+BASE_URL 		= http://192.200.2.162:15000/api
+FIRM_ID  		= 1001
+FINANCIAL_YEAR	= 2019-2020
+
+1 :-  Authantication
+	var client = new RestClient("{BASE_URL}/token");
+	client.Timeout = -1;
+	var request = new RestRequest(Method.POST);
+	request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+	request.AddParameter("UserName", "{UserID}");
+	request.AddParameter("Password", "{Password}");
+	request.AddParameter("Grant_type", "password");
+	/*
+	request.AddParameter("CallFrom", "MARKETHUB");
+	request.AddParameter("Sessionid", "{SessionNo}");
+	*/
+	IRestResponse response = client.Execute(request);
+
+2:- Client Profile 
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/ClientProfile/Get?ClientCode={ClientCode}");
+		var request = new RestRequest(Method.GET);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	Response
+		public class ClientProfile
+		{
+			public List<ClientMasterReport> MasterData { get; set; }
+			public List<ClientSegmentMaster> SegmentMaster { get; set; }
+			public List<BankDetail> BankDetail { get; set; }
+			public List<DepositoryDetail> DPDetail { get; set; }
+		}
+			public class ClientMasterReport
+			{
+				public String FirmID { get; set; }
+				public String AccountID { get; set; }
+				public String AccountName { get; set; }
+				public String MainGroup { get; set; }
+				public String SubGroup { get; set; }
+				public String SubGroup1 { get; set; }
+				public DateTime OpenDate { get; set; }
+				public String TaxState { get; set; }
+				public String Branch { get; set; }
+				public String SubBranch { get; set; }
+				public String FamilyID { get; set; }
+				public String RmtlID { get; set; }
+				public String GSTRegistrationNo { get; set; }
+				public String PANNo { get; set; }
+				public String Address1 { get; set; }
+				public String Address2 { get; set; }
+				public String Address3 { get; set; }
+				public String City { get; set; }
+				public String District { get; set; }
+				public String PINCode { get; set; }
+				public String StateCode { get; set; }
+				public String StateName { get; set; }
+				public String CountryCode { get; set; }
+				public String CountryName { get; set; }
+				public String MobileISD { get; set; }
+				public String MobileNo { get; set; }
+				public String PhoneIsd { get; set; }
+				public String PhoneStd { get; set; }
+				public String PhoneNo { get; set; }
+				public String EmailId { get; set; }
+				public String AccountType { get; set; }
+				public String FatherName { get; set; }
+				public String MotherName { get; set; }
+				public String MaidenName { get; set; }
+				public String AadharNo { get; set; }
+				public String AnnualIncome { get; set; }
+				public DateTime? AnnualIncomeDate { get; set; }
+				public Double? NetWorth { get; set; }
+				public DateTime? NetWorthDate { get; set; }
+				public DateTime? DateOfBirth { get; set; }
+				public DateTime? LastTradeDate { get; set; }
+				public DateTime? LastSettoffDate { get; set; }
+				public String CKYCRefNo { get; set; }
+				public String KYCUpload { get; set; }
+			}
+			public class ClientSegmentMaster
+			{
+				public String FirmID { get; set; }
+				public String ClientCode { get; set; }
+				public String ExchangeID { get; set; }
+				public String ExchangeName { get; set; }
+				public String SegmentID { get; set; }
+				public String SegmentName { get; set; }
+				public DateTime? ActiveDate { get; set; }
+				public DateTime? InactiveDate { get; set; }
+				public String TradingAllow { get; set; }
+				public String Remarks { get; set; } 
+				public String Chnage { get; set; }
+				public String CPCode { get; set; }
+				public String CMID{ get; set; }
+				public String UCCExported { get; set; }
+				public DateTime? UCCExportDate { get; set; }
+				public String UCCExportBy { get; set; }
+				public String UCCSuccess { get; set; }
+			}
+			public class BankDetail
+			{
+				public String BankID { get; set; }
+				public String FirmID { get; set; }
+				public String ClientCode { get; set; }        
+				public String PrimaryFlag { get; set; }
+				public String BankAccountNumber { get; set; }
+				public String BankAccountType { get; set; }
+				public String BankIFSC { get; set; }
+				public String BankMICR { get; set; }
+				public String ChequePrintName { get; set; }
+				public String BankCode { get; set; }
+				public String BankAddress1 { get; set; }
+				public String BankAddress2 { get; set; }
+				public String BankAddress3 { get; set; }
+				public String BankCity { get; set; }
+				public String BankPincode { get; set; }
+				public String BankState { get; set; }
+				public String BankSateOther { get; set; }
+				public String BankCountry { get; set; }
+				public String PaymentMode { get; set; }
+				public String Delete { get; set; }
+				public String POAFlag{ get; set; }
+				public DateTime? POADate { get; set; } 
+				public String BankName { get; set; }
+				public String CustomerID { get; set; }
+				public String UMRN { get; set;}
+				public DateTime? ECSMandateDate { get; set; }
+				public DateTime? ECSFromDate { get; set; }
+				public DateTime? ECSToDate { get; set; }
+				public String ECSUntilCancel { get; set; }
+				public String ECSStatus { get; set; }
+				public String ECSFrequency { get; set; }
+				public Double? ECSLimit { get; set; }
+				public String AutoDebit { get; set; }
+			}
+			public class DepositoryDetail
+			{
+				public String SerialNo { get; set; } 
+				public String FirmID { get; set; }
+				public String ClientCode { get; set; }
+				public String DepositoryType { get; set; }
+				public String DepositoryID { get; set; }
+				public String DepositoryClientID { get; set; }
+				public String POAFlag { get; set; }
+				public String POAID { get; set; }
+				public String PrimaryFlag { get; set; }
+				public DateTime? POAActiveDate { get; set; }
+				public DateTime? POAInactiveDate { get; set; }
+				public String POAMarginFlag { get; set; }
+				public String Delete { get; set; }
+				public String DepositoryName { get; set; }
+			}
+	
+3:- Client DashBoard 
+	Request
+		var client = new RestClient("{BASE_URL}/Common/ClientDashBoard/Get?ClientCode={ClientCode}");
+		var request = new RestRequest(Method.GET);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	Response
+		public class DashBoard
+		{
+			public List<ClientMasterReport> MasterData { get; set; }
+			public List<FDBGData> FinSummary { get; set; }
+			public List<DerivativePLStatementData> FNOPosition { get; set; }
+			public List<DerivativePLStatementData> COMPosition { get; set; }
+			public List<DerivativePLStatementData> CURPosition { get; set; }
+			public List<ClientHoldingData> Holding { get; set; }
+
+		}
+			public class ClientMasterReport
+			{
+				public String FirmID { get; set; }
+				public String AccountID { get; set; }
+				public String AccountName { get; set; }
+				public String MainGroup { get; set; }
+				public String SubGroup { get; set; }
+				public String SubGroup1 { get; set; }
+				public DateTime OpenDate { get; set; }
+				public String TaxState { get; set; }
+				public String Branch { get; set; }
+				public String SubBranch { get; set; }
+				public String FamilyID { get; set; }
+				public String RmtlID { get; set; }
+				public String GSTRegistrationNo { get; set; }
+				public String PANNo { get; set; }
+				public String Address1 { get; set; }
+				public String Address2 { get; set; }
+				public String Address3 { get; set; }
+				public String City { get; set; }
+				public String District { get; set; }
+				public String PINCode { get; set; }
+				public String StateCode { get; set; }
+				public String StateName { get; set; }
+				public String CountryCode { get; set; }
+				public String CountryName { get; set; }
+				public String MobileISD { get; set; }
+				public String MobileNo { get; set; }
+				public String PhoneIsd { get; set; }
+				public String PhoneStd { get; set; }
+				public String PhoneNo { get; set; }
+				public String EmailId { get; set; }
+				public String AccountType { get; set; }
+				public String FatherName { get; set; }
+				public String MotherName { get; set; }
+				public String MaidenName { get; set; }
+				public String AadharNo { get; set; }
+				public String AnnualIncome { get; set; }
+				public DateTime? AnnualIncomeDate { get; set; }
+				public Double? NetWorth { get; set; }
+				public DateTime? NetWorthDate { get; set; }
+				public DateTime? DateOfBirth { get; set; }
+				public DateTime? LastTradeDate { get; set; }
+				public DateTime? LastSettoffDate { get; set; }
+				public String CKYCRefNo { get; set; }
+				public String KYCUpload { get; set; }
+			}
+			public class FDBGData
+			{
+				public String FirmID { get; set; }
+				public String AccountID { get; set; }
+				public Double? LedgerBalance { get; set; }
+				public Double? Margin { get; set; }
+				public Double? SecurityValue { get; set; }
+				public Double? FDR { get; set; }
+				public Double? BG { get; set; }
+				public Double? ClearBalance { get; set; }
+			}
+			public class DerivativePLStatementData
+			{
+				public String FirmID { get; set; }
+				public String AccountID { get; set; }
+				public String Branch { get; set; }
+				public String Exchange { get; set; }
+				public String Segment { get; set; }
+				public String Instrument { get; set; }
+				public String Symbol { get; set; }
+				public DateTime? ExpiryDate { get; set; }
+				public Double? StrikePrice { get; set; }
+				public String OptionType { get; set; }
+				public Double? BFQuantity { get; set; }
+				public Double? BFValue { get; set; }
+				public Double? BuyQuantity { get; set; }
+				public Double? BuyValue { get; set; }
+				public Double? SellQuantity { get; set; }
+				public Double? SellValue { get; set; }
+				public Double? EXASQuantity { get; set; }
+				public Double? EXASValue { get; set; }
+				public Double? EXASCLQuantity { get; set; }
+				public Double? EXASCLValue { get; set; }
+				public Double? NetQuantity { get; set; }
+				public Double? NetValue { get; set; }
+				public Double? AverageRate { get; set; }
+				public Double? CloseRate { get; set; }
+				public Double? MTM { get; set; }
+				public Double? BuyExposure { get; set; }
+				public Double? SellExposure { get; set; }
+			}
+			public class ClientHoldingData
+			{
+				public String FirmID { get; set; }
+				public String AccountID { get; set; }
+				public String Branch { get; set; }        
+				public String ScripCode { get; set; }
+				public String SecurityName { get; set; }
+				public String ISIN { get; set; }
+				public Double? Holding { get; set; }
+				public Double? CloseRate { get; set; }
+				public Double? VARRate { get; set; }
+				public Double? HoldingValue { get; set; }
+				public Double? HoldingHaircutValue { get; set; }
+				public Double? Colletral { get; set; }
+				public Double? ColletralValue { get; set; }
+				public Double? ColletralHaircutValue { get; set; }
+				public Double? DPHolding { get; set; }
+				public Double? DPHoldingValue { get; set; }
+				public Double? DPHoldingHaircutValue { get; set; }
+				public Double? TotalHolding { get; set; }
+				public Double? TotalValue { get; set; }
+				public Double? TotalHaircutValue { get; set; }
+			}
+4:- Segment Wise Financial Balance
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/FinancialBalance/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class FinancialBalanceRequest
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public DateTime? AsOnDate { get; set; }
+			public String Exchange { get; set; }
+			/*Valid values for Exchange (ALL,NSE,BSE,MSE,MCX,NCDEX,ICEX)*/
+			public String Segment { get; set; }
+			/*Valid values For Segment (ALL,CAP,COM,CUR)*/
+		}
+	Response
+	
+	public class FinancialBalanceData
+    {
+        public String FirmID { get; set; }
+        public String AccountID { get; set; }
+        public String Exchange { get; set; }
+        public String Segment { get; set; }
+        public Double? FinancialBalance { get; set; }
+        public Double? ClearBalance { get; set; }
+    }
+
+5:- Combined Financial Ledger
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/FinancialLedger/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class	
+		
+		public class FinancialLedgerRequest 
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public DateTime? FromDate { get; set; }
+			public DateTime? ToDate { get; set; }
+			public String Exchange { get; set; }
+			/*Valid values for Exchange (ALL,NSE,BSE,MSE,MCX,NCDEX,ICEX)*/
+			public String Segment { get; set; }
+			/*Valid values For Segment (ALL,CAP,COM,CUR)*/
+			public String Product { get; set; }
+			/*Default Value For Product (DEF)*/
+			public String FinancialFilter { get; set; }
+			/*Default Value For FinancialFilter (ALL,EX_MARGIN,EX_EPAYIN)*/
+			
+		}
+		
+	Response
+	
+	public class FinancialLedgerReport
+    {
+        public List<AccountMasterReport> AccountMaster { get; set; }
+        public List<FDBGData> FDBG { get; set; }
+        public List<FinancialLedgerData> Financial { get; set; }
+        public List<AccountMasterReport> BranchMaster { get; set; }
+        public List<FirmMasterReport>    FirmMaster { get; set; }
+        public List<ComplienceOfficerReport> ComplienceOfficer { get; set; }
+        public List<ReportMessage>   Message { get; set; }
+
+    }
+		public class AccountMasterReport
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String AccountName { get; set; }
+			public String MainGroup { get; set; }
+			public String SubGroup { get; set; }
+			public String SubGroup1 { get; set; }
+			public DateTime OpenDate { get; set; }
+			public String TaxState { get; set; }
+			public String Branch { get; set; }
+			public String SubBranch { get; set; }
+			public String FamilyID { get; set; }
+			public String RmtlID { get; set; }
+			public String GSTRegistrationNo { get; set; }
+			public String PANNo { get; set; }
+			public String Address1 { get; set; }
+			public String Address2 { get; set; }
+			public String Address3 { get; set; }
+			public String City { get; set; }
+			public String District { get; set; }
+			public String PINCode { get; set; }
+			public String StateCode { get; set; }
+			public String StateName { get; set; }
+			public String CountryCode { get; set; }
+			public String CountryName { get; set; }
+			public String MobileISD { get; set; }
+			public String MobileNo { get; set; }
+			public String PhoneIsd { get; set; }
+			public String PhoneStd { get; set; }
+			public String PhoneNo { get; set; }
+			public String EmailId { get; set; }
+			public String AccountType { get; set; }
+		}
+		public class FDBGData
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public Double? LedgerBalance { get; set; }
+			public Double? Margin { get; set; }
+			public Double? SecurityValue { get; set; }
+			public Double? FDR { get; set; }
+			public Double? BG { get; set; }
+			public Double? ClearBalance { get; set; }
+		}
+		
+		public class FinancialLedgerData
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String Exchange { get; set; }
+			public String Segment { get; set; }
+			public DateTime ValueDate { get; set; }
+			public DateTime? VoucherDate { get; set; }
+			public Double? SerialNo { get; set; }
+			public Double? Debit { get; set; }
+			public Double? Credit { get; set; }
+			public Double? RunningBalance { get; set; }
+			public String Narration { get; set; }
+			public String VoucherType { get; set; }
+			public String VoucherNo { get; set; }
+			public String SettlementType { get; set; }
+			public String SettlementNo { get; set; }
+			public String AccountType { get; set; }
+			public DateTime? BankRecoDate { get; set; }
+			public String BankCode { get; set; }
+			public String ReferenceNo { get; set; }
+			public String BillNo { get; set; }
+			public String Status { get; set; }
+			public String TradeExchange { get; set; }
+			public String ProductID { get; set; }
+		}
+		
+		public class FirmMasterReport
+		{
+			public String FirmID { get; set; }
+			public String FirmName { get; set; }
+			public String RegisteredAddress { get; set; }
+			public String RegisteredPhone { get; set; }
+			public String RegisteredFax { get; set; }
+			public String CorporateAddress { get; set; }
+			public String CorporatePhone { get; set; }
+			public String CorporateFax { get; set; }
+			public String InvertorGrivencesEmail { get; set; }
+			public String PAN { get; set; }
+			public String CIN { get; set; }
+			public String WebSite { get; set; }
+			public String Place { get; set; }
+			public String GSTRegistrationNo { get; set; }
+			public String GStServiceCode { get; set; }
+			public String GSTServiceName { get; set; }
+			public String SEBIRegistrationNo { get; set; }
+			public String AuthorizedSignatory { get; set; }
+			public Byte[] FirmLogo { get; set; }
+			public Byte[] SEBILogo { get; set; }
+		}
+		
+		public class ComplienceOfficerReport
+		{
+			public String  FirmID { get; set; }
+			public String  Name { get; set; }
+			public String ContactNo { get; set; }
+			public String Email { get; set; }
+		}
+		
+		public class ReportMessage
+		{
+			public String FirmID { get; set; }
+			public String Message { get; set; }
+		}
+6:- Holding Statement
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/ClientHolding/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class	
+		
+		public class ClientHoldingRequest 
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public DateTime? AsOnDate { get; set; }
+			public DateTime? RateDate { get; set; }
+			public String ScripCode { get; set; }
+		}
+		
+	Response
+	
+	public class ClientHolding
+    {
+        public List<ClientHoldingData> data { get; set; }
+        public List<AccountMasterReport> AccountMaster { get; set; }
+        public List<AccountMasterReport> BranchMaster { get; set; }
+        public List<FirmMasterReport> FirmMaster { get; set; }
+        public List<ComplienceOfficerReport> ComplienceOfficer { get; set; }
+        public List<ReportMessage> Message { get; set; }
+    }
+		public class ClientHoldingData
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String Branch { get; set; }        
+			public String ScripCode { get; set; }
+			public String SecurityName { get; set; }
+			public String ISIN { get; set; }
+			public Double? Holding { get; set; }
+			public Double? CloseRate { get; set; }
+			public Double? VARRate { get; set; }
+			public Double? HoldingValue { get; set; }
+			public Double? HoldingHaircutValue { get; set; }
+			public Double? Colletral { get; set; }
+			public Double? ColletralValue { get; set; }
+			public Double? ColletralHaircutValue { get; set; }
+			public Double? DPHolding { get; set; }
+			public Double? DPHoldingValue { get; set; }
+			public Double? DPHoldingHaircutValue { get; set; }
+			public Double? TotalHolding { get; set; }
+			public Double? TotalValue { get; set; }
+			public Double? TotalHaircutValue { get; set; }
+		}		
+		
+		public class FirmMasterReport
+		{
+			public String FirmID { get; set; }
+			public String FirmName { get; set; }
+			public String RegisteredAddress { get; set; }
+			public String RegisteredPhone { get; set; }
+			public String RegisteredFax { get; set; }
+			public String CorporateAddress { get; set; }
+			public String CorporatePhone { get; set; }
+			public String CorporateFax { get; set; }
+			public String InvertorGrivencesEmail { get; set; }
+			public String PAN { get; set; }
+			public String CIN { get; set; }
+			public String WebSite { get; set; }
+			public String Place { get; set; }
+			public String GSTRegistrationNo { get; set; }
+			public String GStServiceCode { get; set; }
+			public String GSTServiceName { get; set; }
+			public String SEBIRegistrationNo { get; set; }
+			public String AuthorizedSignatory { get; set; }
+			public Byte[] FirmLogo { get; set; }
+			public Byte[] SEBILogo { get; set; }
+		}
+		
+		public class ComplienceOfficerReport
+		{
+			public String  FirmID { get; set; }
+			public String  Name { get; set; }
+			public String ContactNo { get; set; }
+			public String Email { get; set; }
+		}
+		
+		public class ReportMessage
+		{
+			public String FirmID { get; set; }
+			public String Message { get; set; }
+		}	
+		
+7:- Derivative Position
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/DerivativeNetPosition/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class DerivativeNetPositionRequest 
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public DateTime? AsOnDate { get; set; }        
+			public String   Exchange { get; set; } /* NSE,BSE,MCX,NCDEX */
+			public String Segment { get; set; } /*FNO,COM,CUR*/
+			/*
+			SegID	Instrument Type
+			==========================
+			COM		FUTBLN
+			COM		FUTCOM
+			COM		FUTENR
+			COM		FUTIDX
+			COM		OPTBLN
+			COM		OPTCOM
+			COM		OPTFUT
+			
+			CUR		FUTCUR
+			CUR		FUTIRC
+			CUR		FUTIRT
+			CUR		OPTCUR
+			CUR		OPTIRC
+			
+			FNO		FUTIDX
+			FNO		FUTSTK
+			FNO		OPTIDX
+			FNO		OPTSTK
+			*/
+			public String Instrument { get; set; } 
+			
+			public String Symbol { get; set; }
+			public DateTime? ExpiryDate { get; set; }
+			public Double? StrikePrice { get; set; }
+			/*
+			CE - Call OptionType
+			PE - Put Option
+			*/
+			public String OptionType { get; set; }
+			public String ReportType { get; set; } /*Default Value CLIENT */
+			/*
+			Y - Ignore Zero Position
+			N - Required All Position
+			*/
+			public String IgnoreZeroPosition { get; set; }
+			/*
+			Valid Values Are
+			Y,N
+			*/
+			public String QtyInLot { get; set; }
+
+		}
+		
+	Response
+	
+	public class DerivativeNetPositionReport
+    {
+        public List<AccountMasterReport> AccountMaster { get; set; }
+        public List<DerivativePLExpenseData> ExpenseData { get; set; }
+        public List<DerivativePLStatementData> PositionData { get; set; }        
+        public List<BranchMasterReport> BranchMaster { get; set; }
+        public List<FirmMasterReport>    FirmMaster { get; set; }
+        public List<ComplienceOfficerReport> ComplienceOfficer { get; set; }
+        public List<ReportMessage>   Message { get; set; }
+
+    }
+		public class DerivativePLExpenseData
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String Exchange { get; set; }
+			public String Segment { get; set; }
+			public String BillType { get; set; }
+			public String ExpenseName { get; set; }
+			public Double? Amount { get; set; }
+			public Double? CGST { get; set; }
+			public Double? SGST { get; set; }
+			public Double? IGST { get; set; }
+			public Double? UGST { get; set; }
+			public Double? GST { get; set; }
+		}
+		
+		public class DerivativePLStatementData
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String Branch { get; set; }
+			public String Exchange { get; set; }
+			public String Segment { get; set; }
+			public String Instrument { get; set; }
+			public String Symbol { get; set; }
+			public DateTime? ExpiryDate { get; set; }
+			public Double? StrikePrice { get; set; }
+			public String OptionType { get; set; }
+			public Double? BFQuantity { get; set; }
+			public Double? BFValue { get; set; }
+			public Double? BuyQuantity { get; set; }
+			public Double? BuyValue { get; set; }
+			public Double? SellQuantity { get; set; }
+			public Double? SellValue { get; set; }
+			public Double? EXASQuantity { get; set; }
+			public Double? EXASValue { get; set; }
+			public Double? EXASCLQuantity { get; set; }
+			public Double? EXASCLValue { get; set; }
+			public Double? NetQuantity { get; set; }
+			public Double? NetValue { get; set; }
+			public Double? AverageRate { get; set; }
+			public Double? CloseRate { get; set; }
+			public Double? MTM { get; set; }
+			public Double? BuyExposure { get; set; }
+			public Double? SellExposure { get; set; }
+		}	
+		
+		public class FirmMasterReport
+		{
+			public String FirmID { get; set; }
+			public String FirmName { get; set; }
+			public String RegisteredAddress { get; set; }
+			public String RegisteredPhone { get; set; }
+			public String RegisteredFax { get; set; }
+			public String CorporateAddress { get; set; }
+			public String CorporatePhone { get; set; }
+			public String CorporateFax { get; set; }
+			public String InvertorGrivencesEmail { get; set; }
+			public String PAN { get; set; }
+			public String CIN { get; set; }
+			public String WebSite { get; set; }
+			public String Place { get; set; }
+			public String GSTRegistrationNo { get; set; }
+			public String GStServiceCode { get; set; }
+			public String GSTServiceName { get; set; }
+			public String SEBIRegistrationNo { get; set; }
+			public String AuthorizedSignatory { get; set; }
+			public Byte[] FirmLogo { get; set; }
+			public Byte[] SEBILogo { get; set; }
+		}
+		
+		public class ComplienceOfficerReport
+		{
+			public String  FirmID { get; set; }
+			public String  Name { get; set; }
+			public String ContactNo { get; set; }
+			public String Email { get; set; }
+		}
+		
+		public class ReportMessage
+		{
+			public String FirmID { get; set; }
+			public String Message { get; set; }
+		}	
+	
+
+8:- Long Term/Short Term
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/EquityLongShort/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class EquityLongShortRequest 
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public DateTime? FromDate { get; set; }
+			public DateTime? ToDate { get; set; }
+			public DateTime? RateDate { get; set; }
+			public String OnMarketRate { get; set; }
+			/// <summary>
+			/// Value Should Be 1 For JSON (Default)
+			/// Value Should Be 2 For PDF
+			/// Value Should Be 3 For EXCEL
+			/// </summary>
+			public Int32? ExportFormat {get;set;}
+		}
+		
+	Response
+	
+	public class EquityLongShortReport
+    {
+        public List<EquityLongTermData> LongTerm { get; set; }
+        public List<EquityShortTermData> ShortTerm { get; set; }
+        public List<EquityJobbingData> Jobbing { get; set; }
+        public List<EquityStockData> Stock { get; set; }
+        public List<EquityStockSummary> StockSummary { get; set; }
+        public List<EquitySectorData> Sector { get; set; }
+        public List<EquityDividendSummaryData> DividendSummary { get; set; }
+        public List<EquityDividendDetailData> DividendDetail { get; set; }
+        public List<EquityRealizedPLSummary> RealPLSummary { get; set; }
+        public List<EquityRealizedPLDetail> RealPLDetail { get; set; }
+        public List<EquityHoldingDetail> HoldingDetail { get; set; }
+        public List<EquityMinusHoldingDetail> MinusHoldingDetail { get; set; }
+        public List<AccountMasterReport>    AccountMaster { get; set; }
+        public List<BranchMasterReport>     BranchMaster { get; set; }
+        public List<FirmMasterReport>       FirmMaster { get; set; }
+    }
+		public class EquityLongTermData
+		{
+			public String FirmID { get; set; }
+			public String ClientCode { get; set; }
+			public String ScripCode { get; set; }
+			public String ScripName { get; set; }
+			public String ISINCode { get; set; }
+			public String InvestmentType { get; set; }
+			public DateTime? BuyDate { get; set; }
+			public DateTime? SaleDate { get; set; }
+			public Double? Quantity { get; set; }
+			public Double? BuyRate { get; set; }
+			public Double? BuyValue { get; set; }
+			public Double? SaleRate { get; set; }
+			public Double? SaleValue { get; set; }
+			public Double? PLPerShare { get; set; }
+			public Double? NetPL { get; set; }
+			public Double? Days { get; set; }
+			public Double? GFRate { get; set; }
+			public Double? GFPL { get; set; }
+			public Double? GFNETPL { get; set; }
+		}
+		
+		public class EquityShortTermData
+		{
+			public String FirmID { get; set; }
+			public String ClientCode { get; set; }
+			public String ScripCode { get; set; }
+			public String ScripName { get; set; }
+			public String ISINCode { get; set; }
+			public String InvestmentType { get; set; }
+			public DateTime? BuyDate { get; set; }
+			public DateTime? SaleDate { get; set; }
+			public Double? Quantity { get; set; }
+			public Double? BuyRate { get; set; }
+			public Double? BuyValue { get; set; }
+			public Double? SaleRate { get; set; }
+			public Double? SaleValue { get; set; }
+			public Double? PLPerShare { get; set; }
+			public Double? NetPL { get; set; }
+			public Double? Days { get; set; }
+		}
+		
+		public class EquityJobbingData
+		{
+			public String FirmID { get; set; }
+			public String ClientCode { get; set; }
+			public String ScripCode { get; set; }
+			public String ScripName { get; set; }
+			public String ISINCode { get; set; }
+			public String InvestmentType { get; set; }
+			public DateTime? BuyDate { get; set; }
+			public DateTime? SaleDate { get; set; }
+			public Double? Quantity { get; set; }
+			public Double? BuyRate { get; set; }
+			public Double? BuyValue { get; set; }
+			public Double? SaleRate { get; set; }
+			public Double? SaleValue { get; set; }
+			public Double? PLPerShare { get; set; }
+			public Double? NetPL { get; set; }
+			public Double? Days { get; set; }
+		}
+		
+		public class EquityStockData
+		{
+			public String FirmID { get; set; }
+			public String ClientCode { get; set; }
+			public String ScripCode { get; set; }
+			public String ScripName { get; set; }
+			public String ISINCode { get; set; }
+			public String InvestmentType { get; set; }
+			public DateTime? BuyDate { get; set; }
+			public DateTime? SaleDate { get; set; }
+			public Double? Quantity { get; set; }
+			public Double? BuyRate { get; set; }
+			public Double? SaleRate { get; set; }
+			public Double? PLPerShare { get; set; }
+			public Double? NetPL { get; set; }
+			public Double? Days { get; set; }
+			public Double? InvestmentValue { get; set; }
+			public Double? CloseRate { get; set; }
+			public Double? NetValue { get; set; }
+			public Double? GainLoss { get; set; }
+			public Double? AbsReturn { get; set; }
+			public Double? CAGR { get; set; }
+		}
+		
+		public class EquityStockSummary
+		{
+			public String FirmID { get; set; }
+			public String ClientCode { get; set; }
+			public String ScripCode { get; set; }
+			public String ScripName { get; set; }
+			public String ISINCode { get; set; }
+			public Double? Quantity { get; set; }
+			public Double? AvgRate { get; set; }
+			public Double? InvestmentValue { get; set; }
+			public Double? CloseRate { get; set; }
+			public Double? NetValue { get; set; }
+			public Double? Percent { get; set; }
+		}
+		
+		public class EquitySectorData
+		{
+			public String FirmID { get; set; }
+			public Double? Ord { get; set; }
+			public Double? TotalPL { get; set; }
+			public String Sector { get; set; }
+		}
+		
+		public class EquityDividendSummaryData
+		{
+			public String FirmID { get; set; }
+			public Double? Payment { get; set; }
+			public Double? Receipt { get; set; }
+			public Double? Dividend { get; set; }
+		}
+		
+		public class EquityDividendDetailData
+		{
+			public String FirmID { get; set; }
+			public String ClientCode { get; set; }
+			public String ScripCode { get; set; }
+			public String ScripName { get; set; }
+			public String ISINCode { get; set; }
+			public DateTime? BuyDate { get; set; }
+			public DateTime? SaleDate { get; set; }
+			public Double? Quantity { get; set; }
+			public Double? BuyRate { get; set; }
+			public Double? SaleRate { get; set; }
+			public Double? Dividend { get; set; }
+		}
+		public class EquityRealizedPLSummary
+		{
+			public String FirmID { get; set; }        
+			public String ScripName { get; set; }
+			public String ISINCode { get; set; }
+			public Double? Quantity { get; set; }
+			public DateTime? BuyDate { get; set; }
+			public Double? BuyRate { get; set; }
+			public Double? BuyValue { get; set; }
+			public DateTime? SaleDate { get; set; }        
+			public Double? SaleRate { get; set; }
+			public Double? SaleValue { get; set; }
+			public Double? LongTermPL { get; set; }
+			public Double? ShortTermPL { get; set; }
+			public Double? IntraDayPL { get; set; }
+			public Double? TotalPL { get; set; }
+
+		}
+		
+		public class EquityRealizedPLDetail
+		{
+			public String FirmID { get; set; }
+			public String ScripName { get; set; }
+			public String ISINCode { get; set; }
+			public Double? Quantity { get; set; }
+			public DateTime? BuyDate { get; set; }
+			public Double? BuyRate { get; set; }
+			public Double? BuyValue { get; set; }
+			public DateTime? SaleDate { get; set; }
+			public Double? SaleRate { get; set; }
+			public Double? SaleValue { get; set; }
+			public Double? LongTermPL { get; set; }
+			public Double? ShortTermPL { get; set; }
+			public Double? IntraDayPL { get; set; }
+			public Double? TotalPL { get; set; }
+		}
+		
+		public class EquityHoldingDetail
+		{
+			public String FirmID { get; set; }
+			public String ScripName { get; set; }
+			public String ISINCode { get; set; }
+			public Double? Quantity { get; set; }
+			public DateTime? BuyDate { get; set; }
+			public Double? BuyRate { get; set; }
+			public Double? BuyValue { get; set; }
+		}
+		
+		public class EquityMinusHoldingDetail
+		{
+			public String FirmID { get; set; }
+			public String ClientCode { get; set; }
+			public String ScripCode { get; set; }
+			public String ScripName { get; set; }
+			public String ISINCode { get; set; }
+			public DateTime? SaleDate { get; set; }
+			public Double? Quantity { get; set; }        
+			public Double? SaleRate { get; set; }
+			public Double? SaleValue { get; set; }
+		}
+		
+		public class FirmMasterReport
+		{
+			public String FirmID { get; set; }
+			public String FirmName { get; set; }
+			public String RegisteredAddress { get; set; }
+			public String RegisteredPhone { get; set; }
+			public String RegisteredFax { get; set; }
+			public String CorporateAddress { get; set; }
+			public String CorporatePhone { get; set; }
+			public String CorporateFax { get; set; }
+			public String InvertorGrivencesEmail { get; set; }
+			public String PAN { get; set; }
+			public String CIN { get; set; }
+			public String WebSite { get; set; }
+			public String Place { get; set; }
+			public String GSTRegistrationNo { get; set; }
+			public String GStServiceCode { get; set; }
+			public String GSTServiceName { get; set; }
+			public String SEBIRegistrationNo { get; set; }
+			public String AuthorizedSignatory { get; set; }
+			public Byte[] FirmLogo { get; set; }
+			public Byte[] SEBILogo { get; set; }
+		}
+		
+		public class ComplienceOfficerReport
+		{
+			public String  FirmID { get; set; }
+			public String  Name { get; set; }
+			public String ContactNo { get; set; }
+			public String Email { get; set; }
+		}
+		
+		public class ReportMessage
+		{
+			public String FirmID { get; set; }
+			public String Message { get; set; }
+		}	
+	
+9:- Client Master
+	Request
+		var client = new RestClient("{BASE_URL}/Masters/ClientMasterDetail/Get?Code={ClientCode}&ClientType=A");
+		var request = new RestRequest(Method.GET);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		
+		
+	Response
+	
+	 public class ClientMasterDetail
+    {
+        public List<ClientKYCMaster> kycDetail { get; set; }
+        public List<AddressMaster>  addDetail { get; set; }
+        public List<BankDetail> bankDetail { get; set; }
+        public List<DepositoryDetail> dpDetail { get; set; }
+        public List<RelatedPersonDetail> relatedPersonDetail { get; set; }
+        public List<ContactDetail> contactDetail { get; set; }
+        public List<Nominee> nomineeDetail { get; set; }
+        public List<ClientBrokerageMapping> brokMapping { get; set; }
+        public List<ClientExchangeDetail> exchangeDetail { get; set; }
+        public List<ClientSegmentMaster> segmentDetail { get; set; }
+        public List<ClientCustomData> customDetail { get; set; }
+        public List<ClientBackOfficeDetail> backofficeDetail { get; set; }
+        public List<ClientDocument> documentDetail { get; set; }
+    }
+		public class ClientKYCMaster 
+		{   
+			public String FirmID { get; set; }
+			public String ClientCode { get; set; }
+			public DateTime? OpenDate { get; set; }
+			public String PanNo { get; set; } 
+			public String ClientType { get; set; }
+			public String ClientStatus { get; set; }
+			public String ClientName { get; set; }
+			public DateTime? Dob { get; set; }
+			public String FatherOrSpouse { get; set; }        
+			public String FatherPrefix { get; set; }        
+			public String FatherName { get; set; }  
+			public String MotherPrefix { get; set; }
+			public String MotherName { get; set; }
+			public String Maidenprefix { get; set; }
+			public String MaidenName { get; set; }  
+			public String Gender { get; set; }      
+			public String MaritalStatus { get; set; }
+			public String ResidentialStatus { get; set; }      
+			public String Citizenship { get; set; }       
+			public String IDProof { get; set; }
+			public String IDProofRef { get; set; }        
+			public DateTime? IDProofExpiry { get; set; }
+			public String Aadhar { get; set; }
+			public String IPVEmployee { get; set; }
+			public DateTime? IPVDate { get; set; }
+			public DateTime? DOC { get; set; }
+			public String IncorporationPlace { get; set; }
+			public String CIN { get; set; }
+			public String RegistrationNo { get; set; }
+			public DateTime? RegistrationDate { get; set; }
+			public String RegistrationPlace { get; set; }
+			public String RegistrationAuthority { get; set; }
+			public String AnnualIncome { get; set; }
+			public DateTime? AnnualIncomeDate { get; set; }
+			public Decimal? NetWorth { get; set; }
+			public DateTime? NetWorthDate { get; set; }        
+			public String PEP { get; set; }
+			public String Occupation { get; set; }
+			public String OccupationOther { get; set; }
+			public String BranchID { get; set; }
+			public String SubBranchID { get; set; }
+			public String RMCode { get; set; }
+			public String FamilyID { get; set; }
+			public String ModificationStatus { get; set; }
+		}
+		
+		public class AddressMaster
+		{
+			public String AddressID { get; set; }
+			public String FirmID { get; set; }
+			public String ClientCode { get; set; }
+			public String AddressType { get; set; }
+			public String AddressLine1 { get; set; }
+			public String AddressLine2 { get; set; }
+			public String AddressLine3 { get; set; }
+			public String AddressCity { get; set; }
+			public String AddressPincode { get; set; }
+			public String District { get; set; }
+			public String AddressState { get; set; }
+			public String AddressCountry { get; set; }
+			public String AddressPrimary { get; set; }
+			public String AddressProof { get; set; }
+			public String AddressProofOther { get; set; }
+			public DateTime? AddressProofDate { get; set; }
+			public DateTime? AddressProofExpiry { get; set; }
+			public String AddressProofRef { get; set; }        
+			public String AddressStateOther { get; set; }
+			public String Delete { get; set; }
+			public String AddressProofIssuedBy { get; set; }
+		}
+		
+		public class BankDetail
+		{
+			public String BankID { get; set; }
+			public String FirmID { get; set; }
+			public String ClientCode { get; set; }        
+			public String PrimaryFlag { get; set; }
+			public String BankAccountNumber { get; set; }
+			public String BankAccountType { get; set; }
+			public String BankIFSC { get; set; }
+			public String BankMICR { get; set; }
+			public String ChequePrintName { get; set; }
+			public String BankCode { get; set; }
+			public String BankAddress1 { get; set; }
+			public String BankAddress2 { get; set; }
+			public String BankAddress3 { get; set; }
+			public String BankCity { get; set; }
+			public String BankPincode { get; set; }
+			public String BankState { get; set; }
+			public String BankSateOther { get; set; }
+			public String BankCountry { get; set; }
+			public String PaymentMode { get; set; }
+			public String Delete { get; set; }
+			public String POAFlag{ get; set; }
+			public DateTime? POADate { get; set; } 
+			public String BankName { get; set; }
+			public String CustomerID { get; set; }
+			public String UMRN { get; set;}
+			public DateTime? ECSMandateDate { get; set; }
+			public DateTime? ECSFromDate { get; set; }
+			public DateTime? ECSToDate { get; set; }
+			public String ECSUntilCancel { get; set; }
+			public String ECSStatus { get; set; }
+			public String ECSFrequency { get; set; }
+			public Double? ECSLimit { get; set; }
+			public String AutoDebit { get; set; }
+			public String RejectionReason { get; set; }
+			public String RBIApprovalNo { get;set;}
+			public String PISAccountNo { get; set; }
+		}
+		
+		public class DepositoryDetail
+		{   
+			public String SerialNo { get; set; } 
+			public String FirmID { get; set; }
+			public String ClientCode { get; set; }
+			public String DepositoryType { get; set; }
+			public String DepositoryID { get; set; }
+			public String DepositoryClientID { get; set; }
+			public String POAFlag { get; set; }
+			public String POAID { get; set; }
+			public String PrimaryFlag { get; set; }
+			public DateTime? POAActiveDate { get; set; }
+			public DateTime? POAInactiveDate { get; set; }
+			public String POAMarginFlag { get; set; }
+			public String Delete { get; set; }
+			public String DepositoryName { get; set; }
+			public String Addendum { get; set; }
+		}
+		
+		public class RelatedPersonDetail
+		{
+			public String SlNo { get; set; }
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String PreFix { get; set; }
+			public String Name { get; set; }
+			public String Father { get; set; }
+			public String Designation { get; set; }
+			public DateTime? DOB { get; set; }
+			public String PANNO { get; set; }
+			public String UID { get; set; }
+			public String DIN { get; set; }
+			public String Status { get; set; }
+			public String Email { get; set; }
+			public String ISD { get; set; }
+			public String STD { get; set; }
+			public String Phone { get; set; }
+			public String Mobile { get; set; }
+			public String Address1 { get; set; }
+			public String Address2 { get; set; }
+			public String Address3 { get; set; }
+			public String City { get; set; }
+			public String Pincode { get; set; }
+			public String District { get; set; }
+			public String State { get; set; }
+			public String StateOther { get; set; }
+			public String Country { get; set; }
+			public String IDProof { get; set; }
+			public String IDProofOther { get; set; }
+			public String IDRefNo { get; set; }
+			public DateTime? IDRoofDate { get; set; }
+			public DateTime? IDProofExpiryDate { get; set; }
+			public String Delete { get; set; }
+		}
+		
+		public class ContactDetail
+		{
+			public String ContactID { get; set; }
+			public String FirmID { get; set; }
+			public String ClientCode { get; set; }
+			public String ContactType { get; set; }
+			public String ISD { get; set; }
+			public String STD { get; set; }
+			public String ContactNo { get; set; }
+			public String ContactEmail { get; set; }
+			public String PrimaryFlag { get; set; }
+			public String ActiveFlag { get; set; }
+			public DateTime? InactiveDate { get; set; }
+			public String Remark { get; set; }
+			public String Delete { get; set; }
+			public String RelatedTo { get; set; }
+		}
+		
+		public class Nominee
+		{
+			public String SLNO { get; set; }
+			public String FirmID { get; set; }
+			public String ClientCode { get; set; }
+			public String NomineeType { get; set; }
+			public String Relation { get; set; }
+			public String PreFix { get; set; }
+			public String Name { get; set; }
+			public String FatherSpouse { get; set; }
+			public String FatherPreFix { get; set; }
+			public String FatherName { get; set; }
+			public String MotherPreFix { get; set; }
+			public String MotherName { get; set; }
+			public String MaidenPreFix { get; set; }
+			public String MaidenName { get; set; }
+			public DateTime? DOB { get; set; }
+			public String PANNO { get; set; }
+			public String UID { get; set; }
+			public String Gender { get; set; }
+			public String MaritalStatus { get; set; }
+			public String ResidentialStatus { get; set; }
+			public String Nationnality { get; set; }
+			public String Occupation { get; set; }
+			public String OccupationOther { get; set; }
+			public String IDProof { get; set; }
+			public String IDProofRefNo { get; set; }
+			public String Address1 { get; set; }
+			public String Address2 { get; set; }
+			public String Address3 { get; set; }
+			public String City { get; set; }
+			public String Pincode { get; set; }
+			public String District { get; set; }
+			public String State { get; set; }
+			public String StateOther { get; set; }
+			public String Country { get; set; }
+			public String AddressProof { get; set; }
+			public String AddressProofOther { get; set; }
+			public String AddressProofRef { get; set; }
+			public DateTime? AddressProofDate { get; set; }
+			public DateTime? AddressProofDateExpiry { get; set; }
+			public String Delete { get; set; }
+		}
+		
+		public class ClientBrokerageMapping
+		{
+			public String FirmID { get; set; }        
+			public String ExchangeID { get; set; }
+			public String SegmentID { get; set; }
+			public String SlabID { get; set; }        
+			public String AccountID { get; set; }
+			public DateTime? StartDate { get; set; }
+			public Double? UpToDec { get; set; }
+			public String RoundTruncFlag { get; set; }
+			public String OptionBrokMethod { get; set; }
+			public String UpdateBy { get; set; }
+			public DateTime UpdateDate { get; set; }
+			public String Delete { get; set; }
+		}
+		
+		public class ClientExchangeDetail
+		{
+			public String FirmID { get; set; }
+			public String ClientCode { get; set; }
+			public String ExchangeID { get; set; }
+			public String ExchangeName { get; set; }
+			public String CategoryCode { get; set; }
+			public String CategoryName { get; set; }
+			public String Remark { get; set; }
+			public String ActiveFlag { get; set; }
+			public String UCC { get; set; }
+		}
+		
+		public class ClientSegmentMaster
+		{
+			public String FirmID { get; set; }
+			public String ClientCode { get; set; }
+			public String ExchangeID { get; set; }
+			public String ExchangeName { get; set; }
+			public String SegmentID { get; set; }
+			public String SegmentName { get; set; }
+			public DateTime? ActiveDate { get; set; }
+			public DateTime? InactiveDate { get; set; }
+			public String TradingAllow { get; set; }
+			public String Remarks { get; set; } 
+			public String Chnage { get; set; }
+			public String CPCode { get; set; }
+			public String CMID{ get; set; }
+			public String UCCExported { get; set; }
+			public DateTime? UCCExportDate { get; set; }
+			public String UCCExportBy { get; set; }
+			public String UCCSuccess { get; set; }
+		}	
+		
+		public class ClientCustomData
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String Field1 { get; set; }
+			public String Field2 { get; set; }
+			public String Field3 { get; set; }
+			public String Field4 { get; set; }
+			public String Field5 { get; set; }
+			public String Field6 { get; set; }
+			public String Field7 { get; set; }
+			public String Field8 { get; set; }
+			public String Field9 { get; set; }
+			public String Field10 { get; set; }
+			public String Field11 { get; set; }
+			public String Field12 { get; set; }
+			public String Field13 { get; set; }
+			public String Field14 { get; set; }
+			public String Field15 { get; set; }
+			public String Field16 { get; set; }
+			public String Field17 { get; set; }
+			public String Field18 { get; set; }
+			public String Field19 { get; set; }
+			public String Field20 { get; set; }
+		}
+		
+		public class ClientBackOfficeDetail
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String ProtectedAccount { get; set; }
+			public String ModifyRemark { get; set; }
+			public String UIDEnrollmentNo { get; set; }
+			public String PayoutFlag { get; set; }
+			public String SettlementDay { get; set; }
+			public String CKYCRefNo { get; set; }
+			public String KYCMode { get; set; }
+			public Double? CKYCBatchNo { get; set; }
+			public DateTime? CKYCExportDate { get; set; }
+			public String CKYCExportUser { get; set; }
+			public String KRAType { get; set; }
+			public Double? KYCBatchNo { get; set; }
+			public DateTime? KYCExportDate { get; set; }
+			public String KYCExportBy { get; set; }
+			public DateTime? SettlementDate { get; set; }
+			public String RiskCategory { get; set; }
+			public String RGESSFlag { get; set; }
+			public String TradingSoftwareType { get; set; }
+			public String CTCLExport { get; set; }
+			public String BuyBackPosting { get; set; }
+			public String KYCReferenceNo { get; set; }
+			public String PaymentType { get; set; }
+			public String CTCLCategory { get; set; }
+			public String AadharVirtualID { get; set; }
+			public String GSTRegistrationNo { get; set; }
+			public DateTime? GSTRegistrationDate { get; set; }
+			public String UPIID { get; set; }
+			public String FATCAFlag { get; set; }
+			public String MinorFlag { get; set; }
+			public String MTFStatus { get; set; }
+			public DateTime? MTFStatusDate { get; set; }
+			public String MTFRemarks { get; set; }
+			public String ModifiedBy { get; set; }
+			public DateTime? ModifiedDate { get; set; }
+			public String DormateRemark { get; set; }
+			public String DormateUpdateBy { get; set; }
+			public DateTime? DormateUpdateDate { get; set; }
+		}
+		
+		public class ClientDocument
+		{			
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String DocumentID { get; set; }
+			public String DocumentName { get; set; }
+			public String DocumentFileName { get; set; }
+			public String Remarks { get; set; }
+			public String DataAvilable { get; set; }
+			public String FilePath { get; set; }
+			public Byte[] DocData { get; set; }
+			public String Delete { get; set; }
+		}
+	
+10:- Equity Trade Book
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/EquityTradeBook/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class EquityTradeConfirmationRequest
+		{   
+			public DateTime? FromDate { get; set; }
+			public DateTime? ToDate { get; set; }
+			public String   Exchange { get; set; }
+			public String Segment { get; set; }
+			/// <summary>
+			/// Report Type Like NORMAL,AVGRATE,SAME_RATE
+			/// </summary>
+			public String ReportType { get; set; }
+			public String ScripCode { get; set; }
+			/// <summary>
+			/// Export Format Should Be 4 (CSV)
+			/// </summary>
+			public Int32 ExportFormat { get; set; }
+
+		}
+		
+	Response
+	
+		Exchange,Segment,TradeDate,AccountID,Branch,UCICode,ScripCode,ScripName,Symbol,Series,BSESymbol,UserID,TradeNo,TradeTime,OrderNo,OrderTime,BuySellIND,Quantity,TradePrice,CTCLID,TradeBrokerage,PerShareBrokerage,TradeSettlementNo,DelvSettlementNo,SettlementType,ClearingExchange,BranchIND,InstType,BrokType,MarketType,TMCode,ModifyTime,ScripGroup,ActPsvFlag,CustodianType,ISIN
+		
+11:- Derivative Trade Book
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/DerivativeTradeBook/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class EquityTradeConfirmationRequest
+		{   
+			public DateTime? FromDate { get; set; }
+			public DateTime? ToDate { get; set; }
+			public String   Exchange { get; set; }
+			public String Segment { get; set; }
+			/// <summary>
+			/// Report Type Like NORMAL,AVGRATE,SAME_RATE
+			/// </summary>
+			public String ReportType { get; set; }
+			public String ScripCode { get; set; }
+			/// <summary>
+			/// Export Format Should Be 4 (CSV)
+			/// </summary>
+			public Int32 ExportFormat { get; set; }
+
+		}
+		
+	Response
+	
+		Exchange,Segment,TradeDate,AccountID,Branch,UCICode,Instrument,Symbol,ExpiryDate,StrikePrice,OptionType,TradeStatus,BookType,MarketType ,UserID ,BranchIND,BuySellIND,Quantity,TradePrice,MarketLot,GeneralMultiplier,PriceMultiplier,TMCode,TradeNo,TradeTime,OrderNo,OrderDate,OrderTime,ModifyTime,CTCLID,CustodianType,TradeBrokerage,PerShareBrokerage ,CMCode,CPCode,ActPsvFlag
+11:- Equity Net Position
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/EquityNetPositionDateRange/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class EquityPLStatementRequest : OrionRequest
+		{
+			public DateTime? FromDate { get; set; }
+			public DateTime? ToDate { get; set; }
+			public String   Exchange { get; set; }
+			public String Segment { get; set; }
+			public String ScripCode { get; set; }
+			public String SettlementNo { get; set; }
+			public String SettlementType { get; set; }
+			/// <summary>
+			/// Value Should Be A
+			/// </summary>
+			public String JDFlag { get; set; }
+			/// <summary>
+			/// Value Should Be CLIENT_SCRIP
+			/// </summary>
+			public String ReportSelection { get; set; } 
+			/// <summary>
+			/// Value Should Be CLIENT
+			/// </summary>
+			public String ReportType { get; set; }
+
+		}
+		
+	Response
+	
+		public class EquityPLStatementReport
+		{
+			public List<AccountMasterReport> AccountMaster { get; set; }
+			public List<EquityPLStatementData> PositionData { get; set; }
+			public List<EquityPLExpenseData> ExpenseData { get; set; }
+			public List<BranchMasterReport> BranchMaster { get; set; }
+			public List<FirmMasterReport>    FirmMaster { get; set; }
+			public List<ComplienceOfficerReport> ComplienceOfficer { get; set; }
+			public List<ReportMessage>   Message { get; set; }
+		}
+		
+		public class EquityPLStatementData
+		{
+			public String FirmID { get; set; }        
+			public String Exchange { get; set; }
+			public String Segment { get; set; }
+			public String AccountID { get; set; }
+			public String ScripCode { get; set; }
+			public String ScripName { get; set; }
+			public Double? BuyQuantity { get; set; }
+			public Double? BuyValue { get; set; }
+			public Double? SellQuantity { get; set; }
+			public Double? SellValue { get; set; }
+			public Double? NetQuantity { get; set; }
+			public Double? NetValue { get; set; }
+			public Double? AverageRate { get; set; }
+			public Double? CloseRate { get; set; }
+			public Double? MTM { get; set; }
+		}
+		
+		public class EquityPLExpenseData
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String Exchange { get; set; }
+			public String Segment { get; set; }
+			public String BillType { get; set; }
+			public String ExpenseName { get; set; }
+			public Double? Amount { get; set; }
+			public Double? CGST { get; set; }
+			public Double? SGST { get; set; }
+			public Double? IGST { get; set; }
+			public Double? UGST { get; set; }
+			public Double? GST { get; set; }
+		}
+		
+12:- Contract Note List Download
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/ContractNoteWeb/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class ContractNoteRequest 
+		{
+			public DateTime? FromDate { get; set; }
+			public DateTime? ToDate { get; set; }
+		}
+	
+	Response
+		public class ContractNoteData
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public DateTime? FileDate { get; set; }
+			public String FileName { get; set; }
+			public String FileID { get; set; }
+			public String Flag { get; set; }
+		}
+13:- Contract Note Download
+	Request
+		var client = new RestClient("{BASE_URL}/Services/DocumentSign/Get?DocumentID=" + FileID + "&DocumentType=CNOTE"");
+		var request = new RestRequest(Method.GET);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+	Response
+		public class OrionDocument
+		{
+			public String FirmID { get; set; }
+			public String DocumentType { get; set; }
+			public String DocumentID { get; set; }
+			public Byte[] DocumentData { get; set; } 
+		}
+		
+14:- Equity Bill
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/EquityBillDetail/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class EquityBillDetailRequest 
+		{
+			public DateTime? FromDate { get; set; }
+			public DateTime? ToDate { get; set; }
+			public String Exchange { get; set; }
+			public String Segment { get; set; }
+			public String BillNo { get; set; }
+			/// <summary>
+			/// Value Should Be DETAIL
+			/// </summary>
+			public String ReportType { get; set; }
+			/// <summary>
+			/// Value Should Be 1 For JSON (Default)
+			/// Value Should Be 2 For PDF
+			/// </summary>
+			public Int32? ExportFormat {get;set;}
+		}
+	
+	Response
+		public class EquityBillDetailReport
+		{
+			public List<AccountMasterReport> AccountMaster { get; set; }
+			public List<EquityBillTradeData> TradeData { get; set; }
+			public List<EquityBillExpenditureData> ExpData { get; set; }
+			public List<AccountMasterReport> BranchMaster { get; set; }
+			public List<FirmMasterReport> FirmMaster { get; set; }
+			public List<ComplienceOfficerReport> ComplienceOfficer { get; set; }
+			public List<ReportMessage> Message { get; set; }
+		}
+			public class EquityBillTradeData
+			{
+				public String FirmID { get; set; }
+				public String Exchange { get; set; }
+				public String Segment { get; set; }
+				public String TradedExchange { get; set; }
+				public String SettlementNo { get; set; }
+				public String SettlementType { get; set; }
+				public String AccountID { get; set; }
+				public String ISIN { get; set; }
+				public String ScripCode { get; set; }
+				public String ScripName { get; set; }
+				public DateTime? TradeDate { get; set; }
+				public String TradeNo { get; set; }
+				public String TradeTime { get; set; }
+				public String BrokerageType { get; set; }
+				public Double? Quantity { get; set; }
+				public Double? Price { get; set; }
+				public Double? SellBrokerage { get; set; }
+				public Double? SellValue { get; set; }
+				public Double? BuyBrokerage { get; set; }
+				public Double? BuyValue { get; set;}
+			}
+			
+			public class EquityBillExpenditureData
+			{
+				public String FirmID { get; set; }
+				public String Exchange { get; set; }
+				public String Segment { get; set; }     
+				public String AccountID { get; set; }
+				public String Branch { get; set; } 
+				public String SettlementNo { get; set; }
+				public String SettlementType { get; set; }
+				public String SettlementDescription { get; set; }
+				public DateTime? SecurityPayinDate { get; set; }
+				public DateTime? TradeDate { get; set; }
+				public String BillType { get; set; }
+				public String BillNo { get; set; }
+				public String ExpenseName { get; set; }
+				public String ExpensePrintName { get; set; }
+				public Double? GrossValue { get; set; }
+				public Double? ExpenseAmount { get; set; }
+				public Double? CGST { get; set; }
+				public Double? SGST { get; set; }
+				public Double? IGST { get; set; }
+				public Double? UGST { get; set; }
+				public Double? GST { get; set; }
+			}
+15:- Derivative Bill
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/DerivativeBillDetail/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class DerivativeBillDetailRequest 
+		{
+			public DateTime? FromDate { get; set; }
+			public DateTime? ToDate { get; set; }
+			public String Exchange { get; set; }
+			public String Segment { get; set; }
+			public String BillNo { get; set; }
+			/// <summary>
+			/// Value Should Be DETAIL
+			/// </summary>
+			public String ReportType { get; set; }
+			/// <summary>
+			/// Value Should Be 1 For JSON (Default)
+			/// Value Should Be 2 For PDF
+			/// </summary>
+			public Int32? ExportFormat {get;set;}
+		}
+	
+	Response
+		public class DerivativeBillDetailReport
+		{
+			public List<AccountMasterReport> AccountMaster { get; set; }
+			public List<DerivativeBillTradeData> TradeData { get; set; }
+			public List<DerivativeBillExpenditureData> ExpData { get; set; }
+			public List<AccountMasterReport> BranchMaster { get; set; }
+			public List<FirmMasterReport> FirmMaster { get; set; }
+			public List<ComplienceOfficerReport> ComplienceOfficer { get; set; }
+			public List<ReportMessage> Message { get; set; }
+		}
+			public class DerivativeBillTradeData
+			{
+				public String FirmID { get; set; }
+				public String Exchange { get; set; }
+				public String Segment { get; set; }
+				public String TradedExchange { get; set; }        
+				public String AccountID { get; set; }
+				public String TradeStatus { get; set; }
+				public String Instrument { get; set; }
+				public String Symbol { get; set; }
+				public DateTime? ExpiryDate { get; set; }
+				public Double? StrikePrice { get; set; }
+				public String OptionType { get; set; }
+				public DateTime? TradeDate { get; set; }
+				public String TradeNo { get; set; }
+				public String TradeTime { get; set; }
+				public Double? Quantity { get; set; }
+				public Double? Price { get; set; }
+				public Double? SellBrokerage { get; set; }
+				public Double? SellValue { get; set; }
+				public Double? BuyBrokerage { get; set; }
+				public Double? BuyValue { get; set;}
+			}
+			
+			public class DerivativeBillExpenditureData
+			{
+				public String FirmID { get; set; }
+				public String Exchange { get; set; }
+				public String Segment { get; set; }     
+				public String AccountID { get; set; }
+				public String Branch { get; set; } 
+				public DateTime? PayinDate { get; set; }
+				public DateTime? TradeDate { get; set; }
+				public String BillType { get; set; }
+				public String BillNo { get; set; }
+				public String ExpenseName { get; set; }
+				public String ExpensePrintName { get; set; }
+				public Double? GrossValue { get; set; }
+				public Double? ExpenseAmount { get; set; }
+				public Double? CGST { get; set; }
+				public Double? SGST { get; set; }
+				public Double? IGST { get; set; }
+				public Double? UGST { get; set; }
+				public Double? GST { get; set; }
+			}
+			
+16:- Get Approved Amount For Withdrawal
+	Request
+		var client = new RestClient("{BASE_URL}/Vouchers/APAmount/Get?AccountID=" + {ClientCode} + "&RequestType=ONREQUEST&ReleaseFlag=N");
+		var request = new RestRequest(Method.GET);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+	Response
+		Response is Decimal Value
+
+17:- Get Bank Detail of Client
+	Request
+		var client = new RestClient("{BASE_URL}/Masters/BankDetail/Get?Code=" + {Code} + "&BankID=&BankType=D");
+		var request = new RestRequest(Method.GET);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+	Response
+		public class BankDetail
+		{
+			public String BankID { get; set; }
+			public String FirmID { get; set; }
+			public String ClientCode { get; set; }        
+			public String PrimaryFlag { get; set; }
+			public String BankAccountNumber { get; set; }
+			public String BankAccountType { get; set; }
+			public String BankIFSC { get; set; }
+			public String BankMICR { get; set; }
+			public String ChequePrintName { get; set; }
+			public String BankCode { get; set; }
+			public String BankAddress1 { get; set; }
+			public String BankAddress2 { get; set; }
+			public String BankAddress3 { get; set; }
+			public String BankCity { get; set; }
+			public String BankPincode { get; set; }
+			public String BankState { get; set; }
+			public String BankSateOther { get; set; }
+			public String BankCountry { get; set; }
+			public String PaymentMode { get; set; }
+			public String Delete { get; set; }
+			public String POAFlag{ get; set; }
+			public DateTime? POADate { get; set; } 
+			public String BankName { get; set; }
+			public String CustomerID { get; set; }
+			public String UMRN { get; set;}
+			public DateTime? ECSMandateDate { get; set; }
+			public DateTime? ECSFromDate { get; set; }
+			public DateTime? ECSToDate { get; set; }
+			public String ECSUntilCancel { get; set; }
+			public String ECSStatus { get; set; }
+			public String ECSFrequency { get; set; }
+			public Double? ECSLimit { get; set; }
+			public String AutoDebit { get; set; }
+			public String RejectionReason { get; set; }
+			public String RBIApprovalNo { get;set;}
+			public String PISAccountNo { get; set; }
+			public String BankShortCode { get; set; }
+			public String PGCode { get; set; }
+			public String ACHCustomerID { get; set; }
+			public String BankDomain { get; set; }
+			public String FundMandate { get; set; }
+		}
+
+18:- Payment Request Submit
+	Request
+		var client = new RestClient("{BASE_URL}/Vouchers/PaymentRequest/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("ORION_ACTION", "IU");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+		
+	
+		Request Class
+		
+		public class PaymentRequest
+		{
+			public String FirmID { get; set; }
+			public DateTime? RequestDate { get; set; }			
+			public String AccountID { get; set; }
+			public Double? Amount { get; set; }
+			public Double? APAmount { get; set; }
+			public String BankAccountNo { get; set; }
+			/*
+			it Should be NEFT,RTGS,FT
+			*/
+			public String PaymentMode { get; set; }
+			public String BankCode { get; set; }
+			/*
+			it Should be ONREQUEST
+			*/
+			public String PaymentRequestType {get;set;}
+		}
+		
+19:- Get Payment Request Status 
+	Request
+		var client = new RestClient("{BASE_URL}/Vouchers/PaymentReleaseRequest/Get?RequestDate=" + {RequestDate} + "&Release=N");
+		var request = new RestRequest(Method.GET);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+	Response
+		public class PaymentRequest
+		{
+			public String RowID { get; set; }
+			public String FirmID { get; set; }
+			public String Flag { get; set; }
+			public String PaymentRequestType { get; set; }
+			public String ExchangeID { get; set; }
+			public String SegmentID { get; set; }
+			public DateTime? RequestDate { get; set; }
+			public String Branch { get; set; }
+			public String AccountID { get; set; }
+			public String AccountName { get; set; }
+			public Double? Amount { get; set; }
+			public Double? APAmount { get; set; }
+			public String BankAccountNo { get; set; }
+			public String PaymentMode { get; set; }
+			public String BankCode { get; set; }
+			public String Maker { get; set; }
+			public DateTime? MakerTime { get; set; }
+			public String Checker { get; set; }
+			public String CheckerTime { get; set; }
+			public String Status { get; set; }
+			public String Remark { get; set; }
+			public Double? ReleaseAmount { get; set; }
+			public Double? RunningApplicableAmount { get; set; }
+			public String BillNo { get; set; }
+			public String PaymentBankCode { get; set; }
+			public DateTime? PostingDate { get; set; }
+			public String Narration { get; set; }        
+		}
+
+20:- Payment Request Delete
+	Request
+		var client = new RestClient("{BASE_URL}/Vouchers/PaymentRequest/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("ORION_ACTION", "D");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+	Request
+		public class PaymentRequest
+		{
+			public String RowID { get; set; }
+		}
+	Response
+		Response is Decimal Value
+
+21:- Client Brokerage Detail
+	Request
+		var client = new RestClient("{BASE_URL}/Common/ClientBrokerage/Get?ClientCode=" + {ClientCode});
+		var request = new RestRequest(Method.GET);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+	Response
+		public class WebBrokerageReport
+		{
+			public List<BrokerageSlabDetail> EquityBrok { get; set; }
+			public List<FOBrokerageSlabDetail> DerivativeBrok { get; set; }
+		}
+		
+		public class BrokerageSlabDetail
+		{   
+			public String FirmID { get; set; }       
+			public String SlabID { get; set; }
+			public String ScripCode { get; set; }
+			public String SettlementType { get; set; }
+			public String BrokerageType { get; set; }
+			public String SameDayType { get; set; }
+			public Double? BrokerageUpTo { get; set; }
+			public Double? BrokeragePercent { get; set; }
+			public Double? BrokerageMinimum { get; set; }
+			public Double? OrderBrokerage { get; set; }
+			public Double? TradeBrokerage { get; set; }
+			public String UpdateBy { get; set; }
+			public DateTime? UpdateDate { get; set; }
+		}
+		
+		public class FOBrokerageSlabDetail
+		{   
+			public String FirmID { get; set; }
+			public String SlabID { get; set; }
+			public String Instrument { get; set; }
+			public String Segment { get; set; }
+			public String SlabType { get; set; }
+			public String Symbol { get; set; }        
+			public String SameDayType { get; set; }        
+			public Double? BrokeragePercent { get; set; }
+			public Double? BrokerageMinimum { get; set; }
+			public Double? BrokerageMinimumLot { get; set; }
+			public Double? BrokerageMaximumLot { get; set; }
+			public Double? OrderBrokerage { get; set; }
+			public Double? TradeBrokerage { get; set; }
+			public Double? AdnlPerLot { get; set; }
+			public String UpdateBy { get; set; }
+			public DateTime? UpdateDate { get; set; }
+		}
+22:- Get Client Custom Detail
+	Request
+		var client = new RestClient("{BASE_URL}/Utilities/ClientCustomInfo/Get?AccountID=" + ClientCode);
+		var request = new RestRequest(Method.GET);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+	Response
+		public class ClientCustomInfo
+		{
+			public String ClientID { get; set; }
+			public String ClientName { get; set; }
+			public DateTime LastTradeDate { get; set; }
+			public String MobileNo { get; set; }
+			public String EmailID { get; set; }
+		}
+
+23:- Derivative PL Report (FIFO)
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/FIFONetPositionReport/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+	Request Class
+		
+		public class FIFONetPositionRequest 
+		{
+			public DateTime? FromDate { get; set; }
+			public DateTime? ToDate { get; set; }
+			public String SegmentID { get; set; }
+			public String Account { get; set; }
+			public String BillNo { get; set; }
+			/// <summary>
+			/// Value Should Be R2
+			/// </summary>
+			public String ReportType { get; set; }
+			public String BillNo { get; set; }
+			/// <summary>
+			/// Value Should Be Y/N
+			/// </summary>
+			public String IncludeExpence { get; set; }
+			/// <summary>
+			/// Value Should Be 1 For JSON (Default)
+			/// Value Should Be 2 For PDF
+			/// </summary>
+			public Int32? ExportFormat {get;set;}
+		}		
+	
+	Response
+		public class FIFONetPosition 
+		{
+			public String FirmID { get; set; }
+			public String SegmentID { get; set; }
+			public DateTime? FromDate { get; set; }
+			public DateTime? ToDate { get; set; }
+			public String AccountID { get; set; }
+			public String Instrument { get; set; }
+			public String Symbol { get; set; }
+			public DateTime? ExpiryDate { get; set; }
+			public Double? StrikePrice { get; set; }
+			public String OptionType { get; set; }
+			public Double? BFQty { get; set; }
+			public Double? BFValue { get; set; }
+			public Double? BuyQty { get; set; }
+			public Double? BuyValue { get; set; }
+			public Double? SellQty { get; set; }
+			public Double? SellValue { get; set; }
+			public Double? OpenQty { get; set; }
+			public Double? OpenValue { get; set; }
+			public Double? RealPL { get; set; }
+			public Double? Close { get; set; }
+			public Double? UnrealPL { get; set; }
+			public Double? Brokerage { get; set; }
+			public Double? TrxCharges { get; set; }
+			public Double? ClgCharges { get; set; }
+			public Double? SebiCharges { get; set; }
+			public Double? StampDuty { get; set; }
+			public Double? SttCharges { get; set; }
+			public Double? GST { get; set; }
+			public Double? CloseValue { get; set; }
+		}
+
+
+24:- Equity NetPL 
+	Request
+		var client = new RestClient("{BASE_URL}/Masters/EquityPnLReportWeb/Get?ClientCode=" + ClientCode + "&FromDate=" + FromDate + "&ToDate=" + ToDate + "&ReportType=" + Util.OrionUrlEncode(req.ReportType) + "&ExportFormat=" + ExportFormat /* 1 for JSON,3 for Excel*/);
+		var request = new RestRequest(Method.GET);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+	
+	Response
+		public class EquityPnLReport 
+		{
+			public DateTime? FromDate { get; set; }
+			public DateTime? ToDate { get; set; }
+			public String AccountID { get; set; }
+			public String Boscrip { get; set; }
+			public String SecurityName { get; set; }
+			public String Qty { get; set; }
+			public String BuyAvg { get; set; }
+			public String BuyValue { get; set; }
+			public String SellAvg { get; set; }
+			public String SellValue { get; set; }
+			public Double? NetRealisedPL { get; set; }
+			public String RelPer { get; set; }
+			public Double? NetUnRealisedPL { get; set; }
+			public String UnRelPer { get; set; }
+			public String Type { get; set; }
+			public String ScripName { get; set; }
+			public DateTime? BuyDate { get; set; }
+			public String BuyRate { get; set; }
+			public DateTime? SellDate { get; set; }
+			public String SellRate { get; set; }
+			public String Days { get; set; }
+			public String CorporateAction { get; set; }
+		   
+		}
+
+
+25:- Get Bank Enquery
+	Request
+		var client = new RestClient("{BASE_URL}/Masters/IFSCBankData/Get?micr=" + micr + "&ifsc=" + ifsc);
+		var request = new RestRequest(Method.GET);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+	
+	Response
+	public class BankIFSCHelp
+    {
+            public String RowID { get; set; }
+            public String IFSC { get; set; }
+            public String MICR { get; set; }
+            public String BankID { get; set; }
+            public String BankName { get; set; }
+            public String Address1 { get; set; }
+            public String Address2 { get; set; }
+            public String Address3 { get; set; }
+            public String City { get; set; }
+            public String PINCode { get; set; }
+            public String State { get; set; }
+            public String Country { get; set; }
+            public String BankCode { get; set; }
+    }
+
+26:- Derivative Net Position Date Range
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/DerivativeNetPositionDateRange/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class DerivativePLStatementRequest 
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public DateTime? FromDate { get; set; }        
+			public DateTime? ToDate { get; set; }        
+			public String   Exchange { get; set; } /* NSE,BSE,MCX,NCDEX */
+			public String Segment { get; set; } /*FNO,COM,CUR*/
+			/*
+			SegID	Instrument Type
+			==========================
+			COM		FUTBLN
+			COM		FUTCOM
+			COM		FUTENR
+			COM		FUTIDX
+			COM		OPTBLN
+			COM		OPTCOM
+			COM		OPTFUT
+			
+			CUR		FUTCUR
+			CUR		FUTIRC
+			CUR		FUTIRT
+			CUR		OPTCUR
+			CUR		OPTIRC
+			
+			FNO		FUTIDX
+			FNO		FUTSTK
+			FNO		OPTIDX
+			FNO		OPTSTK
+			*/
+			public String Instrument { get; set; } 
+			
+			public String Symbol { get; set; }
+			public DateTime? ExpiryDate { get; set; }
+			public Double? StrikePrice { get; set; }
+			/*
+			CE - Call OptionType
+			PE - Put Option
+			*/
+			public String OptionType { get; set; }
+			public String CTCLID { get; set; }
+			public String UserID { get; set; }
+			
+			/*
+			Valid Values Are
+			Y,N
+			*/
+			public String QtyInLot { get; set; }
+			public String ExcludeBF { get; set; }
+			
+			public String ExpiryFlag { get; set; }
+
+		}
+		
+	Response
+	
+	public class DerivativeNetPositionReport
+    {
+        public List<AccountMasterReport> AccountMaster { get; set; }
+        public List<DerivativePLExpenseData> ExpenseData { get; set; }
+        public List<DerivativePLStatementData> PositionData { get; set; }        
+        public List<BranchMasterReport> BranchMaster { get; set; }
+        public List<FirmMasterReport>    FirmMaster { get; set; }
+        public List<ComplienceOfficerReport> ComplienceOfficer { get; set; }
+        public List<ReportMessage>   Message { get; set; }
+
+    }
+		public class DerivativePLExpenseData
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String Exchange { get; set; }
+			public String Segment { get; set; }
+			public String BillType { get; set; }
+			public String ExpenseName { get; set; }
+			public Double? Amount { get; set; }
+			public Double? CGST { get; set; }
+			public Double? SGST { get; set; }
+			public Double? IGST { get; set; }
+			public Double? UGST { get; set; }
+			public Double? GST { get; set; }
+		}
+		
+		public class DerivativePLStatementData
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String Branch { get; set; }
+			public String Exchange { get; set; }
+			public String Segment { get; set; }
+			public String Instrument { get; set; }
+			public String Symbol { get; set; }
+			public DateTime? ExpiryDate { get; set; }
+			public Double? StrikePrice { get; set; }
+			public String OptionType { get; set; }
+			public Double? BFQuantity { get; set; }
+			public Double? BFValue { get; set; }
+			public Double? BuyQuantity { get; set; }
+			public Double? BuyValue { get; set; }
+			public Double? SellQuantity { get; set; }
+			public Double? SellValue { get; set; }
+			public Double? EXASQuantity { get; set; }
+			public Double? EXASValue { get; set; }
+			public Double? EXASCLQuantity { get; set; }
+			public Double? EXASCLValue { get; set; }
+			public Double? NetQuantity { get; set; }
+			public Double? NetValue { get; set; }
+			public Double? AverageRate { get; set; }
+			public Double? CloseRate { get; set; }
+			public Double? MTM { get; set; }
+			public Double? BuyExposure { get; set; }
+			public Double? SellExposure { get; set; }
+		}	
+		
+		public class FirmMasterReport
+		{
+			public String FirmID { get; set; }
+			public String FirmName { get; set; }
+			public String RegisteredAddress { get; set; }
+			public String RegisteredPhone { get; set; }
+			public String RegisteredFax { get; set; }
+			public String CorporateAddress { get; set; }
+			public String CorporatePhone { get; set; }
+			public String CorporateFax { get; set; }
+			public String InvertorGrivencesEmail { get; set; }
+			public String PAN { get; set; }
+			public String CIN { get; set; }
+			public String WebSite { get; set; }
+			public String Place { get; set; }
+			public String GSTRegistrationNo { get; set; }
+			public String GStServiceCode { get; set; }
+			public String GSTServiceName { get; set; }
+			public String SEBIRegistrationNo { get; set; }
+			public String AuthorizedSignatory { get; set; }
+			public Byte[] FirmLogo { get; set; }
+			public Byte[] SEBILogo { get; set; }
+		}
+		
+		public class ComplienceOfficerReport
+		{
+			public String  FirmID { get; set; }
+			public String  Name { get; set; }
+			public String ContactNo { get; set; }
+			public String Email { get; set; }
+		}
+		
+		public class ReportMessage
+		{
+			public String FirmID { get; set; }
+			public String Message { get; set; }
+		}	
+	
+27:- Equity Net Position Date Range
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/EquityNetPositionDateRange/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class EquityPLStatementRequest 
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public DateTime? FromDate { get; set; }        
+			public DateTime? ToDate { get; set; }        
+			public String   Exchange { get; set; } /* NSE,BSE,MCX,NCDEX */
+			public String Segment { get; set; } /*CAP*/
+			
+			public String SettlementNo { get; set; } 
+			
+			public String SettlementType { get; set; }
+			public String JDFlag {get;set;}
+			public String ReportSelection {get;set;} /* CLIENT_SCRIP */
+			public String ReportType {get;set;} /*CLIENT*/
+			
+			public String CTCLID { get; set; }
+			public String UserID { get; set; }
+			public String MarketType {get;set;} /*ALL*/
+			/*
+			Valid Values Are
+			Y,N
+			*/
+			public String IgnoreZeroPos { get; set; }
+
+		}
+		
+	Response
+	
+		public class EquityPLStatementReport
+		{
+			public List<AccountMasterReport> AccountMaster { get; set; }
+			public List<EquityPLStatementData> PositionData { get; set; }
+			public List<EquityPLExpenseData> ExpenseData { get; set; }
+			public List<BranchMasterReport> BranchMaster { get; set; }
+			public List<FirmMasterReport>    FirmMaster { get; set; }
+			public List<ComplienceOfficerReport> ComplienceOfficer { get; set; }
+			public List<ReportMessage>   Message { get; set; }
+		}
+		
+		public class EquityPLStatementData
+		{
+			public String FirmID { get; set; }        
+			public String Exchange { get; set; }
+			public String Segment { get; set; }
+			public String AccountID { get; set; }
+			public String ScripCode { get; set; }
+			public String ScripName { get; set; }
+			public Double? BuyQuantity { get; set; }
+			public Double? BuyValue { get; set; }
+			public Double? SellQuantity { get; set; }
+			public Double? SellValue { get; set; }
+			public Double? NetQuantity { get; set; }
+			public Double? NetValue { get; set; }
+			public Double? AverageRate { get; set; }
+			public Double? CloseRate { get; set; }
+			public Double? MTM { get; set; }
+		}
+		
+		public class EquityPLExpenseData
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String Exchange { get; set; }
+			public String Segment { get; set; }
+			public String BillType { get; set; }
+			public String ExpenseName { get; set; }
+			public Double? Amount { get; set; }
+			public Double? CGST { get; set; }
+			public Double? SGST { get; set; }
+			public Double? IGST { get; set; }
+			public Double? UGST { get; set; }
+			public Double? GST { get; set; }
+		}
+
+28:-	Client Custom Information
+	Request
+		var client = new RestClient("{BASE_URL}/Utilities/ClientCustomInfo/Get?AccountID={CLIENT CODE}");
+		var request = new RestRequest(Method.GET);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class	
+		public class ClientCustomInfo
+    		{
+	      	public String ClientID { get; set; }
+      	  	public String ClientName { get; set; }
+        		public DateTime? LastTradeDate { get; set; }
+	        	public String MobileNo { get; set; }
+	        	public String EmailID { get; set; }
+	    	}
+
+29:-	Get CDSL Client Detail
+		var client = new RestClient("{BASE_URL}/Masters/GetOrionCDSLDetail/Get?PANNo={PAN NO}");
+		var request = new RestRequest(Method.GET);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+
+	Request Class
+	public class CDSLClientMasterDetailAO
+    {
+        public List<CDSLClientKYCMasterAO> kycDetail { get; set; }
+        public List<CDSLAddressMasterAO>  addDetail { get; set; }
+        public List<CDSLBankDetailAO> bankDetail { get; set; }
+        public List<CDSLRelatedPersonMasterAO> relatedPersonDetail { get; set; }
+        public List<CDSLContactMasterAO> contactDetail { get; set; }
+        public List<CDSLNomineeMasterAO> nomineeDetail { get; set; }
+        public List<CDSLPOALinkMasterAO> poaDetail { get; set; }
+        public List<CDBOUCCLinkingAO> BOUCCLinking { get; set; }
+    }
+
+	public class CDSLClientKYCMasterAO
+    {
+        public String FirmID { get; set; }
+        public String AccountID { get; set; }
+        public String AccountName { get; set; }
+        public DateTime? OpenDate { get; set; }
+        public String BranchID { get; set; }
+        public String SubBranchID { get; set; }
+        public String PANNo { get; set; }
+        public String FamilyID { get; set; }
+        public String RMTLID { get; set; }
+        public String ClientStatus { get; set; }
+        public String ClientPrefix { get; set; }
+        public String ClientFirstName { get; set; }
+        public String ClientMiddleName { get; set; }
+        public String ClientLastName { get; set; }
+        public String ClientType { get; set; }
+        public String FatherName { get; set; }
+        public String MotherName { get; set; }
+        public String MaidenName { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public String Gender { get; set; }
+        public String MaritalStatus { get; set; }
+        public String Nationality { get; set; }
+        public String ResidentialStatus { get; set; }
+        public String Occupation { get; set; }
+        public String OccuoationOther { get; set; }
+        public String AadharNo { get; set; }
+        public DateTime? DateOfComission { get; set; }
+        public String RegistrationNo { get; set; }
+        public DateTime? RegistrationDate { get; set; }
+        public String RegistrationPlace { get; set; }
+        public String RegistrationAuth { get; set; }
+        public String AnnualIncomeCode { get; set; }
+        public DateTime? AnnualIncomeDate { get; set; }
+        public Double? NetworthAmount { get; set; }
+        public DateTime? NetworthDate { get; set; }
+        public String SecPayOut { get; set; }
+        public String SettlementDays { get; set; }
+        public DateTime? SettlementDate { get; set; }
+        public String RiskCategory { get; set; }
+        public String RGESSFlag { get; set; }
+        public String TradingSoftwareType { get; set; }
+        public String CTCLExport { get; set; }
+        public String BuyBackPosting { get; set; }
+        public DateTime? LastTradingDate { get; set; }
+        public String Maker { get; set; }
+        public DateTime? MakerDate { get; set; }
+        public String Checker { get; set; }
+        public DateTime? CheckerDate { get; set; }
+        public String ModifiedBy { get; set; }
+        public DateTime? ModifiedDate { get; set; }
+        public String SmartRegistrationFlag { get; set; }
+        public String BOAccountStatus { get; set; }
+        public String FreezeSuspensionFlag { get; set; }
+        public String Category { get; set; }
+        public String Type { get; set; }
+        public String SubType { get; set; }
+        public String ProductCode { get; set; }
+        public String CCID { get; set; }
+        public String CCMemberID { get; set; }
+        public String ExchangeCode { get; set; }
+        public String TradingID { get; set; }
+        public String BOSTCycleCode { get; set; }
+        public DateTime? BOCreationDate { get; set; }
+        public String DPIntRefrenceNo { get; set; }
+        public String ConformationWaived { get; set; }
+        public String TaxDeductionSTS { get; set; }
+        public String BOSettlementFlag { get; set; }
+        public String EducationCode { get; set; }
+        public String GeographicalCode { get; set; }
+        public String GroupID { get; set; }
+        public String LanguageCode { get; set; }
+        public String SecAccessCode { get; set; }
+        public String StaffRelative { get; set; }
+        public String StaffCode { get; set; }
+        public String RBIRefrenceNo { get; set; }
+        public DateTime? RBIApprovalDate { get; set; }
+        public String SEBIRegistrationNo { get; set; }
+        public DateTime? ClosureApprovedDate { get; set; }
+        public DateTime? ClosureDate { get; set; }
+        public String TransferBOID { get; set; }
+        public String BalanceTransfer { get; set; }
+        public String ClosureReasonCode { get; set; }
+        public String ClosureInitiated { get; set; }
+        public String NameChangeReason { get; set; }
+        public String EmailSettlementFLag { get; set; }
+        public String CASMode { get; set; }
+        public String PreferedDPFlag { get; set; }
+        public String TrustRegistration { get; set; }
+        public String AnnualReportFlag { get; set; }
+        public String StandingInstFlag { get; set; }
+        public String EmailRTADownload { get; set; }
+        public String BSDAFlag { get; set; }
+        public String MasterPOAFlag { get; set; }
+        public String FamilyAccountFlag { get; set; }
+        public String CustodianPMSEmail { get; set; }
+        public String UserText1 { get; set; }
+        public String UserText2 { get; set; }
+        public String UserField3 { get; set; }
+        public String ClosureRemark { get; set; }
+        public String UIDNo { get; set; }
+        public String UIDVerificationFlag { get; set; }
+        public String ElectronicConformation { get; set; }
+        public String ECSFlag { get; set; }
+        public String EmailAccountFlag { get; set; }
+        public String PANVarificationFlag { get; set; }
+        public String BOAccountOpeningSource { get; set; }
+        public String Exported { get; set; }
+        public String DISBookRequest { get; set; }
+        public String InstaBOID { get; set; }
+        public String ModeOfOperation { get; set; }
+        public String CKYCReferenceNo { get; set; }
+        public String NomineeOptOut { get; set; }
+        public String CommunicationPreference { get; set; }
+    }
+public class CDSLAddressMasterAO
+    {
+        public String AddressID { get; set; }
+        public String FirmID { get; set; }
+        public String ClientCode { get; set; }
+        public String AddressType { get; set; }
+        public String AddressLine1 { get; set; }
+        public String AddressLine2 { get; set; }
+        public String AddressLine3 { get; set; }
+        public String AddressCity { get; set; }
+        public String AddressPinCode { get; set; }
+        public String AddressState { get; set; }
+        public String AddressCountry { get; set; }
+        public String AddressPrimary { get; set; }
+        public String AddressProof { get; set; }
+        public String AddressProofOther { get; set; }
+        public DateTime? AddressProofDate { get; set; }
+        public DateTime? AddressProofExpiry { get; set; }
+        public String AddressProofRef { get; set; }
+        public String District { get; set; }
+        public String AddressStateOther { get; set; }
+        public String AddressProofIssuedBy { get; set; }    
+        public String AddressStateName { get; set; }
+        public String AddressCountryName { get; set; }
+        public String PurposeCode { get; set; }
+        public String Delete { get; set; }
+    }
+public class CDSLBankDetailAO
+    {
+        public String BankID { get; set; }
+        public String FirmID { get; set; }
+        public String ClientCode { get; set; }        
+        public String PrimaryFlag { get; set; }
+        public String BankAccountNumber { get; set; }
+        public String BankAccountType { get; set; }
+        public String BankIFSC { get; set; }
+        public String BankMICR { get; set; }
+        public String ChequePrintName { get; set; }
+        public String BankCode { get; set; }
+        public String BankAddress1 { get; set; }
+        public String BankAddress2 { get; set; }
+        public String BankAddress3 { get; set; }
+        public String BankCity { get; set; }
+        public String BankPincode { get; set; }
+        public String BankState { get; set; }
+        public String BankSateOther { get; set; }
+        public String BankCountry { get; set; }
+        public String PaymentMode { get; set; }
+        public String Delete { get; set; }
+        public String POAFlag{ get; set; }
+        public DateTime? POADate { get; set; } 
+        public String BankName { get; set; }
+        public String CustomerID { get; set; }
+        public String UMRN { get; set;}
+        public DateTime? ECSMandateDate { get; set; }
+        public DateTime? ECSFromDate { get; set; }
+        public DateTime? ECSToDate { get; set; }
+        public String ECSUntilCancel { get; set; }
+        public String ECSStatus { get; set; }
+        public String ECSFrequency { get; set; }
+        public Double? ECSLimit { get; set; }
+        public String AutoDebit { get; set; }
+        public String RejectionReason { get; set; }
+        public String BankCurrency { get; set; }
+        public String BankMandate { get; set; }
+        public String BankECSConformation { get; set; }
+        public String BankECSMandate { get; set; }
+    }
+public class CDSLRelatedPersonMasterAO
+    {
+        public String SlNo { get; set; }
+        public String FirmID { get; set; }
+        public String AccountID { get; set; }
+        public String Prefix { get; set; }
+        public String Name { get; set; }
+        public String FatherPrefix { get; set; }
+        public String FatherName { get; set; }
+        public String Designation { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public String PANNo { get; set; }
+        public String AadharNo { get; set; }
+        public String DIN { get; set; }
+        public String Status { get; set; }
+        public String EmailID { get; set; }
+        public String ISD { get; set; }
+        public String STD { get; set; }
+        public String PhoneNo { get; set; }
+        public String MobileNo { get; set; }
+        public String AddressLine1 { get; set; }
+        public String AddressLine2 { get; set; }
+        public String AddressLine3 { get; set; }
+        public String City { get; set; }
+        public String PINCode { get; set; }
+        public String District { get; set; }
+        public String State { get; set; }
+        public String StateOther { get; set; }
+        public String Country { get; set; }
+        public String FirstName { get; set; }
+        public String MiddleName { get; set; }
+        public String LastName { get; set; }
+        public String PANExempt { get; set; }
+        public String PANVarificationCode { get; set; }
+        public DateTime? DOO { get; set; }
+        public String NameChangeReason { get; set; }
+        public String AadharVarificationFlag { get; set; }
+        public String NASequence { get; set; }
+        public String Remark { get; set; }
+        public String HolderType { get; set; }
+        public String StateName { get; set; }
+        public String CountryName { get; set; }
+        public String AadharVarificationCode { get; set; }
+        public String Delete { get; set; }
+    }
+public class CDSLContactMasterAO
+    {
+        public String FirmID { get; set; }
+        public String ContactID { get; set; }
+        public String ClientCode { get; set; }
+        public String ContactType { get; set; }
+        public String ISD { get; set; }
+        public String STD { get; set; }
+        public String ContactNo { get; set; }
+        public String ContactEmail { get; set; }
+        public String PrimaryFlag { get; set; }
+        public String ActiveFlag { get; set; }
+        public DateTime? InactiveDate { get; set; }
+        public String Remark { get; set; }
+        public String Delete { get; set; }
+        public String RelatedTo { get; set; }
+        public String SmartRegistrationFlag { get; set; }
+    }
+public class CDSLNomineeMasterAO
+    {
+        public String SLNO { get; set; }
+        public String FirmID { get; set; }
+        public String AccountID { get; set; }
+        public String SerialNo { get; set; }
+        public String PurposeCode { get; set; }
+        public String NomType { get; set; }
+        public String NomRelation { get; set; }
+        public String NomPrefix { get; set; }
+        public String NomName { get; set; }
+        public String NomFatherSpouse { get; set; }
+        public String NomFatherPrefix { get; set; }
+        public String NomFatherName { get; set; }
+        public DateTime? NomDOB { get; set; }
+        public String NomPANNo { get; set; }
+        public String NomAadharNo { get; set; }
+        public String NomAddressLine1 { get; set; }
+        public String NomAddressLine2 { get; set; }
+        public String NomAddressLine3 { get; set; }
+        public String NomCity { get; set; }
+        public String NomPINCode { get; set; }
+        public String NomDistrict { get; set; }
+        public String NomState { get; set; }
+        public String NomStateOther { get; set; }
+        public String NomCountry { get; set; }
+        public String NomFirstName { get; set; }
+        public String NomMiddleName { get; set; }
+        public String NomLastName { get; set; }
+        public String NomISD { get; set; }
+        public String NomPhone { get; set; }
+        public String NomFax { get; set; }
+        public String NomITCircle { get; set; }
+        public String NomEmailID { get; set; }
+        public DateTime? NomDOO { get; set; }
+        public String NomUserText1 { get; set; }
+        public String NomUserText2 { get; set; }
+        public String NomUserField3 { get; set; }
+        public String NomNameChangeReason { get; set; }
+        public String NomResidualFLag { get; set; }
+        public Double? NomSharePer { get; set; }
+        public String NomStateName { get; set; }
+        public String NomCountryName { get; set; }
+        public String Delete { get; set; }
+        public String NomUIDVarificationFlag { get; set; }
+        public String NomRegistrationNo { get; set; }
+        public String NomStatus { get; set; }
+    }
+public class CDSLPOALinkMasterAO
+    {
+        public String FirmID { get; set; }
+        public String SlNo { get; set; }
+        public String AccountID { get; set; }
+        public String PurposeCode { get; set; }
+        public String POARegistratedID { get; set; }
+        public String POAMasterID { get; set; }
+        public DateTime? SetupDate { get; set; }
+        public String POAOperateAccount { get; set; }
+        public String GBFLag { get; set; }
+        public DateTime? EffectiveFromDate { get; set; }
+        public DateTime? EffectiveToDate { get; set; }
+        public String Remark { get; set; }
+        public String Delete { get; set; }
+    }
+public class CDBOUCCLinkingAO
+    {
+        public String FirmID { get; set; }
+        public String AccountID { get; set; }
+        public String PurposeCode { get; set; }
+        public String LinkStatus { get; set; }
+        public String ConsentFlag { get; set; }
+        public String ExchangeID { get; set; }
+        public String UCCCode { get; set; }
+        public String SegmentID { get; set; }
+        public String CMID { get; set; }
+        public String TMCode { get; set; }
+        public Double? SerialNo { get; set; }
+        public String Delete { get; set; }
+    }
+
+
+30:- Equity Transaction Ledger
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/EquityTransactionLedger/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class EquityTransactionLedgerRequest
+    		{
+        		public string Exchange { get; set; }
+        		public string Segment { get; set; }
+        		public DateTime? FromDate { get; set; }
+        		public DateTime? ToDate { get; set; }
+        		public string AccountID { get; set; }
+        		public string Branch { get; set; }
+        		public string SubBranch { get; set; }
+        		public string RM { get; set; }
+        		public string FamilyGroup { get; set; }
+        		public string JDFlag { get; set; }		//Default Value = "A"
+        		public string ReportType { get; set; }	//Default Value = "NORMAL"
+        		public string ScripCode { get; set; }
+	      	public Int32? ExportFormat { get; set; }
+			/// <summary>
+			/// Value Should Be 0 For JSON (Default)
+			/// Value Should Be 1 For PDF
+			/// Value Should Be 2 For EXCEL
+			/// </summary>
+    		}
+
+		{"Exchange": "NSE","Segment": "CAP","FromDate": "2022-03-01","ToDate": "2023-03-31","AccountID": "A001","Branch": null,"SubBranch": null,"RM": null,"FamilyGroup": null,"JDFlag": "A","ReportType": "NORMAL","ScripCode":null,"ExportFormat": 0}
+
+		Response Class
+
+    public class AccountMaster
+    {
+        public string FirmID { get; set; }
+        public string AccountID { get; set; }
+        public string AccountName { get; set; }
+        public string FinGroupCode { get; set; }
+        public string MainGroup { get; set; }
+        public string SubGroup { get; set; }
+        public String SubGroup1 { get; set; }
+        public DateTime OpenDate { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string TaxState { get; set; }
+        public string Branch { get; set; }
+        public string SubBranch { get; set; }
+        public string FamilyID { get; set; }
+        public string RmtlID { get; set; }
+        public string GSTRegistrationNo { get; set; }
+        public string PANNo { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string Address3 { get; set; }
+        public string City { get; set; }
+        public string District { get; set; }
+        public string PINCode { get; set; }
+        public string StateCode { get; set; }
+        public string StateName { get; set; }
+        public string CountryCode { get; set; }
+        public string CountryName { get; set; }
+        public String MobileISD { get; set; }
+        public string MobileNo { get; set; }
+        public String PhoneIsd { get; set; }
+        public String PhoneStd { get; set; }
+        public String PhoneNo { get; set; }
+        public string EmailId { get; set; }
+        public string AccountType { get; set; }
+        public string Protected { get; set; }
+        public string MobileRelation { get; set; }
+        public string EmailRelation { get; set; }
+        public String CKYCReferenceNo { get; set; }
+        public string ClientStatus { get; set; }
+        public string AnnualIncome { get; set; }
+        public DateTime AnnualIncomeDate { get; set; }
+        public String ACCategory { get; set; }
+        public DateTime? ClosureDate { get; set; }
+        public string RiskCategory { get; set; }
+        public double NetWorth { get; set; }
+        public DateTime NetWorthDate { get; set; }
+    }
+
+    public class BranchMaster
+    {
+        public string FirmID { get; set; }
+        public string BranchID { get; set; }
+        public string BranchName { get; set; }
+        public string MainGroupCode { get; set; }
+        public string MainGroup { get; set; }
+        public string SubGroup { get; set; }
+        public String SubGroup1 { get; set; }
+        public DateTime OpenDate { get; set; }
+        public string TaxState { get; set; }
+        public string Branch { get; set; }
+        public String SubBranch { get; set; }
+        public String FamilyID { get; set; }
+        public String RmtlID { get; set; }
+        public string GSTRegistrationNo { get; set; }
+        public String PANNo { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string Address3 { get; set; }
+        public string City { get; set; }
+        public String District { get; set; }
+        public string PINCode { get; set; }
+        public string StateCode { get; set; }
+        public string StateName { get; set; }
+        public string CountryCode { get; set; }
+        public string CountryName { get; set; }
+        public String MobileISD { get; set; }
+        public String MobileNo { get; set; }
+        public String PhoneIsd { get; set; }
+        public String PhoneStd { get; set; }
+        public String PhoneNo { get; set; }
+        public String EmailId { get; set; }
+        public string AccountType { get; set; }
+    }
+
+    public class ComplienceOfficer
+    {
+        public string FirmID { get; set; }
+        public string Name { get; set; }
+        public string ContactNo { get; set; }
+        public string Email { get; set; }
+    }
+
+    public class FirmMaster
+    {
+        public string FirmID { get; set; }
+        public string FirmName { get; set; }
+        public string RegisteredAddress { get; set; }
+        public string RegisteredPhone { get; set; }
+        public string RegisteredFax { get; set; }
+        public string CorporateAddress { get; set; }
+        public string CorporatePhone { get; set; }
+        public string CorporateFax { get; set; }
+        public string InvertorGrivencesEmail { get; set; }
+        public string PAN { get; set; }
+        public string CIN { get; set; }
+        public string WebSite { get; set; }
+        public string Place { get; set; }
+        public string GSTRegistrationNo { get; set; }
+        public string GStServiceCode { get; set; }
+        public string GSTServiceName { get; set; }
+        public string SEBIRegistrationNo { get; set; }
+        public string AuthorizedSignatory { get; set; }
+        public string FirmLogo { get; set; }
+        public object SEBILogo { get; set; }
+        public String DPID { get; set; }
+        public String DPType { get; set; }
+        public string SoftwareType { get; set; }
+    }
+
+    public class Root
+    {
+        public List<TradeDatum> TradeData { get; set; }
+        public List<AccountMaster> AccountMaster { get; set; }
+        public List<BranchMaster> BranchMaster { get; set; }
+        public List<FirmMaster> FirmMaster { get; set; }
+        public List<ComplienceOfficer> ComplienceOfficer { get; set; }
+    }
+
+    public class TradeDatum
+    {
+        public string FirmID { get; set; }
+        public string AccountID { get; set; }
+        public string Branch { get; set; }
+        public DateTime TradeDate { get; set; }
+        public string ScripCode { get; set; }
+        public string SecurityName { get; set; }
+        public string ISIN { get; set; }
+        public string SettlementNo { get; set; }
+        public string SettlementType { get; set; }
+        public string Exchange { get; set; }
+        public string BrokType { get; set; }
+        public string BuySellInd { get; set; }
+        public double BuyQuantity { get; set; }
+        public double SellQuantity { get; set; }
+        public double TradePrice { get; set; }
+        public double NetRate { get; set; }
+        public double BuyValue { get; set; }
+        public double SellValue { get; set; }
+    }
+
+
+31:- Equity Bill Detail
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/EquityBillDetail/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class EquityBillDetailRequest
+    		{
+        		public String Exchange { get; set; }
+        		public String Segment { get; set; }
+        		public DateTime? FromDate { get; set; }
+        		public DateTime? ToDate { get; set; }
+        		public String BillNo { get; set; }
+        		public String AccountID { get; set; }
+        		public String Branch { get; set; }
+        		public String SubBranch { get; set; }
+        		public String RM { get; set; }
+        		public String FamilyGroup { get; set; }
+        		public String RequestType { get; set; }		// Default Value = "DEFAULT"
+        		public String ReportType { get; set; }		// Default Value = "DETAIL"
+        		public Int32? ExportFormat { get; set; }
+			/// <summary>
+			/// Value Should Be 0 For JSON (Default)
+			/// Value Should Be 1 For PDF
+			/// Value Should Be 2 For EXCEL
+			/// </summary>
+    		}
+
+
+		{"Exchange": "NSE","Segment": "CAP","FromDate": "2022-03-01","ToDate": "2023-03-31","BillNo": null,"AccountID": "A001","Branch": null,"SubBranch": null,"RM": null,"FamilyGroup": null,"RequestType":"DEFAULT","ReportType":"DETAIL","ExportFormat": 0}
+
+		Response Class
+
+    public class AccountMaster
+    {
+        public string FirmID { get; set; }
+        public string AccountID { get; set; }
+        public string AccountName { get; set; }
+        public string FinGroupCode { get; set; }
+        public string MainGroup { get; set; }
+        public string SubGroup { get; set; }
+        public String SubGroup1 { get; set; }
+        public DateTime OpenDate { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string TaxState { get; set; }
+        public string Branch { get; set; }
+        public string SubBranch { get; set; }
+        public string FamilyID { get; set; }
+        public string RmtlID { get; set; }
+        public string GSTRegistrationNo { get; set; }
+        public string PANNo { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string Address3 { get; set; }
+        public string City { get; set; }
+        public string District { get; set; }
+        public string PINCode { get; set; }
+        public string StateCode { get; set; }
+        public string StateName { get; set; }
+        public string CountryCode { get; set; }
+        public string CountryName { get; set; }
+        public String MobileISD { get; set; }
+        public string MobileNo { get; set; }
+        public String PhoneIsd { get; set; }
+        public String PhoneStd { get; set; }
+        public String PhoneNo { get; set; }
+        public string EmailId { get; set; }
+        public string AccountType { get; set; }
+        public string Protected { get; set; }
+        public string MobileRelation { get; set; }
+        public string EmailRelation { get; set; }
+        public String CKYCReferenceNo { get; set; }
+        public string ClientStatus { get; set; }
+        public string AnnualIncome { get; set; }
+        public DateTime AnnualIncomeDate { get; set; }
+        public String ACCategory { get; set; }
+        public DateTime? ClosureDate { get; set; }
+        public string RiskCategory { get; set; }
+        public double NetWorth { get; set; }
+        public DateTime NetWorthDate { get; set; }
+    }
+
+    public class BranchMaster
+    {
+        public string FirmID { get; set; }
+        public string BranchID { get; set; }
+        public string BranchName { get; set; }
+        public string MainGroupCode { get; set; }
+        public string MainGroup { get; set; }
+        public string SubGroup { get; set; }
+        public String SubGroup1 { get; set; }
+        public DateTime OpenDate { get; set; }
+        public string TaxState { get; set; }
+        public string Branch { get; set; }
+        public String SubBranch { get; set; }
+        public String FamilyID { get; set; }
+        public String RmtlID { get; set; }
+        public string GSTRegistrationNo { get; set; }
+        public String PANNo { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string Address3 { get; set; }
+        public string City { get; set; }
+        public String District { get; set; }
+        public string PINCode { get; set; }
+        public string StateCode { get; set; }
+        public string StateName { get; set; }
+        public string CountryCode { get; set; }
+        public string CountryName { get; set; }
+        public String MobileISD { get; set; }
+        public String MobileNo { get; set; }
+        public String PhoneIsd { get; set; }
+        public String PhoneStd { get; set; }
+        public String PhoneNo { get; set; }
+        public String EmailId { get; set; }
+        public string AccountType { get; set; }
+    }
+
+    public class ComplienceOfficer
+    {
+        public string FirmID { get; set; }
+        public string Name { get; set; }
+        public string ContactNo { get; set; }
+        public string Email { get; set; }
+    }
+
+    public class FirmMaster
+    {
+        public string FirmID { get; set; }
+        public string FirmName { get; set; }
+        public string RegisteredAddress { get; set; }
+        public string RegisteredPhone { get; set; }
+        public string RegisteredFax { get; set; }
+        public string CorporateAddress { get; set; }
+        public string CorporatePhone { get; set; }
+        public string CorporateFax { get; set; }
+        public string InvertorGrivencesEmail { get; set; }
+        public string PAN { get; set; }
+        public string CIN { get; set; }
+        public string WebSite { get; set; }
+        public string Place { get; set; }
+        public string GSTRegistrationNo { get; set; }
+        public string GStServiceCode { get; set; }
+        public string GSTServiceName { get; set; }
+        public string SEBIRegistrationNo { get; set; }
+        public string AuthorizedSignatory { get; set; }
+        public string FirmLogo { get; set; }
+        public object SEBILogo { get; set; }
+        public String DPID { get; set; }
+        public String DPType { get; set; }
+        public string SoftwareType { get; set; }
+    }
+
+    public class EquityBillDetail
+    {
+        public List<TradeDatum> TradeData { get; set; }
+        public List<AccountMaster> AccountMaster { get; set; }
+        public List<BranchMaster> BranchMaster { get; set; }
+        public List<FirmMaster> FirmMaster { get; set; }
+        public List<ComplienceOfficer> ComplienceOfficer { get; set; }
+    }
+
+    public class TradeDatum
+    {
+        public string FirmID { get; set; }
+        public string AccountID { get; set; }
+        public string Branch { get; set; }
+        public DateTime TradeDate { get; set; }
+        public string ScripCode { get; set; }
+        public string SecurityName { get; set; }
+        public string ISIN { get; set; }
+        public string SettlementNo { get; set; }
+        public string SettlementType { get; set; }
+        public string Exchange { get; set; }
+        public string BrokType { get; set; }
+        public string BuySellInd { get; set; }
+        public double BuyQuantity { get; set; }
+        public double SellQuantity { get; set; }
+        public double TradePrice { get; set; }
+        public double NetRate { get; set; }
+        public double BuyValue { get; set; }
+        public double SellValue { get; set; }
+    }
+
+
+
+32:- Derivative Bill Detail
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/DerivativeBillDetail/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+
+		public class DerivativeBillDetailRequest
+    		{
+        		public String Exchange { get; set; }
+        		public String Segment { get; set; }
+        		public DateTime? FromDate { get; set; }
+        		public DateTime? ToDate { get; set; }
+        		public String BillNo { get; set; }
+        		public String AccountID { get; set; }
+        		public String Branch { get; set; }
+        		public String SubBranch { get; set; }
+        		public String RM { get; set; }
+        		public String FamilyGroup { get; set; }
+        		public Int32 SessionNo { get; set; }		// In case Of IFO Segment Session Value Will be Either 1 or 2
+        		public String RequestType { get; set; }		// Default Value = "DEFAULT"
+        		public String ReportType { get; set; }		// Default Value = "DETAIL"
+        		public Int32 ExportFormat { get; set; }
+			/// <summary>
+			/// Value Should Be 0 For JSON (Default)
+			/// Value Should Be 1 For PDF
+			/// Value Should Be 2 For EXCEL
+			/// </summary>
+    		}
+
+
+{"Exchange": "NSE","Segment": "FNO","FromDate": "2022-03-01","ToDate": "2023-03-31","BillNo": null,"AccountID": "A001","Branch": null,"SubBranch": null,"RM": null,"FamilyGroup": null,"SessionNo":null,"RequestType":"DEFAULT","ReportType":"DETAIL","ExportFormat": 0}
+
+
+		Response Class
+		
+public class AccountMaster
+    {
+        public string FirmID { get; set; }
+        public string AccountID { get; set; }
+        public string AccountName { get; set; }
+        public string FinGroupCode { get; set; }
+        public string MainGroup { get; set; }
+        public string SubGroup { get; set; }
+        public String SubGroup1 { get; set; }
+        public DateTime? OpenDate { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public string TaxState { get; set; }
+        public string Branch { get; set; }
+        public string SubBranch { get; set; }
+        public string FamilyID { get; set; }
+        public string RmtlID { get; set; }
+        public string GSTRegistrationNo { get; set; }
+        public string PANNo { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string Address3 { get; set; }
+        public string City { get; set; }
+        public string District { get; set; }
+        public string PINCode { get; set; }
+        public string StateCode { get; set; }
+        public string StateName { get; set; }
+        public string CountryCode { get; set; }
+        public string CountryName { get; set; }
+        public String MobileISD { get; set; }
+        public string MobileNo { get; set; }
+        public String PhoneIsd { get; set; }
+        public String PhoneStd { get; set; }
+        public String PhoneNo { get; set; }
+        public string EmailId { get; set; }
+        public string AccountType { get; set; }
+        public string Protected { get; set; }
+        public string MobileRelation { get; set; }
+        public string EmailRelation { get; set; }
+        public String CKYCReferenceNo { get; set; }
+        public string ClientStatus { get; set; }
+        public string AnnualIncome { get; set; }
+        public DateTime AnnualIncomeDate { get; set; }
+        public String ACCategory { get; set; }
+        public DateTime? ClosureDate { get; set; }
+        public string RiskCategory { get; set; }
+        public double NetWorth { get; set; }
+        public DateTime NetWorthDate { get; set; }
+    }
+
+    public class BranchMaster
+    {
+        public string FirmID { get; set; }
+        public string BranchID { get; set; }
+        public string BranchName { get; set; }
+        public string MainGroupCode { get; set; }
+        public string MainGroup { get; set; }
+        public string SubGroup { get; set; }
+        public String SubGroup1 { get; set; }
+        public DateTime? OpenDate { get; set; }
+        public string TaxState { get; set; }
+        public string Branch { get; set; }
+        public String SubBranch { get; set; }
+        public String FamilyID { get; set; }
+        public String RmtlID { get; set; }
+        public string GSTRegistrationNo { get; set; }
+        public String PANNo { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string Address3 { get; set; }
+        public string City { get; set; }
+        public String District { get; set; }
+        public string PINCode { get; set; }
+        public string StateCode { get; set; }
+        public string StateName { get; set; }
+        public string CountryCode { get; set; }
+        public string CountryName { get; set; }
+        public String MobileISD { get; set; }
+        public String MobileNo { get; set; }
+        public String PhoneIsd { get; set; }
+        public String PhoneStd { get; set; }
+        public String PhoneNo { get; set; }
+        public String EmailId { get; set; }
+        public string AccountType { get; set; }
+    }
+
+    public class ComplienceOfficer
+    {
+        public string FirmID { get; set; }
+        public string Name { get; set; }
+        public string ContactNo { get; set; }
+        public string Email { get; set; }
+    }
+
+    public class ExpDatum
+    {
+        public string FirmID { get; set; }
+        public string Exchange { get; set; }
+        public string Segment { get; set; }
+        public string AccountID { get; set; }
+        public string Branch { get; set; }
+        public DateTime? PayinDate { get; set; }
+        public DateTime? TradeDate { get; set; }
+        public string BillType { get; set; }
+        public string BillNo { get; set; }
+        public string ExpenseName { get; set; }
+        public string ExpensePrintName { get; set; }
+        public double GrossValue { get; set; }
+        public double ExpenseAmount { get; set; }
+        public double CGST { get; set; }
+        public double SGST { get; set; }
+        public double IGST { get; set; }
+        public double UGST { get; set; }
+        public double GST { get; set; }
+        public string TradeFlag { get; set; }
+    }
+
+    public class FirmMaster
+    {
+        public string FirmID { get; set; }
+        public string FirmName { get; set; }
+        public string RegisteredAddress { get; set; }
+        public string RegisteredPhone { get; set; }
+        public string RegisteredFax { get; set; }
+        public string CorporateAddress { get; set; }
+        public string CorporatePhone { get; set; }
+        public string CorporateFax { get; set; }
+        public string InvertorGrivencesEmail { get; set; }
+        public string PAN { get; set; }
+        public string CIN { get; set; }
+        public string WebSite { get; set; }
+        public string Place { get; set; }
+        public string GSTRegistrationNo { get; set; }
+        public string GStServiceCode { get; set; }
+        public string GSTServiceName { get; set; }
+        public string SEBIRegistrationNo { get; set; }
+        public string AuthorizedSignatory { get; set; }
+        public string FirmLogo { get; set; }
+        public object SEBILogo { get; set; }
+        public String DPID { get; set; }
+        public String DPType { get; set; }
+        public string SoftwareType { get; set; }
+    }
+
+    public class Root
+    {
+        public List<ExpDatum> ExpData { get; set; }
+        public List<TradeDatum> TradeData { get; set; }
+        public List<AccountMaster> AccountMaster { get; set; }
+        public List<BranchMaster> BranchMaster { get; set; }
+        public List<FirmMaster> FirmMaster { get; set; }
+        public List<ComplienceOfficer> ComplienceOfficer { get; set; }
+    }
+
+    public class TradeDatum
+    {
+        public string FirmID { get; set; }
+        public string Exchange { get; set; }
+        public string Segment { get; set; }
+        public string TradedExchange { get; set; }
+        public string AccountID { get; set; }
+        public string TradeStatus { get; set; }
+        public string Instrument { get; set; }
+        public string Symbol { get; set; }
+        public DateTime? ExpiryDate { get; set; }
+        public double StrikePrice { get; set; }
+        public string OptionType { get; set; }
+        public DateTime? TradeDate { get; set; }
+        public string TradeNo { get; set; }
+        public DateTime? TradeTime { get; set; }
+        public double Quantity { get; set; }
+        public double Price { get; set; }
+        public double SellBrokerage { get; set; }
+        public double SellValue { get; set; }
+        public double BuyBrokerage { get; set; }
+        public double BuyValue { get; set; }
+    }
+
+26:- Derivative Net Position AsOnDate
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/DerivativeNetPosition/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class DerivativeNetPositionRequest 
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public DateTime? AsOnDate { get; set; }        			
+			public String   Exchange { get; set; } /* NSE,BSE,MCX,NCDEX */
+			public String Segment { get; set; } /*FNO,COM,CUR*/
+			/*
+			SegID	Instrument Type
+			==========================
+			COM		FUTBLN
+			COM		FUTCOM
+			COM		FUTENR
+			COM		FUTIDX
+			COM		OPTBLN
+			COM		OPTCOM
+			COM		OPTFUT
+			
+			CUR		FUTCUR
+			CUR		FUTIRC
+			CUR		FUTIRT
+			CUR		OPTCUR
+			CUR		OPTIRC
+			
+			FNO		FUTIDX
+			FNO		FUTSTK
+			FNO		OPTIDX
+			FNO		OPTSTK
+			*/
+			public String Instrument { get; set; } 
+			
+			public String Symbol { get; set; }
+			public DateTime? ExpiryDate { get; set; }
+			public Double? StrikePrice { get; set; }
+			/*
+			CE - Call OptionType
+			PE - Put Option
+			*/
+			public String OptionType { get; set; }
+			public String CTCLID { get; set; }
+			public String UserID { get; set; }
+			
+			/*
+			Valid Values Are
+			Y,N
+			*/
+			public String QtyInLot { get; set; }
+			public String IgnoreZeroPosition { get; set; }
+			/*
+			Valid Values Are
+			CLIENT
+			*/
+			public String ReportType { get; set; }
+
+		}
+		
+	Response
+	
+	public class DerivativeNetPositionReport
+    {
+        public List<AccountMasterReport> AccountMaster { get; set; }
+        public List<DerivativePLExpenseData> ExpenseData { get; set; }
+        public List<DerivativePLStatementData> PositionData { get; set; }        
+        public List<BranchMasterReport> BranchMaster { get; set; }
+        public List<FirmMasterReport>    FirmMaster { get; set; }
+        public List<ComplienceOfficerReport> ComplienceOfficer { get; set; }
+        public List<ReportMessage>   Message { get; set; }
+
+    }
+		public class DerivativePLExpenseData
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String Exchange { get; set; }
+			public String Segment { get; set; }
+			public String BillType { get; set; }
+			public String ExpenseName { get; set; }
+			public Double? Amount { get; set; }
+			public Double? CGST { get; set; }
+			public Double? SGST { get; set; }
+			public Double? IGST { get; set; }
+			public Double? UGST { get; set; }
+			public Double? GST { get; set; }
+		}
+		
+		public class DerivativePLStatementData
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String Branch { get; set; }
+			public String Exchange { get; set; }
+			public String Segment { get; set; }
+			public String Instrument { get; set; }
+			public String Symbol { get; set; }
+			public DateTime? ExpiryDate { get; set; }
+			public Double? StrikePrice { get; set; }
+			public String OptionType { get; set; }
+			public Double? BFQuantity { get; set; }
+			public Double? BFValue { get; set; }
+			public Double? BuyQuantity { get; set; }
+			public Double? BuyValue { get; set; }
+			public Double? SellQuantity { get; set; }
+			public Double? SellValue { get; set; }
+			public Double? EXASQuantity { get; set; }
+			public Double? EXASValue { get; set; }
+			public Double? EXASCLQuantity { get; set; }
+			public Double? EXASCLValue { get; set; }
+			public Double? NetQuantity { get; set; }
+			public Double? NetValue { get; set; }
+			public Double? AverageRate { get; set; }
+			public Double? CloseRate { get; set; }
+			public Double? MTM { get; set; }
+			public Double? BuyExposure { get; set; }
+			public Double? SellExposure { get; set; }
+		}	
+		
+		public class FirmMasterReport
+		{
+			public String FirmID { get; set; }
+			public String FirmName { get; set; }
+			public String RegisteredAddress { get; set; }
+			public String RegisteredPhone { get; set; }
+			public String RegisteredFax { get; set; }
+			public String CorporateAddress { get; set; }
+			public String CorporatePhone { get; set; }
+			public String CorporateFax { get; set; }
+			public String InvertorGrivencesEmail { get; set; }
+			public String PAN { get; set; }
+			public String CIN { get; set; }
+			public String WebSite { get; set; }
+			public String Place { get; set; }
+			public String GSTRegistrationNo { get; set; }
+			public String GStServiceCode { get; set; }
+			public String GSTServiceName { get; set; }
+			public String SEBIRegistrationNo { get; set; }
+			public String AuthorizedSignatory { get; set; }
+			public Byte[] FirmLogo { get; set; }
+			public Byte[] SEBILogo { get; set; }
+		}
+		
+		public class ComplienceOfficerReport
+		{
+			public String  FirmID { get; set; }
+			public String  Name { get; set; }
+			public String ContactNo { get; set; }
+			public String Email { get; set; }
+		}
+		
+		public class ReportMessage
+		{
+			public String FirmID { get; set; }
+			public String Message { get; set; }
+		}	
+	
+27:- Debtor Creditor List
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/WEBDebtorCreditorList/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class DebtorCreditorsListRequest
+		{
+			public DateTime? AsOnDate { get; set; }
+			public String AccountID { get; set; }
+			public String CrDrFlag { get; set; }
+			/*
+			Key				Value
+			----------------------
+			NONZERO			Both Non Zero
+			DEBIT			Debit Only
+			CREDIT			Credit Only
+			BOTH			Both 
+			*/
+			public String IncludeMargin { get; set; }
+			public String IncludePledgeStock { get; set; }
+			public String Branch { get; set; }
+			public String SubBranch { get; set; }
+			public String RM { get; set; }
+			public String FamilyGroup { get; set; }
+			public Double? Amount { get; set; }
+		}
+	Response
+	
+	public class DebtorCreditorsListReport
+    {
+        public List<DebtorCreditorListData> DRCRData { get; set; }
+        public List<FirmMasterReport>    FirmMaster { get; set; }
+    }
+	
+		public class DebtorCreditorListData
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String AccountName { get; set; }
+			public String AccountType { get; set; }
+			public String BranchID { get; set; }
+			public String BranchName { get; set; }
+			public String SubBranch { get; set; }
+			public String FamilyID { get; set; }
+			public String RmtlID { get; set; }
+			public Double? DebitWithMargin { get; set; }
+			public Double? CreditWithMargin { get; set; }
+			public Double? DebitWithoutMargin { get; set; }
+			public Double? CreditWithoutMargin { get; set; }
+			public Double? Margin { get; set; }
+			public Double? NetWithMargin { get; set; }
+			public Double? NetWithoutMargin { get; set; }
+			public DateTime? LastFinancialDate { get; set; }
+		}	
+		
+		public class FirmMasterReport
+		{
+			public String FirmID { get; set; }
+			public String FirmName { get; set; }
+			public String RegisteredAddress { get; set; }
+			public String RegisteredPhone { get; set; }
+			public String RegisteredFax { get; set; }
+			public String CorporateAddress { get; set; }
+			public String CorporatePhone { get; set; }
+			public String CorporateFax { get; set; }
+			public String InvertorGrivencesEmail { get; set; }
+			public String PAN { get; set; }
+			public String CIN { get; set; }
+			public String WebSite { get; set; }
+			public String Place { get; set; }
+			public String GSTRegistrationNo { get; set; }
+			public String GStServiceCode { get; set; }
+			public String GSTServiceName { get; set; }
+			public String SEBIRegistrationNo { get; set; }
+			public String AuthorizedSignatory { get; set; }
+			public Byte[] FirmLogo { get; set; }
+			public Byte[] SEBILogo { get; set; }
+		}
+
+28:- Turnover Brokerage Web Report
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/TurnoverBrokerageWebReport/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		public class TurnoverBrokerageWebRequest 
+		{
+			public DateTime? FromDate { get; set; }
+			public DateTime? ToDate { get; set; }
+			public String AccountID { get; set; }
+			public String Branch { get; set; }
+			public String SubBranch { get; set; }
+			public String RM { get; set; }
+			public String FamilyGroup { get; set; }
+			public String ReportType { get; set; }
+			/*
+			Key				Value
+			----------------------
+			DETAIL			Detail
+			SUMMARY			Summary
+			*/			
+			public String ReportSelection { get; set; }
+			/*
+			Key				Value
+			----------------------
+			BRANCH			Branch Wise
+			SUB_BRANCH		Sub Branch Wise
+			TL				TL Wise
+			RM				RM Wise
+			CLIENT			Client Wise
+			BR_SUB_BR		Branch/Sub Branch Wise
+			BR_SUB_BR_TL	Branch/Sub Branch/TL Wise
+			BR_SUB_BR_TL_RM	Branch/Sub Branch/TL/RM Wise		
+			*/
+		}
+	Response
+	
+	Report Column will be dynamic as per report seclection
+
+29:- Franchise Brokerage Report
+	Request
+		var client = new RestClient("{BASE_URL}/Reports/IntroBrokReport/Post");          // Report Type COMBINESEG,INTRO_INTRO2_CLIENT
+		var client = new RestClient("{BASE_URL}/Reports/BrokerageSummaryReport/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class IntroReportRequest
+		{
+			public String Exchange { get; set; }
+			public DateTime? FromDate { get; set; }
+			public DateTime? ToDate { get; set; }
+			public String   Segment { get; set; }
+			public String ReportType { get; set; }
+			/*
+			Key				Value
+			----------------------
+			DATE_CLIENT			DATE_CLIENT
+			CLIENT				CLIENT
+			DATE				DATE
+			COMBINESEG			COMBINESEG
+			INTRO_INTRO2_CLIENT	Intro/Intro2 Client Wise
+			*/
+			public String IntroCode { get; set; }
+		}
+	Response
+	
+	public class IntroBrokReportData
+    {
+        public String FirmID { get; set; }
+        public String IntroCode { get; set; }
+        public String BranchID { get; set; }
+        public String ClientCode { get; set; }
+        public String ClientName { get; set; }
+        public String BranchName { get; set; }
+        public String FamilyID { get; set; }
+        public String RmtlID { get; set; }
+        public String SubBranch { get; set; }
+        public String IntroName { get; set; }
+        public String AccountID { get; set; }
+        public String AccountName { get; set; }
+        public String ExID { get; set; }
+        public String Segment { get; set; }
+        public String SegmentID { get; set; }
+        public String IntroCode2 { get; set; }
+        public Double? BrokerBrok { get; set; }
+        public Double? IntroBrok { get; set; }
+        public Double? Intro2Brok { get; set; }
+        public Double? EquityDelvTurn { get; set; }
+        public Double? EquityJobbTurn { get; set; }
+        public Double? OptionTurn { get; set; }
+        public Double? FutureTurn { get; set; }
+        public Double? TotalBrok { get; set; }
+        public String OptionLot { get; set; }
+        public String FutureLot { get; set; }
+        public DateTime? TradeDate { get; set; }        
+        public Double? JobbBrokClient { get; set; }
+        public Double? DelvBrokClient { get; set; }
+        public Double? TotalBrokerage { get; set; }
+        public Double? JobbBrokBroker { get; set; }
+        public Double? DelvBrokBroker { get; set; }
+        public Double? FirmBrokerage { get; set; }
+        public String SharingDetail { get; set; }
+        public Double? IntroBrokShare { get; set; }
+        public Double? FirmBrokShare { get; set; }
+        public Double? JobbFutureTurnCL { get; set; }
+        public Double? DelvOptionTurnCL { get; set; }
+        public Double? IntroBrok2 { get; set; }
+        public Double? CAPClientBrok { get; set; }
+        public Double? CAPIntroBrok { get; set; }
+        public Double? CAPIntro2Brok { get; set; }
+        public Double? CAPBrokerBrok { get; set; }
+        public Double? FNOClientBrok { get; set; }
+        public Double? FNOIntroBrok { get; set; }
+        public Double? FNOIntro2Brok { get; set; }
+        public Double? FNOBrokerBrok { get; set; }
+        public Double? CURClientBrok { get; set; }
+        public Double? CURIntroBrok { get; set; }
+        public Double? CURIntro2Brok { get; set; }
+        public Double? CURBrokerBrok { get; set; }
+        public Double? COMClientBrok { get; set; }
+        public Double? COMIntroBrok { get; set; }
+        public Double? COMIntro2Brok { get; set; }
+        public Double? COMBrokerBrok { get; set; }
+        public Double? TotalClientBrok { get; set; }
+        public Double? TotalIntroBrok { get; set; }
+        public Double? TotalIntro2Brok { get; set; }
+        public Double? TotalBrokerBrok { get; set; }
+
+        public Double? BSECAPClientBrok { get; set; }
+        public Double? BSECAPIntroBrok { get; set; }
+        public Double? BSECAPIntro2Brok { get; set; }
+        public Double? BSECAPBrokerBrok { get; set; }
+
+        public Double? NSECAPClientBrok { get; set; }
+        public Double? NSECAPIntroBrok { get; set; }
+        public Double? NSECAPIntro2Brok { get; set; }
+        public Double? NSECAPBrokerBrok { get; set; }
+
+    }
+
+30:- Client Directory
+	Request
+		var client = new RestClient("{BASE_URL}/Masters/ClientDirectory/Post");          
+		var client = new RestClient("{BASE_URL}/Reports/BrokerageSummaryReport/Post");
+		var request = new RestRequest(Method.POST);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");		
+		request.AddHeader("Authorization", "Bearer BncqZCh6KiI4iuaQY5dXBvyOL-oyWmtTmk5uEl9LeTsti2rC9jp7eN7tpYhSJQXqdvb4UwO0CEW7vIIef9csXsi3VAP-muuMyome52-L_iS0ap3dJb94vFjEYCGwFK7zflvdCizjBg1CslaTt2n14sbJoVrYKhrSlW0rA4mD9XkYx6laWMu8EjY32g_BqJc9NthXFjTGWZLHR1jF_4M4voE4Gs2LtInB6zF2p-75cVI52sRoLSTDapNjlzWynTtI6MexrXG8OHUH3eJa6VVwZX5MWFgUROEjqmHdBPesbJ0X9r6S_8t4SP4s_BO60qaZiV8cry8Xrl5m0BrWPVtUXpB79GifQTMT8EBnpjtta2s");
+		IRestResponse response = client.Execute(request);
+	
+		Request Class
+		
+		public class ClientDirectory 
+		{
+			public String FirmID { get; set; }
+			public String Branch { get; set; }
+			public DateTime? FromDate {get;set;}
+			public DateTime? ToDate {get;set;}
+			
+		}
+	Response
+		public class ClientDirectory : OrionRequest
+		{
+			public String FirmID { get; set; }
+			public String Branch { get; set; }
+			public String SubBranch { get; set; }
+			public String FamilyID { get; set; }
+			public String AccountID { get; set; }
+			public String AccountName { get; set; }
+			public String POA { get; set; }
+			public String PANNo { get; set; }
+			public String CKYCRefNo { get; set; }
+			public String DematAcNo { get; set; }
+			public String MobileNo { get; set; }
+			public String EmailId { get; set; }
+			public DateTime? OpenDate { get; set; }
+			public String AcStatus { get; set; }
+			public DateTime? ReActiveDate { get; set; }
+			public DateTime? LastTradeDate { get; set; }
+			public DateTime? FromDate { get; set; }
+			public DateTime? ToDate { get; set; }
+			public String InActiveDays { get; set; }
+			public DateTime? LastSettoffDate { get; set; }
+			public Double? Financial { get; set; }
+			public Double? HoldingValue { get; set; }
+			public String NomineeOtpFlag { get; set; }
+			public String AadharSeededFlag { get; set; }
+			
+		}
+
+31:- FIFO Holding For Trading
+	Request
+		var client = new RestClient("{BASE_URL}/Utilities/FIFOHolding/Get?AccountID={ClientCode}");
+		var request = new RestRequest(Method.GET);
+		request.AddHeader("FIRMID", "{FIRM_ID}");
+		request.AddHeader("FINANCIALYEAR", "{FINANCIAL_YEAR}");
+		IRestResponse response = client.Execute(request);
+	Response
+		public class ClientMasterReport
+		{
+			public String FirmID { get; set; }
+			public String AccountID { get; set; }
+			public String ScripCode { get; set; }
+			public String ScripName { get; set; }
+			public String ISIN { get; set; }
+			public DateTime BuyDate { get; set; }
+			public Decimal? Quantity { get; set; }
+			public Decimal? BuyRate { get; set; }
+		}

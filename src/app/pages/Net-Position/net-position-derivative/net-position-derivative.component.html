@@ -41,7 +41,8 @@
             </div>
             <div class="col-md-3">
                 <label for="StrikePrice" class="form-label">Strike Price</label>
-                <input class="form-control"id="StrikePrice" name="StrikePrice" type="text" [formControl]="f.StrikePrice">
+                <input class="form-control" id="StrikePrice" name="StrikePrice" type="text"
+                    [formControl]="f.StrikePrice">
             </div>
             <div class="col-md-3">
                 <label for="OptionType" class="form-label">Option type</label>
@@ -66,9 +67,9 @@
         </form>
     </ng-container>
 
-    <ng-container>
+    <ng-container *ngIf="NetPositionGroupList && NetPositionGroupList.length">
         <div class="text-end">
-            <input type="submit" value=""
+            <input type="submit" value="" (click)="downloadCsv()"
                 class="fa fa-file - excel - o btn btn-default btn - block text-primary me-3 stox-btn btn-2">
             <input type="submit" value=""
                 class="fa fa-file-pdf-o btn  btn-default btn-block text-danger stox-btn btn-2">
@@ -80,7 +81,7 @@
                     <tr>
                         <th scope="col">Instrument</th>
                         <th scope="col">Exp.Date</th>
-                        <th scope="col">Strike Price</th>	
+                        <th scope="col">Strike Price</th>
                         <th scope="col">Option</th>
                         <th scope="col">Buy.Qty</th>
                         <th scope="col">Buy Value</th>
@@ -90,9 +91,9 @@
                         <th scope="col">Net Value</th>
                         <th scope="col">Avg.Rate</th>
                         <th scope="col">Clos.Price</th>
-                        <th scope="col">Profit/Loss</th> 
+                        <th scope="col">Profit/Loss</th>
                     </tr>
-                    
+
                 </thead>
                 <tbody>
                     <tr *ngFor="let row of NetPositionGroupList" class="whitebg">
@@ -112,6 +113,11 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="NetPositionGroupList && !NetPositionGroupList.length">
+        <div class="text-center">
+            <h5>Data Not Found</h5>
         </div>
     </ng-container>
 

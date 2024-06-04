@@ -1,34 +1,41 @@
 <section class="stox-card">
     <h1 class="text-center stox-title">Fund Withdrawal</h1>
     <ng-container>
-        <form class="row g-3 mb-3" [formGroup]="WithdrawalGroup" (ngSubmit)="save()">
-            <table class="table table-hover table-bordered">
-                <tr>
-                    <td>Bank Detail</td>
-                    <td>Bank Name</td>
-                </tr>
-                <tr>
-                    <td><label>Client Code</label></td>
-                    <td><label>D5422</label></td>
-                </tr>    
-                <tr>
-                    <td><label>Client Name</label></td>
-                    <td><label>DEVANG R GANDHI</label></td>
-                </tr>  
-                <tr>
-                    <td><label>Available Amount</label></td>
-                    <td>0.00</td>
-                </tr>
-                <tr>
-                    <td><label for="Request Amount   " class="form-label">Request Amount   </label></td>
-                    <td><input class="form-control" id="Amount" name="Amount" [formControl]="f.Amount"></td>
-                </tr>    
-                <tr>
-                    <td> <label for="Remark" class="form-label">Remarks</label></td>
-                    <td><input class="text-left input-sm" id="Remark" name="Remark" [formControl]="f.Remark"></td>
-                </tr>    
-                <tr><td><button type="submit" class="btn btn-primary">Save</button><button type="submit" class="btn btn-primary">Status</button></td></tr>
-            </table>    
+        <form class="" [formGroup]="WithdrawalGroup" (ngSubmit)="save()">
+            <div class="" style="padding: 10px 30px;">
+                <div class="row my-3">
+                    <div class="col-md-4">Bank Detail</div>
+                    <div class="col-md-8">
+                        <select class="form-select" aria-label="Default select example" name="bank_detail" [formControl]="f.bank_detail">
+                            <option [value]="Client_Bank_Detail">{{Client_Bank_Detail}}</option>
+                          </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4"><label>Client Code</label></div>
+                    <div class="col-md-8"><label>{{Client_Code}}</label></div>
+                </div>    
+                <div class="row mb-3">
+                    <div class="col-md-4"><label>Client Name</label></div>
+                    <div class="col-md-8"><label>{{Client_Name}}</label></div>
+                </div>  
+                <div class="row mb-3">
+                    <div class="col-md-4"><label>Available Amount</label></div>
+                    <div class="col-md-8">0.00</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4"><label for="Request Amount   " class="form-label">Request Amount   </label></div>
+                    <div class="col-md-8"><input class="form-control" id="Amount" name="Amount" [formControl]="f.Amount"></div>
+                </div>    
+                <div class="row mb-3">
+                    <div class="col-md-4"> <label for="Remark" class="form-label">Remarks</label></div>
+                    <div class="col-md-8"><input class="text-left input-sm form-control" id="Remark" name="Remark" [formControl]="f.Remark"></div>
+                </div>    
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary me-2">Save</button>
+                    <button type="submit" class="btn btn-primary">Status</button>
+                </div>
+            </div>    
         </form>
     </ng-container>
 </section>

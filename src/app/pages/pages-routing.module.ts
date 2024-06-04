@@ -34,6 +34,11 @@ import { WithdrawalComponent } from './funds/withdrawal/withdrawal.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { MyAppsComponent } from './my-apps/my-apps.component';
 import { AddNewAppComponent } from './my-apps/add-new-app/add-new-app.component';
+import { DmsComponent } from './Download/dms/dms.component';
+import { TransactionReportComponent } from './Download/transaction-report/transaction-report.component';
+import { DpHoldingComponent } from './Download/dp-holding/dp-holding.component';
+import { SttComponent } from './Download/stt/stt.component';
+import { AgtsComponent } from './Download/agts/agts.component';
 
 const routes: Routes = [
   {
@@ -95,6 +100,23 @@ const routes: Routes = [
         path: 'contract-note',
         component: ContractNoteComponent
       }, {
+        path: 'dms',
+        component: DmsComponent
+      }, {
+        path: 'agts',
+        component: AgtsComponent
+      }, {
+        path: 'stt',
+        component: SttComponent
+      }, {
+        path: 'dp-holding',
+        component: DpHoldingComponent
+      },
+      {
+        path: 'transaction-report',
+        component: TransactionReportComponent
+      },
+       {
         path: 'transaction',
         component: TransactionComponent
       }, {
@@ -116,7 +138,7 @@ const routes: Routes = [
         path: 'withdrawal',
         component: WithdrawalComponent
       }, {
-        path: 'terms-and-conditions',
+        path: 'terms-and-conditions/:id',
         component: TermsAndConditionsComponent
       }, {
         path: 'my-apps',

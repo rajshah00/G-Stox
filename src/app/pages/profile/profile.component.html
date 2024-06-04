@@ -38,11 +38,7 @@
                                     Bank Details
                                 </button>
                             </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="documents-tab" data-bs-toggle="tab"
-                                    data-bs-target="#documents" type="button" role="tab" aria-controls="documents"
-                                    aria-selected="false">Documents</button>
-                            </li>
+
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="close-account-tab" data-bs-toggle="tab"
                                     data-bs-target="#close-account" type="button" role="tab"
@@ -77,9 +73,6 @@
                                             <input class="form-control" id="AccountID" type="text"
                                                 placeholder="Enter your User Id" name="AccountID"
                                                 [(ngModel)]="formObj.AccountID" [disabled]="!isEditable" required>
-                                            <button (click)="toggleEdit('AccountID')" class="btn-edit" type="button">
-                                                <i class="bi bi-pencil-square AccountID"></i>
-                                            </button>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -138,9 +131,6 @@
                                             <input class="form-control" id="DematAcName" type="tel"
                                                 placeholder="Enter your Depository Name" name="DematAcName"
                                                 [(ngModel)]="formObj.DematAcName" [disabled]="!isEditable" required>
-                                            <button (click)="toggleEdit('DematAcName')" class="btn-edit" type="button">
-                                                <i class="bi bi-pencil-square DematAcName"></i>
-                                            </button>
                                         </div>
                                     </div>
 
@@ -150,9 +140,6 @@
                                             <input class="form-control" id="DematAcNo" type="text" name="DematAcNo"
                                                 placeholder="Enter your Demat Account Number"
                                                 [(ngModel)]="formObj.DematAcNo" [disabled]="!isEditable" required>
-                                            <button (click)="toggleEdit('DematAcNo')" class="btn-edit" type="button">
-                                                <i class="bi bi-pencil-square DematAcNo"></i>
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -257,10 +244,7 @@
                                     </div>
                                 </div> -->
                             </div>
-                            <div class="tab-pane fade mt-3" id="documents" role="tabpanel"
-                                aria-labelledby="documents-tab">
-                                2
-                            </div>
+
                             <div class="tab-pane fade mt-3" id="close-account" role="tabpanel"
                                 aria-labelledby="close-account-tab">
                                 <h3>Account Closure</h3>
@@ -276,12 +260,29 @@
                                             <sup class="text-danger">*</sup>
                                         </label>
                                         <select
-                                            style="width: 20%;border-bottom-right-radius: 25px;border-top-left-radius: 25px;"
+                                            style="width: 30%;border-bottom-right-radius: 25px;border-top-left-radius: 25px;"
                                             class="form-select" aria-label="Default select example mt-2">
                                             <option selected>Please select a reason</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option value=" High brokerage and charges"> High brokerage and charges
+                                            </option>
+                                            <option value="Monthly maintenance charges">Monthly maintenance charges
+                                            </option>
+                                            <option value="Need better margins">Need better margins</option>
+                                            <option value="Problem with payment and withdrawal">Problem with payment and
+                                                withdrawal</option>
+                                            <option value="Need better order placement optio">Need better order
+                                                placement optio</option>
+                                            <option value="App crashes">App crashes</option>
+                                            <option value="Need better charts">Need better charts</option>
+                                            <option value="Issue with back office portals">Issue with back office
+                                                portals</option>
+                                            <option value="Problem with customer service ">Problem with customer service
+                                            </option>
+                                            <option value="App is complicated to understand">App is complicated to
+                                                understand</option>
+                                            <option value="Faced losses">Faced losses</option>
+                                            <option value="No time to focus on trading">No time to focus on trading
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -307,11 +308,51 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                <div class="row">
+                    <div class="col-md-6 col-lg-12">
+                        <div class="mb-3">
+                            <label for="account-no" class="form-label">Account Number</label>
+                            <input type="text" class="form-control" id="account-no">
+                          </div>
+                    </div>
+                    <div class="col-md-6 col-lg-12">
+                        <div class="mb-3">
+                            <label for="re-account-no" class="form-label">Conform Account Number</label>
+                            <input type="text" class="form-control" id="re-account-no">
+                          </div>
+                    </div>
+                    <div class="col-md-6 col-lg-12">
+                        <div class="mb-3">
+                            <label for="full-name" class="form-label">Full name as per Bank Account</label>
+                            <input type="text" class="form-control" id="full-name">
+                          </div>
+                    </div>
+                    <div class="col-md-6 col-lg-12">
+                        <label class="form-check-label">Select Account Type</label>
+                        <div class="form-check">
+                            <input class="form-check-input float-end" type="radio" name="flexRadioDefault" id="saving">
+                            <label class="form-check-label" for="saving">
+                             Savings
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input float-end" type="radio" name="flexRadioDefault" id="current" checked>
+                            <label class="form-check-label" for="current">
+                              Current
+                            </label>
+                          </div>
+                    </div>
+                    <div class="col-md-6 col-lg-12">
+                        <div class="mb-3">
+                            <label for="ifsc-code" class="form-label">IFSC Code</label>
+                            <input type="text" class="form-control" id="ifsc-code">
+                          </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
+                <button type="button" class="btn btn-primary">Save</button>
             </div>
         </div>
     </div>

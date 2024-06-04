@@ -294,6 +294,13 @@ export class ProfileComponent implements OnInit {
     this.service.getProfile(this.stroge.username).subscribe((res: any) => {
       console.log("res", res)
       this.profileData = res;
+      this.formObj.AccountName = res.NomineeDetail ? res.NomineeDetail[0].Name : '';
+      this.formObj.PANNo = res.NomineeDetail ? res.NomineeDetail[0].PANNO : '';
+      this.formObj.MobileNo = res.NomineeDetail ? res.NomineeDetail[0].Mobile : '';
+      this.formObj.EmailId = res.NomineeDetail ? res.NomineeDetail[0].EmailID : '';
+      this.formObj.Address1 = res.NomineeDetail ? res.NomineeDetail[0].Address1 + ', ' + res.NomineeDetail[0].Address2 + ', ' + res.NomineeDetail[0].Address3 : '';
+      this.formObj.DematAcName = res.DPDetail[0].DepositoryName;
+      this.formObj.DematAcNo = res.DPDetail[0].DepositoryClientID;
       for (let i in this.profileData.SegmentMaster) {
         if (this.profileData.SegmentMaster[i].TradingAllow == 'Y') {
           this.profileData.SegmentMaster[i].checked = true;

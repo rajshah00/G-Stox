@@ -51,8 +51,8 @@
         </form>
     </ng-container>
 
-    <ng-container>
-        <div class="text-end" *ngIf="FinancialList.length > 0">
+    <ng-container *ngIf="FinancialList.length > 0">
+        <div class="text-end" >
             <input type="submit" value="" (click)="downloadCsv()"
                 class="fa fa-file - excel - o btn btn-default btn - block text-primary me-3 stox-btn btn-2">
             <input type="submit" value="" (click)="downloadAsPDF()"
@@ -77,8 +77,8 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let row of FinancialList" class="whitebg">
-                        <td>{{row.ValueDate}}</td>
-                        <td>{{row.VoucherDate}}</td>
+                        <td>{{row.ValueDate | date:'dd/MM/yyy'}}</td>
+                        <td>{{row.VoucherDate | date:'dd/MM/yyy' }}</td>
                         <td>{{row.Exchange}}</td>
                         <td>{{row.Segment}}</td>
                         <td>{{row.Narration}}</td>
@@ -113,6 +113,11 @@
                     </tr>
                 </tfoot>
             </table>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="FinancialList && !FinancialList.length">
+        <div class="text-center">
+            <h5>Data Not Found</h5>
         </div>
     </ng-container>
 

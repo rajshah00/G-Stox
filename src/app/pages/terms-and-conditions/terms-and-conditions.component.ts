@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 declare var $: any;
 
@@ -14,9 +14,18 @@ export class TermsAndConditionsComponent implements OnInit {
   otp_input: any;
   otpReceived: any;
   isSendOtp: boolean = false;
-  constructor(public service: ApiServiceService,public router: Router) { }
+  itemId: any;
+  constructor(
+    public service: ApiServiceService,
+    public router: Router,
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit() {
+    this.route.params.subscribe((params:any) => {
+      this.itemId = params['id'];
+    });
+
     this.service.getProfile(this.stroge.username).subscribe((res: any) => {
       console.log("res", res)
       this.profileData = res.NomineeDetail;
@@ -61,7 +70,8 @@ export class TermsAndConditionsComponent implements OnInit {
   public sendOtp() {
     let obj = {
       client_code: this.stroge.username,
-      mobile_number: this.profileData[0].Mobile
+      mobile_number: this.profileData[0].Mobile,
+      app_id:this.itemId
     }
     this.service.sendOTP(obj).subscribe((res: any) => {
       if (res.status) {
@@ -82,7 +92,8 @@ export class TermsAndConditionsComponent implements OnInit {
     if (this.otpReceived == this.otp_input) {
       let obj = {
         client_code: this.stroge.username,
-        mobile_number: this.profileData[0].Mobile
+        otp_code: this.otp_input,
+        app_id:this.itemId
       }
       this.service.verifyOTP(obj).subscribe((res: any) => {
         if (res.status) {

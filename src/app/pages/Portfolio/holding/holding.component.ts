@@ -18,7 +18,7 @@ export class HoldingComponent implements OnInit {
   public TotalHoldingValue = 0;
   public TotalValueAfterVAR = 0;
   public TotalNotionalPNL = 0;
-  holdingData: any;
+  holdingData: any = [];
   constructor(public service: ApiServiceService, public auth: AuthInterceptor) { }
   @ViewChild('pdfTable', { static: false }) pdfTable: ElementRef | any;
 

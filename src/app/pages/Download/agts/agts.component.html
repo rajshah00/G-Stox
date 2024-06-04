@@ -1,0 +1,26 @@
+<section class="stox-card">
+    <h1 class="text-center stox-title">Annual Global Transaction Statement</h1>
+    <ng-container>
+        <form class="row g-3" [formGroup]="agtsGroup">
+            <div class="col-md-3">
+                <label for="inputState" class="form-label">FY</label>
+                <select id="inputState" class="form-select"formControlName="financial_year">
+                    <option value="2021-2022">2021-2022</option>
+                    <option value="2022-2023">2022-2023</option>
+                    <option value="2023-2024">2023-2024</option>
+                    <option value="2024-2025">2024-2025</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <div style="margin-top: 27px;">
+                    <input type="submit" value=""
+                        class="fa fa-file - excel - o btn btn-default btn - block text-primary me-3 stox-btn btn-2">
+                    <input type="submit" value=""
+                        class="fa fa-file-pdf-o me-3 btn  btn-default btn-block text-danger stox-btn btn-2">
+
+                </div>
+            </div>
+        </form>
+    </ng-container>
+</section>

@@ -2,7 +2,7 @@
     <h1 class="text-center stox-title">Derivative P&L Report</h1>
     <h2 class="text-center stox-sub-title"> From 01-12-2023 To 31-03-2024</h2>
     <ng-container>
-        <form class="row g-3 mb-3"  [formGroup]="derivativePLGroup" (ngSubmit)="save()">
+        <form class="row g-3 mb-3" [formGroup]="derivativePLGroup" (ngSubmit)="save()">
             <div class="col-md-3">
                 <label for="inputEmail4" class="form-label">From Date</label>
                 <input type="date" class="form-control" id="From" [formControl]="f.FromDate">
@@ -50,7 +50,7 @@
         </form>
     </ng-container>
 
-    <ng-container>
+    <ng-container *ngIf="DerivativePLList && DerivativePLList.length">
         <div class="text-end">
             <input type="submit" value=""
                 class="fa fa-file - excel - o btn btn-default btn - block text-primary me-3 stox-btn btn-2">
@@ -121,5 +121,11 @@
             </table>
         </div>
     </ng-container>
+    <ng-container *ngIf="DerivativePLList && !DerivativePLList.length">
+        <div class="text-center">
+            No Data Found
+        </div>
+    </ng-container>
+
 
 </section>

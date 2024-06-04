@@ -42,12 +42,13 @@ export class ApiServiceService {
     data.Grant_type = "password";
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', });
     const body = new HttpParams({ fromObject: data });
-    console.log("data", data);
-    return this.http.post(environment.API_URL + '/token', body, { headers });
+    // console.log("data", data);
+    // return this.http.post(environment.API_URL + '/token', body, { headers });
+    return this.http.post(environment.BASE_URL +'/login.php', body);
   }
 
   getProfile(ClientCode: any) {
-    return this.http.get<any>(`${environment.API_URL}/Reports/ClientProfile/Get?ClientCode=${ClientCode}`);
+    return this.http.get<any>(`${environment.BASE_URL}/Reports/ClientProfile.php?ClientCode=${ClientCode}`);
   }
 
   getClintDas(ClientCode: any) {
@@ -62,7 +63,7 @@ export class ApiServiceService {
 
   getFinancialLedger(body: any) {
     // const headers = new HttpHeaders({ 'Authorization': 'Bearer FRb1_Nl7QPD3r1Xx_ZOPgKE_LFbXOez5F-oxd3rn-ZiQIReDbnbTJtmP2jZJ0qv0YlAy5h9737lmjxTyxJR5NIw28AQ2xZ5n8U9RzdZSgaRVBE_N3M_FnnPTufLyqAKbrSppNBLDD1lbVfw4zu12MjVZ3QsIT55IuemKgsqUzZ-Rqlrj8ETeqyWTjP_-RAlY1gceQHu_lXnhyHcKhZkhSTfjY5_WFm9HoajuWTCz9eauc6Whb_U_hXtyNoSEtorfGTCwwWNi3wVkra2EO_DiCAMo_CUW8lU0njZb3KO99tTsZfcGUzwX-w9hzzXd2ip4C7dVIc5DJeJkWLOWhwM2otb0Yn6y-Tzotu-uqlLF-7g', });
-    return this.http.post(environment.API_URL + '/Reports/FinancialLedger/Post', body);
+    return this.http.post(environment.BASE_URL + '/Reports/FinancialLedger.php', body);
   }
 
   getClientHolding(body: any) {
@@ -200,20 +201,45 @@ export class ApiServiceService {
   sendOTP(data: any) {
     // const headers = new HttpHeaders({ 'Host': '192.200.8.14:4200' });
     const body = new HttpParams({ fromObject: data });
-    return this.http.post(environment.OTP_URL + '/send_opt.php', body);
+    return this.http.post(environment.BASE_URL + '/app_send_opt.php', body);
   }
 
   verifyOTP(data: any) {
     // const headers = new HttpHeaders({ 'Host': '192.200.8.14:4200' });
     const body = new HttpParams({ fromObject: data });
-    return this.http.post(environment.OTP_URL + '/verify_opt.php', body);
+    return this.http.post(environment.BASE_URL + '/app_verify_opt.php', body);
   }
 
-  
+
   verifyedOTP(data: any) {
     // const headers = new HttpHeaders({ 'Host': '192.200.8.14:4200' });
     const body = new HttpParams({ fromObject: data });
-    return this.http.post(environment.OTP_URL + '/verify.php', body);
+    return this.http.post(environment.BASE_URL + '/verify.php', body);
+  }
+
+  submitApp(data: any) {
+    // const headers = new HttpHeaders({ 'Host': '192.200.8.14:4200' });
+    const body = new HttpParams({ fromObject: data });
+    return this.http.post(environment.BASE_URL + '/create_app.php', body);
+  }
+
+
+  appList(data: any) {
+    // const headers = new HttpHeaders({ 'Host': '192.200.8.14:4200' });
+    const body = new HttpParams({ fromObject: data });
+    return this.http.post(environment.BASE_URL + '/app_list.php', body);
+  }
+
+  deleteApp(data: any) {
+    // const headers = new HttpHeaders({ 'Host': '192.200.8.14:4200' });
+    const body = new HttpParams({ fromObject: data });
+    return this.http.post(environment.BASE_URL + '/app_delete.php', body);
+  }
+
+  expAppList(data: any) {
+    // const headers = new HttpHeaders({ 'Host': '192.200.8.14:4200' });
+    const body = new HttpParams({ fromObject: data });
+    return this.http.post(environment.BASE_URL + '/expiry_app_list.php', body);
   }
 }
 

@@ -21,29 +21,29 @@
                                 cost.</p>
                         </div>
                         <div class="col-md-3 text-right">
-                            <a class="btn btn-primary">Save App</a>
+                            <a class="btn btn-primary" (click)="saveApp(creatAppForm.form)">Save App</a>
                         </div>
                     </div>
-                    <form>
+                    <form #creatAppForm="ngForm">
                         <div class="form-group">
                             <label>App Name</label>
-                            <input type="text" class="form-control" id="" placeholder="Santoo's App 1">
+                            <input type="text" name="app_name" [(ngModel)]="formData.app_name"  class="form-control" id="" placeholder="Santoo's App 1" required>
                         </div>
                         <div class="form-group">
                             <label>Redirect URL</label>
-                            <input type="email" class="form-control" id="" placeholder="https://example.com">
+                            <input type="text" name="redirect_url" [(ngModel)]="formData.redirect_url" class="form-control" id="" placeholder="https://example.com">
                         </div>
                         <div class="form-group">
                             <label>Post back URL</label>
-                            <input type="email" class="form-control" id="" placeholder="https://example.com">
+                            <input type="text" name="post_back_url" [(ngModel)]="formData.post_back_url" class="form-control" id="" placeholder="https://example.com">
                         </div>
                         <div class="form-group">
                             <label>Description (Optianal)</label>
-                            <textarea class="form-control"></textarea>
+                            <textarea class="form-control" name="description" [(ngModel)]="formData.description"></textarea>
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" name="">
-                            <label>I accept the <a href="javascript:;">terms and conditions</a></label>
+                            <input type="checkbox" name="isAccept" [(ngModel)]="formData.isAccept" required>
+                            <label>&nbsp; I accept the <a href="javascript:;">terms and conditions</a></label>
                         </div>
                         <p>Are you looking for strategic partnership for your business?</p>
                     </form>

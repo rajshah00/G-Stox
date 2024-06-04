@@ -1,19 +1,19 @@
 <section class="stox-card">
-    <h1 class="text-center stox-title">Contract Note</h1>
+    <h1 class="text-center stox-title"> Document Management System</h1>
     <ng-container>
-        <form class="row g-3" [formGroup]="contractNoteGroup" (ngSubmit)="save()">
+        <form class="row g-3" [formGroup]="dmsGroup">
             <div class="col-md-3">
                 <label for="inputEmail4" class="form-label">From Date</label>
-                <input type="date" class="form-control" id="From"formControlName="FromDate">
+                <input type="date" class="form-control" id="From" formControlName="FromDate">
             </div>
             <div class="col-md-3">
                 <label for="inputPassword4" class="form-label">To Date</label>
-                <input type="date" class="form-control" id="to"formControlName="ToDate">
+                <input type="date" class="form-control" id="to" formControlName="ToDate">
             </div>
 
             <div class="col-md-3">
                 <label for="inputState" class="form-label">Category</label>
-                <select id="inputState" class="form-select"formControlName="category">
+                <select id="inputState" class="form-select" formControlName="category">
                     <option selected value="Equity">Equity</option>
                 </select>
             </div>

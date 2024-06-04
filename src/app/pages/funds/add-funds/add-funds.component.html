@@ -2,56 +2,61 @@
     <h1 class="text-center stox-title">Add Funds</h1>
     <ng-container>
         <form class="row g-3 mb-3" [formGroup]="AddFundsGroup" (ngSubmit)="save()">
-            <table class="table table-hover table-bordered">
-                <tr>
-                    <td>Client Bank Detail</td>
-                    <td >{{Client_Bank_Detail}}</td>
-                </tr>
-                <tr>
-                    <td><label>Client Code</label></td>
-                    <td><label>{{Client_Code}}</label></td>
-                </tr>    
-                <tr>
-                    <td><label>Client Name</label></td>
-                    <td><label>{{Client_Name}}</label></td>
-                </tr>    
-                <tr>
-                    <td><label for="Amount" class="form-label">Amount</label></td>
-                    <td><input class="form-control" id="Amount" name="Amount" [formControl]="f.Amount"></td>
-                </tr>    
-                <tr>
-                    <td> <label>Gateway Type</label></td>
-                    <td>
-                        <div class="col-xs-6 col-sm-8 col-md-8">
-                            <div class="text-left">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="GatewayType" id="GatewayType1" value="NB" (change)="gateway
+            <div class="container" style="padding: 10px 30px;">
+                <div class="row my-3">
+                    <div class="col-md-4">Client Bank Detail</div>
+                    <div class="col-md-8">{{Client_Bank_Detail}}</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4"><label>Client Code</label></div>
+                    <div class="col-md-8"><label>{{Client_Code}}</label></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4"><label>Client Name</label></div>
+                    <div class="col-md-8"><label>{{Client_Name}}</label></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4"><label for="Amount" class="form-label">Amount</label></div>
+                    <div class="col-md-8"><input class="form-control" id="Amount" name="Amount"
+                            [formControl]="f.Amount"></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4"> <label>Gateway Type</label></div>
+                    <div class="col-md-8">
+                        <div class="text-left">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="GatewayType" id="GatewayType1"
+                                    value="NB" (change)="gateway
                                 ($event)">
-                                    <label class="form-check-label" for="GatewayType1">
-                                        Net Banking
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="GatewayType" id="GatewayType2" value="UPI" checked="" (change)="gateway
+                                <label class="form-check-label" for="GatewayType1">
+                                    Net Banking
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="GatewayType" id="GatewayType2"
+                                    value="UPI" checked="" (change)="gateway
                                     ($event)">
-                                    <label class="form-check-label" for="GatewayType2">
-                                        UPI
-                                    </label>
-                                </div>
+                                <label class="form-check-label" for="GatewayType2">
+                                    UPI
+                                </label>
                             </div>
                         </div>
-                    </td>
-                </tr>    
-                <tr *ngIf="gatewayvalue == 'UPI'">
-                    <td><label for="ClientUPIID" class="form-label">UPI ID</label></td>
-                    <td><input class="text-left input-sm" id="ClientUPIID" name="ClientUPIID" [formControl]="f.ClientUPIID"></td>
-                </tr>    
-                <tr>
-                    <td> <label for="Remark" class="form-label">Remarks</label></td>
-                    <td><input class="text-left input-sm" id="Remark" name="Remark" [formControl]="f.Remark"></td>
-                </tr>    
-                <tr><td><button type="submit" class="btn btn-primary">Save</button></td></tr>
-            </table>    
+                    </div>
+                </div>
+                <div class="row mb-3" *ngIf="gatewayvalue == 'UPI'">
+                    <div class="col-md-4"><label for="ClientUPIID" class="form-label">UPI ID</label></div>
+                    <div class="col-md-8"><input class="text-left input-sm form-control" id="ClientUPIID" name="ClientUPIID"
+                            [formControl]="f.ClientUPIID"></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4"> <label for="Remark" class="form-label">Remarks</label></div>
+                    <div class="col-md-8"><input class="text-left input-sm form-control" id="Remark" name="Remark"
+                            [formControl]="f.Remark"></div>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
         </form>
     </ng-container>
 </section>

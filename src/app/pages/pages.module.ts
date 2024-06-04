@@ -43,6 +43,11 @@ import { WithdrawalComponent } from './funds/withdrawal/withdrawal.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { MyAppsComponent } from './my-apps/my-apps.component';
 import { AddNewAppComponent } from './my-apps/add-new-app/add-new-app.component';
+import { DmsComponent } from './Download/dms/dms.component';
+import { AgtsComponent } from './Download/agts/agts.component';
+import { SttComponent } from './Download/stt/stt.component';
+import { TransactionReportComponent } from './Download/transaction-report/transaction-report.component';
+import { DpHoldingComponent } from './Download/dp-holding/dp-holding.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +87,12 @@ import { AddNewAppComponent } from './my-apps/add-new-app/add-new-app.component'
     WithdrawalComponent,
     TermsAndConditionsComponent,
     MyAppsComponent,
-    AddNewAppComponent
+    AddNewAppComponent,
+    DmsComponent,
+    AgtsComponent,
+    SttComponent,
+    TransactionReportComponent,
+    DpHoldingComponent
   ],
   imports: [
     CommonModule,

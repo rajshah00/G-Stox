@@ -86,6 +86,7 @@ export class FinancialLedgerComponent implements OnInit {
     }
     console.log(this.financialGroup);
   }
+  
   downloadCsv() {
     const selectedFields = ['ValueDate','VoucherDate','Exchange','Segment','Narration','BillNo','ReferenceNo','Debit','Credit','RunningBalance'];
     const csvData = this.convertToCSV(this.FinancialList, selectedFields);

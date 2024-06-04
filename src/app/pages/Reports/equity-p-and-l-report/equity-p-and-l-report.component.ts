@@ -21,6 +21,12 @@ export class EquityPAndLReportComponent implements OnInit {
   authToken = JSON.parse(localStorage.getItem('isLoggedIn') || '')
   data: any
 
+  LongTermTotals: any = {};
+  ShortTermTotal: any;
+  JobbingTotal: any;
+  DividendTotal: any;
+  TotalPL: any;
+
   constructor(public service: ApiServiceService, public auth: AuthInterceptor) { }
 
   ngOnInit(): void {
@@ -45,10 +51,34 @@ export class EquityPAndLReportComponent implements OnInit {
         console.log("res", res)
         if (res) {
           this.LongTermList = res.LongTerm;
+          let data1 = this.LongTermList.map(this.updateCalculations);
+
+          // Calculate totals
+          let totals = this.calculateTotals(data1);
+          this.LongTermTotals = {
+            totalGFPL: parseFloat(totals.totalGFPL.toFixed(2)),
+            totalNetPL: parseFloat(totals.totalNetPL.toFixed(2)),
+            totalGFNETPL: parseFloat(totals.totalGFNETPL.toFixed(2))
+          }
+          // console.log("totals", this.LongTermTotals);
+
           this.ShortTermList = res.ShortTerm;
+          this.ShortTermTotal = this.calculateTotalNetPL(this.ShortTermList).toFixed(2);
+          // console.log("ShortTermTotal", this.ShortTermTotal);
+
           this.JobbingList = res.Jobbing;
+          this.JobbingTotal = this.calculateTotalNetPL(this.JobbingList).toFixed(2);
+          // console.log("JobbingTotal", this.JobbingTotal);
+
+          this.TotalPL = parseFloat(this.ShortTermTotal) + parseFloat(this.JobbingTotal);
+          this.TotalPL = this.TotalPL.toFixed(2)
+
           this.HoldingDetailList = res.HoldingDetail;
+
           this.DividendDetailList = res.DividendDetail;
+          this.DividendTotal = this.calculateTotal(this.DividendDetailList, 'Dividend').toFixed(2);
+          // console.log("DividendTotal", this.DividendTotal);
+
           this.MinusHoldingDetailList = res.MinusHoldingDetail;
         }
       }, (err: any) => {
@@ -68,7 +98,7 @@ export class EquityPAndLReportComponent implements OnInit {
           "Jobbing": res.Jobbing,
           "Holding Detail": res.HoldingDetail,
           "Dividend Detail": res.DividendDetail,
-          "Short Sell":res.MinusHoldingDetail
+          "Short Sell": res.MinusHoldingDetail
         };
         console.log("res", res)
         this.exportAsExcelFile();
@@ -104,5 +134,45 @@ export class EquityPAndLReportComponent implements OnInit {
       'combinedData.xlsx'
     );
   }
+
+
+  // Function to dynamically update calculations
+  updateCalculations(entry: any) {
+    entry.BuyValue = entry.Quantity * entry.BuyRate;
+    entry.SaleValue = entry.Quantity * entry.SaleRate;
+    entry.PLPerShare = entry.SaleRate - entry.BuyRate;
+    entry.NetPL = entry.Quantity * entry.PLPerShare;
+    entry.GFNETPL = entry.NetPL;
+    return entry;
+  }
+
+  // Function to calculate totals
+  calculateTotals(data: any) {
+    return data.reduce((totals: any, entry: any) => {
+      totals.totalGFPL += entry.GFPL;
+      totals.totalNetPL += entry.NetPL;
+      totals.totalGFNETPL += entry.GFNETPL;
+      return totals;
+    }, { totalGFPL: 0, totalNetPL: 0, totalGFNETPL: 0 });
+  }
+
+
+  calculateTotalNetPL(data: any) {
+    let totalNetPL = 0;
+    for (let entry of data) {
+      totalNetPL += entry.NetPL;
+    }
+    return totalNetPL;
+  }
+
+  calculateTotal(data: any, type: any) {
+    let totalNetPL = 0;
+    for (let entry of data) {
+      totalNetPL += entry[type];
+    }
+    return totalNetPL;
+  }
+
+
 
 }

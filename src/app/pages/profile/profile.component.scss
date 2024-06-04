@@ -218,3 +218,7 @@ input[switch="warning"]:checked+label {
 input[switch="warning"]:checked+label:before {
   color: #fff !important;
 }
+
+.form-check{
+  padding-right: 1.5rem;
+}

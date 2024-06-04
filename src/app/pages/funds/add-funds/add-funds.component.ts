@@ -38,7 +38,7 @@ export class AddFundsComponent implements OnInit {
         this.service.getBankDetail(this.stroge.username,this.BankID).subscribe((resInner: any) => {
           console.log("resInner", resInner)
           if(resInner){
-            this.Client_Bank_Detail = resInner[0].BankName+' ('+resInner[0].BankAccountNumber+')';
+            this.Client_Bank_Detail = resInner[0].BankName+' ('+this.maskString(resInner[0].BankAccountNumber)+')';
           } 
     
         }, (err: any) => {
@@ -72,5 +72,21 @@ export class AddFundsComponent implements OnInit {
     this.gatewayvalue = event.target.value;
     
   }
+
+   maskString(input:any) {
+    // Convert the input to a string (in case it's not)
+    let str = input.toString();
+
+    // Calculate the length of the masked part
+    let maskLength = str.length - 4;
+
+    // Create the masked part
+    let maskedPart = '*'.repeat(maskLength);
+
+    // Combine the masked part and the last four characters
+    let result = maskedPart + str.substring(str.length - 4);
+
+    return result;
+}
 
 }

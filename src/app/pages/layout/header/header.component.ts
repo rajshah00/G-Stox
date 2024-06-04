@@ -47,4 +47,12 @@ export class HeaderComponent implements OnInit {
     })
   }
 
+  navigate() {
+    this.router.navigate(['/home/my-apps']);
+    // if (!this.isVerified) {
+    //   this.router.navigate(['/home/terms-and-conditions'])
+    // } else {
+    // }
+  }
+
 }

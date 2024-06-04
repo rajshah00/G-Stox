@@ -12,7 +12,7 @@
                 <input type="date" class="form-control" id="to" [formControl]="f.ToDate">
             </div>
             <div class="col-md-3">
-                <div class="form-check">
+                <div class="form-check mt-4">
                     <div class="mt-2">
                         <label class="form-check-label" for="gridCheck">
                             Date Range Flag
@@ -36,61 +36,63 @@
         </div>
         <ul class="nav nav-tabs mt-2" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="barChart-tab" data-bs-toggle="tab"
-                    data-bs-target="#barChart" type="button" role="tab"
-                    aria-controls="barChart" aria-selected="true">Capital Gain</button>
+                <button class="nav-link active" id="barChart-tab" data-bs-toggle="tab" data-bs-target="#barChart"
+                    type="button" role="tab" aria-controls="barChart" aria-selected="true">Capital Gain</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="tab-table2-tab" data-bs-toggle="tab"
-                    data-bs-target="#tab-table2" type="button" role="tab" aria-controls="tab-table2"
-                    aria-selected="false">
+                <button class="nav-link" id="tab-table2-tab" data-bs-toggle="tab" data-bs-target="#tab-table2"
+                    type="button" role="tab" aria-controls="tab-table2" aria-selected="false">
                     Long Term
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="tab-table3-tab" data-bs-toggle="tab"
-                    data-bs-target="#tab-table3" type="button" role="tab" aria-controls="tab-table3"
-                    aria-selected="false">
+                <button class="nav-link" id="tab-table3-tab" data-bs-toggle="tab" data-bs-target="#tab-table3"
+                    type="button" role="tab" aria-controls="tab-table3" aria-selected="false">
                     Short Term
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="tab-table4-tab" data-bs-toggle="tab"
-                    data-bs-target="#tab-table4" type="button" role="tab" aria-controls="tab-table4"
-                    aria-selected="false">Jobbing</button>
+                <button class="nav-link" id="tab-table4-tab" data-bs-toggle="tab" data-bs-target="#tab-table4"
+                    type="button" role="tab" aria-controls="tab-table4" aria-selected="false">Jobbing</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="tab-table5-tab" data-bs-toggle="tab"
-                    data-bs-target="#tab-table5" type="button" role="tab"
-                    aria-controls="tab-table5" aria-selected="false">
+                <button class="nav-link" id="tab-table5-tab" data-bs-toggle="tab" data-bs-target="#tab-table5"
+                    type="button" role="tab" aria-controls="tab-table5" aria-selected="false">
                     Holding
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="tab-table7-tab" data-bs-toggle="tab"
-                    data-bs-target="#tab-table7" type="button" role="tab"
-                    aria-controls="tab-table7" aria-selected="false">
+                <button class="nav-link" id="tab-table7-tab" data-bs-toggle="tab" data-bs-target="#tab-table7"
+                    type="button" role="tab" aria-controls="tab-table7" aria-selected="false">
                     Dividend
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="tab-table8-tab" data-bs-toggle="tab"
-                    data-bs-target="#tab-table8" type="button" role="tab"
-                    aria-controls="tab-table8" aria-selected="false">
+                <button class="nav-link" id="tab-table8-tab" data-bs-toggle="tab" data-bs-target="#tab-table8"
+                    type="button" role="tab" aria-controls="tab-table8" aria-selected="false">
                     Short Sell
                 </button>
             </li>
-            <li style="float: right;border: 1px solid #ffffff !important;">
+            <!-- <li style="float: right;border: 1px solid #ffffff !important;">
                 <p>* For Derivative P&amp;L available in excel format only</p>
-            </li>
+            </li> -->
         </ul>
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active " id="barChart" role="tabpanel"
-                aria-labelledby="barChart-tab">
-                Capital Gain
+            <div class="tab-pane fade show active mt-3" id="barChart" role="tabpanel" aria-labelledby="barChart-tab">
+                <div class="capital-gain">
+                    <button>Long Term PL  <br> {{LongTermTotals.totalNetPL || 0.00}}</button>
+                    <button>Short Term PL  <br> {{ShortTermTotal || 0.00}}</button>
+                    <button>JobbingPL  <br> {{JobbingTotal || 0.00}}</button>
+                    <button>Total PL  <br> {{TotalPL}}</button>
+                    <button>Investment <br> 0</button>
+                    <button>Net Worth  <br> 0</button>
+                    <button>Dividend  <br> {{DividendTotal || 0.00}}</button>
+                    <button>Receipt  <br> 0</button>
+                    <button>Short Term PL  <br> 0</button>
+                    <button>Payment  <br> 0</button>
+                </div>
             </div>
-            <div class="tab-pane fade mt-3" id="tab-table2" role="tabpanel"
-                aria-labelledby="tab-table2-tab">
+            <div class="tab-pane fade mt-3" id="tab-table2" role="tabpanel" aria-labelledby="tab-table2-tab">
                 <div class="table-responsive mt-2">
                     <table class="table table-hover table-bordered">
                         <thead class="table-dark">
@@ -98,46 +100,45 @@
                                 <th>#</th>
                                 <th>Scrip Name</th>
                                 <th>ISIN</th>
-                                <th>Net PL</th>
-                                <th>GF PL</th>
-                                <th>Net PL After GF PL</th>
                                 <th>Buy Date</th>
                                 <th>Sale Date</th>
                                 <th>Quantity</th>
                                 <th>Buy Rate</th>
                                 <th>Sale Rate</th>
-                                <th>Net PL</th>
                                 <th>Days</th>
                                 <th>GF Rate</th>
                                 <th>GF PL</th>
+                                <th>Net PL</th>
                                 <th>Net PL After GF PL</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let row of LongTermList" class="whitebg">
-                                <td></td>
+                                <td>+</td>
                                 <td>{{row.ScripName}}</td>
                                 <td>{{row.ISINCode}}</td>
-                                <td>{{row.NetPL}}</td>
-                                <td>{{row.GFPL}}</td>
-                                <td>{{row.GFNETPL}}</td>
-                                <td>{{row.BuyDate}}</td>
-                                <td>{{row.SaleDate}}</td>
+                                <td>{{row.BuyDate | date:'dd/MM/yyyy'}}</td>
+                                <td>{{row.SaleDate | date:'dd/MM/yyyy'}}</td>
                                 <td>{{row.Quantity}}</td>
                                 <td>{{row.BuyRate}}</td>
                                 <td>{{row.SaleRate}}</td>
-                                <td>{{row.NetPL}}</td>
                                 <td>{{row.Days}}</td>
                                 <td>{{row.GFRate}}</td>
                                 <td>{{row.GFPL}}</td>
+                                <td>{{row.NetPL}}</td>
                                 <td>{{row.GFNETPL}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="10">Total</td>
+                                <td>{{LongTermTotals.totalGFPL || '0.00'}}</td>
+                                <td>{{LongTermTotals.totalNetPL || '0.00'}}</td>
+                                <td>{{LongTermTotals.totalGFNETPL || '0.00'}}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="tab-pane fade mt-3" id="tab-table3" role="tabpanel"
-                aria-labelledby="tab-table3-tab">
+            <div class="tab-pane fade mt-3" id="tab-table3" role="tabpanel" aria-labelledby="tab-table3-tab">
                 <div class="row">
                     <div class="table-responsive mt-2">
                         <table class="table table-hover table-bordered">
@@ -146,37 +147,42 @@
                                     <th>#</th>
                                     <th>Scrip Name</th>
                                     <th>ISIN</th>
-                                    <th>Net PL</th>
                                     <th>Buy Date</th>
                                     <th>Sale Date</th>
                                     <th>Quantity</th>
                                     <th>Buy Rate</th>
                                     <th>Sale Rate</th>
-                                    <th>Net PL</th>
                                     <th>Days</th>
+                                    <th>Net PL</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let row of ShortTermList" class="whitebg">
-                                    <td></td>
+                                    <td>+</td>
                                     <td>{{row.ScripName}}</td>
                                     <td>{{row.ISINCode}}</td>
-                                    <td>{{row.NetPL}}</td>
-                                    <td>{{row.BuyDate}}</td>
-                                    <td>{{row.SaleDate}}</td>
+                                    <td>{{row.BuyDate | date:'dd/MM/yyyy'}}</td>
+                                    <td>{{row.SaleDate | date:'dd/MM/yyyy'}}</td>
                                     <td>{{row.Quantity}}</td>
                                     <td>{{row.BuyRate}}</td>
                                     <td>{{row.SaleRate}}</td>
-                                    <td>{{row.NetPL}}</td>
                                     <td>{{row.Days}}</td>
+                                    <td>{{row.NetPL}}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="9">
+                                        Total Value
+                                    </td>
+                                    <td>
+                                        {{ShortTermTotal || 0.00}}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade mt-3" id="tab-table4" role="tabpanel"
-                aria-labelledby="tab-table4-tab">
+            <div class="tab-pane fade mt-3" id="tab-table4" role="tabpanel" aria-labelledby="tab-table4-tab">
                 <div class="table-responsive mt-2">
                     <table class="table table-hover table-bordered">
                         <thead class="table-dark">
@@ -184,7 +190,6 @@
                                 <th>#</th>
                                 <th>Scrip Name</th>
                                 <th>ISIN</th>
-                                <th>Net PL</th>
                                 <th>Trade Date</th>
                                 <th>Quantity</th>
                                 <th>Buy Rate</th>
@@ -194,22 +199,24 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let row of JobbingList" class="whitebg">
-                                <td></td>
+                                <td>+</td>
                                 <td>{{row.ScripName}}</td>
                                 <td>{{row.ISINCode}}</td>
-                                <td>{{row.NetPL}}</td>
-                                <td>{{row.BuyDate}}</td>
+                                <td>{{row.BuyDate | date:'dd/MM/yyyy'}}</td>
                                 <td>{{row.Quantity}}</td>
                                 <td>{{row.BuyRate}}</td>
                                 <td>{{row.SaleRate}}</td>
                                 <td>{{row.NetPL}}</td>
                             </tr>
+                            <tr>
+                                <td colspan="7">Total</td>
+                                <td>{{JobbingTotal || 0.00}}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="tab-pane fade mt-3" id="tab-table5" role="tabpanel"
-                aria-labelledby="tab-table5-tab">
+            <div class="tab-pane fade mt-3" id="tab-table5" role="tabpanel" aria-labelledby="tab-table5-tab">
                 <div class="table-responsive mt-2">
                     <table class="table table-hover table-bordered">
                         <thead class="table-dark">
@@ -223,44 +230,32 @@
                                 <th>Close Rate</th>
                                 <th>Net Value</th>
                                 <th>Gain Loss</th>
-                                <th>Buy Date</th>
-                                <th>Quantity</th>
-                                <th>Buy Rate</th>
-                                <th>Investment Value</th>
-                                <th>Close Rate</th>
-                                <th>Net Value</th>
-                                <th>Gain Loss</th>
-                                <th>Abs Return%</th>
-                                <th>CAGR%</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let row of HoldingDetailList" class="whitebg">
-                                <td></td>
+                                <td>+</td>
                                 <td>{{row.ScripName}}</td>
                                 <td>{{row.ISINCode}}</td>
                                 <td>{{row.Quantity}}</td>
                                 <td>{{row.BuyRate}}</td>
-                                <td>Investment Value</td>
-                                <td>Close Rate</td>
-                                <td>Net Value</td>
-                                <td>Gain Loss</td>
-                                <td>{{row.BuyDate}}</td>
-                                <td>{{row.Quantity}}</td>
-                                <td>Buy Rate</td>
-                                <td>Investment Value</td>
-                                <td>Close Rate</td>
-                                <td>Net Value</td>
-                                <td>Gain Loss</td>
-                                <td>Abs Return%</td>
-                                <td>CAGR%</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5">Total</td>
+                                <td>10</td>
+                                <td></td>
+                                <td>10</td>
+                                <td>10</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="tab-pane fade mt-3" id="tab-table7" role="tabpanel"
-                aria-labelledby="tab-table7-tab">
+            <div class="tab-pane fade mt-3" id="tab-table7" role="tabpanel" aria-labelledby="tab-table7-tab">
                 <div class="table-responsive mt-2">
                     <table class="table table-hover table-bordered">
                         <thead class="table-dark">
@@ -276,20 +271,23 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let row of DividendDetailList" class="whitebg">
-                                <td></td>
+                                <td>+</td>
                                 <td>{{row.ScripName}}</td>
                                 <td>{{row.ISINCode}}</td>
-                                <td>{{row.BuyDate}}</td>
-                                <td>{{row.SaleDate}}</td>
+                                <td>{{row.BuyDate | date:'dd/MM/yyyyy'}}</td>
+                                <td>{{row.SaleDate | date:'dd/MM/yyyyy'}}</td>
                                 <td>{{row.Quantity}}</td>
                                 <td>{{row.Dividend}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="6">Total</td>
+                                <td>{{DividendTotal || 0.00}}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="tab-pane fade mt-3" id="tab-table8" role="tabpanel"
-            aria-labelledby="tab-table8-tab">
+            <div class="tab-pane fade mt-3" id="tab-table8" role="tabpanel" aria-labelledby="tab-table8-tab">
                 <div class="table-responsive mt-2">
                     <table class="table table-hover table-bordered">
                         <thead class="table-dark">
@@ -305,13 +303,17 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let row of MinusHoldingDetailList" class="whitebg">
-                                <td></td>
+                                <td>+</td>
                                 <td>{{row.ScripName}}</td>
                                 <td>{{row.ISINCode}}</td>
                                 <td>{{row.SaleDate}}</td>
                                 <td>{{row.Quantity}}</td>
                                 <td>{{row.SaleRate}}</td>
                                 <td>{{row.SaleValue}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="6">Total</td>
+                                <td>0.00</td>
                             </tr>
                         </tbody>
                     </table>
