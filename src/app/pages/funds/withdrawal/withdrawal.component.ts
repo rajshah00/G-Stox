@@ -44,7 +44,8 @@ export class WithdrawalComponent implements OnInit {
 
   public save() {
     if (this.WithdrawalGroup.valid) {
-      this.service.getFinancialLedger(this.WithdrawalGroup.value).subscribe((res: any) => {
+      const formData = this.service.buildFormData(this.WithdrawalGroup.value);
+      this.service.getFinancialLedger(formData).subscribe((res: any) => {
       }, (err: any) => {
         console.log("err", err)
       })

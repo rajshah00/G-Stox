@@ -18,10 +18,13 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.LoginUsername = this.stroge.username;
     this.service.getProfile(this.stroge.username).subscribe((res: any) => {
       console.log("res", res)
       this.profileData = res.NomineeDetail;
-      this.verifyedUser()
+      if(this.profileData){
+        this.verifyedUser();
+      }
     }, (err: any) => {
       console.log("err", err)
     })

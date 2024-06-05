@@ -43,10 +43,15 @@ export class HoldingComponent implements OnInit {
 
   public save() {
     if (this.holdingGroup.valid) {
-      this.service.getClientHolding(this.holdingGroup.value).subscribe((res: any) => {
+      const formData = this.service.buildFormData(this.holdingGroup.value);
+      this.service.getClientHolding(formData).subscribe((res: any) => {
         console.log("res", res)
         if (res) {
           this.holdingData = res.data
+          this.TotalMarginPledgeVal = this.calculateTotal(this.holdingData, 'ColletralHaircutValue');
+          this.TotalHoldingValue = this.calculateTotal(this.holdingData, 'DPHoldingValue');
+          this.TotalValueAfterVAR = this.calculateTotal(this.holdingData, 'TotalHaircutValue');
+          this.TotalNotionalPNL = this.calculateTotal(this.holdingData, 'NotionalPNL');
         }
       }, (err: any) => {
         console.log("err", err)
@@ -84,5 +89,13 @@ export class HoldingComponent implements OnInit {
     });
 
     // doc.save('tableToPdf.pdf');
+  }
+
+  calculateTotal(data: any, type: any) {
+    let totalNetPL = 0;
+    for (let entry of data) {
+      totalNetPL += entry[type];
+    }
+    return totalNetPL;
   }
 }

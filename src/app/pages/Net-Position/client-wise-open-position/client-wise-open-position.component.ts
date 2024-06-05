@@ -33,7 +33,8 @@ export class ClientWiseOpenPositionComponent implements OnInit {
     console.log("this.netPositionGroup", this.netPositionGroup);
     return
     if (this.netPositionGroup.valid) {
-      this.service.getClientHolding(this.netPositionGroup.value).subscribe((res: any) => {
+      const formData = this.service.buildFormData(this.netPositionGroup.value);
+      this.service.getClientHolding(formData).subscribe((res: any) => {
         console.log("res", res)
       }, (err: any) => {
         console.log("err", err)

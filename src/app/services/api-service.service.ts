@@ -32,6 +32,20 @@ export class ApiServiceService {
     });
   }
 
+  buildFormData(data: any, formData: FormData = new FormData(), parentKey: string | null = null): FormData {
+    if (data && typeof data === 'object' && !(data instanceof Date) && !(data instanceof File)) {
+      Object.keys(data).forEach(key => {
+        this.buildFormData(data[key], formData, parentKey ? `${parentKey}[${key}]` : key);
+      });
+    } else {
+      if (data instanceof Date) {
+        data = data.toISOString();
+      }
+      formData.append(parentKey!, data);
+    }
+    return formData;
+  }
+
 
   isAuthenticated(): boolean {
     const authToken = JSON.parse(localStorage.getItem('isLoggedIn') || '');
@@ -44,15 +58,15 @@ export class ApiServiceService {
     const body = new HttpParams({ fromObject: data });
     // console.log("data", data);
     // return this.http.post(environment.API_URL + '/token', body, { headers });
-    return this.http.post(environment.BASE_URL +'/login.php', body);
+    return this.http.post(environment.BASE_URL +'/backoffice/login.php', body);
   }
 
   getProfile(ClientCode: any) {
-    return this.http.get<any>(`${environment.BASE_URL}/Reports/ClientProfile.php?ClientCode=${ClientCode}`);
+    return this.http.get<any>(`${environment.BASE_URL}/backoffice/Reports/ClientProfile.php?ClientCode=${ClientCode}`);
   }
 
   getClintDas(ClientCode: any) {
-    return this.http.get<any>(`${environment.API_URL}/Common/ClientDashBoard/Get?ClientCode=${ClientCode}`);
+    return this.http.get<any>(`${environment.BASE_URL}/backoffice/Common/ClientDashBoard.php?ClientCode=${ClientCode}`);
   }
 
   getSegmentBalance(data: any) {
@@ -63,19 +77,19 @@ export class ApiServiceService {
 
   getFinancialLedger(body: any) {
     // const headers = new HttpHeaders({ 'Authorization': 'Bearer FRb1_Nl7QPD3r1Xx_ZOPgKE_LFbXOez5F-oxd3rn-ZiQIReDbnbTJtmP2jZJ0qv0YlAy5h9737lmjxTyxJR5NIw28AQ2xZ5n8U9RzdZSgaRVBE_N3M_FnnPTufLyqAKbrSppNBLDD1lbVfw4zu12MjVZ3QsIT55IuemKgsqUzZ-Rqlrj8ETeqyWTjP_-RAlY1gceQHu_lXnhyHcKhZkhSTfjY5_WFm9HoajuWTCz9eauc6Whb_U_hXtyNoSEtorfGTCwwWNi3wVkra2EO_DiCAMo_CUW8lU0njZb3KO99tTsZfcGUzwX-w9hzzXd2ip4C7dVIc5DJeJkWLOWhwM2otb0Yn6y-Tzotu-uqlLF-7g', });
-    return this.http.post(environment.BASE_URL + '/Reports/FinancialLedger.php', body);
+    return this.http.post(environment.BASE_URL + '/backoffice/Reports/FinancialLedger.php', body);
   }
 
   getClientHolding(body: any) {
-    return this.http.post(environment.API_URL + '/Reports/ClientHolding/Post', body);
+    return this.http.post(environment.BASE_URL + '/backoffice/Reports/ClientHolding.php', body);
   }
 
   getDerivativeNetPosition(data: any) {
-    return this.http.post(environment.API_URL + '/Reports/DerivativeNetPosition/Post', data);
+    return this.http.post(environment.BASE_URL + '/backoffice/Reports/DerivativeNetPosition.php', data);
   }
 
   getEquityLongShort(data: any) {
-    return this.http.post(environment.API_URL + '/Reports/EquityLongShort/Post', data);
+    return this.http.post(environment.BASE_URL + '/backoffice/Reports/EquityLongShort.php', data);
   }
 
   getClientMasterDetail(body: any) {
@@ -115,7 +129,7 @@ export class ApiServiceService {
   }
 
   getBankDetail(ClientCode: any, BankID: any) {
-    return this.http.get<any>(`${environment.API_URL}/Masters/BankDetail/Get?Code=${ClientCode}&BankID=${BankID}&BankType=D`);
+    return this.http.get<any>(`${environment.BASE_URL}/backoffice/Masters/BankDetail.php?Code=${ClientCode}&BankID=${BankID}&BankType=D`);
   }
 
   getPaymentRequest(data: any) {
@@ -138,7 +152,7 @@ export class ApiServiceService {
   }
 
   getFIFONetPositionReport(data: any) {
-    return this.http.post(environment.API_URL + '/Reports/FIFONetPositionReport/Post', data);
+    return this.http.post(environment.BASE_URL + '/backoffice/Reports/FIFONetPositionReport.php', data);
   }
 
   getEquityPnLReportWeb(data: any) {
@@ -241,6 +255,15 @@ export class ApiServiceService {
     const body = new HttpParams({ fromObject: data });
     return this.http.post(environment.BASE_URL + '/expiry_app_list.php', body);
   }
+
+  getOrionEKYCDetail(body: any) {
+    return this.http.get<any>(`${environment.BASE_URL}/backoffice/Masters/GetOrionEKYCDetail.php?Code=${body.ClientCode}&ClientType=A`);
+  }
+
+  saveProfileDetail(body: any) {
+     return this.http.post(environment.BASE_URL + '/backoffice/Reports/FinancialLedger.php', body);
+  }
+
 }
 
 

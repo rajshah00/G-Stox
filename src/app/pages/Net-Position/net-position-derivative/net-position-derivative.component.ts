@@ -29,6 +29,7 @@ export class NetPositionDerivativeComponent implements OnInit {
       ExpiryDate: new FormControl(''),
       StrikePrice: new FormControl(''),
       OptionType: new FormControl('ALL'),
+      ReportType: new FormControl('CLIENT')
     });
   }
 
@@ -40,7 +41,8 @@ export class NetPositionDerivativeComponent implements OnInit {
 
   public save() {
     if (this.netPositionGroup.valid) {
-      this.service.getDerivativeNetPosition(this.netPositionGroup.value).subscribe((res: any) => {
+      const formData = this.service.buildFormData(this.netPositionGroup.value);
+      this.service.getDerivativeNetPosition(formData).subscribe((res: any) => {
         console.log("res", res)
         if (res) {
           this.NetPositionGroupList = res.PositionData;
@@ -69,7 +71,7 @@ export class NetPositionDerivativeComponent implements OnInit {
       'MTM'];
     const csvData = this.convertToCSV(this.NetPositionGroupList, selectedFields);
     const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
-    saveAs(blob, 'holdingData.csv');
+    saveAs(blob, 'Net_Position_Derivative.csv');
   }
 
   private convertToCSV(data: any[], selectedFields: string[]): string {
@@ -91,7 +93,7 @@ export class NetPositionDerivativeComponent implements OnInit {
       const imgHeight = canvas.height * ratio;
 
       doc.addImage(imgData, 'PNG', 0, 10, pdfWidth, imgHeight);
-      doc.save('holdingData.pdf');
+      doc.save('Net_Position_Derivative.pdf');
     });
 
     // doc.save('tableToPdf.pdf');

@@ -74,11 +74,15 @@ export class FinancialLedgerComponent implements OnInit {
 
   public save() {
     if (this.financialGroup.valid) {
-      this.service.getFinancialLedger(this.financialGroup.value).subscribe((res: any) => {
+      const formData = this.service.buildFormData(this.financialGroup.value);
+      this.service.getFinancialLedger(formData).subscribe((res: any) => {
         console.log("res", res);
         if (res) {
           console.log('res.Financial',res.Financial);
           this.FinancialList = res.Financial;
+          this.TotalDebit = this.calculateTotal(this.FinancialList,'Debit');
+          this.TotalCredit = this.calculateTotal(this.FinancialList,'Credit');
+          this.TotaRunningBalance = this.calculateTotal(this.FinancialList,'RunningBalance');
         }
       }, (err: any) => {
         console.log("err", err)
@@ -86,7 +90,7 @@ export class FinancialLedgerComponent implements OnInit {
     }
     console.log(this.financialGroup);
   }
-  
+
   downloadCsv() {
     const selectedFields = ['ValueDate','VoucherDate','Exchange','Segment','Narration','BillNo','ReferenceNo','Debit','Credit','RunningBalance'];
     const csvData = this.convertToCSV(this.FinancialList, selectedFields);
@@ -118,5 +122,13 @@ export class FinancialLedgerComponent implements OnInit {
     });
 
     // doc.save('tableToPdf.pdf');
+  }
+
+  calculateTotal(data: any, type: any) {
+    let totalNetPL = 0;
+    for (let entry of data) {
+      totalNetPL += entry[type];
+    }
+    return totalNetPL;
   }
 }

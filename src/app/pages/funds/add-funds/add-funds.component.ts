@@ -58,7 +58,8 @@ export class AddFundsComponent implements OnInit {
 
   public save() {
     if (this.AddFundsGroup.valid) {
-      this.service.getFinancialLedger(this.AddFundsGroup.value).subscribe((res: any) => {
+      const formData = this.service.buildFormData(this.AddFundsGroup.value);
+      this.service.getFinancialLedger(formData).subscribe((res: any) => {
         console.log("res", res);
       }, (err: any) => {
         console.log("err", err)

@@ -47,7 +47,8 @@ export class EquityPAndLReportComponent implements OnInit {
   public save() {
     if (this.longShortGroup.valid) {
       // this.longShortGroup.value.ExportFormat = 1;
-      this.service.getEquityLongShort(this.longShortGroup.value).subscribe((res: any) => {
+      const formData = this.service.buildFormData(this.longShortGroup.value);
+      this.service.getEquityLongShort(formData).subscribe((res: any) => {
         console.log("res", res)
         if (res) {
           this.LongTermList = res.LongTerm;
@@ -91,7 +92,8 @@ export class EquityPAndLReportComponent implements OnInit {
   public Export(type: any) {
     if (this.longShortGroup.valid) {
       this.longShortGroup.value.ExportFormat = type;
-      this.service.getEquityLongShort(this.longShortGroup.value).subscribe((res: any) => {
+      const formData = this.service.buildFormData(this.longShortGroup.value);
+      this.service.getEquityLongShort(formData).subscribe((res: any) => {
         this.data = {
           "Long Term": res.LongTerm,
           "Short Term": res.ShortTerm,

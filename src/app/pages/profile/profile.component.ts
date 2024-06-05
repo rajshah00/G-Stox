@@ -20,285 +20,22 @@ export class ProfileComponent implements OnInit {
   stroge: any = JSON.parse(localStorage.getItem("isLoggedIn") || '')
   profileData: any;
   changeType: any;
+  BankDetail: any;
+  allData: any;
   constructor(public service: ApiServiceService) {
-    // this.profileData = {
-    //   "MasterData": [],
-    //   "BankDetail": [
-    //       {
-    //           "FirmID": "1001",
-    //           "BankID": "AAAWI3AAEAAB0XBAAc",
-    //           "ClientCode": "G060",
-    //           "PrimaryFlag": "Y",
-    //           "BankAccountNumber": "00060340013069",
-    //           "BankAccountType": "Current Account",
-    //           "BankIFSC": "HDFC0000006",
-    //           "BankMICR": "380240002",
-    //           "ChequePrintName": null,
-    //           "BankCode": "HDFC",
-    //           "BankName": "HDFC BANK LTD",
-    //           "BankAddress1": "HDFC HOUSE, 1ST FLOORNEAR MITHAKALI",
-    //           "BankAddress2": "SIX ROADS,",
-    //           "BankAddress3": "NAVRANGPURAAHMEDABADGUJARAT380 009",
-    //           "BankCity": null,
-    //           "BankPincode": "380009",
-    //           "BankState": "Gujarat",
-    //           "BankSateOther": null,
-    //           "BankCountry": "India",
-    //           "POAFlag": "N",
-    //           "POADate": null,
-    //           "Delete": "N",
-    //           "CustomerID": null,
-    //           "UMRN": null,
-    //           "ECSMandateDate": null,
-    //           "ECSFromDate": null,
-    //           "ECSToDate": null,
-    //           "ECSUntilCancel": null,
-    //           "ECSStatus": null,
-    //           "ECSFrequency": null,
-    //           "ECSLimit": null,
-    //           "AutoDebit": null,
-    //           "RejectionReason": null,
-    //           "RBIApprovalNo": null,
-    //           "PISAccountNo": null,
-    //           "ACHCustomerID": null,
-    //           "ActiveFlag": "N",
-    //           "BankShortCode": "HDFC",
-    //           "PGCode": "3021",
-    //           "BankDomain": null,
-    //           "FundMandate": null
-    //       }
-    //   ],
-    //   "SegmentMaster": [
-    //       {
-    //           "FirmID": "1001",
-    //           "ClientCode": "G060",
-    //           "ExchangeID": "BSE",
-    //           "ExchangeName": "BOMBAY STOCK EXCHANGE LTD",
-    //           "SegmentID": "CAP",
-    //           "SegmentName": "Capital Market",
-    //           "ActiveDate": "2004-02-24T00:00:00",
-    //           "InactiveDate": null,
-    //           "TradingAllow": "Y",
-    //           "Remarks": null,
-    //           "CPCode": null,
-    //           "CMID": null,
-    //           "UCCExported": "Y",
-    //           "UCCExportDate": "2023-09-06T16:32:57",
-    //           "UCCExportBy": "em0382",
-    //           "UCCSuccess": "Y",
-    //           "UCCClassification": null,
-    //           "ExchangeVerification": null,
-    //           "CPCodePledge": null
-    //       },
-    //       {
-    //           "FirmID": "1001",
-    //           "ClientCode": "G060",
-    //           "ExchangeID": "BSE",
-    //           "ExchangeName": "BOMBAY STOCK EXCHANGE LTD",
-    //           "SegmentID": "COM",
-    //           "SegmentName": "Commodity Derivative",
-    //           "ActiveDate": null,
-    //           "InactiveDate": null,
-    //           "TradingAllow": "N",
-    //           "Remarks": null,
-    //           "CPCode": null,
-    //           "CMID": null,
-    //           "UCCExported": "N",
-    //           "UCCExportDate": null,
-    //           "UCCExportBy": null,
-    //           "UCCSuccess": "N",
-    //           "UCCClassification": null,
-    //           "ExchangeVerification": null,
-    //           "CPCodePledge": null
-    //       },
-    //       {
-    //           "FirmID": "1001",
-    //           "ClientCode": "G060",
-    //           "ExchangeID": "BSE",
-    //           "ExchangeName": "BOMBAY STOCK EXCHANGE LTD",
-    //           "SegmentID": "FNO",
-    //           "SegmentName": "Capital Derivative",
-    //           "ActiveDate": "2023-10-31T00:00:00",
-    //           "InactiveDate": null,
-    //           "TradingAllow": "Y",
-    //           "Remarks": "SEBI_Trading_Preference",
-    //           "CPCode": null,
-    //           "CMID": null,
-    //           "UCCExported": "Y",
-    //           "UCCExportDate": null,
-    //           "UCCExportBy": null,
-    //           "UCCSuccess": "Y",
-    //           "UCCClassification": null,
-    //           "ExchangeVerification": null,
-    //           "CPCodePledge": null
-    //       },
-    //       {
-    //           "FirmID": "1001",
-    //           "ClientCode": "G060",
-    //           "ExchangeID": "MCX",
-    //           "ExchangeName": "MULTI COMMODITY EXCHANGE OF INDIA LTD",
-    //           "SegmentID": "COM",
-    //           "SegmentName": "Commodity Derivative",
-    //           "ActiveDate": "2011-10-05T00:00:00",
-    //           "InactiveDate": null,
-    //           "TradingAllow": "Y",
-    //           "Remarks": null,
-    //           "CPCode": null,
-    //           "CMID": null,
-    //           "UCCExported": "N",
-    //           "UCCExportDate": null,
-    //           "UCCExportBy": null,
-    //           "UCCSuccess": "N",
-    //           "UCCClassification": null,
-    //           "ExchangeVerification": null,
-    //           "CPCodePledge": null
-    //       },
-    //       {
-    //           "FirmID": "1001",
-    //           "ClientCode": "G060",
-    //           "ExchangeID": "NSE",
-    //           "ExchangeName": "NATIONAL STOCK EXCHANGE LTD",
-    //           "SegmentID": "CAP",
-    //           "SegmentName": "Capital Market",
-    //           "ActiveDate": "1995-05-15T00:00:00",
-    //           "InactiveDate": null,
-    //           "TradingAllow": "Y",
-    //           "Remarks": null,
-    //           "CPCode": null,
-    //           "CMID": null,
-    //           "UCCExported": "Y",
-    //           "UCCExportDate": "2023-09-06T16:33:03",
-    //           "UCCExportBy": "em0382",
-    //           "UCCSuccess": "Y",
-    //           "UCCClassification": null,
-    //           "ExchangeVerification": null,
-    //           "CPCodePledge": null
-    //       },
-    //       {
-    //           "FirmID": "1001",
-    //           "ClientCode": "G060",
-    //           "ExchangeID": "NSE",
-    //           "ExchangeName": "NATIONAL STOCK EXCHANGE LTD",
-    //           "SegmentID": "COM",
-    //           "SegmentName": "Commodity Derivative",
-    //           "ActiveDate": null,
-    //           "InactiveDate": null,
-    //           "TradingAllow": "N",
-    //           "Remarks": null,
-    //           "CPCode": null,
-    //           "CMID": null,
-    //           "UCCExported": "N",
-    //           "UCCExportDate": null,
-    //           "UCCExportBy": null,
-    //           "UCCSuccess": "N",
-    //           "UCCClassification": null,
-    //           "ExchangeVerification": null,
-    //           "CPCodePledge": null
-    //       },
-    //       {
-    //           "FirmID": "1001",
-    //           "ClientCode": "G060",
-    //           "ExchangeID": "NSE",
-    //           "ExchangeName": "NATIONAL STOCK EXCHANGE LTD",
-    //           "SegmentID": "CUR",
-    //           "SegmentName": "Currency Derivative",
-    //           "ActiveDate": null,
-    //           "InactiveDate": null,
-    //           "TradingAllow": "N",
-    //           "Remarks": null,
-    //           "CPCode": null,
-    //           "CMID": null,
-    //           "UCCExported": "N",
-    //           "UCCExportDate": null,
-    //           "UCCExportBy": null,
-    //           "UCCSuccess": "N",
-    //           "UCCClassification": null,
-    //           "ExchangeVerification": null,
-    //           "CPCodePledge": null
-    //       },
-    //       {
-    //           "FirmID": "1001",
-    //           "ClientCode": "G060",
-    //           "ExchangeID": "NSE",
-    //           "ExchangeName": "NATIONAL STOCK EXCHANGE LTD",
-    //           "SegmentID": "FNO",
-    //           "SegmentName": "Capital Derivative",
-    //           "ActiveDate": "2004-02-24T00:00:00",
-    //           "InactiveDate": null,
-    //           "TradingAllow": "Y",
-    //           "Remarks": null,
-    //           "CPCode": null,
-    //           "CMID": null,
-    //           "UCCExported": "Y",
-    //           "UCCExportDate": "2023-09-06T16:33:03",
-    //           "UCCExportBy": "em0382",
-    //           "UCCSuccess": "Y",
-    //           "UCCClassification": null,
-    //           "ExchangeVerification": null,
-    //           "CPCodePledge": null
-    //       },
-    //       {
-    //           "FirmID": "1001",
-    //           "ClientCode": "G060",
-    //           "ExchangeID": "NSE",
-    //           "ExchangeName": "NATIONAL STOCK EXCHANGE LTD",
-    //           "SegmentID": "SLB",
-    //           "SegmentName": "Security Lending and Borrowing",
-    //           "ActiveDate": null,
-    //           "InactiveDate": null,
-    //           "TradingAllow": "N",
-    //           "Remarks": null,
-    //           "CPCode": null,
-    //           "CMID": null,
-    //           "UCCExported": "N",
-    //           "UCCExportDate": null,
-    //           "UCCExportBy": null,
-    //           "UCCSuccess": "N",
-    //           "UCCClassification": null,
-    //           "ExchangeVerification": null,
-    //           "CPCodePledge": null
-    //       }
-    //   ],
-    //   "DPDetail": [
-    //       {
-    //           "SerialNo": "AAAR75AAEAAAlUaAAE",
-    //           "FirmID": "1001",
-    //           "ClientCode": "G060",
-    //           "DepositoryType": "NSDL",
-    //           "DepositoryID": "IN301645",
-    //           "DepositoryName": "GOLDMINE STOCKS PVT LTD",
-    //           "DepositoryClientID": "10080010",
-    //           "POAFlag": "Y",
-    //           "POAID": "00100008",
-    //           "PrimaryFlag": "Y",
-    //           "POAActiveDate": "2010-08-28T00:00:00",
-    //           "POAInactiveDate": null,
-    //           "POAMarginFlag": "Y",
-    //           "Delete": "N",
-    //           "Addendum": "N",
-    //           "PledgeAllow": "Y",
-    //           "Holders": null,
-    //           "DDPIFlag": null,
-    //           "DDPIID": null,
-    //           "DDPIActiveDate": null,
-    //           "DDPIInactiveDate": null,
-    //           "Status": "Active",
-    //           "DDPIORPOAFLAG": "Y"
-    //       }
-    //   ],
-    //   "NomineeDetail": []
-    // }
+
   }
 
   ngOnInit() {
+    this.getBankDetail();
     this.service.getProfile(this.stroge.username).subscribe((res: any) => {
       console.log("res", res)
       this.profileData = res;
-      this.formObj.AccountName = res.NomineeDetail ? res.NomineeDetail[0].Name : '';
-      this.formObj.PANNo = res.NomineeDetail ? res.NomineeDetail[0].PANNO : '';
-      this.formObj.MobileNo = res.NomineeDetail ? res.NomineeDetail[0].Mobile : '';
-      this.formObj.EmailId = res.NomineeDetail ? res.NomineeDetail[0].EmailID : '';
-      this.formObj.Address1 = res.NomineeDetail ? res.NomineeDetail[0].Address1 + ', ' + res.NomineeDetail[0].Address2 + ', ' + res.NomineeDetail[0].Address3 : '';
+      this.formObj.AccountName = res.NomineeDetail && res.NomineeDetail.length ? res.NomineeDetail[0].Name : '';
+      this.formObj.PANNo = res.NomineeDetail && res.NomineeDetail.length ? res.NomineeDetail[0].PANNO : '';
+      this.formObj.MobileNo = res.NomineeDetail && res.NomineeDetail.length ? res.NomineeDetail[0].Mobile : '';
+      this.formObj.EmailId = res.NomineeDetail && res.NomineeDetail.length ? res.NomineeDetail[0].EmailID : '';
+      this.formObj.Address1 = res.NomineeDetail && res.NomineeDetail.length ? res.NomineeDetail[0].Address1 + ', ' + res.NomineeDetail[0].Address2 + ', ' + res.NomineeDetail[0].Address3 : '';
       this.formObj.DematAcName = res.DPDetail[0].DepositoryName;
       this.formObj.DematAcNo = res.DPDetail[0].DepositoryClientID;
       for (let i in this.profileData.SegmentMaster) {
@@ -368,5 +105,39 @@ export class ProfileComponent implements OnInit {
       }
       return !val;
     });
+  }
+
+  getBankDetail() {
+    let obj = {
+      ClientCode: this.stroge.username
+    }
+    this.service.getOrionEKYCDetail(obj).subscribe((res: any) => {
+      console.log("res", res)
+      this.BankDetail = res.BankDetail;
+      this.allData = res;
+      // this.profileData = res;
+    }, (err: any) => {
+      console.log("err", err)
+    })
+  }
+
+  saveAllChanges() {
+    let ogj = {
+      "ClientCode": this.stroge.username,
+      "KYCDetail": this.allData.KYCDetail,
+      "AddressDetail": this.allData.AddressDetail,
+      "ContactDetail": this.allData.ContactDetail,
+      "BankDetail": this.BankDetail,
+      "DepositoryDetail": this.allData.DepositoryDetail,
+      "NomineeDetail": this.allData.NomineeDetail,
+      "ExchangeDetail": this.allData.ExchangeDetail,
+      "SegmentDetail": this.profileData.SegmentMaster
+    }
+    this.service.saveProfileDetail(ogj).subscribe((res: any) => {
+      this.service.toster("success", "Your Account Details is Updated succefully");
+    }, (err: any) => {
+      this.service.toster("error", "Failed to Updated Account Details")
+      console.log("err", err)
+    })
   }
 }
